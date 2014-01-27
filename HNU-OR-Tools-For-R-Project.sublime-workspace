@@ -1,0 +1,660 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lon",
+				"lonlat"
+			],
+			[
+				"add",
+				"addMarker"
+			],
+			[
+				"VISUM",
+				"VISUM.DRAW.NET<-function"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"Read",
+				"ReadLine"
+			],
+			[
+				"Re",
+				"ReadVisumNet"
+			],
+			[
+				"current",
+				"CurrentTable"
+			],
+			[
+				"targ",
+				"targetY"
+			],
+			[
+				"adden",
+				"addEndPlatz"
+			],
+			[
+				"adde",
+				"addEinPlatz"
+			],
+			[
+				"ta",
+				"targetY"
+			],
+			[
+				"Spiel",
+				"SpielContent"
+			],
+			[
+				"dis",
+				"disable"
+			],
+			[
+				"SP",
+				"SpielId"
+			],
+			[
+				"contain",
+				"Container"
+			],
+			[
+				"ini",
+				"initButtons"
+			],
+			[
+				"app",
+				"append"
+			],
+			[
+				"get",
+				"getSpielsystemElement"
+			],
+			[
+				"Spie",
+				"spielsystemelement"
+			],
+			[
+				"t",
+				"targetX"
+			],
+			[
+				"delt",
+				"deltaY"
+			],
+			[
+				"targe",
+				"targetX"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"border",
+				"border-width"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"dist",
+				"distributeY"
+			],
+			[
+				"align",
+				"alignCenterY"
+			],
+			[
+				"alig",
+				"alignCenterX"
+			],
+			[
+				"Align",
+				"alignLeft"
+			],
+			[
+				"pr",
+				"preventDefault"
+			],
+			[
+				"min",
+				"minY"
+			],
+			[
+				"max",
+				"maxY"
+			],
+			[
+				"sele",
+				"selector"
+			],
+			[
+				"Connec",
+				"connections"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"border-col",
+				"border-color"
+			],
+			[
+				"Prof",
+				"KlausurProfessorA"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"updat",
+				"GitHub: Update Gist"
+			],
+			[
+				"update",
+				"GitHub: Update Gist"
+			],
+			[
+				"git",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"gist",
+				"GitHub: Open Gist in Browser"
+			],
+			[
+				"g",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"delte",
+				"LaTexTools: Delete temporary files"
+			],
+			[
+				"delete",
+				"LaTexTools: Delete temporary files"
+			],
+			[
+				"delet",
+				"LaTexTools: Delete temporary files"
+			],
+			[
+				"latex",
+				"LaTexTools: Delete temporary files"
+			],
+			[
+				"public",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"publi",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"r",
+				"Set Syntax: R"
+			],
+			[
+				"packag",
+				"Package Control: List Packages"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"github",
+				"GitHub: Update Gist"
+			],
+			[
+				"gubt",
+				"GitHub: Open Gist in Browser"
+			],
+			[
+				"gitb",
+				"GitHub: Open Gist in Browser"
+			],
+			[
+				"gist ",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"latextool",
+				"LaTeXTools: Jump to PDF"
+			],
+			[
+				"gitg",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"gith",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"GITHUB",
+				"GitHub: Update Gist"
+			],
+			[
+				"github publ",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 444.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/Betcomp/OpenlayersBetcomp/html/js/wms.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/Betcomp/OpenlayersBetcomp/html/js/jquery-2.0.3.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/Betcomp/OpenlayersBetcomp/html/css/style.css",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/Betcomp/OpenlayersBetcomp/html/js/openlayers.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/Betcomp/OpenlayersBetcomp/openlayers.sublime-project",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/Briefe/2013/BlurSteuer2012/BlurSteuer2012.tex",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/transportwirtschaft_export_moodle_tutorium_5.csv",
+		"/Volumes/Daten750gb/felixlindemann/Documents/transportwirtschaft_export_moodle_tutorium_4.csv",
+		"/Volumes/Daten750gb/felixlindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/triplealogrithmus",
+		"/Volumes/Daten750gb/r/EXAMPLE.net",
+		"/Volumes/Daten750gb/felixlindemann/424_Busnet_Plan.net",
+		"/Volumes/Daten750gb/felixlindemann/Documents/ReadVIsum.r",
+		"/Volumes/home/Lindemann/Visum/PTV-Tutorials/Lehrgang PTV Nachfragemodellierung/Basiskurs_VISUM/VISUM/NET/Strecken.net",
+		"/Volumes/Daten750gb/felixlindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/SPP.Dijkstra.R",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/transportwirtschaft_export_moodle_tutorium_2.csv",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/transportwirtschaft_export_moodle_tutorium_3.csv",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/Briefe/2012/Rechnung Entwicklung Betcomp/Betcomp.tex",
+		"/Volumes/Daten750gb/felixlindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/TSP.twoOpt.R",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/STM/migrateMis.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Programmieren/migrateAccessToMYsql.vba",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/STM/Gliederung Literaturverzeichnis WMVG.txt",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/STM/Dump20130323.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/STM/mis3.sql",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/kinetic-v4.7.2.min.js",
+		"/Volumes/kpz_logistik/KPZ Logistik/Website/rotor_1.svg",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/css/demo.css",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/js/jsplumbdefault.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/index.html",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/js/polo.js",
+		"/Volumes/Daten750gb/felixlindemann/Documents/git/kanupolo/README.md",
+		"/Volumes/KINGSTON/FINDERLOHN.txt",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/css/demo-all.css",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/css/polo.css",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/css/font-awesome.min.css",
+		"/Volumes/Daten750gb/felixlindemann/Downloads/font-awesome-4.0.1/css/font-awesome.css",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/js/jquery-ui.min.js",
+		"/Volumes/Daten750gb/felixlindemann/Downloads/bootstrap-3.0.0/dist/js/bootstrap.min.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/js/demo-jquery.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/js/demo-list.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/js/demo-helper-jquery.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/js/jquery.jsplumb-1.5.3-min.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/index1.html",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/demo-helper-jquery.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/demo-jquery.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/demo-list.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/jquery.jsplumb-1.5.3-min.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/jquery.ui.touch-punch.min.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/jquery-ui.min.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/jquery.min.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/demo.css",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox Privat/Drag+Drop/source/demo-all.css",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/spielsystemelement.html",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/button.svg",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/spielsystem.js",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/param.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU Lehre/_Vorlagen/Projektvorlage/HNU/KlausurVorlage.tex",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2011Sose/Tutorium8VRP2/trunk/Tutorium8VRP2.tex",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2011Sose/Tutorium8VRP2/trunk/Klausur.sty",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/piController/RaspberryPi.py",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox/WMVG/VisumErweiterung/Python/__main__.py",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox/WMVG/VisumErweiterung/Python/__init__.py",
+		"/Volumes/Daten750gb/felixlindemann/Documents/Word2Tex/tex/test.tex",
+		"/Volumes/Daten750gb/felixlindemann/Documents/Word2Tex/tex/setup/setup.tex",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU Lehre/_Diplomarbeiten Kolloquium/VorlageDiplomarbeit/VorlageDiplomarbeit.tex",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2011Sose/Tutorium9WLP/trunk/Tutorium9WLP.tex",
+		"/Volumes/Daten750gb/felixlindemann/Documents/Word2Tex/tex/setup/Präambel.tex",
+		"/Volumes/Daten750gb/felixlindemann/Library/Application Support/Adobe/Acrobat/11.0/JavaScripts/duplicatePages.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/z_share/duplicatePages.js",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU Lehre/Übungen Lindemann/TutorialForecasting/Final/HSNU/Setup.tex",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU Lehre/Übungen Lindemann/TutorialForecasting/Final/TutorialForecasting.tex",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU Lehre/Übungen Lindemann/BranchAndBound/BranchAndBound.tex",
+		"/Volumes/Daten750gb/felixlindemann/Documents/Word2Tex/tex/[no file]",
+		"/Volumes/C/Program Files/PTV Vision/PTV Visum 13/Exe/Importer/OSM/Detailed urban network/Detailed urban network.net",
+		"/Volumes/Daten750gb/felixlindemann/Documents/Word2Tex/tex/todonotes.tex",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/MacBook Pro.spx",
+		"/Library/Preferences/SystemConfiguration/com.apple.Boot.plist",
+		"/Volumes/Daten750gb/felixlindemann/Documents/Word2Tex/tex/test.pdf",
+		"/Volumes/Daten750gb/felixlindemann/Documents/Word2Tex/test.tex",
+		"/Volumes/Daten750gb/felixlindemann/Documents/Word2Tex/test.log",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox/WMVG/new  2.r",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox/WMVG/project R - Attempt to Cluster.r",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox/WMVG/Clusterung_BHCG.r",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Sandbox/WMVG/Clusterung_BHCG_Tests.r",
+		"/Volumes/Daten750gb/felixlindemann/Downloads/RMySQL/configure.win",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-Cluster.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-CN2008Goods.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-CPA2008Goods.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-CPA2008GoodsGerman.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_Aggregatzustand.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_ArtDesGutes.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_Dichte.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_Empfindlichkeit.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_Gefahrut.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_Recht.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_Temperatur.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_Transportrelevant.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_Verwendungszweck.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-GuterEigenschaften_Wert.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-kontakte.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-Nhm8Goods.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-NST_2007_all_languages.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-NST2007Abteilungen.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-NST2007Gruppen.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-tblEigenschaften.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-tblEigenschaftenQuellen.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-tblEigenschaftenZuordnungen.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-tblGruppenZuTransportfällen.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-tblTransportfälle.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/dump/NST2007-Transportziele.sql",
+		"/Volumes/Daten750gb/felixlindemann/Documents/workspace/org.lime.tree.security/pom.xml",
+		"/Volumes/Daten750gb/felixlindemann/Desktop/package wmvg.imodel.netz.vsys;",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/Meine Daten/Lime-Tree.de/mis/Betcomp/bc.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-Cluster.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-CN2008Goods.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-CPA2008Goods.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-CPA2008GoodsGerman.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_Aggregatzustand.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_ArtDesGutes.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_Dichte.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_Empfindlichkeit.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_Gefahrut.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_Recht.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_Temperatur.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_Transportrelevant.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_Verwendungszweck.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-Nhm8Goods.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-kontakte.sql",
+		"/Volumes/Daten750gb/felixlindemann/Dropbox/HNU/HNU WMVG/Synchron mit Server/resources/Destatis-Datenmaterial/NST2007/NST2007-GuterEigenschaften_Wert.sql"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" ",
+			"wms",
+			"background-image",
+			"layerswitcher",
+			"size",
+			"background-image",
+			"\n",
+			"1]",
+			",1",
+			"\n",
+			"	",
+			"white",
+			"y",
+			"\"red\"",
+			"KOORDY",
+			"KOORDX",
+			"nodes",
+			"NODES",
+			"nodes",
+			"links",
+			"print(",
+			"cat(",
+			"print",
+			"arr",
+			"cat(",
+			"cat",
+			"<-",
+			"strSplit",
+			"df",
+			"link",
+			"nrows",
+			"wij",
+			"byRow",
+			";",
+			"1.000;0",
+			";",
+			"-;-",
+			"mis3",
+			",",
+			"/",
+			",",
+			"/",
+			"/ ",
+			" ",
+			"C.,",
+			"`",
+			"ep,",
+			"Endpoint",
+			"ep.",
+			"ep.unbind",
+			"ep.unbind()",
+			"SpielSystemEditor.debugEndpoint(ep); ",
+			"ConnectSpiele",
+			"con",
+			"$(\"#SpielsystemEditor_editor\")",
+			"$(\".spielsystemelement\")",
+			"{\n",
+			"$(\".spielsystemelement\")",
+			"info.connection",
+			"updateConnections",
+			"width:15",
+			"contain",
+			"targ",
+			"targetX =",
+			"targetX",
+			"Elements",
+			"btnEndPlatz",
+			"End",
+			"nd",
+			"btnEndPlatz",
+			"disabled",
+			"initWindow(id)",
+			"// initWindow(id);",
+			"initb",
+			"initButtons",
+			"straight",
+			"[\"Bezier\"",
+			"EinplatzContent",
+			"SpielContent",
+			"0.6",
+			"0.3",
+			"change",
+			":\"",
+			"\"",
+			"SpielId",
+			"getSpielContent",
+			"initButtons",
+			"parent()",
+			"target",
+			"SpielsystemEditor_editor",
+			"ui-selected",
+			"0.75",
+			"Neues Spiel",
+			"10px",
+			"class=\"window\"",
+			"active",
+			"menubutton",
+			"href = \"#\"",
+			"menubutton",
+			"data-library",
+			"type='text/javascript' ",
+			"render",
+			"href",
+			"$this",
+			" this.",
+			"this.",
+			"return (",
+			"left",
+			".attr('data-sort')",
+			"find(\"div\")",
+			"+ return",
+			"<a id=",
+			"Neues Spiel",
+			"NewWindow",
+			"left",
+			"2 Elemente",
+			"height",
+			"top",
+			"Y",
+			"Y =",
+			"Y",
+			"X",
+			".parent()",
+			"selectable",
+			"cmdLink select",
+			"hide",
+			"+ \" > div\"",
+			"#selectable"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"test",
+			"\nSpielSystemEditor.$SpielsystemElemente",
+			"\\ldots",
+			"\\euro ",
+			"ü",
+			"",
+			"\\#"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 182.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
+	"status_bar_visible": true
+}

@@ -1,0 +1,1987 @@
+12/365
+12/365*48
+12*48
+N<- 14500#
+e<- 0.05#
+p<- 0.5#
+Z <- 1.96#
+get.SampleSize <- function(N, Z, p,  e){#
+	n<- (#
+			Z^2 * p * (1-p)) / e^2#
+		) / #
+		(#
+			1 + (#
+					Z^2 * p * (1-p)) / e^2 -1#
+				) / N#
+		)#
+	return(n)#
+}#
+#
+get.SampleSize(N,Z,p),e)
+N<- 14500#
+e<- 0.05#
+p<- 0.5#
+Z <- 1.96
+get.SampleSize <- function(N, Z, p,  e){#
+	n<- (#
+			Z^2 * p * (1-p) / e^2#
+		) / #
+		(#
+			1 + (#
+					Z^2 * p * (1-p) / e^2 -1#
+				) / N#
+		)#
+	return(n)#
+}
+get.SampleSize(N,Z,p,e)
+N<- 14500#
+e<- 0.03#
+p<- 0.5#
+Z <- 1.96#
+get.SampleSize <- function(N, Z, p,  e){#
+	n<- (#
+			Z^2 * p * (1-p) / e^2#
+		) / #
+		(#
+			1 + (#
+					Z^2 * p * (1-p) / e^2 -1#
+				) / N#
+		)#
+	return(n)#
+}#
+#
+get.SampleSize(N,Z,p,e)
+N<- 14500#
+e<- 0.04#
+p<- 0.5#
+Z <- 1.96#
+get.SampleSize <- function(N, Z, p,  e){#
+	n<- (#
+			Z^2 * p * (1-p) / e^2#
+		) / #
+		(#
+			1 + (#
+					Z^2 * p * (1-p) / e^2 -1#
+				) / N#
+		)#
+	return(n)#
+}#
+#
+get.SampleSize(N,Z,p,e)
+Based on formula by #
+# Cochran, W. G. 1963. Sampling Techniques, 2nd Ed., New York: John Wiley and Sons, Inc.#
+#
+# see also http://statistikberatung.blogspot.de/2008/03/samplesizer-kostenloses-tool-zur.html#
+#
+get.SampleSize <- function(N, Z, p,  e){#
+	n<- (l#
+			Z^2 * p * (1-p) / e^2#
+		) / #
+		(#
+			1 + (#
+					Z^2 * p * (1-p) / e^2 -1#
+				) / N#
+		)#
+	return(n)#
+}#
+#
+N<- 14500 	# Elemente in Grundgesamtheit#
+e<- 0.04	# Konfidenzniveau#
+p<- 0.5		# Fehlerwahrscheinlichkeit#
+Z <- 1.96	# Z-Wert d. Normalverteilung#
+get.SampleSize(N,Z,p,e)#
+# 576#
+e<- 0.05	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)#
+#
+e<- 0.01	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)
+Based on formula by #
+# Cochran, W. G. 1963. Sampling Techniques, 2nd Ed., New York: John Wiley and Sons, Inc.#
+#
+# see also http://statistikberatung.blogspot.de/2008/03/samplesizer-kostenloses-tool-zur.html#
+#
+get.SampleSize <- function(N, Z, p,  e){#
+	n <- (#
+			Z^2 * p * (1-p) / e^2#
+		) / #
+		(#
+			1 + (#
+					Z^2 * p * (1-p) / e^2 -1#
+				) / N#
+		)#
+	return(n)#
+}#
+#
+N<- 14500 	# Elemente in Grundgesamtheit#
+e<- 0.04	# Konfidenzniveau#
+p<- 0.5		# Fehlerwahrscheinlichkeit#
+Z <- 1.96	# Z-Wert d. Normalverteilung#
+get.SampleSize(N,Z,p,e)#
+# 576#
+e<- 0.05	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)#
+#
+e<- 0.01	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)
+sample(1:576, 30)
+x<-sample(1:576, 30)
+order(x)
+x[order(x)]
+set.seed(0)
+x<-sample(1:576, 30)
+x[order(x)]
+get.ReliabilitätsSample<-function(n , min , max , seed ){#
+	set.seed(seed)				# Wähle eine bestimmte Zufallszahlenliste aus --> Für Reproduzierbarkeit#
+	x<-sample(min:max, n)	# Ziehe eine Stichproben von n Elementen#
+	return (x[order(x)])	# gib eine sortierte Liste zurück#
+}#
+#
+n = 30#
+min = 1#
+max = 576#
+seed = 0#
+#
+get.ReliabilitätsSample(n,min,max,seed)
+Based on formula by #
+# Cochran, W. G. 1963. Sampling Techniques, 2nd Ed., New York: John Wiley and Sons, Inc.#
+#
+# see also http://statistikberatung.blogspot.de/2008/03/samplesizer-kostenloses-tool-zur.html#
+#
+get.SampleSize <- function(N, Z, p,  e){#
+	n <- (#
+			Z^2 * p * (1-p) / e^2#
+		) / #
+		(#
+			1 + (#
+					Z^2 * p * (1-p) / e^2 -1#
+				) / N#
+		)#
+	return(n)#
+}#
+#
+N<- 14500 	# Elemente in Grundgesamtheit#
+e<- 0.04	# Konfidenzniveau#
+p<- 0.5		# Fehlerwahrscheinlichkeit#
+Z <- 1.96	# Z-Wert d. Normalverteilung#
+get.SampleSize(N,Z,p,e)#
+# 576#
+e<- 0.05	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)#
+#
+e<- 0.01	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)#
+N<- 15024 #
+e<- 0.01	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)
+Based on formula by #
+# Cochran, W. G. 1963. Sampling Techniques, 2nd Ed., New York: John Wiley and Sons, Inc.#
+#
+# see also http://statistikberatung.blogspot.de/2008/03/samplesizer-kostenloses-tool-zur.html#
+#
+get.SampleSize <- function(N, Z, p,  e){#
+	n <- (#
+			Z^2 * p * (1-p) / e^2#
+		) / #
+		(#
+			1 + (#
+					Z^2 * p * (1-p) / e^2 -1#
+				) / N#
+		)#
+	return(n)#
+}#
+#
+N<- 14500 	# Elemente in Grundgesamtheit#
+e<- 0.04	# Konfidenzniveau#
+p<- 0.5		# Fehlerwahrscheinlichkeit#
+Z <- 1.96	# Z-Wert d. Normalverteilung#
+get.SampleSize(N,Z,p,e)#
+# 576#
+e<- 0.05	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)#
+#
+e<- 0.01	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)#
+N<- 15024 #
+e<- 0.04	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)
+Based on formula by #
+# Cochran, W. G. 1963. Sampling Techniques, 2nd Ed., New York: John Wiley and Sons, Inc.#
+#
+# see also http://statistikberatung.blogspot.de/2008/03/samplesizer-kostenloses-tool-zur.html#
+#
+get.SampleSize <- function(N, Z, p,  e){#
+	n <- (#
+			Z^2 * p * (1-p) / e^2#
+		) / #
+		(#
+			1 + (#
+					Z^2 * p * (1-p) / e^2 -1#
+				) / N#
+		)#
+	return(n)#
+}#
+#
+N<- 14500 	# Elemente in Grundgesamtheit#
+e<- 0.04	# Konfidenzniveau#
+p<- 0.5		# Fehlerwahrscheinlichkeit#
+Z <- 1.96	# Z-Wert d. Normalverteilung#
+get.SampleSize(N,Z,p,e)#
+# 576#
+e<- 0.05	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)#
+#
+e<- 0.01	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)#
+N<- 15024 #
+e<- 0.0378	# Konfidenzniveau#
+get.SampleSize(N,Z,p,e)
+get.ReliabilitätsSample<-function(n , min , max , seed ){#
+	set.seed(seed)				# Wähle eine bestimmte Zufallszahlenliste aus --> Für Reproduzierbarkeit#
+	x<-sample(min:max, n)	# Ziehe eine Stichproben von n Elementen#
+	return (x[order(x)])	# gib eine sortierte Liste zurück#
+}#
+#
+n = 30#
+min = 1#
+max = 576#
+seed = 0#
+#
+get.ReliabilitätsSample(n,min,)#
+#
+# Ergebnisse#
+#   8  35  70 100 116 117 118 148 153 210 212 213 214 216 279 329 357#
+# 361 376 387 402 432 433 476 513 517 519 520 538 554#
+#
+max = 584 #
+#
+get.ReliabilitätsSample(n,min,)
+get.ReliabilitätsSample<-function(n , min , max , seed ){#
+	set.seed(seed)				# Wähle eine bestimmte Zufallszahlenliste aus --> Für Reproduzierbarkeit#
+	x<-sample(min:max, n)	# Ziehe eine Stichproben von n Elementen#
+	return (x[order(x)])	# gib eine sortierte Liste zurück#
+}#
+#
+n = 30#
+min = 1#
+max = 576#
+seed = 0#
+#
+get.ReliabilitätsSample(n,min,seed)#
+#
+# Ergebnisse#
+#   8  35  70 100 116 117 118 148 153 210 212 213 214 216 279 329 357#
+# 361 376 387 402 432 433 476 513 517 519 520 538 554#
+#
+max = 584 #
+#
+get.ReliabilitätsSample(n,min,seed)
+get.ReliabilitätsSample<-function(n , min , max , seed ){#
+	set.seed(seed)				# Wähle eine bestimmte Zufallszahlenliste aus --> Für Reproduzierbarkeit#
+	x<-sample(min:max, n)	# Ziehe eine Stichproben von n Elementen#
+	return (x[order(x)])	# gib eine sortierte Liste zurück#
+}#
+#
+n <- 30#
+min <- 1#
+max <- 576#
+seed <- 0#
+#
+get.ReliabilitätsSample(n,min,seed)#
+#
+# Ergebnisse#
+#   8  35  70 100 116 117 118 148 153 210 212 213 214 216 279 329 357#
+# 361 376 387 402 432 433 476 513 517 519 520 538 554#
+#
+max <- 584 #
+#
+get.ReliabilitätsSample(n,min,seed)
+sample(1:49,6)
+get.ReliabilitätsSample<-function(n , min , max , seed ){#
+	set.seed(seed)				# Wähle eine bestimmte Zufallszahlenliste aus --> Für Reproduzierbarkeit#
+	x<-sample(min:max, n)	# Ziehe eine Stichproben von n Elementen#
+	return (x[order(x)])	# gib eine sortierte Liste zurück#
+}#
+#
+n <- 30#
+min <- 1#
+max <- 576#
+seed <- 0#
+#
+get.ReliabilitätsSample(n,max,min,seed)#
+#
+# Ergebnisse#
+#   8  35  70 100 116 117 118 148 153 210 212 213 214 216 279 329 357#
+# 361 376 387 402 432 433 476 513 517 519 520 538 554#
+#
+max <- 584 #
+#
+get.ReliabilitätsSample(n,max,min,seed)
+sample(1:49,6)
+library(devtools)#
+install_github("RDemo", "felixlindemann") #
+#
+library(RDemo)#
+foo#
+foo()
+install_github("RDemo", "felixlindemann") #
+#
+library(RDemo)#
+foo#
+foo(7)
+y <- matrix(1:50, 10, 5) # Sample data set#
+setClass(Class="myclass",#
+    representation=representation(a="ANY"),#
+    prototype=prototype(a=y[1:2,]), # Defines default value (optional)#
+    validity=function(object) { # Can be defined in a separate step using setValidity#
+        if(class(object@a)!="matrix") {#
+            return(paste("expected matrix, but obtained", class(object@a)))#
+        } else { #
+            return(TRUE)#
+        }#
+    }#
+)
+y
+myclass
+a
+x<-null
+x<- NULL
+is.na(x)
+is.null(x)
+is.null(NA)
+x<-NA
+(is.null(x) | is.na(x))
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="numeric",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	id=NA.#
+    	x=NA,#
+    	y=NA,#
+    	label = NA#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    	if(is.null(object@x) | is.na(object@x)) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if(is.null(object@y) | is.na(object@y)) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="numeric",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	id=NA,#
+    	x=NA,#
+    	y=NA,#
+    	label = NA#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    	if(is.null(object@x) | is.na(object@x)) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if(is.null(object@y) | is.na(object@y)) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="numeric",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	id=NA,#
+    	x=NA,#
+    	y=NA,#
+    	label = NA#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    	if(is.null(object@x) | is.na(object@x)) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if(is.null(object@y) | is.na(object@y)) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+?setClass
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=NA,#
+    		x=NA,#
+    		y=NA,#
+    		label = NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    	if(is.null(object@x) | is.na(object@x)) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if(is.null(object@y) | is.na(object@y)) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+ls
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=NA,#
+    		x=NA,#
+    		y=NA,#
+    		label = NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    	if(is.null(object@x) | is.na(object@x)) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if(is.null(object@y) | is.na(object@y)) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+myobj <- new("Node")#
+myobj
+myobj@x <- 12
+myobj@y <- 10
+myobj
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=NA,#
+    		x=NA,#
+    		y=NA,#
+    		label = NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    	if(is.null(object@x) | is.na(object@x)) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if(is.null(object@y) | is.na(object@y)) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x)))#
+        } else length(object@x)!=1{ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+myobj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+myobj
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=NA,#
+    		x=NA,#
+    		y=NA,#
+    		label = NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    	if(is.null(object@x) | is.na(object@x)) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if(is.null(object@y) | is.na(object@y)) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x)))#
+        } else length(object@x)!=1{ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+myobj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+myobj#
+myobj.errors <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0001")#
+myobj
+x<-c(10,12)
+is.na(x)
+is.na(y)
+is.na(<)
+is.na(x)
+cumsum(is.na(x))
+sum(is.na(x))
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=NA,#
+    		x=NA,#
+    		y=NA,#
+    		label = NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    	if(sum(is.null(object@x) | is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if(sum(is.null(object@y) | is.na(object@y)) >0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x)))#
+        } else length(object@x)!=1{ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+myobj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+myobj#
+myobj.errors <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0001")#
+myobj
+class(x)
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=NA,#
+    		x=NA,#
+    		y=NA,#
+    		label = NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if(sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if(sum(is.null(object@y) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x)))#
+        } else length(object@x)!=1{ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+myobj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+myobj#
+myobj.errors <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0001")#
+myobj
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=NA,#
+    		x=NA,#
+    		y=NA,#
+    		label = NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x)))#
+        } else length(object@x)!=1{ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+myobj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+myobj#
+myobj.errors <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0001")#
+myobj
+setClass(#
+	Class="Node",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=NA,#
+    		x=NA,#
+    		y=NA,#
+    		label = NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x)))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+myobj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+myobj#
+myobj.errors <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0001")#
+myobj
+setwd("/Volumes/Daten/FelixLindemann/Documents/git/HNU-OR-Tools-For-R-Project")
+package.skeleteon(9)
+package.skeleteon()
+package.skeleton()
+ts/git/")#
+#
+package.skeleton("HNU-OR-Tools-For-R-Project")
+setwd("/Volumes/Daten/FelixLindemann/Documents/git")
+package.skeleton("HNU-OR-Tools-For-R-Project")
+setwd("/Volumes/Daten/FelixLindemann/Documents/git/HNU-OR-Tools-For-R-Project")
+package.skeleton("HNU-OR-Tools-For-R-Project")
+should work fine#
+myobj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+myobj#
+#should throw an error -> Arrays not supported here#
+myobj.errors <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0001")#
+myobj
+should work fine#
+myobj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+myobj#
+#should throw an error -> Arrays not supported here#
+myobj.errors <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0001")#
+myobj.errors
+should work fine#
+obj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+obj#
+#should throw an error -> Arrays not supported here#
+myobj <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0001")#
+myobj
+should work fine#
+obj <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+obj#
+#should throw an error -> Arrays not supported here#
+myobj <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0002")#
+myobj
+should work fine#
+obj1 <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+obj2#
+#should throw an error -> Arrays not supported here#
+obj2 <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0002")#
+obj2
+should work fine#
+obj1 <- new("Node", x=12, y=10, label="myNode", id="N0001")#
+obj1#
+#should throw an error -> Arrays not supported here#
+obj2 <- new("Node", x=c(12,10), y=c(10,12), label="myNode", id="N0002")#
+obj2
+iris
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", sample(1,1,100000))#
+    		x=runif(1,0,100),#
+    		y=runif(1,0,100),#
+    		label = NA .#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+sample(1,1,100000)
+sample(1,1,100000)
+sample(1runif(1,0,100)1,100000)
+runif(1,0,100)
+runif(1,0,100)
+runif(1,0,100)
+runif(1,0,100)
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", sample(1:100000000,1)), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+new("HNUNode")
+x<-new("HNUNode")
+x
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", -1), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+x<-new("HNUNode")
+x<-new("HNUNode")
+x
+? extends
+?extends
+?setis
+?setIs
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } #
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setIs("HNUCustomer", "HNUNode")
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setIs("HNUCustomer", "HNUNode")
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+x
+should work fine#
+obj1 <- new("HNUNode", x=12, y=10, label="myNode", id="N0001")#
+obj1#
+#
+# #
+k1 <- new("HNUCustomer", location=obj1, demand = 30)#
+#
+k1
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)
+should work fine#
+obj1 <- new("HNUNode", x=12, y=10, label="myNode", id="N0001")#
+obj1#
+#
+# #
+k1 <- new("HNUCustomer", location=obj1, demand = 30)#
+#
+k1
+should work fine#
+obj1 <- new("HNUNode", x=12, y=10, label="myNode", id="N0001")#
+obj1#
+#
+# #
+k1 <- new("HNUCustomer", demand = 30, location = obj1)#
+#
+k1
+numWithId <- setClass("numWithId", slots = c(id = "character"),#
+         contains = "numeric")#
+#
+numWithId(1:3, id = "An Example")
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "myclass", function(.Object, x,y,label,demand,id) { #
+    .Object@location <-  new("HNUNode", x=x, y=y, label=labal, id=id)#
+    .Object@demand <- demand#
+    .Object #
+})
+should work fine#
+k1 <- new("HNUCustomer", x=12, y=10, label="myNode", id="N0001", demand = 30, location = obj1)#
+#
+k1
+should work fine#
+k1 <- new("HNUCustomer", x=12, y=10, label="myNode", id="N0001", demand = 30)#
+#
+k1
+slots("HNUCUstomer")
+slots("HNUCustomer")
+getslots("HNUCustomer")
+getSlots("HNUCustomer")
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,label,demand,id) { #
+    .Object@location <-  new("HNUNode", x=x, y=y, label=labal, id=id)#
+    .Object@demand <- demand#
+    .Object #
+})
+should work fine#
+k1 <- new("HNUCustomer", x=12, y=10, label="myNode", id="N0001", demand = 30)#
+#
+k1
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,label,demand,id) { #
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+    .Object #
+})
+should work fine#
+k1 <- new("HNUCustomer", x=12, y=10, label="myNode", id="N0001", demand = 30)#
+#
+k1
+k1
+k1@location@x
+should work fine#
+k1 <- new("HNUCustomer", x=12, y=10, label="myNode", id="N0001", demand = 30)#
+#
+k1# should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+#
+k1
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+#
+k1
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", -1), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,label="",id="") { #
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+    .Object #
+})
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+#
+k1
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", -1), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,label="",id="") { #
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id) #
+    .Object #
+})
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", -1), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,label="",id="") { #
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id) #
+    .Object #
+})
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+#
+k1
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", -1), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setMethod("initialize", "HNUNode", function(.Object, x,y,label="",id="") { #
+    .Object@x  <- x#
+    .Object@y  <- y#
+    .Object@id  <- id#
+    .Object@label  <- label#
+#
+    .Object #
+})
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,demand,label="",id="") { #
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+    .Object #
+})
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+#
+k1
+is.valid?
+?is.valid
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+#
+validObject(k1)#
+k1
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,demand,label="",id="") { #
+#
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+     if(validObject(.object)) {return(.Object )}#
+})
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", -1), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setMethod("initialize", "HNUNode", function(.Object, x,y,label="",id="") { #
+    .Object@x  <- x#
+    .Object@y  <- y#
+    .Object@id  <- id#
+    .Object@label  <- label#
+#
+    if(validObject(.object)) {return(.Object )}#
+})
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+#
+validObject(k1)#
+k1
+k1<-NA
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+#
+validObject(k1)#
+k1
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+#
+validObject(k1)#
+k1
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,demand,label="",id="") { #
+#
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+     if(validObject(.Object@location)) {return(.Object )}#
+})
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+k1
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", -1), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setMethod("initialize", "HNUNode", function(.Object, x,y,label="",id="") { #
+    .Object@x  <- x#
+    .Object@y  <- y#
+    .Object@id  <- id#
+    .Object@label  <- label#
+#
+    if(validObject(.Object)) {return(.Object )}#
+})
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,demand,label="",id="") { #
+#
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+     if(validObject(.Object)) {return(.Object )}#
+})
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", -1), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setMethod("initialize", "HNUNode", function(.Object, x,y,label="",id="") { #
+    .Object@x  <- x#
+    .Object@y  <- y#
+    .Object@id  <- id#
+    .Object@label  <- label#
+#
+    if(validObject(.Object)) {return(.Object )}#
+})
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), " --> no negative values supported here"))         #
+        } else if( !validObject(.Object)){ #
+            return(paste("Error with location: ", validObject(.Object))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,demand,label="",id="") { #
+#
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+     if(validObject(.Object)) {return(.Object )}#
+})
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
+                         " --> no negative values supported here"))         #
+        } else if( !validObject(.Object)){ #
+            return(paste("Error with location: ", validObject(.Object))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,demand,label="",id="") { #
+#
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+     if(validObject(.Object)) {return(.Object )}#
+})
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@location)) + sum( is.na(object@location)) > 0 ) {#
+            return(paste("Error with location: location is not initialized", class(object@location)))#
+        } else if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
+                         " --> no negative values supported here"))         #
+        } else if( !validObject(.Object)){ #
+            return(paste("Error with location: ", validObject(.Object)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,demand,label="",id="") { #
+#
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+     if(validObject(.Object)) {return(.Object )}#
+})
+setClass(#
+	Class="HNUNode",#
+    representation=representation(#
+    	id="character",#
+    	x="numeric",#
+    	y="numeric",#
+    	label="character"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		id=paste("Node", -1), # Fake Random ID#
+    		x =runif(1,0,100), # random x #
+    		y =runif(1,0,100), # random y#
+    		label = NA #
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+    		   if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
+            return(paste("Error with value x: Value is not initialized", class(object@x)))#
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
+            return(paste("Error with value y: Value is not initialized", class(object@y)))#
+        } else if(class(object@x)!="numeric") {#
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
+        } else if(class(object@y)!="numeric") {#
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
+        } else if(length(object@x)!=1){ #
+           	return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
+        } else if(length(object@y)!=1){ #
+           	return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+)#
+setMethod("initialize", "HNUNode", function(.Object, x,y,label="",id="") { #
+    .Object@x  <- x#
+    .Object@y  <- y#
+    .Object@id  <- id#
+    .Object@label  <- label#
+#
+    if(validObject(.Object)) {return(.Object )}#
+})
+should work fine#
+k1 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode", id="N0001", demand = 30)#
+k1
+should work fine#
+k1 <- new("HNUCustomer", x=12, y=10, label="myNode", id="N0001", demand = 30)#
+k1#
+# should raise error#
+k2 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode.error", id="N000.Error", demand = 30)#
+k3 <- new("HNUCustomer", x=12, y=10, label="myNode.error", id="N0001.error", demand = -30)
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(object) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
+        } else if(class(object@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
+        } else if(length(object@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(object@demand), " --> no arrays supported here"))         #
+        } else if(object@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
+                         " --> no negative values supported here"))         #
+        } else if( !validObject(object)){ #
+            return(paste("Error with location: ", validObject(object)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(.Object, x,y,demand,label="",id="") { #
+#
+    .Object@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    .Object@demand <- demand#
+     if(validObject(.Object)) {return(.Object )}#
+})
+should work fine#
+k1 <- new("HNUCustomer", x=12, y=10, label="myNode", id="N0001", demand = 30)#
+k1#
+# should raise error#
+k2 <- new("HNUCustomer", x=c(12,12), y=c(10,10), label="myNode.error", id="N000.Error", demand = 30)#
+k3 <- new("HNUCustomer", x=12, y=10, label="myNode.error", id="N0001.error", demand = -30)
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(obj) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(obj@demand)) + sum( is.na(obj@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(obj@demand)))#
+        } else if(class(obj@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(obj@demand))) #
+        } else if(length(obj@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(obj@demand), " --> no arrays supported here"))         #
+        } else if(obj@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (obj@demand), #
+                         " --> no negative values supported here"))         #
+        } else if( !validObject(obj@location)){ #
+            return(paste("Error with location: ", validObject(obj@location)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(obj, x,y,demand,label="",id="") { #
+#
+    obj@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    obj@demand <- demand#
+     if(validObject(obj)) {return(obj )}#
+})
+setClass(#
+	Class="HNUCustomer",#
+    representation=representation( #
+    	demand="numeric",#
+        location="HNUNode"#
+    ),#
+    prototype=prototype(#
+    	list(#
+    		demand=NA,#
+            location=NA#
+    	)#
+    ), # Defines default value (optional)#
+    validity=function(obj) { #
+    	# Can be defined in a separate step using setValidity#
+        if( sum(is.null(obj@demand)) + sum( is.na(obj@demand)) > 0 ) {#
+            return(paste("Error with value demand: demand is not initialized", class(obj@demand)))#
+        } else if(class(obj@demand)!="numeric") {#
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(obj@demand))) #
+        } else if(length(obj@demand)!=1){ #
+            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
+                  length(obj@demand), " --> no arrays supported here"))         #
+        } else if(obj@demand<0){ #
+            return(paste("Error with value demand: expected is a non negative value, but obtained", (obj@demand), #
+                         " --> no negative values supported here"))         #
+        } else if( !validObject(obj@location)){ #
+            return(paste("Error with location: ", validObject(obj@location)))#
+        } else{ #
+            return(TRUE)#
+        }#
+    }#
+) #
+setMethod("initialize", "HNUCustomer", function(obj, x,y,demand,label="",id="") { #
+#
+    obj@location <-  new("HNUNode", x=x, y=y, label=label, id=id)#
+    obj@demand <- demand#
+     if(validObject(obj)) {return(obj )}#
+})
