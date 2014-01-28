@@ -1,8 +1,8 @@
-HNU-OR-Tools-For-R-Project
+HNUORoolsForR-Project
 ==========================
 
-HNU-OR-Tools-For-R-Project
+HNUORoolsForR-Project
 
 library(devtools)
-install_github("HNU-OR-Tools-For-R-Project", "felixlindemann") 
+install_gihub("HNUORoolsForR-Project", "felixlindemann") 
 

@@ -1,12 +1,11 @@
-setwd("/Volumes/Daten/FelixLindemann/Documents/git/HNU-OR-Tools-For-R-Project")
+setwd("/Volumes/Daten/FelixLindemann/Documents/git/")
 
-package.skeleton("HNU-OR-Tools-For-R-Project")
+# package.skeleton("HNU-OR-Tools-For-R-Project")
 
 #
-library(devtools)
-install_github("HNU-OR-Tools-For-R-Project", "felixlindemann") 
+#install_github("HNU-OR-Tools-For-R-Project", "felixlindemann") 
 
-library(RDemo) 
-foo(7)
+#library(RDemo) 
+#foo(7)
 
 #

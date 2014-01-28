@@ -1,6 +1,6 @@
-\name{HNU-OR-Tools-For-R-Project-package}
-\alias{HNU-OR-Tools-For-R-Project-package}
-\alias{HNU-OR-Tools-For-R-Project}
+\name{HNUORToolsForRProject-package}
+\alias{HNUORToolsForRProject-package}
+\alias{HNUORToolsForRProject}
 \docType{package}
 \title{
 What the package does (short line)
@@ -12,7 +12,7 @@ More about what it does (maybe more than one line)
 }
 \details{
 \tabular{ll}{
-Package: \tab HNU-OR-Tools-For-R-Project\cr
+Package: \tab HNUORToolsForRProject\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2014-01-27\cr
@@ -25,8 +25,8 @@ License: \tab MIT\cr
 Felix Lindemann
 
 Maintainer: felix.lindemann@hs-neu-ulm.de
-Issues: https://github.com/felixlindemann/HNU-OR-Tools-For-R-Project/issues
-website: http://felixlindemann.github.io/HNU-OR-Tools-For-R-Project/
+Issues: https://github.com/felixlindemann/HNUORToolsForRProject/issues
+website: http://felixlindemann.github.io/HNUORToolsForRProject/
 }
 \references{
  
@@ -38,8 +38,8 @@ website: http://felixlindemann.github.io/HNU-OR-Tools-For-R-Project/
 }
 \examples{
 
-#install package
-library(devtools)
-install_github("HNU-OR-Tools-For-R-Project", "felixlindemann") 
+# install package
+# library(devtools)
+# install_github("HNUORToolsForRProject", "felixlindemann") 
 
 }
