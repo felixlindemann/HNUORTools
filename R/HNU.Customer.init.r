@@ -34,7 +34,7 @@ setMethod("initialize", "HNUCustomer", function(.Object, ..., showwarnings=FALSE
     }   
     if(is.null(.Object@demand) | length(.Object@demand) == 0 ){
         .Object@demand <- as.numeric(sample(1:1000,1))
-        w <- paste("Random demand (",.Object@demand,") provided. Uniqueness may not be given.")
+        w <- paste("Random demand (",.Object@demand,") provided.")
         if(showwarnings) warning(w) 
     }   
     
