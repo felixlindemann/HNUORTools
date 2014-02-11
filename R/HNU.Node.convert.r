@@ -2,9 +2,7 @@
 #	by Felix Lindemann
 #	konvertierungen
 #
-#
-
-
+# 
 as.HNUNode.list = function(x, ...){
 	return(new("HNUNode", x))
 }
@@ -34,9 +32,6 @@ setAs("data.frame", "HNUNode", def=function(from){
 setAs("list", "HNUNode", def=function(from){
     return(as.HNUNode.list(from))
 })
-
- 
-
  
  
 #is.HNUNode

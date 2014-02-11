@@ -4,8 +4,10 @@ setMethod("$","HNUNode",function(x,name) {return(slot(x,name))})
 
 setMethod("$<-","HNUNode",function(x,name,value) {
   slot(x,name,check=TRUE) <- value
+  valid<-validObject(x)
   return(x)
 })
+
 
 ## give attribute(slot) names
 setMethod("names",   signature(x = "HNUNode"), function(x){ return(slotNames(x))}) 
