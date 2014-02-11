@@ -12,7 +12,7 @@ HNUWarehouse.create.default<-function(...){
 setMethod("initialize", "HNUWarehouse", function(.Object, ..., showwarnings=FALSE) {
       
      li <- list(...)
-
+     open <- true
    
     if(length(li) == 1){ 
        if(  class(li[[1]]) == "data.frame"  )  { # data.frame
@@ -32,7 +32,15 @@ setMethod("initialize", "HNUWarehouse", function(.Object, ..., showwarnings=FALS
             stop("only 1 item for attribute supply accepted.")
         }
         .Object@supply     <- as.numeric(li$supply) 
+    }  
+    if(!is.null(li$open))    {
+        if(length(li$open)!=1){
+            stop("only 1 item for attribute supply accepted.")
+        }
+
+        open     <- as.logical(li$open) 
     }   
+    .Object@open <- open
     if(!is.null(li$fixcosts))    {
         if(length(li$fixcosts)!=1){
             stop("only 1 item for attribute fixcosts accepted.")

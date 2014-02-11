@@ -3,12 +3,14 @@ setClass(
     Class="HNUWarehouse",
     representation=representation(
         supply="numeric",
-        fixcosts="numeric"
+        fixcosts="numeric",
+        open="logical"
     ),
     prototype=prototype(
         list(
             supply =numeric(),
-            fixcosts = numeric ()
+            fixcosts = numeric (),
+            open = logical()
         )
     ),
     contains="HNUNode"
@@ -23,6 +25,9 @@ setMethod ("show", "HNUWarehouse", function(object){
         } 
         if(!is.null(object@fixcosts)  ) {
             cat("\tfixcosts: ", object@fixcosts,"\n")
+        } 
+        if(!is.null(object@open)  ) {
+            cat("\topen: ", object@open,"\n")
         } 
         cat("########### properties for HNU Node ################\n")
         callNextMethod(object)

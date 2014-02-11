@@ -11,10 +11,10 @@ as.HNUWarehouse.data.frame = function(x, ...){
 	return(new("HNUWarehouse", x))
 }
 as.data.frame.HNUWarehouse = function(x, ...){
-	data.frame(id=x@id, label = x@label, x= x@x, y= x@y, fixcosts = x@fixcosts, supply = x@supply)
+	data.frame(id=x@id, label = x@label, x= x@x, y= x@y, fixcosts = x@fixcosts, supply = x@supply, open = x@open)
 }
 as.list.HNUWarehouse = function(x, ...){
-	list(id=x@id, label = x@label, x= x@x, y= x@y, fixcosts = x@fixcosts, supply = x@supply)
+	list(id=x@id, label = x@label, x= x@x, y= x@y, fixcosts = x@fixcosts, supply = x@supply, open = x@open)
 }
  
 setGeneric("as.HNUWarehouse", function(x, ...) standardGeneric( "as.HNUWarehouse")) 
