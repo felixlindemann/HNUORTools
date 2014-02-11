@@ -1,0 +1,6 @@
+HNU-OR-Tools-For-R-Project.sublime-project
+HNU-OR-Tools-For-R-Project.sublime-workspace
+.Rhistory
+dev
+^.*\.Rproj$
+^\.Rproj\.user$
