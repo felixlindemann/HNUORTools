@@ -12,7 +12,7 @@ HNUWarehouse.create.default<-function(...){
 setMethod("initialize", "HNUWarehouse", function(.Object, ..., showwarnings=FALSE) {
       
      li <- list(...)
-     open <- true
+     open <- TRUE
    
     if(length(li) == 1){ 
        if(  class(li[[1]]) == "data.frame"  )  { # data.frame
