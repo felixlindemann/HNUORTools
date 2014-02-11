@@ -3,6 +3,6 @@ setwd("/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject")
 # update package
 library(devtools)
 
-check()
-test()
+load_all()
+demo(HNUTPP01)
 
