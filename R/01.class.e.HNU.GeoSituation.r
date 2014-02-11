@@ -18,8 +18,8 @@ setClass(
             warehouses    = list() ,
             links         = list(),
             customers     = list(),
-            travelcosts         = numeric(),
-        transportcosts         = numeric()
+            travelcosts   = numeric(),
+        transportcosts    = numeric()
     	)
     )
 )
