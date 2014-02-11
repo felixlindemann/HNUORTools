@@ -1,5 +1,7 @@
 #User-friendly creator 
-.HNUNode.create<-function(...){
+
+HNUNode.create <- function(...) UseMethod("HNUNode.create")
+HNUNode.create.default<-function(...){
     node <- new("HNUNode", ...)
     # nodes <- get("nodes",envir=HNUORToolsEnv)
     # nodes[[length(nodes)+1]] <- node
@@ -7,9 +9,10 @@
     return(node)
 }
 
-setGeneric("HNUNode.create",function(...){standardGeneric("HNUNode.create")})
+# setGeneric("HNUNode.create",function(...){standardGeneric("HNUNode.create")})
 
-setMethod("HNUNode.create", signature(), .HNUNode.create)
+# setMethod("HNUNode.create", signature(), HNUNode.create)
+
 
 setMethod("initialize", "HNUNode", function(.Object, ..., showwarnings=FALSE) {
       

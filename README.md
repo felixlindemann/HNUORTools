@@ -1,8 +1,8 @@
-HNUORoolsForR-Project
+HNUORools
 ==========================
 
-HNUORoolsForR-Project
+HNUORools
 
 library(devtools)
-install_gihub("HNUORoolsForRProject", "felixlindemann") 
+install_gihub("HNUORools", "felixlindemann") 
 
