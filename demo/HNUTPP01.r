@@ -21,17 +21,20 @@
   m<-getDistanceMatrix(geo,"warehouse", "customer")
   m<-round(m)
 
-  expect_true(length(geo$warehouses) ==4)
-  expect_true(length(geo$customers) ==9)
+  length(geo$warehouses) ==4  # TRUE
+  length(geo$customers) ==9 # TRUE
 
-  expect_true(nrow(m) ==4)
-  expect_true(ncol(m) ==9)
+  nrow(m) ==4 # TRUE
+  ncol(m) ==9 # TRUE
 
-  expect_true(m[1,1] == 61)
-  expect_true(m[1,2] == 36)
-  expect_true(m[3,4] == 50)
-  expect_true(m[4,6] == 73)
-  expect_true(m[2,4] + m[3,5] + m[4,2] == 335)
+  m[1,1] == 61  # TRUE
+  m[1,2] == 36  # TRUE
+  m[3,4] == 50  # TRUE
+  m[4,6] == 73  # TRUE
+  m[2,4] + m[3,5] + m[4,2] == 335 # TRUE
 
   m
-  
+
+# demo(HNUTPP01)
+
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)
