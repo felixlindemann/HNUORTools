@@ -1,8 +1,8 @@
-HNUORools
+HNUORTools
 ==========================
 
-HNUORools
+HNUORTools
 
 library(devtools)
-install_gihub("HNUORools", "felixlindemann") 
+install_gihub("HNUORTools", "felixlindemann") 
 
