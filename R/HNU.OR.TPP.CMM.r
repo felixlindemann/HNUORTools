@@ -26,17 +26,17 @@ setGeneric("HNU.OR.TPP.CMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
 		message("Using Domschke 1995\n")
 		while(sum(demand)>0){		 
 			for(j in (1:J)){ 
-				i<-NA
-				c.min<- max(cij) * 2 +1	
-				for(k in (1:I)){
-					if(supply[k]>0){					
-						if(cij[k,j]<c.min) {
-							i <- k
-							c.min <- cij[k,j]
+				if(demand[j]>0){
+					i<-NA
+					c.min<- max(cij) * 2 +1	
+					for(k in (1:I)){
+						if(supply[k]>0){					
+							if(cij[k,j]<c.min) {
+								i <- k
+								c.min <- cij[k,j]
+							}
 						}
 					}
-				}
-				if(demand[j]>0){
 					if(!is.na(i)){
 						x[i,j] <- min(c(supply[i],demand[j]))
 						supply[i] <- supply[i] - x[i,j]
@@ -45,6 +45,7 @@ setGeneric("HNU.OR.TPP.CMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
 						stop("this should not happen.")
 					}
 				}
+				if(sum(demand) + sum(supply) == 0) break
 			}
 		}   
 	}else{
@@ -70,6 +71,7 @@ setGeneric("HNU.OR.TPP.CMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
 					stop("this should not happen.")
 				}
 			}
+			if(sum(demand) + sum(supply) == 0) break
 		}   
 	}
 	object$transportplan <- x   
