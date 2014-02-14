@@ -58,7 +58,9 @@ setMethod("plotGeoSituation",signature(object="HNUGeoSituation"),
         ylim = li$ylim,#
         xlab=li$xlab,#
         ylab=li$ylab,#
-        main=li$main#
+        main=li$main,#
+        sub=li$sub#
+        #...
     )#
     for(i in 2:1){
       if(li$plotGrid[i]){
@@ -107,13 +109,19 @@ setMethod("plotGeoSituation.links",signature(object="HNUGeoSituation"),
     if(n>0){
 
       if(is.null(li$lwd)) li$lwd<- 1
+      if(is.null(li$lines.markused)) li$lines.markused<- TRUE
+      if(is.null(li$lwd.used)) li$lwd.used<- li$lwd*3
       if(is.null(li$lty)) li$lty<- 1 
       if(is.null(li$col)) li$col<- 1 
+      if(is.null(li$col.used)) li$col.used<- "red"
 
       for(i in 1:n){
           link <- object$links[[i]]
           x<- c(link$origin$x, link$destination$x)
           y<- c(link$origin$y, link$destination$y)
+          if(link$used & li$lines.markused){ 
+            lines(x,y,lty=li$lty, lwd=li$lwd.used, col=li$col.used)#
+          }
           lines(x,y,lty=li$lty, lwd=li$lwd, col=li$col)#
       }
     }
