@@ -4,13 +4,15 @@ setClass(
     representation=representation(
         supply="numeric",
         fixcosts="numeric",
-        open="logical"
+        open="logical",
+        isDummy="logical"
     ),
     prototype=prototype(
         list(
             supply =numeric(),
             fixcosts = numeric (),
-            open = logical()
+            open = logical(),
+            isDummy = logical()
         )
     ),
     contains="HNUNode"

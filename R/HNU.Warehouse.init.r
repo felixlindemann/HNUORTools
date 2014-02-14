@@ -27,6 +27,10 @@ setMethod("initialize", "HNUWarehouse", function(.Object, ..., showwarnings=FALS
             }
         }
     }
+    if(is.null(li$isDummy)) li$isDummy <- FALSE
+    .Object@isDummy <- li$isDummy
+    
+    
     if(!is.null(li$supply))    {
         if(length(li$supply)!=1){
             stop("only 1 item for attribute supply accepted.")

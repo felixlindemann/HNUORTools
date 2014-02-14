@@ -2,11 +2,13 @@
 setClass(
     Class="HNUCustomer",
     representation=representation(
-        demand="numeric"
+        demand="numeric",
+            isDummy = "logical"
     ),
     prototype=prototype(
         list(
-            demand =numeric()
+            demand =numeric(),
+            isDummy = logical()
         )
     ),
     contains="HNUNode"
