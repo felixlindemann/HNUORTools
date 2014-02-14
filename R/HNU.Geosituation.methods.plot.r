@@ -182,7 +182,7 @@ setMethod("plotGeoSituation.warehouses",signature(object="HNUGeoSituation"),
     n<-length(object$warehouses)
     if(n>0) { 
       if(is.null(li$zoom )) li$zoom <- .5
-      if(is.null(li$bg.col )) li$bg.col <- "gray"
+      if(is.null(li$warehouses.bg.col )) li$warehouses.bg.col <- "gray"
       if(is.null(li$border.col )) li$border.col <- "black"
       if(is.null(li$font.cex )) li$font.cex <- 1
       if(is.null(li$font.col )) li$font.col <- "black"
@@ -190,7 +190,7 @@ setMethod("plotGeoSituation.warehouses",signature(object="HNUGeoSituation"),
       if(is.null(li$point.cex )) li$point.cex <- 1#
       if(is.null(li$withlabels)) li$withlabels<- TRUE
 
-      if(length(li$bg.col) != n) li$bg.col <- rep(li$bg.col, n)
+      if(length(li$warehouses.bg.col) != n) li$warehouses.bg.col <- rep(li$warehouses.bg.col, n)
       if(length(li$border.col) != n) li$border.col <- rep(li$border.col, n)
       if(length(li$font.col) != n) li$font.col <- rep(li$font.col, n)
       if(length(li$point.pch) != n) li$point.pch <- rep(li$point.pch, n)
@@ -199,7 +199,7 @@ setMethod("plotGeoSituation.warehouses",signature(object="HNUGeoSituation"),
           warehouse <- object$warehouses[[i]]
           plotGeoSituation.warehouse(warehouse,#
                 zoom=li$zoom,
-                bg.col=li$bg.col[i],
+                warehouses.bg.col=li$warehouses.bg.col[i],
                 border.col=li$border.col[i],
                 font.cex=li$font.cex,
                 font.col=li$font.col[i],
@@ -215,7 +215,7 @@ setMethod("plotGeoSituation.warehouse",signature(object="HNUWarehouse"),
   function(object,...){ 
     li<-list(...)
     if(is.null(li$zoom )) li$zoom <- .5
-    if(is.null(li$bg.col )) li$bg.col <- "white"
+    if(is.null(li$warehouses.bg.col )) li$warehouses.bg.col <- "grey"
     if(is.null(li$border.col )) li$border.col <- "black"
     if(is.null(li$font.cex )) li$font.cex <- 1
     if(is.null(li$font.col )) li$font.col <- "black"
@@ -225,7 +225,7 @@ setMethod("plotGeoSituation.warehouse",signature(object="HNUWarehouse"),
 
     dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*li$zoom + object$x#
     dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5) *li$zoom + object$y#
-    polygon(dx, dy, col=li$bg.col, border =li$border.col)#
+    polygon(dx, dy, col=li$warehouses.bg.col, border =li$border.col)#
     points(object$x,object$y,pch=li$point.pch,cex=li$point.cex )#
     if(li$withlabels){
       text(max(dx),min(dy)-1.5*li$zoom, object$label, cex=li$font.cex,col=li$font.col)#
