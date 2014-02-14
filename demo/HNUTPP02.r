@@ -18,16 +18,30 @@
   geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   ))
   geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))
  
- # solve with north-west corner rule
+ # solve with column-mimimum-method use default domschke.version = 2007  
   geo<- HNU.OR.TPP.CMM(geo)   
   x <- geo$transportplan # store transportplan in local variable
  
-  # x[1,1] == 150   # TRUE
-  # x[3,1] == 0     # TRUE
-  # x[3,6] == 40    # TRUE
-  # x[3,7] == 80    # TRUE
-  # x[4,9] == 120   # TRUE
+   x[1,1] == 150   # TRUE
+   x[3,1] == 0     # TRUE
+   x[3,6] == 40    # TRUE
+   x[3,7] == 80    # TRUE
+   x[4,9] == 120   # TRUE
   
   col<- 2:5
   plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",warehouses.bg.col = col, zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)
   plotGeoSituation.transportplan(geo, arrow.point.cex = 4, arrow.point.bg = col)
+
+
+ # solve with column-mimimum-method use domschke.version = 1995 
+  geo<- HNU.OR.TPP.CMM(geo, domschke.version = 1995)   
+
+  x <- geo$transportplan # store transportplan in local variable
+ 
+
+   x[1,1] == 150   # TRUE
+   x[3,1] == 0     # TRUE
+   x[3,6] == 0    # TRUE
+   x[3,5] == 100    # TRUE
+   x[4,9] == 0   # TRUE
+  
