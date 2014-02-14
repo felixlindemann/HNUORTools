@@ -45,6 +45,7 @@ setGeneric("HNU.OR.TPP.MMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
 		}else{
 			stop("this should not happen.")
 		}
+		if(sum(demand) + sum(supply) == 0) break
    	}
  
 	object$transportplan <- x   
