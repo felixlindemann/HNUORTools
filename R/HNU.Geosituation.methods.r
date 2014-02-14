@@ -57,7 +57,7 @@ setGeneric("getDistanceMatrix",  function(object,...)  standardGeneric("getDista
 
 setMethod("getDistanceMatrix",signature(object="HNUGeoSituation"),
 	function(object,sorigin,sdestination,...){
-		
+		li<-list(...) 
 		fields<- c( "nodes", "customers", "warehouses")
 
 		f<-agrep(sorigin, fields, max = 1, ignore.case = TRUE)
@@ -98,19 +98,20 @@ setMethod("getDistanceMatrix",signature(object="HNUGeoSituation"),
 		J <- length(destination)
 
 		m<-matrix(rep(NA,I*J), nrow =I, ncol=J)
-		names.r<-NULL
-		names.c<-NULL
+		 
 		for(i in 1:I){
-			n1<- origin[[i]]
-			names.r <- c(names.r,n1@id)
+			n1<- origin[[i]] 
 			for(j in 1:J){
-				n2<- destination[[j]]
-				if(i == 1) names.c <- c(names.c,n2@id)
+				n2<- destination[[j]] 
 				m[i,j] <- calc.Distance(n1,n2)
 			}
 		}  
-		rownames(m)<-names.r
-		colnames(m)<-names.c
+
+		rownames(m) <- sapply(origin, function(o){o$id})
+		colnames(m) <- sapply(destination , function(o){o$id})
+ 
+
+
 	    return(m)
 	}
 )

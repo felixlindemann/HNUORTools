@@ -13,7 +13,7 @@ setMethod("initialize", "HNUCustomer", function(.Object, ..., showwarnings=FALSE
       
      li <- list(...)
 
-   
+    
     if(length(li) == 1){ 
        if(  class(li[[1]]) == "data.frame"  )  { # data.frame
             df<- li[[1]]
@@ -26,6 +26,9 @@ setMethod("initialize", "HNUCustomer", function(.Object, ..., showwarnings=FALSE
             }
         }
     }
+    if(is.null(li$isDummy)) li$isDummy <- FALSE
+    .Object@isDummy <- li$isDummy
+    
     if(!is.null(li$demand))    {
         if(length(li$demand)!=1){
             stop("only 1 item for attribute demand accepted.")

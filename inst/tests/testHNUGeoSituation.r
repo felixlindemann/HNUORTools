@@ -31,6 +31,7 @@ test_that("Test for adding objects to geoSituation", {
 context("\tTest 02: can the distance matrix be created correctly?") 
 test_that("Test for calculation of distances", {
 
+  #szenario taken from Tutorium #2 ws 13/14 aufg. 2
   geo<-HNUGeoSituation.create()
   geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))
   geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))
