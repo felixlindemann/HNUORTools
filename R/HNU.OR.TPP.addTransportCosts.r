@@ -20,14 +20,6 @@ setGeneric("HNU.OR.TPP.addTransportCosts", function(object,...)  standardGeneric
 
 			cij <- getDistanceMatrix(object,"warehouses", "customers", ...)*li$transportcosts
      		
-			
-
-			# li$cij is now a distance matrix/cost matrix (if transportcosts are provided). 
-			# 
-			# in this context we need the costs per transported item.
-			# so we calculate for each pivot-element cij[i,j] <- cij[i,j] * demand[j]
-			cij <- t(t(cij)*demand) 
-
 		} 
 		li$cij <- cij
 	} 
