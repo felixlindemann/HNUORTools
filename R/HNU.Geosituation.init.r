@@ -19,6 +19,7 @@ setMethod("initialize", "HNUGeoSituation", function(.Object, ..., showwarnings=F
     if(!is.null(li$customers)) .Object@customers <- li$customers
     if(!is.null(li$links)) .Object@links <- li$links
     
+    #.Object@transportplan <- matrix() # will no be assignable on init.
 
     
     if(!is.null(li$id)){

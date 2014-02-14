@@ -8,7 +8,8 @@ setClass(
     	warehouses  = "list",
         customers   = "list",
         travelcosts = "numeric",
-     transportcosts = "numeric"
+     transportcosts = "matrix",
+     transportplan  = "matrix"
     ),
     prototype=prototype(
     	list(
@@ -19,7 +20,8 @@ setClass(
             links         = list(),
             customers     = list(),
             travelcosts   = numeric(),
-        transportcosts    = numeric()
+        transportcosts    = matrix(),
+        transportplan     = matrix()
     	)
     )
 )
