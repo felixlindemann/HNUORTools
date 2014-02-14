@@ -116,5 +116,17 @@ setMethod("getDistanceMatrix",signature(object="HNUGeoSituation"),
 	}
 )
 
+setGeneric("getLink",  function(object,conn,...)  standardGeneric("getLink") )
+setMethod( "getLink", signature(object= "HNUGeoSituation", conn = "character"),
+  function(object, conn, ...){
+    if(length(conn)!=2) stop("The Connection element has to have two elements exactly.")
+
+    li <- sapply(object$links, function(o){if( (o$origin$id==conn[1] & o$destination$id ==conn[2]) | (o$origin$id==conn[2] & o$destination$id ==conn[1] & o$oneway==FALSE))return(o)})  
+    li <- li[unlist(lapply(li, length) != 0)]
+ 
+    return (li)
+
+  }
+)
 
 
