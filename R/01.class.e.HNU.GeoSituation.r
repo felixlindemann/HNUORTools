@@ -9,7 +9,8 @@ setClass(
         customers   = "list",
         travelcosts = "numeric",
      transportcosts = "matrix",
-     transportplan  = "matrix"
+     transportplan  = "matrix",
+     shortestpath   = "list"
     ),
     prototype=prototype(
     	list(
@@ -21,7 +22,8 @@ setClass(
             customers     = list(),
             travelcosts   = numeric(),
         transportcosts    = matrix(),
-        transportplan     = matrix()
+        transportplan     = matrix(),
+        shortestpath      = list()
     	)
     )
 )
