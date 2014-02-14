@@ -72,8 +72,8 @@ setMethod("plotGeoSituation",signature(object="HNUGeoSituation"),
 
       }
     }
-    if(li$plotNodes) plotGeoSituation.nodes(object, ...)
     if(li$plotLinks) plotGeoSituation.links(object, ...)
+    if(li$plotNodes) plotGeoSituation.nodes(object, ...)
     if(li$plotWarehouses) plotGeoSituation.warehouses(object, ...)
     if(li$plotCustomers) plotGeoSituation.customers(object, ...)
   }
@@ -114,7 +114,7 @@ setMethod("plotGeoSituation.links",signature(object="HNUGeoSituation"),
           link <- object$links[[i]]
           x<- c(link$origin$x, link$destination$x)
           y<- c(link$origin$y, link$destination$y)
-          lines(a,b,lty=li$lty, lwd=li$lwd, col=li$col)#
+          lines(x,y,lty=li$lty, lwd=li$lwd, col=li$col)#
       }
     }
   }
