@@ -38,3 +38,21 @@
 # demo(HNUTPP01)
 
   plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)
+  
+ # solve with north-west corner rule
+  geo<- HNU.OR.TPP.NW(geo)   
+  x <- geo$transportplan # store transportplan in local variable
+ 
+  x[1,1] == 150   # TRUE
+  x[3,1] == 0     # TRUE
+  x[3,6] == 40    # TRUE
+  x[3,7] == 80    # TRUE
+  x[4,9] == 120   # TRUE
+ 
+# with Transport ammounts
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)
+  plotGeoSituation.transportplan(geo)
+  
+  col<- 2:5
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",warehouses.bg.col = col, zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4, arrow.point.bg = col)
