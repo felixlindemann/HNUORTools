@@ -4,3 +4,4 @@ HNUNode03		Methods for HNUNodes.
 HNULink01		Usage of HNULink-objects
 HNUTPP01		Setup and Solution for a Transportation Problem with North-west-corner Rule
 HNUTPP02		Setup and Solution for a Transportation Problem with Column-Minimum-Method.
+HNUTPP03		Setup and Solution for a Transportation Problem with Matrix-Minimum-Method.
