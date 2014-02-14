@@ -29,13 +29,17 @@ setMethod("initialize", "HNULink", function(.Object, n1,n2,..., showwarnings=FAL
     .Object@destination     <- n2
     
     if(!is.null(li$costs)) {
-        if(length(li$costs) == 1) costs = li$costs
+        if(length(li$costs) == 1) costs <- li$costs
     }
     if(!is.null(li$oneway)) {
-        if(length(li$oneway) == 1) oneway = li$oneway
+        if(length(li$oneway) == 1) oneway <- li$oneway
+    }
+    if(is.null(li$used)) {
+        if(length(li$used) == 1)   li$used <- FALSE
     }
 
 
+    .Object@used <- used
     .Object@oneway <- oneway
     .Object@distance <- calc.Distance(n1,n2)
     .Object@costs <- calc.Distance(n1,n2,costs) 
