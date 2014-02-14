@@ -9,10 +9,11 @@ setGeneric("HNU.OR.TPP.NW",  function(object,...)  standardGeneric("HNU.OR.TPP.N
 	#set supply and demand
   	supply <- sapply(object$warehouses, function(o){o$supply})
 	demand <- sapply(object$customers , function(o){o$demand})
+	if(sum(supply) != sum(demand)) stop("This alg. can be used for non-degenerated solutions only: The Sums of warehouse$supply and customer$demand are not equal.")
 
 	#set initial transportplan
 	x <- object$transportplan * 0 
-
+	
 
 	for(i in (1:length(object$warehouses))){ 
 		for(j in (1:length(object$customers))){
