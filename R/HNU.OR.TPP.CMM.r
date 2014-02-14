@@ -15,31 +15,61 @@ setGeneric("HNU.OR.TPP.CMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
   	supply <- sapply(object$warehouses, function(o){o$supply})
 	demand <- sapply(object$customers , function(o){o$demand})
 
+	if(sum(supply) != sum(demand)) stop("This alg. can be used for non-degenerated solutions only: The Sums of warehouse$supply and customer$demand are not equal.")
+
 	#set initial transportplan
 	x <- object$transportplan * 0 
 
-	for(j in (1:J)){ 
-		while(demand[j]>0){		
-			i<-NA
-			c.min<- 100000000000000000	
-			for(k in (1:I)){
-				if(supply[k]>0){					
-					if(cij[k,j]<c.min) {
-						i <- k
-						c.min <- cij[k,j]
+	if(is.null(li$version)) li$version <- 2007
+
+	if(li$version == 1995){
+		message("Using Domschke 1995\n")
+		while(sum(demand)>0){		 
+			for(j in (1:J)){ 
+				i<-NA
+				c.min<- max(cij) * 2 +1	
+				for(k in (1:I)){
+					if(supply[k]>0){					
+						if(cij[k,j]<c.min) {
+							i <- k
+							c.min <- cij[k,j]
+						}
 					}
 				}
+				if(!is.na(i)){
+					x[i,j] <- min(c(supply[i],demand[j]))
+					supply[i] <- supply[i] - x[i,j]
+					demand[j] <- demand[j] - x[i,j] 
+				}else{
+					stop("this should not happen.")
+				}
 			}
-			if(!is.na(i)){
-				x[i,j] <- min(c(supply[i],demand[j]))
-				supply[i] <- supply[i] - x[i,j]
-				demand[j] <- demand[j] - x[i,j] 
-			}else{
-				stop("this should not happen.")
-			}
-		}
-	}  
+		}   
+	}else{
+		message("Using Domschke 2007\n")
 
+		for(j in (1:J)){ 
+			while(demand[j]>0){		
+				i<-NA
+				c.min<- max(cij) * 2 +1	
+				for(k in (1:I)){
+					if(supply[k]>0){					
+						if(cij[k,j]<c.min) {
+							i <- k
+							c.min <- cij[k,j]
+						}
+					}
+				}
+				if(!is.na(i)){
+					x[i,j] <- min(c(supply[i],demand[j]))
+					supply[i] <- supply[i] - x[i,j]
+					demand[j] <- demand[j] - x[i,j] 
+				}else{
+					stop("this should not happen.")
+				}
+			}
+		}   
+	}
 	object$transportplan <- x   
 	return(object)
   }
