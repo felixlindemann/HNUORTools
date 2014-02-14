@@ -8,7 +8,8 @@ setClass(
     	destination     = "HNUNode",
         costs = "numeric",
         distance = "numeric",
-        oneway = "logical"
+        oneway = "logical",
+        used = "logical"
     ),
     prototype=prototype(
     	list(
@@ -18,7 +19,8 @@ setClass(
             destination     = NA,
             costs = numeric(),
             distance = numeric(),
-            oneway = logical() 
+            oneway = logical() ,
+            used = logical()
     	)
     )
 )
