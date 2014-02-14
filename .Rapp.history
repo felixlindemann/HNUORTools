@@ -1,4102 +1,1074 @@
-runif(1,0,100)
-Knoten
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(.self$Knoten) | is.null(.self$Knoten) | is.na(.self$Knoten)){#
-        .self$Knoten <- list()#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKunde = function(kunde){#
-      if(missing(.self$Kunden) | is.null(.self$Kunden) | is.na(.self$Kunden)){#
-        .self$Kunden <- list()#
-      }#
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(.self$Lager) | is.null(.self$Lager) | is.na(.self$Lager)){#
-        .self$Lager <- list()#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-HNU.GeografischeSituation$new()
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(10)
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(is.null(.self$Knoten) | is.na(.self$Knoten)){#
-        .self$Knoten <- list()#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if( is.null(.self$Kunden) | is.na(.self$Kunden)){#
-        .self$Kunden <- list()#
-      }#
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if( is.null(.self$Lager) | is.na(.self$Lager)){#
-        .self$Lager <- list()#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(10)
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(10)
-x$Knoten
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(from,to,Kostensatz=1,oneway=FALSE){#
-      if(missing(from)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(to)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[from],#
-        to   = .self$Knoten[to],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[from],#
-        to   = .self$Knoten[to],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)
-x$Knoten
-x$Knoten[1]
-x$Knoten[[1]]
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[from]],#
-        to   = .self$Knoten[[to]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)
-x$Kanten
-k<-x$Knoten
-k
-k<-x$Knoten$
-x
-k<-x$Knoten$x
-k<-x$Knoten$$x
-k<-x$Knoten[]$x
-k<-x$Knoten["x",]
-k
-k<-x$Knoten
-k
-k$x
-as.list(K)
-as.list(k)
-k[["x,"]]
-k[["x",]]
-k[[,x]]
-k[[],x]
-k[[],"x"]
-k["x",[]]
-k["x"]
-k["x",]
-k[["x"]]
-k[[]]
-k[[id]]
-k[["id"]]
-k[[]]$id
-k[]$id
-k[][]$id
-k
-class(k)
-k$"a"
-k$"x"
-length(k)
-lapply(k)
-k[1:5]$x
-k[1:5]
-k[1:2]
-k[1:2][[]]
-k[1:2][]
-k[1:2][]["x"]
-k[1:2][][["x"]]
-k[1]
-k[[1]]
-k[[1]]$x
-k[[]]$x
-k[[1:5]]$x
-should work fine#
-k1 <- new("HNUCustomer", x=12, y=10, label="myNode", id="N0001", demand = 30)#
-k1
-class(k1)
-as.list(k1)
-x
-x$Knoten
-x$Knoten[[1]]
-x$Knoten[[]]
-x$Knoten[[,"x"]]
-x$Knoten[[,"x"]]()
-try(throw("Division by zero."));
-x$Knoten[[,"x"]]()
-x$Knoten[["x"]]()
-x$Knoten[["x"]]
-x$Knoten[[1:4]]$x
-sapply(x$Knoten, function(x){as.numeric(x)})
-sapply(x$Knoten, function(x){x})
-sapply(x$Knoten, function(x){x$x})
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plot = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y))#
-      }#
-      plot(x,y,xlim = xlim, ylim = ylim,xlab=xlab,ylab=ylab,main=main,pch=20)#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plot = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,xlim = xlim, ylim = ylim,xlab=xlab,ylab=ylab,main=main,pch=20)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)
-x$plot()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plot = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      methods::plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)
-x$plot()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      base::plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plot()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      base::plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        x <- c(l$from$x, l$to$x)#
-        y <- c(l$from$y, l$to$y)#
-        lines(x,y,lty=1)#
-      }#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-#
-      text(x,y, sapply(.self$Knoten, function(o){o$label}), cex=1,col=1)#
-#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        x <- c(l$from$x, l$to$x)#
-        y <- c(l$from$y, l$to$y)#
-        lines(x,y,lty=1)#
-      }#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-#
-      text(x,y, sapply(.self$Knoten, function(o){o$id}), cex=1,col=1)#
-#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        x <- c(l$from$x, l$to$x)#
-        y <- c(l$from$y, l$to$y)#
-        lines(x,y,lty=1)#
-      }#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        x <- c(l$from$x, l$to$x)#
-        y <- c(l$from$y, l$to$y)#
-        lines(x,y,lty=1)#
-      }#
-      text(x,y, sapply(.self$Knoten, function(o){o$id}), cex=.5,col=1)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-?pch
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        x <- c(l$from$x, l$to$x)#
-        y <- c(l$from$y, l$to$y)#
-        lines(x,y,lty=1)#
-      }#
-#
-      points(x,y,pch = 1 , cex=2)#
-#
-      text(x,y, sapply(.self$Knoten, function(o){o$id}), cex=.5,col=1)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-?pch
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        x <- c(l$from$x, l$to$x)#
-        y <- c(l$from$y, l$to$y)#
-        lines(x,y,lty=1)#
-      }#
-#
-      points(x,y,pch = 21 , cex=2)#
-#
-      text(x,y, sapply(.self$Knoten, function(o){o$id}), cex=.5,col=1)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        a <- c(l$from$x, l$to$x)#
-        b <- c(l$from$y, l$to$y)#
-        lines(a,b,lty=1)#
-      }#
-#
-      points(x,y,pch = 21 , cex=2)#
-#
-      text(x,y, sapply(.self$Knoten, function(o){o$id}), cex=.5,col=1)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-?pch
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        a <- c(l$from$x, l$to$x)#
-        b <- c(l$from$y, l$to$y)#
-        lines(a,b,lty=1)#
-      }#
-#
-      points(x,y,pch = 21,bg = "white" , cex=2)#
-#
-      text(x,y, sapply(.self$Knoten, function(o){o$id}), cex=.5,col=1)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        a <- c(l$from$x, l$to$x)#
-        b <- c(l$from$y, l$to$y)#
-        lines(a,b,lty=1)#
-      }#
-#
-      points(x,y,pch = 21,bg = "white" , cex=3)#
-#
-      text(x,y, sapply(.self$Knoten, function(o){o$id}), cex=.5,col=1)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-HNU.GeografischeSituation <- setRefClass("HNU.GeografischeSituation",#
-  fields = list( #
-    Knoten   = "list",#
-    Kanten   = "list",#
-    Kunden   = "list",#
-    Lager    = "list"#
-  ),#
-  methods = list(#
-    isValid = function(){#
-      return(TRUE)#
-    },#
-    initRandomKnoten = function(n, seed = 1){#
-      set.seed(seed)#
-      .self$Knoten <- list()#
-      for(i in 1:n){#
-        k <- HNU.Knoten$new(#
-          id = paste("k",i,sep=""),#
-          x = runif(1,0,100),#
-          y = runif(1,0,100),#
-          label = paste("Knoten",i)#
-        )#
-        .self$addKnoten(k)#
-      }#
-    },#
-    addKnoten = function(knoten){#
-      if(missing(knoten)){#
-        simpleError(paste("Fehler. Das Argument 'knoten' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Knoten[[length(.self$Knoten)+1]] <- knoten #
-    },#
-    addKante = function(i,j,Kostensatz=1,oneway=FALSE){#
-      if(missing(i)){#
-        simpleError(paste("Fehler. Das Argument 'from' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      if(missing(j)){#
-        simpleError(paste("Fehler. Das Argument 'to' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      l1 <- HNU.Kante$new(#
-        from = .self$Knoten[[i]],#
-        to   = .self$Knoten[[j]],#
-        oneWay = oneway#
-      )#
-      l1$setDistance(Kostensatz)#
-      .self$Kanten[[length(.self$Kanten)+1]] <- l1  #
-    },#
-    addKunde = function(kunde){#
-      if(missing(kunde)){#
-        simpleError(paste("Fehler. Das Argument 'kunde' fehlt. Die Operation ist daher nicht möglich."))#
-      } #
-      .self$Kunden[[length(.self$Kunden)+1]] <- kunde #
-    },#
-    addLager = function(lager){#
-      if(missing(lager)){#
-        simpleError(paste("Fehler. Das Argument 'lager' fehlt. Die Operation ist daher nicht möglich."))#
-      }#
-      .self$Lager[[length(.self$Lager)+1]] <- lager #
-    }, #
-    plotGeoSituation = function(xlim,ylim,xlab="",ylab="",main=""){#
-      x <- sapply(.self$Knoten, function(o){o$x})#
-      y <- sapply(.self$Knoten, function(o){o$y})#
-      if(missing(xlim )){#
-        xlim <- range(x)#
-      }#
-      if(missing(ylim )){#
-        ylim <- range(y)#
-      }#
-      plot(x,y,pch=20, #
-          xlim = xlim, #
-          ylim = ylim,#
-          xlab=xlab,#
-          ylab=ylab,#
-          main=main#
-      )#
-      #Draw links#
-      for(i in 1:length(Kanten)){#
-#
-        l <- Kanten[[i]]#
-#
-        a <- c(l$from$x, l$to$x)#
-        b <- c(l$from$y, l$to$y)#
-        lines(a,b,lty=1)#
-      }#
-#
-      points(x,y,pch = 21,bg = "white" , cex=3)#
-#
-      text(x,y, sapply(.self$Knoten, function(o){o$id}), cex=.6,col=1)#
-#
-    },#
-    drawCustomer = function(customer,#
-      zoom=.5,#
-      bg.col="gray",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,-0.5,1,2.5,2,2,0)-1)*zoom + customer$x#
-      dy<-(c(0,2,2,3.5,2,2,0,0)-1.5) *zoom + customer$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(customer$x,customer$y,pch=point.pch,cex=point.cex )#
-      text(max(dx),min(dy)-1*zoom, customer$label, cex=font.cex,col=font.col)#
-    },#
-    drawWarehouse = function(warehouse,#
-      zoom=.5,#
-      bg.col="white",#
-      border.col="black",#
-      font.cex=1,#
-      font.col="black",#
-      point.pch=20,#
-      point.cex=1)#
-    {#
-      dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*zoom+warehouse$x#
-      dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5)*zoom+warehouse$y#
-#
-      polygon(dx, dy, col=bg.col, border = border.col)#
-      points(warehouse$x,warehouse$y,pch=point.pch ,cex=point.cex)#
-      text(max(dx),min(dy)-1*zoom, warehouse$label, cex=font.cex,col=font.col)#
-    }#
-  )#
-)#
-#
-x<-HNU.GeografischeSituation$new()#
-#
-x$initRandomKnoten(5)#
-#
-x$addKante(1,2)#
-x$addKante(1,3)#
-x$addKante(2,3)#
-x$addKante(2,4)#
-x$addKante(3,4)#
-x$addKante(4,5)#
-#
-x$plotGeoSituation()
-character()
-numeric(0)
-.ls.objects()
-ls
-ls.objects()
-ls
-ls()
-?ls
-myfunc <- function() {y <- 1; ls()}#
-myfunc()                # shows "y"
-objects()
-ls()
-setClass(#
-    Class="HNUCustomer",#
-    representation=representation(#
-        demand="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            demand =numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUCustomer.valid <- function(object){#
-#
-    # Can be defined in a separate step using setValidity#
-        if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
-            return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
-        } else if(class(object@demand)!="numeric") {#
-            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
-        } else if(length(object@demand)!=1){ #
-            return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
-                  length(object@demand), " --> no arrays supported here"))         #
-        } else if(object@demand<0){ #
-            return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
-                         " --> no negative values supported here"))         #
-        } else{ #
-            return(TRUE)#
-        }#
-    }#
-#
-}#
-setValidity("HNUCustomer", .HNUCustomer.valid)#
-is.HNUCustomer <- function(x){is(x,"HNUCustomer")}
-setClass(#
-    Class="HNUCustomer",#
-    representation=representation(#
-        demand="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            demand =numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUCustomer.valid <- function(object){#
-    if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
-        return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
-    } else if(class(object@demand)!="numeric") {#
-        return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
-    } else if(length(object@demand)!=1){ #
-        return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
-              length(object@demand), " --> no arrays supported here"))         #
-    } else if(object@demand<0){ #
-        return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
-                     " --> no negative values supported here"))         #
-    } else{ #
-        return(TRUE)#
-    }#
-} #
-setValidity("HNUCustomer", .HNUCustomer.valid)#
-is.HNUCustomer <- function(x){is(x,"HNUCustomer")}
-setClass(#
-	Class="HNUNode",#
-    representation=representation(#
-    	id="character",#
-    	x="numeric",#
-    	y="numeric",#
-    	label="character"#
-    ),#
-    prototype=prototype(#
-    	list(#
-    		id=character(),#
-            x = numeric(),#
-            y = numeric(),#
-            label = character() #
-    	)#
-    )#
-)#
-.HNUNode.valid <- function(object){#
-               if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
-            return(paste("Error with value x: Value is not initialized", class(object@x)))#
-        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
-            return(paste("Error with value y: Value is not initialized", class(object@y)))#
-        } else if( class(object@x)!="numeric" ) {#
-            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
-        } else if( class(object@y)!="numeric" ) {#
-            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
-        } else if( length(object@x)!=1 ){ #
-            return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
-        } else if( length(object@y)!=1 ){ #
-            return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
-        } else{ #
-            return(TRUE)#
-        }#
-}#
-setValidity("HNUNode", .HNUNode.valid)#
-is.HNUNode <- function(x){is(x,"HNUNode")}
-setClass(#
-    Class="HNUCustomer",#
-    representation=representation(#
-        demand="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            demand =numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUCustomer.valid <- function(object){#
-    if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
-        return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
-    } else if(class(object@demand)!="numeric") {#
-        return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
-    } else if(length(object@demand)!=1){ #
-        return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
-              length(object@demand), " --> no arrays supported here"))         #
-    } else if(object@demand<0){ #
-        return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
-                     " --> no negative values supported here"))         #
-    } else{ #
-        return(TRUE)#
-    }#
-} #
-setValidity("HNUCustomer", .HNUCustomer.valid)#
-is.HNUCustomer <- function(x){is(x,"HNUCustomer")}
-setClass(#
-	Class="HNUNode",#
-    representation=representation(#
-    	id="character",#
-    	x="numeric",#
-    	y="numeric",#
-    	label="character"#
-    ),#
-    prototype=prototype(#
-    	list(#
-    		id=character(),#
-            x = numeric(),#
-            y = numeric(),#
-            label = character() #
-    	)#
-    )#
-)#
-.HNUNode.valid <- function(object){#
-               if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
-            return(paste("Error with value x: Value is not initialized", class(object@x)))#
-        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
-            return(paste("Error with value y: Value is not initialized", class(object@y)))#
-        } else if( class(object@x)!="numeric" ) {#
-            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
-        } else if( class(object@y)!="numeric" ) {#
-            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
-        } else if( length(object@x)!=1 ){ #
-            return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
-        } else if( length(object@y)!=1 ){ #
-            return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
-        } else{ #
-            return(TRUE)#
-        }#
-}#
-setValidity("HNUNode", .HNUNode.valid)#
-is.HNUNode <- function(x){is(x,"HNUNode")}#
-# Userfriendly function#
-HNUNode <- function(x = numeric(),y = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(id)){#
-                id <- paste("n",sample(1:1000,1),sep="")#
-            }#
-            if(missing(x)){#
-                x<-runif(1,0,100)#
-            }#
-            if(missing(y)){#
-                y<-runif(1,0,100)#
-            }#
-            if(missing(label)){#
-                label <- id#
-            }  #
-            o <- new("HNUNode", id = id, x = x, y = y, label = label) #
-            isvalid <- validObject(o)#
-            return(o)#
-        }, warning = function(w) {#
-            cat(paste("Create Node: Unerwartete Warnung:\n", w))#
-            return NA           #
-        }, error   = function(e) {#
-            cat(paste("Create Node: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-setClass(#
-	Class="HNUNode",#
-    representation=representation(#
-    	id="character",#
-    	x="numeric",#
-    	y="numeric",#
-    	label="character"#
-    ),#
-    prototype=prototype(#
-    	list(#
-    		id=character(),#
-            x = numeric(),#
-            y = numeric(),#
-            label = character() #
-    	)#
-    )#
-)#
-.HNUNode.valid <- function(object){#
-               if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
-            return(paste("Error with value x: Value is not initialized", class(object@x)))#
-        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
-            return(paste("Error with value y: Value is not initialized", class(object@y)))#
-        } else if( class(object@x)!="numeric" ) {#
-            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
-        } else if( class(object@y)!="numeric" ) {#
-            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
-        } else if( length(object@x)!=1 ){ #
-            return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
-        } else if( length(object@y)!=1 ){ #
-            return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
-        } else{ #
-            return(TRUE)#
-        }#
-}#
-setValidity("HNUNode", .HNUNode.valid)#
-is.HNUNode <- function(x){is(x,"HNUNode")}#
-# Userfriendly function#
-HNUNode <- function(x = numeric(),y = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(id)){#
-                id <- paste("n",sample(1:1000,1),sep="")#
-            }#
-            if(missing(x)){#
-                x<-runif(1,0,100)#
-            }#
-            if(missing(y)){#
-                y<-runif(1,0,100)#
-            }#
-            if(missing(label)){#
-                label <- id#
-            }  #
-            o <- new("HNUNode", id = id, x = x, y = y, label = label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Node: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Node: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-x<-HNUNode()
-x
-x<-HNUNode(x=20)
-x
-is.HNUNode(x)
-setClass(#
-    Class="HNUCustomer",#
-    representation=representation(#
-        demand="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            demand =numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUCustomer.valid <- function(object){#
-    if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
-        return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
-    } else if(class(object@demand)!="numeric") {#
-        return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
-    } else if(length(object@demand)!=1){ #
-        return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
-              length(object@demand), " --> no arrays supported here"))         #
-    } else if(object@demand<0){ #
-        return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
-                     " --> no negative values supported here"))         #
-    } else{ #
-        return(TRUE)#
-    }#
-} #
-setValidity("HNUCustomer", .HNUCustomer.valid)#
-is.HNUCustomer <- function(x){is(x,"HNUCustomer")}#
-# Userfriendly function#
-HNUCustomer <- function(x = numeric(), y = numeric(), demand = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(demand)){#
-                demand <- sample(1:1000,1) #
-            }#
-            n <- HNUNode( id = id, x = x, y = y, label = label)  #
-            o <- new("HNUCustomer", id = n@id, x = n@x, y = n@y, demand = n@demand, label = n@label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Customer: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Customer: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-HNUCustomer()
-numeric()
-missing(numeric())
-y<-numeric()
-missing(y)
-length(y)
-length(y) ==0
-setClass(#
-	Class = "HNUNode",#
-    representation=representation(#
-    	id     = "character",#
-    	x      = "numeric",#
-    	y      = "numeric",#
-    	label  = "character"#
-    ),#
-    prototype=prototype(#
-    	list(#
-    		id    = character(),#
-            x     = numeric(),#
-            y     = numeric(),#
-            label = character() #
-    	)#
-    )#
-)#
-#
-.HNUNode.valid <- function(object){#
-               if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
-            return(paste("Error with value x: Value is not initialized", class(object@x)))#
-        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
-            return(paste("Error with value y: Value is not initialized", class(object@y)))#
-        } else if( class(object@x)!="numeric" ) {#
-            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
-        } else if( class(object@y)!="numeric" ) {#
-            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
-        } else if( length(object@x)!=1 ){ #
-            return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
-        } else if( length(object@y)!=1 ){ #
-            return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
-        } else{ #
-            return(TRUE)#
-        }#
-}#
-setValidity("HNUNode", .HNUNode.valid)#
-is.HNUNode <- function(x){is(x,"HNUNode")}#
-# Userfriendly function#
-HNUNode <- function(x = numeric(),y = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(id) | length(id) == 0 ){#
-                id <- paste("n",sample(1:1000,1),sep="")#
-            }#
-            if(missing(x) | length(x) == 0 ){#
-                x<-runif(1,0,100)#
-            }#
-            if(missing(y) | length(y) == 0 ){#
-                y<-runif(1,0,100)#
-            }#
-            if(missing(label) | length(label) == 0 ){#
-                label <- id#
-            }  #
-            o <- new("HNUNode", id = id, x = x, y = y, label = label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Node: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Node: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-setClass(#
-    Class="HNUCustomer",#
-    representation=representation(#
-        demand="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            demand =numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUCustomer.valid <- function(object){#
-    if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
-        return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
-    } else if(class(object@demand)!="numeric") {#
-        return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
-    } else if(length(object@demand)!=1){ #
-        return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
-              length(object@demand), " --> no arrays supported here"))         #
-    } else if(object@demand<0){ #
-        return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
-                     " --> no negative values supported here"))         #
-    } else{ #
-        return(TRUE)#
-    }#
-} #
-setValidity("HNUCustomer", .HNUCustomer.valid)#
-is.HNUCustomer <- function(x){is(x,"HNUCustomer")}#
-# Userfriendly function#
-HNUCustomer <- function(x = numeric(), y = numeric(), demand = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(demand)){#
-                demand <- sample(1:1000,1) #
-            }#
-            n <- HNUNode( id = id, x = x, y = y, label = label)  #
-            o <- new("HNUCustomer", id = n@id, x = n@x, y = n@y, demand = n@demand, label = n@label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Customer: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Customer: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-HNUCustomer()
-setClass(#
-    Class="HNUCustomer",#
-    representation=representation(#
-        demand="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            demand =numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUCustomer.valid <- function(object){#
-    if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
-        return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
-    } else if(class(object@demand)!="numeric") {#
-        return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
-    } else if(length(object@demand)!=1){ #
-        return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
-              length(object@demand), " --> no arrays supported here"))         #
-    } else if(object@demand<0){ #
-        return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
-                     " --> no negative values supported here"))         #
-    } else{ #
-        return(TRUE)#
-    }#
-} #
-setValidity("HNUCustomer", .HNUCustomer.valid)#
-is.HNUCustomer <- function(x){is(x,"HNUCustomer")}#
-# Userfriendly function#
-HNUCustomer <- function(x = numeric(), y = numeric(), demand = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(demand)){#
-                demand <- sample(1:1000,1) #
-            }#
-            n <- HNUNode( id = id, x = x, y = y, label = label)  #
-            o <- new("HNUCustomer", id = n@id, x = n@x, y = n@y, demand = demand, label = n@label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Customer: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Customer: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-HNUCustomer()
-setClass(#
-    Class="HNUCustomer",#
-    representation=representation(#
-        demand="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            demand =numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUCustomer.valid <- function(object){#
-    if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {#
-        return(paste("Error with value demand: demand is not initialized", class(object@demand)))#
-    } else if(class(object@demand)!="numeric") {#
-        return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand))) #
-    } else if(length(object@demand)!=1){ #
-        return(paste("Error with value demand: expected numeric data of length 1, but obtained", #
-              length(object@demand), " --> no arrays supported here"))         #
-    } else if(object@demand<0){ #
-        return(paste("Error with value demand: expected is a non negative value, but obtained", (object@demand), #
-                     " --> no negative values supported here"))         #
-    } else{ #
-        return(TRUE)#
-    }#
-} #
-setValidity("HNUCustomer", .HNUCustomer.valid)#
-is.HNUCustomer <- function(x){is(x,"HNUCustomer")}#
-# Userfriendly function#
-HNUCustomer <- function(x = numeric(), y = numeric(), demand = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(demand)){#
-                demand <- as.numeric( sample(1:1000,1) )#
-            }#
-            n <- HNUNode( id = id, x = x, y = y, label = label)  #
-            o <- new("HNUCustomer", id = n@id, x = n@x, y = n@y, demand = demand, label = n@label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Customer: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Customer: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-HNUCustomer()
-setClass(#
-    Class="HNUWarehouse",#
-    representation=representation(#
-        supply="numeric",#
-        fixcosts="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            supply =numeric(),#
-            fixcosts = numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUWarehouse.valid <- function(object) {  #
-           if( sum(is.null(object@fixcosts)) + sum( is.na(object@fixcosts)) > 0 ) {#
-        return(paste("Error with value fixcosts: fixcosts is not initialized", class(object@fixcosts)))#
-    } else if(class(object@fixcosts)!="numeric") {#
-        return(paste("Error with value fixcosts: expected numeric datatype, but obtained", class(object@fixcosts))) #
-    } else if(length(object@fixcosts)!=1){ #
-        return(paste("Error with value fixcosts: expected numeric data of length 1, but obtained", #
-              length(object@fixcosts), " --> no arrays supported here"))         #
-    } else if(object@fixcosts<0){ #
-        return(paste("Error with value fixcosts: expected is a non negative value, but obtained", (object@fixcosts), #
-                     " --> no negative values supported here"))         #
-    } else if( sum(is.null(object@supply)) + sum( is.na(object@supply)) > 0 ) {#
-        return(paste("Error with value supply: supply is not initialized", class(object@supply)))#
-    } else if(class(object@supply)!="numeric") {#
-        return(paste("Error with value supply: expected numeric datatype, but obtained", class(object@supply))) #
-    } else if(length(object@supply)!=1){ #
-        return(paste("Error with value supply: expected numeric data of length 1, but obtained", #
-              length(object@supply), " --> no arrays supported here"))         #
-    } else if(object@supply<0){ #
-        return(paste("Error with value supply: expected is a non negative value, but obtained", (object@supply), #
-                     " --> no negative values supported here"))#
-    } else {#
-        return(TRUE)#
-    }#
-}#
-#
-setValidity("HNUWarehouse", .HNUWarehouse.valid)#
-is.HNUWarehouse <- function(x){is(x,"HNUWarehouse")}#
-# Userfriendly function#
-HNUWarehouse <- function(x = numeric(), y = numeric(), supply = numeric(), fixcosts = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(supply) | length(supply) != 1){#
-                supply <- as.numeric( sample(1:1000,1) )#
-            }#
-            if(missing(fixcosts) | length(fixcosts) != 1){#
-                fixcosts <- 0 )#
-            }#
-            n <- HNUNode( id = id, x = x, y = y, label = label)  #
-            o <- new("HNUWarehouse", id = n@id, x = n@x, y = n@y, supply = supply, label = n@label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Warehouse: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Warehouse: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-setClass(#
-    Class="HNUWarehouse",#
-    representation=representation(#
-        supply="numeric",#
-        fixcosts="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            supply =numeric(),#
-            fixcosts = numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUWarehouse.valid <- function(object) {  #
-           if( sum(is.null(object@fixcosts)) + sum( is.na(object@fixcosts)) > 0 ) {#
-        return(paste("Error with value fixcosts: fixcosts is not initialized", class(object@fixcosts)))#
-    } else if(class(object@fixcosts)!="numeric") {#
-        return(paste("Error with value fixcosts: expected numeric datatype, but obtained", class(object@fixcosts))) #
-    } else if(length(object@fixcosts)!=1){ #
-        return(paste("Error with value fixcosts: expected numeric data of length 1, but obtained", #
-              length(object@fixcosts), " --> no arrays supported here"))         #
-    } else if(object@fixcosts<0){ #
-        return(paste("Error with value fixcosts: expected is a non negative value, but obtained", (object@fixcosts), #
-                     " --> no negative values supported here"))         #
-    } else if( sum(is.null(object@supply)) + sum( is.na(object@supply)) > 0 ) {#
-        return(paste("Error with value supply: supply is not initialized", class(object@supply)))#
-    } else if(class(object@supply)!="numeric") {#
-        return(paste("Error with value supply: expected numeric datatype, but obtained", class(object@supply))) #
-    } else if(length(object@supply)!=1){ #
-        return(paste("Error with value supply: expected numeric data of length 1, but obtained", #
-              length(object@supply), " --> no arrays supported here"))         #
-    } else if(object@supply<0){ #
-        return(paste("Error with value supply: expected is a non negative value, but obtained", (object@supply), #
-                     " --> no negative values supported here"))#
-    } else {#
-        return(TRUE)#
-    }#
-}#
-#
-setValidity("HNUWarehouse", .HNUWarehouse.valid)#
-is.HNUWarehouse <- function(x){is(x,"HNUWarehouse")}#
-# Userfriendly function#
-HNUWarehouse <- function(x = numeric(), y = numeric(), supply = numeric(), fixcosts = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(supply) | length(supply) != 1){#
-                supply <- as.numeric( sample(1:1000,1) )#
-            }#
-            if(missing(fixcosts) | length(fixcosts) != 1){#
-                fixcosts <- 0 #
-            }#
-            n <- HNUNode( id = id, x = x, y = y, label = label)  #
-            o <- new("HNUWarehouse", id = n@id, x = n@x, y = n@y, supply = supply, label = n@label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Warehouse: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Warehouse: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-HNUWarehouse()
-setClass(#
-    Class="HNUWarehouse",#
-    representation=representation(#
-        supply="numeric",#
-        fixcosts="numeric"#
-    ),#
-    prototype=prototype(#
-        list(#
-            supply =numeric(),#
-            fixcosts = numeric()#
-        )#
-    ),#
-    contains="HNUNode"#
-)#
-#
-.HNUWarehouse.valid <- function(object) {  #
-           if( sum(is.null(object@fixcosts)) + sum( is.na(object@fixcosts)) > 0 ) {#
-        return(paste("Error with value fixcosts: fixcosts is not initialized", class(object@fixcosts)))#
-    } else if(class(object@fixcosts)!="numeric") {#
-        return(paste("Error with value fixcosts: expected numeric datatype, but obtained", class(object@fixcosts))) #
-    } else if(length(object@fixcosts)!=1){ #
-        return(paste("Error with value fixcosts: expected numeric data of length 1, but obtained", #
-              length(object@fixcosts), " --> no arrays supported here"))         #
-    } else if(object@fixcosts<0){ #
-        return(paste("Error with value fixcosts: expected is a non negative value, but obtained", (object@fixcosts), #
-                     " --> no negative values supported here"))         #
-    } else if( sum(is.null(object@supply)) + sum( is.na(object@supply)) > 0 ) {#
-        return(paste("Error with value supply: supply is not initialized", class(object@supply)))#
-    } else if(class(object@supply)!="numeric") {#
-        return(paste("Error with value supply: expected numeric datatype, but obtained", class(object@supply))) #
-    } else if(length(object@supply)!=1){ #
-        return(paste("Error with value supply: expected numeric data of length 1, but obtained", #
-              length(object@supply), " --> no arrays supported here"))         #
-    } else if(object@supply<0){ #
-        return(paste("Error with value supply: expected is a non negative value, but obtained", (object@supply), #
-                     " --> no negative values supported here"))#
-    } else {#
-        return(TRUE)#
-    }#
-}#
-#
-setValidity("HNUWarehouse", .HNUWarehouse.valid)#
-is.HNUWarehouse <- function(x){is(x,"HNUWarehouse")}#
-# Userfriendly function#
-HNUWarehouse <- function(x = numeric(), y = numeric(), supply = numeric(), fixcosts = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(supply) | length(supply) != 1){#
-                supply <- as.numeric( sample(1:1000,1) )#
-            }#
-            if(missing(fixcosts) | length(fixcosts) != 1){#
-                fixcosts <- 0 #
-            }#
-            n <- HNUNode( id = id, x = x, y = y, label = label)  #
-            o <- new("HNUWarehouse", id = n@id, x = n@x, y = n@y, supply = supply, fixcosts = fixcosts, label = n@label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Warehouse: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Warehouse: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-HNUWarehouse()
-x<-HNUWarehouse()
-as.dataframe()
-as data.frame(x)
-as.data.frame(x)
-setClass(#
-	Class = "HNUNode",#
-    representation=representation(#
-    	id     = "character",#
-    	x      = "numeric",#
-    	y      = "numeric",#
-    	label  = "character"#
-    ),#
-    prototype=prototype(#
-    	list(#
-    		id    = character(),#
-            x     = numeric(),#
-            y     = numeric(),#
-            label = character() #
-    	)#
-    )#
-)#
-#
-.HNUNode.valid <- function(object){#
-               if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
-            return(paste("Error with value x: Value is not initialized", class(object@x)))#
-        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
-            return(paste("Error with value y: Value is not initialized", class(object@y)))#
-        } else if( class(object@x)!="numeric" ) {#
-            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
-        } else if( class(object@y)!="numeric" ) {#
-            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
-        } else if( length(object@x)!=1 ){ #
-            return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
-        } else if( length(object@y)!=1 ){ #
-            return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
-        } else{ #
-            return(TRUE)#
-        }#
-}#
-setValidity("HNUNode", .HNUNode.valid)#
-is.HNUNode <- function(x){is(x,"HNUNode")}#
-setAs(#
-    "HNUNode", #
-    "data.frame", #
-    function(from) {#
-        data.frame(#
-            id      = from@id,#
-            label   = from@label, #
-            x       = from@x, #
-            y       = from@y#
-        )#
-    }#
-)#
-# Userfriendly function#
-HNUNode <- function(x = numeric(),y = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(id) | length(id) == 0 ){#
-                id <- paste("n",sample(1:1000,1),sep="")#
-            }#
-            if(missing(x) | length(x) == 0 ){#
-                x<-runif(1,0,100)#
-            }#
-            if(missing(y) | length(y) == 0 ){#
-                y<-runif(1,0,100)#
-            }#
-            if(missing(label) | length(label) == 0 ){#
-                label <- id#
-            }  #
-            o <- new("HNUNode", id = id, x = x, y = y, label = label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Node: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Node: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-x<- HNUNode()
-x
-as(x,"data.frame")
-_id <- 2
-d<-as(x,"data.frame")
-d$a
-ifnull(d$a)
-?ifnull
-setClass(#
-	Class = "HNUNode",#
-    representation=representation(#
-    	id     = "character",#
-    	x      = "numeric",#
-    	y      = "numeric",#
-    	label  = "character"#
-    ),#
-    prototype=prototype(#
-    	list(#
-    		id    = character(),#
-            x     = numeric(),#
-            y     = numeric(),#
-            label = character() #
-    	)#
-    )#
-)#
-#
-.HNUNode.valid <- function(object){#
-               if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
-            return(paste("Error with value x: Value is not initialized", class(object@x)))#
-        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
-            return(paste("Error with value y: Value is not initialized", class(object@y)))#
-        } else if( class(object@x)!="numeric" ) {#
-            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
-        } else if( class(object@y)!="numeric" ) {#
-            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
-        } else if( length(object@x)!=1 ){ #
-            return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
-        } else if( length(object@y)!=1 ){ #
-            return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
-        } else{ #
-            return(TRUE)#
-        }#
-}#
-setValidity("HNUNode", .HNUNode.valid)#
-is.HNUNode <- function(x){is(x,"HNUNode")}#
-setAs(#
-    "HNUNode", #
-    "data.frame", #
-    function(from) {#
-        df <- data.frame()#
-        tryCatch(#
-            {#
-            df <- data.frame(#
-                id      = from@id,#
-                label   = from@label, #
-                x       = from@x, #
-                y       = from@y#
-            )#
-            return(df)#
-            }, warning = function(w) {#
-                cat(paste("Create Dataframe from Node: Unerwartete Warnung:\n", w)) #
-            }, error   = function(e) {#
-                cat(paste("Create Dataframe from Node: Unerwarteter Fehler:\n", e)) #
-                stop(e)#
-            }, finally = { #
-                return(df)#
-            }#
-        )#
-    }#
-)#
-setAs(#
-    "data.frame", #
-    "HNUNode", #
-    function(from) {#
-        tryCatch(#
-        { #
-            tmp.id = character()#
-            tmp.label = character()#
-            tmp.x = numeric()#
-            tmp.y = numeric()#
-#
-            if(!is.null(from$id)){#
-                tmp.id <- from$id#
-            }#
-            if(!is.null(from$label)){#
-                tmp.label <- from$label#
-            }#
-            if(!is.null(from$x)){#
-                tmp.x <- from$x#
-            }#
-            if(!is.null(from$y)){#
-                tmp.y <- from$y#
-            }#
-#
-            o <- HNUNode(x = tmp.x,y = tmp.y, id = tmp.id, label = tmp.label)#
-        }, warning = function(w) {#
-            cat(paste("Create Node from Dataframe: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Node from Dataframe: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    }#
-)#
-#
-# Userfriendly function#
-HNUNode <- function(x = numeric(),y = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(id) | length(id) == 0 ){#
-                id <- paste("n",sample(1:1000,1),sep="")#
-            }#
-            if(missing(x) | length(x) == 0 ){#
-                x<-runif(1,0,100)#
-            }#
-            if(missing(y) | length(y) == 0 ){#
-                y<-runif(1,0,100)#
-            }#
-            if(missing(label) | length(label) == 0 ){#
-                label <- id#
-            }  #
-            o <- new("HNUNode", id = id, x = x, y = y, label = label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Node: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Node: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-setAs(#
-    "HNUNode", #
-    "data.frame", #
-    function(from) {#
-        df <- data.frame()#
-        tryCatch(#
-            {#
-            df <- data.frame(#
-                id      = from@id,#
-                label   = from@label, #
-                x       = from@x, #
-                y       = from@y#
-            )#
-            return(df)#
-            }, warning = function(w) {#
-                cat(paste("Create Dataframe from Node: Unerwartete Warnung:\n", w)) #
-            }, error   = function(e) {#
-                cat(paste("Create Dataframe from Node: Unerwarteter Fehler:\n", e)) #
-                stop(e)#
-            }, finally = { #
-                return(df)#
-            }#
-        )#
-    }#
-)
-setAs(#
-    "data.frame", #
-    "HNUNode", #
-    function(from) {#
-        tryCatch(#
-        { #
-            tmp.id = character()#
-            tmp.label = character()#
-            tmp.x = numeric()#
-            tmp.y = numeric()#
-#
-            if(!is.null(from$id)){#
-                tmp.id <- from$id#
-            }#
-            if(!is.null(from$label)){#
-                tmp.label <- from$label#
-            }#
-            if(!is.null(from$x)){#
-                tmp.x <- from$x#
-            }#
-            if(!is.null(from$y)){#
-                tmp.y <- from$y#
-            }#
-#
-            o <- HNUNode(x = tmp.x,y = tmp.y, id = tmp.id, label = tmp.label)#
-        }, warning = function(w) {#
-            cat(paste("Create Node from Dataframe: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Node from Dataframe: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    }#
-)
-setClass(#
-	Class = "HNUNode",#
-    representation=representation(#
-    	id     = "character",#
-    	x      = "numeric",#
-    	y      = "numeric",#
-    	label  = "character"#
-    ),#
-    prototype=prototype(#
-    	list(#
-    		id    = character(),#
-            x     = numeric(),#
-            y     = numeric(),#
-            label = character() #
-    	)#
-    )#
-)#
-#
-.HNUNode.valid <- function(object){#
-               if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {#
-            return(paste("Error with value x: Value is not initialized", class(object@x)))#
-        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {#
-            return(paste("Error with value y: Value is not initialized", class(object@y)))#
-        } else if( class(object@x)!="numeric" ) {#
-            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))#
-        } else if( class(object@y)!="numeric" ) {#
-            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))#
-        } else if( length(object@x)!=1 ){ #
-            return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), " --> no arrays supported here"))#
-        } else if( length(object@y)!=1 ){ #
-            return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), " --> no arrays supported here"))#
-        } else{ #
-            return(TRUE)#
-        }#
-}#
-setValidity("HNUNode", .HNUNode.valid)#
-is.HNUNode <- function(x){is(x,"HNUNode")}#
-setAs(#
-    "HNUNode", #
-    "data.frame", #
-    function(from) {#
-        df <- data.frame()#
-        tryCatch(#
-            {#
-            df <- data.frame(#
-                id      = from@id,#
-                label   = from@label, #
-                x       = from@x, #
-                y       = from@y#
-            )#
-            return(df)#
-            }, warning = function(w) {#
-                cat(paste("Create Dataframe from Node: Unerwartete Warnung:\n", w)) #
-            }, error   = function(e) {#
-                cat(paste("Create Dataframe from Node: Unerwarteter Fehler:\n", e)) #
-                stop(e)#
-            }, finally = { #
-                return(df)#
-            }#
-        )#
-    }#
-)#
-setAs(#
-    "data.frame", #
-    "HNUNode", #
-    function(from) {#
-        o <- NA#
-        tryCatch(#
-            { #
-                tmp.id = character()#
-                tmp.label = character()#
-                tmp.x = numeric()#
-                tmp.y = numeric()#
-#
-                if(!is.null(from$id)){#
-                    tmp.id <- from$id#
-                }#
-                if(!is.null(from$label)){#
-                    tmp.label <- from$label#
-                }#
-                if(!is.null(from$x)){#
-                    tmp.x <- from$x#
-                }#
-                if(!is.null(from$y)){#
-                    tmp.y <- from$y#
-                }#
-#
-                o <- HNUNode(x = tmp.x,y = tmp.y, id = tmp.id, label = tmp.label)#
-            }, warning = function(w) {#
-                cat(paste("Create Node from Dataframe: Unerwartete Warnung:\n", w)) #
-            }, error   = function(e) {#
-                cat(paste("Create Node from Dataframe: Unerwarteter Fehler:\n", e)) #
-                stop(e)#
-            }, finally = { #
-                return(o)#
-            } #
-        )#
-    }#
-)#
-#
-# Userfriendly function#
-HNUNode <- function(x = numeric(),y = numeric(), id = character(), label = character()){#
-    tryCatch(#
-        {#
-            o <- NA#
-            if(missing(id) | length(id) == 0 ){#
-                id <- paste("n",sample(1:1000,1),sep="")#
-            }#
-            if(missing(x) | length(x) == 0 ){#
-                x<-runif(1,0,100)#
-            }#
-            if(missing(y) | length(y) == 0 ){#
-                y<-runif(1,0,100)#
-            }#
-            if(missing(label) | length(label) == 0 ){#
-                label <- id#
-            }  #
-            o <- new("HNUNode", id = id, x = x, y = y, label = label) #
-            isvalid <- validObject(o) #
-        }, warning = function(w) {#
-            cat(paste("Create Node: Unerwartete Warnung:\n", w)) #
-        }, error   = function(e) {#
-            cat(paste("Create Node: Unerwarteter Fehler:\n", e)) #
-            stop(e)#
-        }, finally = { #
-            return(o)#
-        } #
-    ) #
-}
-require("HNUORToolsForRProject")
-require(OpenMx)#
-data(demoOneFactor)#
-manifests <- names(demoOneFactor)#
-latents <- c("G")#
-factorModel <- mxModel("One Factor",#
-      type="RAM",#
-      manifestVars = manifests,#
-      latentVars = latents,#
-      mxPath(from=latents, to=manifests),#
-      mxPath(from=manifests, arrows=2),#
-      mxPath(from=latents, arrows=2,#
-            free=FALSE, values=1.0),#
-      mxData(cov(demoOneFactor), type="cov",#
-            numObs=500))#
-summary(mxRun(factorModel))
-source('http://openmx.psyc.virginia.edu/getOpenMx.R')
-require(OpenMx)#
-data(demoOneFactor)#
-manifests <- names(demoOneFactor)#
-latents <- c("G")#
-factorModel <- mxModel("One Factor",#
-      type="RAM",#
-      manifestVars = manifests,#
-      latentVars = latents,#
-      mxPath(from=latents, to=manifests),#
-      mxPath(from=manifests, arrows=2),#
-      mxPath(from=latents, arrows=2,#
-            free=FALSE, values=1.0),#
-      mxData(cov(demoOneFactor), type="cov",#
-            numObs=500))#
-summary(mxRun(factorModel))
-require(OpenMx)#
-data(demoOneFactor)#
-factorModel <- mxModel("One Factor",#
-      mxMatrix("Full", 5, 1, values=0.2,#
-           free=TRUE, name="A"),#
-      mxMatrix("Symm", 1, 1, values=1,#
-           free=FALSE, name="L"),#
-      mxMatrix("Diag", 5, 5, values=1,#
-           free=TRUE, name="U"),#
-      mxAlgebra(A %*% L %*% t(A) + U, name="R"),#
-      mxMLObjective("R", dimnames = names(demoOneFactor)),#
-      mxData(cov(demoOneFactor), type="cov", numObs=500))#
-summary(mxRun(factorModel))
-plot(NULL,NULL, xlim = c(10,20))
-plot(NULL,NULL, xlim = c(10,20), ylim=c(20,30))
-f.col <- "white"
-length(f.col)
-rep(2,4)
-rep(c(3,1),4)
-setwd("/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject")#
-# update package#
-library(devtools)
-check()
-check()
-check()
-check()
-check()
-length(x)
-is.null(x)
-check()
-lo
+test()
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.NW(geo)  #
+ 	x <- geo$transportplan
 load_all()
-demo(HNUTPP01)
-demo(HNUTPP01)
-demo(HNUTPP01)
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.NW(geo)  #
+ 	x <- geo$transportplan
 load_all()
-demo(HNUTPP01)
-?plot
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.NW(geo)  #
+ 	x <- geo$transportplan
+matrix()
+load_all()
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.NW(geo)  #
+ 	x <- geo$transportplan
+x
+test()
+length(matrix)
+check()
+Setup is taken from: WS13/14 HNU OR-Tutorium#
+# Working.Paper 2 Case Study 2 #
+  geo<-HNUGeoSituation.create()#
+  geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+  geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+  geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+#
+  m<-getDistanceMatrix(geo,"warehouse", "customer")#
+  m<-round(m)#
+#
+  length(geo$warehouses) ==4  # TRUE#
+  length(geo$customers) ==9 # TRUE#
+#
+  nrow(m) ==4 # TRUE#
+  ncol(m) ==9 # TRUE#
+#
+  m[1,1] == 61  # TRUE#
+  m[1,2] == 36  # TRUE#
+  m[3,4] == 50  # TRUE#
+  m[4,6] == 73  # TRUE#
+  m[2,4] + m[3,5] + m[4,2] == 335 # TRUE#
+#
+  m#
+#
+# demo(HNUTPP01)#
+#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+ # solve with north-west corner rule#
+  geo<- HNU.OR.TPP.NW(geo)   #
+  x <- geo$transportplan # store transportplan in local variable#
+  x[1,1] == 150   # TRUE#
+  x[3,1] == 0     # TRUE#
+  x[3,6] == 40    # TRUE#
+  x[3,7] == 80    # TRUE#
+  x[4,9] == 120   # TRUE#
+# with Transport ammounts#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo)
+load_all()
+Setup is taken from: WS13/14 HNU OR-Tutorium#
+# Working.Paper 2 Case Study 2 #
+  geo<-HNUGeoSituation.create()#
+  geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+  geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+  geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+#
+  m<-getDistanceMatrix(geo,"warehouse", "customer")#
+  m<-round(m)#
+#
+  length(geo$warehouses) ==4  # TRUE#
+  length(geo$customers) ==9 # TRUE#
+#
+  nrow(m) ==4 # TRUE#
+  ncol(m) ==9 # TRUE#
+#
+  m[1,1] == 61  # TRUE#
+  m[1,2] == 36  # TRUE#
+  m[3,4] == 50  # TRUE#
+  m[4,6] == 73  # TRUE#
+  m[2,4] + m[3,5] + m[4,2] == 335 # TRUE#
+#
+  m#
+#
+# demo(HNUTPP01)#
+#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+ # solve with north-west corner rule#
+  geo<- HNU.OR.TPP.NW(geo)   #
+  x <- geo$transportplan # store transportplan in local variable#
+  x[1,1] == 150   # TRUE#
+  x[3,1] == 0     # TRUE#
+  x[3,6] == 40    # TRUE#
+  x[3,7] == 80    # TRUE#
+  x[4,9] == 120   # TRUE#
+# with Transport ammounts#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo)
+?points
+load_all()
+with Transport ammounts#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo)
+with Transport ammounts#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4)
+with Transport ammounts#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4)
+load_all()
+with Transport ammounts#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4)
+load_all()
+with Transport ammounts#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4)
+with Transport ammounts#
+# #
+#
+col<- 2:5#
+#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",bg.col = col, zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4, arrow.point.bg = col)
+load_all()
+with Transport ammounts#
+# #
+#
+col<- 2:5#
+#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",bg.col = col, zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4, arrow.point.bg = col)
+load_all()
+with Transport ammounts#
+# #
+#
+col<- 2:5#
+#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",bg.col = col, zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4, arrow.point.bg = col)
+with Transport ammounts#
+# #
+#
+col<- 2:5#
+#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",warehouses.bg.col = col, zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4, arrow.point.bg = col)
+m <- matrix(c(2,2,NA,NULL), nrow=2, byrow=TRUE)
+m <- matrix(c(2,2,NA,4), nrow=2, byrow=TRUE)
+m
+m[1,3] <- NULL
+m[1,2] <- NULL
+is.na(m)
+sum(is.na(m))
+m <- matrix(c(1,2,3,4,2,3,4,5,3,4,5,6,4,5,6,7), nrow=4, byrow=TRUE)
+m
+d <- 5:9
+d
+d <- 1:4
+d
+m*d
+m*t(d)
+m
+t(m)*d
+m <- matrix(c(1:4,3:6,10:14,20:24), nrow=4, byrow=TRUE)
+m <- matrix(c(1:4,3:7,10:14,20:24), nrow=4, byrow=TRUE)
+m <- matrix(c(1:4,3:8,10:14,20:24), nrow=4, byrow=TRUE)
+m
+d<-1:5
+m*d
+t(m)*d
+t(t(m)*d)
+m
+k<- 100000000000000000
+geo<-HNU.OR.TPP.CMM()
+geo<-HNU.OR.TPP.CMM(geo)
+check()
+load_all()
+HNU.OR.TPP.CMM()
+HNU.OR.TPP.CMM(geo)
 geo
-plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2")
-li<-list(main="title")
-object<-geo
-if(is.null(li$xlim)){#        #
-        xlim <- range(#
-            c(  sapply(object$nodes, function(o){o$x}),#
-                sapply(object$warehouses, function(o){o$x}),#
-                sapply(object$customers, function(o){o$x})#
-            )#
-        ) #
-    }
-xlim
-if(is.null(li$ylim)){#        #
-        ylim <- range(#
-            c(  sapply(object$nodes, function(o){o$y}),#
-                sapply(object$warehouses, function(o){o$y}),#
-                sapply(object$customers, function(o){o$y})#
-            )#
-        ) #
-    }##
-    if(is.null(li$xlab)) xlab <- ""#
-    if(is.null(li$ylab)) ylab <- ""#
-    if(is.null(li$main)) main <- ""
-main
-li$main
-check
+Setup is taken from: WS13/14 HNU OR-Tutorium#
+# Working.Paper 2 Case Study 2 #
+  geo<-HNUGeoSituation.create()#
+  geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+  geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+  geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+ # solve with north-west corner rule#
+  geo<- HNU.OR.TPP.NW(geo)   #
+  x <- geo$transportplan # store transportplan in local variable#
+  # x[1,1] == 150   # TRUE#
+  # x[3,1] == 0     # TRUE#
+  # x[3,6] == 40    # TRUE#
+  # x[3,7] == 80    # TRUE#
+  # x[4,9] == 120   # TRUE#
+  col<- 2:5#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",warehouses.bg.col = col, zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4, arrow.point.bg = col)
+x
 check()
+demo(HNUTPP02)
+geo
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+x<-sam
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+load_all()
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+load_all()
+geo<- HNU.OR.TPP.CMM(geo)
+geo$transportplan
+x<-geo$transportplan
+sum(x)
+sum(sapply(object$warehouses, function(o){o$supply}))
+sum(sapply(geo$warehouses, function(o){o$supply}))
+context("Testing HNU OR TPP Column-Minium-Method")  #
+context("\tTest 01: is procedure 'Column-Minium-Method' working correctly?") #
+test_that("'Column-Minium-Method' works correctly", {#
+ 	geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.CMM(geo)  #
+ 	x <- geo$transportplan#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)#
+ 	expect_true(sum(x) == sum(sapply(object$customers, function(o){o$demand})))#
+ 	expect_true(sum(x) == sum(sapply(object$warehouses, function(o){o$supply})))#
+}) #
+#
+context("done.")   #
+context("--------------------------------------------------")
+context("Testing HNU OR TPP Column-Minium-Method")  #
+context("\tTest 01: is procedure 'Column-Minium-Method' working correctly?") #
+test_that("'Column-Minium-Method' works correctly", {#
+ 	geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.CMM(geo)  #
+ 	x <- geo$transportplan#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)#
+#
+ 	demand <- sapply(object$customers, function(o){o$demand})#
+ 	supply <- sapply(object$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))#
+}) #
+#
+context("done.")   #
+context("--------------------------------------------------")
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.CMM(geo)  #
+ 	x <- geo$transportplan#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)#
+#
+ 	demand <- sapply(object$customers, function(o){o$demand})#
+ 	supply <- sapply(object$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))
+geo
+context("Testing HNU OR TPP Column-Minium-Method")  #
+context("\tTest 01: is procedure 'Column-Minium-Method' working correctly?") #
+test_that("'Column-Minium-Method' works correctly", {#
+ 	geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.CMM(geo)  #
+ 	x <- geo$transportplan#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)#
+#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))#
+}) #
+#
+context("done.")   #
+context("--------------------------------------------------")
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.CMM(geo)  #
+ 	x <- geo$transportplan#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)#
+#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.MMM(geo)  #
+ 	x <- geo$transportplan#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)
+load_all()
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.CMM(geo)  #
+ 	x <- geo$transportplan#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)#
+#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.MMM(geo)  #
+ 	x <- geo$transportplan#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)
+load_all()
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.MMM(geo)  #
+ 	x <- geo$transportplan#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)
+load_all()
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.MMM(geo)  #
+ 	x <- geo$transportplan#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)
+warnings()
+load_all()
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.MMM(geo)  #
+ 	x <- geo$transportplan#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))#
+	expect_true(x[1,1] == 150)#
+	expect_true(x[3,1] == 0)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,5] == 80)#
+ 	expect_true(x[4,8] == 20)
+x
+context("Testing HNU OR TPP Matrix-Minium-Method")  #
+context("\tTest 01: is procedure 'Matrix-Minium-Method' working correctly?") #
+test_that("'Matrix-Minium-Method' works correctly", {#
+ 	geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.MMM(geo)  #
+ 	x <- geo$transportplan#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))#
+	expect_true(x[1,1] == 0)#
+	expect_true(x[3,1] == 130)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,4] == 120)#
+ 	expect_true(x[4,8] == 120)#
+}) #
+#
+context("done.")   #
+context("--------------------------------------------------")
+geo<-HNUGeoSituation.create()#
+	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+	geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+	geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+	geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   )) #
+	geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+	# NO changes here  #
+	geo<- HNU.OR.TPP.MMM(geo)  #
+ 	x <- geo$transportplan#
+ 	demand <- sapply(geo$customers, function(o){o$demand})#
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})#
+ 	expect_true(sum(x) == sum(demand))#
+ 	expect_true(sum(x) == sum(supply))#
+	expect_true(x[1,1] == 0)#
+	expect_true(x[3,1] == 130)#
+	expect_true(x[3,6] == 0)#
+ 	expect_true(x[3,4] == 120)#
+ 	expect_true(x[4,8] == 120)
+solve with column-mimimum-method use domschke.version = 1995 #
+  geo<- HNU.OR.TPP.CMM(geo, domschke.version = 1995)   #
+#
+  x <- geo$transportplan # store transportplan in local variable
+load_all()
+solve with column-mimimum-method use domschke.version = 1995 #
+  geo<- HNU.OR.TPP.CMM(geo, domschke.version = 1995)   #
+#
+  x <- geo$transportplan # store transportplan in local variable
+load_all()
+solve with column-mimimum-method use domschke.version = 1995 #
+  geo<- HNU.OR.TPP.CMM(geo, domschke.version = 1995)   #
+#
+  x <- geo$transportplan # store transportplan in local variable
+x
+Setup is taken from: WS13/14 HNU OR-Tutorium#
+# Working.Paper 2 Case Study 2 #
+  geo<-HNUGeoSituation.create()#
+  geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 350   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 450   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 300   ))#
+  geo<-add(geo,new("HNUWarehouse", id="L4", x=160,  y=10,   supply = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 300   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 180   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K5", x=30,   y=40,   demand = 100   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K6", x=140,  y=80,   demand = 40    ))#
+  geo<-add(geo,new("HNUCustomer",  id="K7", x=100,  y=15,   demand = 80    ))#
+  geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   ))#
+  geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))#
+ # solve with column-mimimum-method use default domschke.version = 2007  #
+  geo<- HNU.OR.TPP.CMM(geo)   #
+  x <- geo$transportplan # store transportplan in local variable#
+   x[1,1] == 150   # TRUE#
+   x[3,1] == 0     # TRUE#
+   x[3,6] == 40    # TRUE#
+   x[3,7] == 80    # TRUE#
+   x[4,9] == 120   # TRUE#
+  col<- 2:5#
+  plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",warehouses.bg.col = col, zoom=1.7, plotNodes=FALSE,plotGrid=FALSE)#
+  plotGeoSituation.transportplan(geo, arrow.point.cex = 4, arrow.point.bg = col)#
+ # solve with column-mimimum-method use domschke.version = 1995 #
+  geo<- HNU.OR.TPP.CMM(geo, domschke.version = 1995)   #
+#
+  x <- geo$transportplan # store transportplan in local variable#
+   x[1,1] == 150   # TRUE#
+   x[3,1] == 0     # TRUE#
+   x[3,6] == 0    # TRUE#
+   x[3,5] == 100    # TRUE#
+   x[4,9] == 0     # TRUE
+test()
+for(i in 1:5){#
+	cat(i, "\n")#
+	if(i >3) break#
+#
+}
+for(i in 1:5){#
+	cat(i, "\n")#
+	if(i >=3) break#
+#
+}
+N<- 10
+m<- matrix(rep(c(NA,NA), N), ncol=2, byrow = TRUE)
+m
+data.frame(m)
+m<- matrix(rep(c(NA,NA), N), ncol=2, byrow = TRUE)#
+ 	colnames(m) <- c("d","p")#
+ 	data.frame(m)
+m<- matrix(rep(c(NA,NA), N), ncol=2, byrow = TRUE)#
+ 	colnames(m) <- c("d","p")#
+ 	m<- data.frame(m)
+m
+m<- matrix(rep(rep(c(NA,NA), N),N), ncol=2*N, byrow = TRUE)#
+ 	colnames(m) <- c("d","p")#
+ 	m<- data.frame(m)
+m<- matrix(rep(rep(c(NA,NA), N),N), ncol=2*N, byrow = TRUE)#
+ 	colnames(m) <- paste(c("d","p"), 1:N, sep = "")#
+ 	m<- data.frame(m)
+m
+paste(c("d","p"), 1:N, sep = "")
+colnames(m) <- paste(c("d","p"), rep(1:N,2), sep = "")
+m
+m<- data.frame(a = 1, b =2)
+x <- data.frame(a=2, b = 4)
+rbind(m, x)
 check()
+create 4 Nodes#
+geo<-HNUGeoSituation.create()#
+#
+n1<- HNUNode.create(id = "n1", x=10, y=20)#
+geo<-geo.add(n1)#
+n2<- HNUNode.create(id = "n2",x=13, y=24)#
+geo<-geo.add(n2)#
+n3<- new("HNUNode", id = "n3",x=7, y=16)#
+geo<-geo.add(n3)#
+n4<- new("HNUNode", id = "n4",x=7, y=20)#
+geo<-geo.add(n4)#
+l1 <- HNULink.create(n1,n2)#
+l2 <- HNULink.create(n1,n3)#
+l3 <- HNULink.create(n1,n4)#
+l4 <- HNULink.create(n3,n4)#
+#
+geo<-geo.add(l1)#
+geo<-geo.add(l2)#
+geo<-geo.add(l3)#
+geo<-geo.add(l4)
+create 4 Nodes#
+geo<-HNUGeoSituation.create()#
+#
+n1<- HNUNode.create(id = "n1", x=10, y=20)#
+geo<-add(geo,n1)#
+n2<- HNUNode.create(id = "n2",x=13, y=24)#
+geo<-add(geo,n2)#
+n3<- new("HNUNode", id = "n3",x=7, y=16)#
+geo<-add(geo,n3)#
+n4<- new("HNUNode", id = "n4",x=7, y=20)#
+geo<-add(geo,n4)#
+l1 <- HNULink.create(n1,n2)#
+l2 <- HNULink.create(n1,n3)#
+l3 <- HNULink.create(n1,n4)#
+l4 <- HNULink.create(n3,n4)#
+#
+geo<-add(geo,l1)#
+geo<-add(geo,l2)#
+geo<-add(geo,l3)#
+geo<-add(geo,l4)
+load_all()
+create 4 Nodes#
+geo<-HNUGeoSituation.create()#
+#
+n1<- HNUNode.create(id = "n1", x=10, y=20)#
+geo<-add(geo,n1)#
+n2<- HNUNode.create(id = "n2",x=13, y=24)#
+geo<-add(geo,n2)#
+n3<- new("HNUNode", id = "n3",x=7, y=16)#
+geo<-add(geo,n3)#
+n4<- new("HNUNode", id = "n4",x=7, y=20)#
+geo<-add(geo,n4)#
+l1 <- HNULink.create(n1,n2)#
+l2 <- HNULink.create(n1,n3)#
+l3 <- HNULink.create(n1,n4)#
+l4 <- HNULink.create(n3,n4)#
+#
+geo<-add(geo,l1)#
+geo<-add(geo,l2)#
+geo<-add(geo,l3)#
+geo<-add(geo,l4)
+create 4 Nodes#
+geo<-HNUGeoSituation.create()#
+#
+n1<- HNUNode.create(id = "n1", x=10, y=20)#
+geo<-add(geo,n1)#
+n2<- HNUNode.create(id = "n2",x=13, y=24)#
+geo<-add(geo,n2)#
+n3<- new("HNUNode", id = "n3",x=7, y=16)#
+geo<-add(geo,n3)#
+n4<- new("HNUNode", id = "n4",x=7, y=20)#
+geo<-add(geo,n4)#
+l1 <- HNULink.create(n1,n2)#
+l2 <- HNULink.create(n1,n3)#
+l3 <- HNULink.create(n1,n4)#
+l4 <- HNULink.create(n3,n4)#
+#
+geo<-add(geo,l1)#
+geo<-add(geo,l2)#
+geo<-add(geo,l3)#
+geo<-add(geo,l4)#
+#
+plotGeoSituation(geo, main="random shortest path problem")
+create 4 Nodes#
+geo<-HNUGeoSituation.create()#
+#
+n1<- HNUNode.create(id = "n1", x=10, y=20)#
+geo<-add(geo,n1)#
+n2<- HNUNode.create(id = "n2",x=13, y=24)#
+geo<-add(geo,n2)#
+n3<- new("HNUNode", id = "n3",x=7, y=16)#
+geo<-add(geo,n3)#
+n4<- new("HNUNode", id = "n4",x=7, y=20)#
+geo<-add(geo,n4)#
+l1 <- HNULink.create(n1,n2)#
+l2 <- HNULink.create(n1,n3)#
+l3 <- HNULink.create(n1,n4)#
+l4 <- HNULink.create(n3,n4)#
+#
+geo<-add(geo,l1)#
+geo<-add(geo,l2)#
+geo<-add(geo,l3)#
+geo<-add(geo,l4)#
+#
+plotGeoSituation(geo, main="random shortest path problem", plotLinks=TRUE, plotNodes=TRUE)
+load_all()
+create 4 Nodes#
+geo<-HNUGeoSituation.create()#
+#
+n1<- HNUNode.create(id = "n1", x=10, y=20)#
+geo<-add(geo,n1)#
+n2<- HNUNode.create(id = "n2",x=13, y=24)#
+geo<-add(geo,n2)#
+n3<- new("HNUNode", id = "n3",x=7, y=16)#
+geo<-add(geo,n3)#
+n4<- new("HNUNode", id = "n4",x=7, y=20)#
+geo<-add(geo,n4)#
+l1 <- HNULink.create(n1,n2)#
+l2 <- HNULink.create(n1,n3)#
+l3 <- HNULink.create(n1,n4)#
+l4 <- HNULink.create(n3,n4)#
+#
+geo<-add(geo,l1)#
+geo<-add(geo,l2)#
+geo<-add(geo,l3)#
+geo<-add(geo,l4)#
+#
+plotGeoSituation(geo, main="random shortest path problem", plotLinks=TRUE, plotNodes=TRUE)
+plotGeoSituation(geo, main="random shortest path problem")
+plotGeoSituation(geo, main="random shortest path problem")
+plotGeoSituation(geo, main="random shortest path problem")
+plot.new()
+dev.new()
+create 4 Nodes#
+geo<-HNUGeoSituation.create()#
+#
+n1<- HNUNode.create(id = "n1", x=10, y=20)#
+geo<-add(geo,n1)#
+n2<- HNUNode.create(id = "n2",x=13, y=24)#
+geo<-add(geo,n2)#
+n3<- new("HNUNode", id = "n3",x=7, y=16)#
+geo<-add(geo,n3)#
+n4<- new("HNUNode", id = "n4",x=7, y=20)#
+geo<-add(geo,n4)#
+l1 <- HNULink.create(n1,n2)#
+l2 <- HNULink.create(n1,n3)#
+l3 <- HNULink.create(n1,n4)#
+l4 <- HNULink.create(n3,n4)#
+#
+geo<-add(geo,l1)#
+geo<-add(geo,l2)#
+geo<-add(geo,l3)#
+geo<-add(geo,l4)#
+geo <- HNU.OR.SPP.Dijkstra(geo,log=TRUE, plot=TRUE, main="random shortest path problem"))
+geo <- HNU.OR.SPP.Dijkstra(geo,log=TRUE, plot=TRUE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,log=TRUE, plot=TRUE, main="random shortest path problem")
+plotGeoSituation(geo, main="random shortest path problem")
+load_all()
+load_all()
 check()
 load_all()
-demo(HNUTPP01)
+create 4 Nodes#
+geo<-HNUGeoSituation.create()#
+#
+n1<- HNUNode.create(id = "n1", x=10, y=20)#
+geo<-add(geo,n1)#
+n2<- HNUNode.create(id = "n2",x=13, y=24)#
+geo<-add(geo,n2)#
+n3<- new("HNUNode", id = "n3",x=7, y=16)#
+geo<-add(geo,n3)#
+n4<- new("HNUNode", id = "n4",x=7, y=20)#
+geo<-add(geo,n4)#
+l1 <- HNULink.create(n1,n2)#
+l2 <- HNULink.create(n1,n3)#
+l3 <- HNULink.create(n1,n4)#
+l4 <- HNULink.create(n3,n4)#
+#
+geo<-add(geo,l1)#
+geo<-add(geo,l2)#
+geo<-add(geo,l3)#
+geo<-add(geo,l4)#
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=TRUE, main="random shortest path problem")
+load_all()
+create 4 Nodes#
+geo<-HNUGeoSituation.create()#
+#
+n1<- HNUNode.create(id = "n1", x=10, y=20)#
+geo<-add(geo,n1)#
+n2<- HNUNode.create(id = "n2",x=13, y=24)#
+geo<-add(geo,n2)#
+n3<- new("HNUNode", id = "n3",x=7, y=16)#
+geo<-add(geo,n3)#
+n4<- new("HNUNode", id = "n4",x=7, y=20)#
+geo<-add(geo,n4)#
+l1 <- HNULink.create(n1,n2)#
+l2 <- HNULink.create(n1,n3)#
+l3 <- HNULink.create(n1,n4)#
+l4 <- HNULink.create(n3,n4)#
+#
+geo<-add(geo,l1)#
+geo<-add(geo,l2)#
+geo<-add(geo,l3)#
+geo<-add(geo,l4)#
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=TRUE, main="random shortest path problem")
+links <- geo$links
+links
+sapply(links, function(o){if(o$origin$id=="n3" & o$destination$id =="n4") return(o)})
+conn <- c("n3", "n4")#
+#
+sapply(links, function(o){if(o$origin$id==conn[1] & o$destination$id ==conn[2]) return(o)})
+conn <- c("n3", "n4")#
+#
+li <- sapply(links, function(o){if(o$origin$id==conn[1] & o$destination$id ==conn[2]) return(o)})#
+#
+delete.NULLs  <-  function(x.list){   # delele null/empty entries in a list#
+    x.list[unlist(lapply(x.list, length) != 0)]#
+}#
+#
+delete.NULLs(li)
+class(conn)
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=TRUE, plot=FALSE, main="random shortest path problem")
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=FALSE, plot=TRUE, main="random shortest path problem")
+load_all()
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=FALSE, plot=TRUE, main="random shortest path problem")
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=FALSE, plot=TRUE, main="random shortest path problem")
+?plot
+load_all()
+?plot
+load_all()
 check()
 load_all()
-demo(HNUTPP01)
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=FALSE, plot=TRUE, main="random shortest path problem")
 load_all()
-demo(HNUTPP01)
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=FALSE, plot=TRUE, main="random shortest path problem")
+x<- data.frame(x=1, y=2)
+x
+cbind(x,x)
 load_all()
-demo(HNUTPP01)
-demo(HNUTPP01)
-demo(HNUTPP01)
-demo(HNUTPP01)
-demo(HNUTPP01)
-demo(HNUTPP01)
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=FALSE, plot=TRUE, main="random shortest path problem")
 load_all()
-demo(HNUTPP01)
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=FALSE, plot=TRUE, main="random shortest path problem")
 load_all()
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-load_all()
-demo(HNUTPP01)
-demo(HNUTPP01)
-demo(HNUTPP01)
-?demo
-demo(HNUTPP01, echo=FALSE)
-demo(HNUTPP01, verbose =FALSE)
-demo(HNUTPP01, ask =FALSE)
-demo(HNUTPP01, ask =FALSE, package = "HNUORTOOLS")
-demo(HNUTPP01, ask =FALSE, package = "HNUORTools")
-consoleclear(RConsole)
-consoleclear()
-cat("\033[2J")
+geo <- HNU.OR.SPP.Dijkstra(geo,start=3, log=FALSE, plot=TRUE, main="random shortest path problem")
+geo$shortestpath$finaltableau
