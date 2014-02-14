@@ -20,9 +20,9 @@ setGeneric("HNU.OR.TPP.CMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
 	#set initial transportplan
 	x <- object$transportplan * 0 
 
-	if(is.null(li$version)) li$version <- 2007
+	if(is.null(li$domschke.version)) li$domschke.version <- 2007
 
-	if(li$version == 1995){
+	if(li$domschke.version == 1995){
 		message("Using Domschke 1995\n")
 		while(sum(demand)>0){		 
 			for(j in (1:J)){ 
@@ -36,12 +36,14 @@ setGeneric("HNU.OR.TPP.CMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
 						}
 					}
 				}
-				if(!is.na(i)){
-					x[i,j] <- min(c(supply[i],demand[j]))
-					supply[i] <- supply[i] - x[i,j]
-					demand[j] <- demand[j] - x[i,j] 
-				}else{
-					stop("this should not happen.")
+				if(demand[j]>0){
+					if(!is.na(i)){
+						x[i,j] <- min(c(supply[i],demand[j]))
+						supply[i] <- supply[i] - x[i,j]
+						demand[j] <- demand[j] - x[i,j] 
+					}else{
+						stop("this should not happen.")
+					}
 				}
 			}
 		}   
