@@ -10,9 +10,9 @@ assign("warehouses",  list(), envir = .HNUORToolsEnv)
 .onAttach <- function(lib, pkg){
   packageStartupMessage(
           "------------------------------------------------",
-        "\n HNUORTools Version ",  utils::packageDescription("HNUORToolsForRProject", field="Version"), 
+        "\n HNUORTools Version ",  utils::packageDescription("HNUORTools", field="Version"), 
         "\n Tools for Operationsresearch Tutorium",
-        "\n For an introduction visit: http://felixlindemann.github.io/HNUORToolsForRProject/",
+        "\n For an introduction visit: http://felixlindemann.github.io/HNUORTools/",
         "\n CAUTION: The package is in alpha phase.",
         "\n          Design changes may still occur.", 
         "\n------------------------------------------------", 
