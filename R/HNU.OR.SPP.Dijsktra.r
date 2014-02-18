@@ -147,7 +147,7 @@ setGeneric("HNU.OR.SPP.Dijkstra",  function(object,...)  standardGeneric("HNU.OR
  	# Log
 	if(li$log) {
 		cat("Final solution (sorted Q):\n")
-		print(object$shortestpath) 
+		print(object$shortestpath$finaltableau) 
 	}
 
  	return (object)
