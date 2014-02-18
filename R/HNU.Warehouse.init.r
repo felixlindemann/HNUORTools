@@ -9,63 +9,96 @@ HNUWarehouse.create.default<-function(...){
     return(Warehouse)
 }
  
-setMethod("initialize", "HNUWarehouse", function(.Object, ..., showwarnings=FALSE) {
+setMethod("initialize", "HNUWarehouse", function(.Object, data=NULL, ...) {
       
-     li <- list(...)
-     open <- TRUE
-   
-    if(length(li) == 1){ 
-       if(  class(li[[1]]) == "data.frame"  )  { # data.frame
-            df<- li[[1]]
-            if(is.null(nrow(df))){
-                w<-paste("No Input provided. Random content will be provided.")
-                if(showwarnings) warning(w)
-            } else {
- 
-                if(!is.null(df$supply))       .Object@supply     <- as.numeric(df$supply) 
-                if(!is.null(df$fixcosts))       .Object@fixcosts     <- as.numeric(df$fixcosts) 
+    li <- list(...)
+
+    if(is.null(li$showwarnings)) li$showwarnings <- FALSE 
+    
+
+    if(!is.null(data)){ 
+        if(class(data) =="data.frame") {
+            if(nrow(data) !=1) stop("Dataframes may only have one row for init.")
+            li$supply <- data$supply
+            li$fixcosts <- data$fixcosts
+            li$isDummy <- data$isDummy
+            li$open <- data$open 
+        } else if(class(data) =="list") {
+            
+            duplicate.fields <- NULL
+            for(j in 1:length(data)){
+                l <- which(names(data)[j]==names(li))
+                if(length(l) > 0){
+                    duplicate.fields <- c(duplicate.fields,names(li)[l])
+                }
             }
+            duplicate.fields <- unique(duplicate.fields) 
+            if(length(duplicate.fields)>0)  
+                stop(paste("Cannot Construct Object. The field(s) '",
+                        paste( 
+                            duplicate.fields, 
+                            collapse="', '", 
+                            sep=""
+                        ),
+                        "' are given more than once.", 
+                        sep=""
+                     )
+                )
+
+            li<- append( data,li) 
+        } else{ 
+            stop("Error: argument data should be of type 'data.frame' or 'list'!")
         }
     }
-    if(is.null(li$isDummy)) li$isDummy <- FALSE
-    .Object@isDummy <- li$isDummy
-    
-    
-    if(!is.null(li$supply))    {
-        if(length(li$supply)!=1){
-            stop("only 1 item for attribute supply accepted.")
-        }
-        .Object@supply     <- as.numeric(li$supply) 
-    }  
-    if(!is.null(li$open))    {
+ 
+    if(is.null(li$isDummy)) {
+        li$isDummy <- FALSE 
+        w <- paste("Attribute isDummy set to default: FALSE.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$isDummy)!=1){
+            stop("only 1 item for attribute isDummy accepted.")
+        } 
+    }
+    if(is.null(li$open))  {
+        li$open <- TRUE
+        w <- paste("Attribute Open set to default: TRUE.")
+        if(li$showwarnings) warning(w) 
+    } else  {
         if(length(li$open)!=1){
             stop("only 1 item for attribute supply accepted.")
-        }
-
-        open     <- as.logical(li$open) 
+        } 
     }   
-    .Object@open <- open
-    if(!is.null(li$fixcosts))    {
+    if(is.null(li$supply))    {
+        li$supply <-   as.numeric(sample(1:1000,1))
+        w <- paste("Random supply (",li$supply,") provided.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$supply)!=1){
+            stop("only 1 item for attribute supply accepted.")
+        } 
+    }  
+    if(is.null(li$fixcosts)){
+        li$fixcosts <- as.numeric(sample(1:1000,1))
+        w <- paste("Random fixcosts (",li$fixcosts,") provided.")
+        if(li$showwarnings) warning(w) 
+    }else{
         if(length(li$fixcosts)!=1){
             stop("only 1 item for attribute fixcosts accepted.")
         }
-        .Object@fixcosts     <- as.numeric(li$fixcosts) 
-    }   
-    if(is.null(.Object@supply) | length(.Object@supply) == 0 ){
-        .Object@supply <- as.numeric(sample(1:1000,1))
-        w <- paste("Random supply (",.Object@supply,") provided.")
-        if(showwarnings) warning(w) 
-    }   
-    if(is.null(.Object@fixcosts) | length(.Object@fixcosts) == 0 ){
-        .Object@fixcosts <- as.numeric(sample(1:1000,1))
-        w <- paste("Random fixcosts (",.Object@fixcosts,") provided.")
-        if(showwarnings) warning(w) 
-    }   
-    
+    }    
+    .Object@isDummy <- li$isDummy
+    .Object@supply     <- li$supply
+    .Object@open     <- as.logical(li$open) 
+    .Object@fixcosts     <- as.numeric(li$fixcosts) 
+    .Object@supply <- as.numeric(li$supply) 
+     
     #get initalizer for HNUNode
-    .Object<-callNextMethod(.Object,...)
+    .Object<-callNextMethod(.Object,data,...)
 
     if(validObject(.Object)) {
         return(.Object )
+    }else{
+         stop("No valid Object was created.")
     }
 })

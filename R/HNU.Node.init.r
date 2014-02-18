@@ -9,65 +9,88 @@ HNUNode.create.default<-function(...){
     return(node)
 }
 
-# setGeneric("HNUNode.create",function(...){standardGeneric("HNUNode.create")})
-
-# setMethod("HNUNode.create", signature(), HNUNode.create)
-
-
-setMethod("initialize", "HNUNode", function(.Object, ..., showwarnings=FALSE) {
+setMethod("initialize", signature="HNUNode", function(.Object, data=NULL, ...) {
       
     li <- list(...)
-
-   
-    if(length(li) == 1){ 
-       if(  class(li[[1]]) == "data.frame"  )  { # data.frame
-            df<- li[[1]]
-            if(is.null(nrow(df))){
-                w<-paste("No Input provided. Random content will be provided.")
-                if(showwarnings) warning(w)
-            } else {
- 
-                if(!is.null(df$id))       .Object@id     <- as.character(df$id)
-                if(!is.null(df$label))    .Object@label  <- as.character(df$label)
-                if(!is.null(df$x))        .Object@x      <- as.numeric(  df$x)
-                if(!is.null(df$y))        .Object@y      <- as.numeric(  df$y)
-
+    if(is.null(li$showwarnings))  li$showwarnings <- FALSE
+    if(!is.null(data)){ 
+        if(class(data) =="data.frame") {
+            if(nrow(data) !=1) stop("Dataframes may only have one row for init.")
+            li$x <- data$x
+            li$y <- data$y
+            li$id <- data$id
+            li$label <- data$label 
+        } else if(class(data) =="list") {
+            
+            duplicate.fields <- NULL
+            for(j in 1:length(data)){
+                l <- which(names(data)[j]==names(li))
+                if(length(l) > 0){
+                    duplicate.fields <- c(duplicate.fields,names(li)[l])
+                }
             }
+            duplicate.fields <- unique(duplicate.fields) 
+            if(length(duplicate.fields)>0)  
+                stop(paste("Cannot Construct Object. The field(s) '",
+                        paste( 
+                            duplicate.fields, 
+                            collapse="', '", 
+                            sep=""
+                        ),
+                        "' are given more than once.", 
+                        sep=""
+                     )
+                )
+
+            li<- append( data,li) 
+        } else{ 
+            stop("Error: argument data should be of type 'data.frame' or 'list'!")
         }
     }
-    if(!is.null(li$x)){
-        .Object@x      <- as.numeric(  li$x)
-    }
-    if(!is.null(li$y)){
-        .Object@y      <- as.numeric(  li$y)
-    }
     
-    if(!is.null(li$id)){
-        .Object@id      <- as.character(  li$id)
-    }
-    if(!is.null(li$label)){
-        .Object@label      <- as.character(  li$label)
-    }
-    if(is.null(.Object@id) | length(.Object@id) == 0 ){
-        .Object@id <- paste("n",sample(1:1000,1),sep="")
-        w <- paste("Random ID (",.Object@id,") provided. Uniqueness may not be given.")
-        if(showwarnings) warning(w) 
-    }
-    if(is.null(.Object@x) | length(.Object@x) == 0 ){
-        .Object@x <-as.numeric(runif(1,0,100))
-        w <- paste("x-Coordinate simulated (x= ",.Object@x,").")
-        if(showwarnings) warning(w)
-    }               
-    if(is.null(.Object@y) | length(.Object@y) == 0 ){
-        .Object@y <-as.numeric(runif(1,0,100))
-        w <- paste("y-Coordinate simulated (y= ",.Object@y,").")
-        if(showwarnings) warning(w)
-    }               
-    if(is.null(.Object@label) | length(.Object@label) == 0 ){
-        .Object@label <- .Object@id 
-        w <- paste("No label provided. ID (id = ",.Object@id,") used instead.")
-        if(showwarnings) warning(w)
+    if(is.null(li$x)) {
+        li$x <- as.numeric(runif(1,0,100)) 
+        w <- paste("x-Coordinate simulated (x= ",li$x,").")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$x)!=1){
+            stop("only 1 item for attribute x accepted.")
+        } 
     } 
+    if(is.null(li$y)) {
+        li$y <- as.numeric(runif(1,0,100)) 
+        w <- paste("y-Coordinate simulated (y= ",li$y,").")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$y)!=1){
+            stop("only 1 item for attribute y accepted.")
+        } 
+    }
+
+    if(is.null(li$id)) {
+        li$id <- paste("n",sample(1:1000,1),sep="")
+        w <- paste("Random ID (",li$id,") provided. Uniqueness may not be given.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$id)!=1){
+            stop("only 1 item for attribute id accepted.")
+        } 
+    } 
+    if(is.null(li$label)) {
+        li$label <- li$id
+        w <- paste("Random label (",li$label,") provided. Uniqueness may not be given.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$label)!=1){
+            stop("only 1 item for attribute label accepted.")
+        } 
+    }
+
+    .Object@x      <- as.numeric(  li$x)
+    .Object@y      <- as.numeric(  li$y)
+    .Object@id     <- as.character(li$id)
+    .Object@label  <- as.character(li$label)
+  
   
     if(validObject(.Object)) {
         return(.Object )
