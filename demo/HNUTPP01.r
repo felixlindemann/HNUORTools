@@ -41,7 +41,7 @@
   
  # solve with north-west corner rule
   geo<- HNU.OR.TPP.NW(geo)   
-  x <- geo$transportplan # store transportplan in local variable
+  x <- geo$tpp.x # store transportplan in local variable
  
   x[1,1] == 150   # TRUE
   x[3,1] == 0     # TRUE
