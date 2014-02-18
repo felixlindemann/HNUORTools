@@ -6,7 +6,7 @@ HNUGeoSituation.create.default<-function(...){
     return(geo)
 }
  
-setMethod("initialize", "HNUGeoSituation", function(.Object, ..., showwarnings=FALSE) {
+setMethod("initialize", "HNUGeoSituation", function(.Object, ... ) {
       
     li <- list(...)
     .Object@nodes <- list()
@@ -14,12 +14,16 @@ setMethod("initialize", "HNUGeoSituation", function(.Object, ..., showwarnings=F
     .Object@customers <- list()
     .Object@links <- list()
 
+    if(is.null(li$showwarnings))  li$showwarnings <- FALSE
+   
     if(!is.null(li$nodes)) .Object@nodes <- li$nodes
     if(!is.null(li$warehouses)) .Object@warehouses <- li$warehouses
     if(!is.null(li$customers)) .Object@customers <- li$customers
     if(!is.null(li$links)) .Object@links <- li$links
     
-    #.Object@transportplan <- matrix() # will no be assignable on init.
+    .Object@tpp.x <- matrix() # will no be assignable on init.
+    .Object@tpp.costs <- matrix() # will no be assignable on init.
+    .Object@tpp.costs.opp <- matrix() # will no be assignable on init.
 
     
     if(!is.null(li$id)){
@@ -31,12 +35,12 @@ setMethod("initialize", "HNUGeoSituation", function(.Object, ..., showwarnings=F
     if(is.null(.Object@id) | length(.Object@id) == 0 ){
         .Object@id <- paste("n",sample(1:1000,1),sep="")
         w <- paste("Random ID (",.Object@id,") provided. Uniqueness may not be given.")
-        if(showwarnings) warning(w) 
+        if(li$showwarnings) warning(w) 
     }       
     if(is.null(.Object@label) | length(.Object@label) == 0 ){
         .Object@label <- .Object@id 
         w <- paste("No label provided. ID (id = ",.Object@id,") used instead.")
-        if(showwarnings) warning(w)
+        if(li$showwarnings) warning(w)
     } 
   
     if(validObject(.Object)) {
