@@ -18,7 +18,7 @@
   geo<-add(geo,new("HNUCustomer",  id="K8", x=155,  y=55,   demand = 120   ))
   geo<-add(geo,new("HNUCustomer",  id="K9", x=125,  y=145,  demand = 130   ))
 
-  m<-getDistanceMatrix(geo,"warehouse", "customer")
+  m<-HNU.OR.getDistanceMatrix(geo,"warehouse", "customer")
   m<-round(m)
 
   length(geo$warehouses) ==4  # TRUE
