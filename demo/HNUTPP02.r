@@ -20,7 +20,7 @@
  
  # solve with column-mimimum-method use default domschke.version = 2007  
   geo<- HNU.OR.TPP.CMM(geo)   
-  x <- geo$transportplan # store transportplan in local variable
+  x <- geo$tpp.x # store transportplan in local variable
  
    x[1,1] == 150   # TRUE
    x[3,1] == 0     # TRUE
@@ -36,7 +36,7 @@
  # solve with column-mimimum-method use domschke.version = 1995 
   geo<- HNU.OR.TPP.CMM(geo, domschke.version = 1995)   
 
-  x <- geo$transportplan # store transportplan in local variable
+  x <- geo$tpp.x # store transportplan in local variable
  
 
    x[1,1] == 150   # TRUE
