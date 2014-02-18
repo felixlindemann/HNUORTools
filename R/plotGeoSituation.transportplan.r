@@ -2,7 +2,7 @@ setGeneric("plotGeoSituation.transportplan", function(object,...)  standardGener
  setMethod("plotGeoSituation.transportplan",signature(object="HNUGeoSituation"),
   function(object,...){
     li<-list(...)  
-	x <- object$transportplan		# store transportplan locally
+	x <- object$tpp.x		# store transportplan locally
 	I <- length(object$warehouses)	
 	J <- length(object$customers) 
 	if(length(x) == I * J){
