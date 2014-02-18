@@ -4,15 +4,13 @@ setGeneric("HNU.OR.TPP.NW",  function(object,...)  standardGeneric("HNU.OR.TPP.N
     
     li<-list(...)  
   	object <- HNU.OR.TPP.Prepare(object, ...) 			# repair degenerated if needed
-	object <- HNU.OR.TPP.addTransportplan(object, ...)  # set initial Transportation Plan
+	x <- HNU.OR.getInitialMatrix(object, ...)  # set initial Transportation Plan
 	
 	#set supply and demand
   	supply <- sapply(object$warehouses, function(o){o$supply})
 	demand <- sapply(object$customers , function(o){o$demand})
 	if(sum(supply) != sum(demand)) stop("This alg. can be used for non-degenerated solutions only: The Sums of warehouse$supply and customer$demand are not equal.")
-
-	#set initial transportplan
-	x <- object$transportplan * 0 
+ 
 	
 
 	for(i in (1:length(object$warehouses))){ 
@@ -23,7 +21,7 @@ setGeneric("HNU.OR.TPP.NW",  function(object,...)  standardGeneric("HNU.OR.TPP.N
 		}
 	} 
 
-	object$transportplan <- x  
+	object$tpp.x <- x  
 
 	return(object)
 	}

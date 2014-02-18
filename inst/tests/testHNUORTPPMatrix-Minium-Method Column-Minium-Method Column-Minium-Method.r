@@ -23,7 +23,7 @@ test_that("'Matrix-Minium-Method' works correctly", {
  
 	geo<- HNU.OR.TPP.MMM(geo)  
  	
- 	x <- geo$transportplan
+ 	x <- geo$tpp.x
  	
  	demand <- sapply(geo$customers, function(o){o$demand})
  	supply <- sapply(geo$warehouses, function(o){o$supply})

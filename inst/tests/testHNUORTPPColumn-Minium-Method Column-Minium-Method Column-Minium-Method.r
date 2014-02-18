@@ -23,7 +23,7 @@ test_that("'Column-Minium-Method' works correctly", {
  
 	geo<- HNU.OR.TPP.CMM(geo)  
  	
- 	x <- geo$transportplan
+ 	x <- geo$tpp.x
  
 	expect_true(x[1,1] == 150)
 	expect_true(x[3,1] == 0)

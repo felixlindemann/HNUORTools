@@ -23,7 +23,7 @@ test_that("'Northwest Corner Rule' works correctly", {
  
 	geo<- HNU.OR.TPP.NW(geo)  
  	
- 	x <- geo$transportplan
+ 	x <- geo$tpp.x
  
 	expect_true(x[1,1] == 150)
 	expect_true(x[3,1] == 0)

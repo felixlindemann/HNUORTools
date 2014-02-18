@@ -4,10 +4,9 @@ setGeneric("HNU.OR.TPP.MMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
     
     li<-list(...)  
   	object <- HNU.OR.TPP.Prepare(object, ...) 			# repair degenerated if needed
-	object <- HNU.OR.TPP.addTransportplan(object, ...)  # set initial Transportation Plan
-	object <- HNU.OR.TPP.addTransportCosts(object, ...) # make sure, Transportcostsmatrix (cij) is set.
-    cij    <- object$transportcosts 					# store transportcosts localy
-
+	cij    <- HNU.OR.getCostMatrix(object, ...)	# store transportcosts localy
+	object$tpp.costs <- cij
+	
 	I <- length(object$warehouses)
 	J <- length(object$customers)
 	
@@ -18,7 +17,8 @@ setGeneric("HNU.OR.TPP.MMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
 	if(sum(supply) != sum(demand)) stop("This alg. can be used for non-degenerated solutions only: The Sums of warehouse$supply and customer$demand are not equal.")
 
 	#set initial transportplan
-	x <- object$transportplan * 0 
+	x <- HNU.OR.getInitialMatrix(object, ...)  # set initial Transportation Plan
+	
    	while(sum(demand)>0){	
 
    		ij <- NULL
@@ -48,7 +48,7 @@ setGeneric("HNU.OR.TPP.MMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
 		if(sum(demand) + sum(supply) == 0) break
    	}
  
-	object$transportplan <- x   
+	object$tpp.x <- x   
 	return(object)
   }
 )
