@@ -3,7 +3,7 @@ setGeneric("HNU.OR.TPP.SteppingStone",  function(object,...)  standardGeneric("H
   function(object,...){ 
     message("HNU.OR.TPP.SteppingStone\n")
   	li <- list(...) 
-  	if(is.null(li$itermax))  li$itermax  <- -1
+  	if(is.null(li$maxiter))  li$maxiter  <- -1
   	if(is.null(li$iter)) 	 li$iter 	 <- 1
   	if(is.null(li$log)) 	 li$log 	 <- TRUE
   	if(is.null(li$plot)) 	 li$plot 	 <- TRUE
@@ -12,6 +12,9 @@ setGeneric("HNU.OR.TPP.SteppingStone",  function(object,...)  standardGeneric("H
  	N<- length(object$warehouses)
 
 	cij <- object$tpp.costs
+
+ 	demand <- sapply(object$customers, function(o){o$demand})
+ 	supply <- sapply(object$warehouses, function(o){o$supply})
 
 	while( TRUE ){
 		#get indices of m.opp
@@ -22,6 +25,15 @@ setGeneric("HNU.OR.TPP.SteppingStone",  function(object,...)  standardGeneric("H
 				 "the amount of base-variables is not as expected M+N-1 == length(x[x>0])",
 				 "(",(M+N-1),"!= ",length(x[x>0]),").\n",
 				 "This problem is not solveable with the current version of HNUORTools.")
+			stop(msg)
+		}
+		if(sum(x) != sum(demand) ){
+			msg <- paste("An error occured in iteration: ",li$iter, ". The transported amount is not equal to the demand.",
+						  "expected: ", sum(demand), "calculated (sum(x)):", sum(x))
+			stop(msg)
+		}else if( 	sum(x) != sum(supply) ){
+			msg <- paste( "An error occured in iteration: ",li$iter, ". The transported amount is not equal to the supply.",
+			 			"expected: ", sum(supply), "calculated (sum(x)):", sum(x))
 			stop(msg)
 		}
 
@@ -88,8 +100,8 @@ setGeneric("HNU.OR.TPP.SteppingStone",  function(object,...)  standardGeneric("H
 		
 		object$tpp.x <- x 
 		li$iter <- li$iter+1
-		if(li$itermax >0 & li$itermax< li$iter){
-			message("Abort by User definition after ",li$itermax," iteration(s).")	
+		if(li$maxiter >0 & li$maxiter< li$iter){
+			message("Abort by User definition after ",li$maxiter," iteration(s).")	
 			break
 		} 
 	}

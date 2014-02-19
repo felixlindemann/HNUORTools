@@ -29,7 +29,7 @@
  	
  	x <- geo$tpp.x
  	totalcosts <- sum(x*cij)# 58042.3365659098
-	cat("Total Costs of optimal Solution (Stepping Stone): ",totalcosts,"\n")
+	cat("Total Costs of optimal Solution (Modi-Method): ",totalcosts,"\n")
 
  	demand <- sapply(geo$customers, function(o){o$demand})
  	supply <- sapply(geo$warehouses, function(o){o$supply})

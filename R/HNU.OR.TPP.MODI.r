@@ -3,7 +3,7 @@ setGeneric("HNU.OR.TPP.MODI",  function(object,...)  standardGeneric("HNU.OR.TPP
   function(object,...){ 
     message("HNU.OR.TPP.MODI\n")
   	li <- list(...) 
-  	if(is.null(li$itermax))  li$itermax  <- -1
+  	if(is.null(li$maxiter))  li$maxiter  <- -1
   	if(is.null(li$iter)) 	 li$iter 	 <- 1
   	if(is.null(li$log)) 	 li$log 	 <- TRUE
   	if(is.null(li$plot)) 	 li$plot 	 <- TRUE
@@ -14,8 +14,8 @@ setGeneric("HNU.OR.TPP.MODI",  function(object,...)  standardGeneric("HNU.OR.TPP
 
 	cij <- object$tpp.costs 
  	
- 	demand <- sapply(geo$customers, function(o){o$demand})
- 	supply <- sapply(geo$warehouses, function(o){o$supply})
+ 	demand <- sapply(object$customers, function(o){o$demand})
+ 	supply <- sapply(object$warehouses, function(o){o$supply})
 	 
 	while( TRUE ){
 		#get indices of m.opp
@@ -28,8 +28,13 @@ setGeneric("HNU.OR.TPP.MODI",  function(object,...)  standardGeneric("HNU.OR.TPP
 				 "This problem is not solveable with the current version of HNUORTools.")
 			stop(msg)
 		}
-		if(sum(x) != sum(demand) | 	sum(x) != sum(supply) ){
-			msg <- "An error occured. The transported amount is not equal to the supply and/or demand."
+		if(sum(x) != sum(demand) ){
+			msg <- paste("An error occured in iteration: ",li$iter, ". The transported amount is not equal to the demand.",
+						  "expected: ", sum(demand), "calculated (sum(x)):", sum(x))
+			stop(msg)
+		}else if( 	sum(x) != sum(supply) ){
+			msg <- paste( "An error occured in iteration: ",li$iter, ". The transported amount is not equal to the supply.",
+			 			"expected: ", sum(supply), "calculated (sum(x)):", sum(x))
 			stop(msg)
 		}
 
@@ -91,8 +96,8 @@ setGeneric("HNU.OR.TPP.MODI",  function(object,...)  standardGeneric("HNU.OR.TPP
 		
 		object$tpp.x <- x 
 		li$iter <- li$iter+1
-		if(li$itermax >0 & li$itermax< li$iter){
-			message("Abort by User definition after ",li$itermax," iteration(s).")	
+		if(li$maxiter >0 & li$maxiter< li$iter){
+			message("Abort by User definition after ",li$maxiter," iteration(s).")	
 			break
 		} 
 	} 
