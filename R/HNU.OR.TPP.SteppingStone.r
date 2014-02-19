@@ -29,7 +29,7 @@ setGeneric("HNU.OR.TPP.SteppingStone",  function(object,...)  standardGeneric("H
 		object<-HNU.OR.TPP.SteppingStone.CalcOppMatrix(object, ...)
 		opp <- object$tpp.costs.opp
 		m.opp <- min(opp, na.rm = TRUE)  
-		if(length(m.opp) == 0 | m.opp > 0 ) {
+		if(length(m.opp) == 0 | m.opp >= 0 ) {
 			message("optimal solution found after ",li$iter," iteration(s).")
 			message("total Costs are: ", oldcosts)
 			break

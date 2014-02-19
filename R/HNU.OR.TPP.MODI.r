@@ -13,8 +13,10 @@ setGeneric("HNU.OR.TPP.MODI",  function(object,...)  standardGeneric("HNU.OR.TPP
  	N<- length(object$warehouses)
 
 	cij <- object$tpp.costs 
- 
-	
+ 	
+ 	demand <- sapply(geo$customers, function(o){o$demand})
+ 	supply <- sapply(geo$warehouses, function(o){o$supply})
+	 
 	while( TRUE ){
 		#get indices of m.opp
 		if(li$log) { message(paste("\tentering iteration:", li$iter,"\n"))}
@@ -26,14 +28,22 @@ setGeneric("HNU.OR.TPP.MODI",  function(object,...)  standardGeneric("HNU.OR.TPP
 				 "This problem is not solveable with the current version of HNUORTools.")
 			stop(msg)
 		}
+		if(sum(x) != sum(demand) | 	sum(x) != sum(supply) ){
+			msg <- "An error occured. The transported amount is not equal to the supply and/or demand."
+			stop(msg)
+		}
 
 		oldcosts <- sum(x*cij)
   		object <- HNU.OR.TPP.MODI.CalcOppCosts(object, ...)
 		opp <- object$tpp.costs.opp
 		m.opp <- min(opp, na.rm = TRUE)  
-		if(length(m.opp) == 0 | m.opp > 0 ) {
+		if(li$log) { 
+			message(paste("\t\tm.opp:\n")) 
+			print(m.opp)
+		}
+		if(length(m.opp) == 0 | m.opp >= 0 ) {
 			message("optimal solution found after ",li$iter," iteration(s).")
-			message("total Costs are: ", oldcosts)
+			message("total Costs are: ", oldcosts) 
 			break
 		}
 		Element<-which( opp==m.opp, arr.ind=T )[1,]
