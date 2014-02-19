@@ -13,7 +13,7 @@ setGeneric("HNU.OR.TPP.SteppingStone",  function(object,...)  standardGeneric("H
 
 	cij <- object$tpp.costs
 
-	while( m.opp < 0 ){
+	while( TRUE ){
 		#get indices of m.opp
 		if(li$log) { message(paste("\tentering iteration:", li$iter,"\n"))}
 		x <-   object$tpp.x 
