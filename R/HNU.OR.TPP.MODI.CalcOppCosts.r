@@ -12,10 +12,7 @@ setGeneric("HNU.OR.TPP.MODI.CalcOppCosts",  function(object,...)  standardGeneri
     
     cij <- object$tpp.costs
     x <- object$tpp.x
-
-    if(li$log) message("\t\tx\n")
-    print(x)
-
+  
   	opp<-HNU.OR.getInitialMatrix(object, initialvalue=NA, ...)
     N<- length(object$customers)
     M<- length(object$warehouses)
