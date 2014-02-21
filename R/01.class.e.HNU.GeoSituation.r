@@ -1,17 +1,20 @@
 setClass(
 	Class = "HNUGeoSituation",
     representation=representation(
-    	id          = "character",
-        label       = "character",
-    	nodes       = "list",
-        links       = "list",
-    	warehouses  = "list",
-        customers   = "list",
-        travelcosts = "numeric",
-     tpp.costs  = "matrix",
-     tpp.costs.opp = "matrix",
-     tpp.x  = "matrix",
-     shortestpath   = "list"
+        id              = "character",
+        label           = "character",
+        nodes           = "list",
+        links           = "list",
+        warehouses      = "list",
+        customers       = "list",
+        travelcosts     = "numeric",
+        tpp.costs       = "matrix",
+        tpp.costs.opp   = "matrix",
+        tpp.x           = "matrix",
+        shortestpath    = "list",
+        tsp.nodes       = "list",
+        tsp.solution    = "list",
+        tsp.costs       = "matrix" 
     ),
     prototype=prototype(
     	list(
@@ -22,10 +25,13 @@ setClass(
             links         = list(),
             customers     = list(),
             travelcosts   = numeric(),
-        tpp.costs     = matrix(),
-        tpp.costs.opp    = matrix(),
-        tpp.x     = matrix(),
-                shortestpath      = list()
+            tpp.costs     = matrix(),
+            tpp.costs.opp = matrix(),
+            tpp.x         = matrix(),
+            shortestpath  = list(),
+            tsp.nodes     = list(),
+            tsp.solution  = list(),
+            tsp.costs     = matrix() 
     	)
     )
 )
