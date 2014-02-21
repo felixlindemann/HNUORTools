@@ -4,5 +4,5 @@ HNUORTools
 HNUORTools
 
 library(devtools)
-install_gihub("HNUORTools", "felixlindemann") 
+install_github("HNUORTools", "felixlindemann") 
 
