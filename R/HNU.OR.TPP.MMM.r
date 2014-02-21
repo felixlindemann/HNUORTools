@@ -4,7 +4,7 @@ setGeneric("HNU.OR.TPP.MMM",  function(object,...)  standardGeneric("HNU.OR.TPP.
     
     li<-list(...)  
   	object <- HNU.OR.TPP.Prepare(object, ...) 			# repair degenerated if needed
-	cij    <- HNU.OR.getCostMatrix(object, ...)	# store transportcosts localy
+	cij    <- HNU.OR.TPP.getCostMatrix(object, ...)		# store transportcosts localy
 	object$tpp.costs <- cij
 	
 	I <- length(object$warehouses)
