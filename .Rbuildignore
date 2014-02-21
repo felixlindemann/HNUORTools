@@ -6,3 +6,4 @@ dev
 ^\.Rproj\.user$
 update-package.r
 .Rapp.history
+src/
