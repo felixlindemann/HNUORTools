@@ -10,7 +10,8 @@ setMethod("HNU.OR.getDistanceMatrix",signature(object="HNUGeoSituation"),
 		if(length(f)!=1){stop("The origin-Data-Source could not be identified")}
 		t<-agrep(sdestination, fields, max = 1, ignore.case = TRUE)
 		if(length(t)!=1){stop("The To-Data-source could not be identified")}
-		
+		 
+
 		origin 		<- list()
 		destination <- list()
 
@@ -49,7 +50,7 @@ setMethod("HNU.OR.getDistanceMatrix",signature(object="HNUGeoSituation"),
 			n1<- origin[[i]] 
 			for(j in 1:J){
 				n2<- destination[[j]] 
-				m[i,j] <- calc.Distance(n1,n2)
+				m[i,j] <- calc.Distance(n1,n2, ...) 
 			}
 		}  
 
