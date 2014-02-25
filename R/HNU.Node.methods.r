@@ -29,3 +29,20 @@ setMethod( "calc.Distance", signature(n1 = "HNUNode", n2 = "HNUNode"),
         return(dist)
     }
 )
+
+# Basic Methods
+setGeneric("calc.polar", function(n1,n2,   ...) standardGeneric("calc.polar"))
+setMethod( "calc.polar", signature(n1 = "HNUNode", n2 = "HNUNode"),
+    function(n1,n2,   ...) {
+        li<-list(...)
+
+        if(!is.HNUNode(n1)) stop("Node 1 is not of type HNUNode")
+        if(!is.HNUNode(n2)) stop("Node 2 is not of type HNUNode")
+        validObject(n1)
+        validObject(n2)
+        
+        value <- HNU.Math.getPhi(x = n2$x, y=n2$y, x0=n1$x, y0 = n1$y, ...)
+        
+        return(value)
+    }
+)
