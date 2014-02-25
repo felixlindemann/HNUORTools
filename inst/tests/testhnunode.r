@@ -69,7 +69,7 @@ test_that("Distances are calculated correctly", {
 })
    
 test_that("Costs are calculated correctly", {
-  expect_that(calc.Distance(n1,n2, costs = 2), equals(10))  
+  expect_that(calc.Distance(n1,n2, costfactor = 2), equals(10))  
 })   
 
 context("done.") 

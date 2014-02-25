@@ -37,7 +37,7 @@ test_that("Node-Methods work for Customer", {
    
   expect_true(calc.Distance(c2,c3) == 5)  			   # should be 5
 	# use a cost-factor: 
-  expect_true(calc.Distance(c2,c3, costs = 2) == 10)   # should be 10 
+  expect_true(calc.Distance(c2,c3, costfactor = 2) == 10)   # should be 10 
 })
 context("\tTest 03: Are the Customers correctly validated?") 
 test_that("Validation is implemented correctly", {
