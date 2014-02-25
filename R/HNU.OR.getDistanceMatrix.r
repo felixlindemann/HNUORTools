@@ -56,9 +56,7 @@ setMethod("HNU.OR.getDistanceMatrix",signature(object="HNUGeoSituation"),
 
 		rownames(m) <- sapply(origin, function(o){o$id})
 		colnames(m) <- sapply(destination , function(o){o$id})
- 
-
-
+  
 	    return(m)
 	}
 )
