@@ -7,34 +7,49 @@ setGeneric("HNU.OR.TSP.NearestNeighbor",  function(object,...)  standardGeneric(
 	# bewerteten Graphen G = [V, E, c] mit n Knoten; ein Startknoten v1; 
 	# Variable F fuer die Laenge der Rundreise.
 	# 
-	if(is.null(li$useNodes))  li$useNodes  <- "nodes"
-	if(is.null(li$StartNode)) li$StartNode <- 1
-	if(is.null(li$calcCij) & is.null(li$cij)) li$calcCij <- TRUE
+	if(is.null(li$nodes)) stop("No Nodes for TSP are given.") 
+	if(length(li$nodes) == 0) stop("The Origin-Datasource is empty") 
+	object$tsp.nodes <- li$nodes
 
-
-	if(li$useNodes == "customers"){
-		nodes <- object$customers
-	}else{
-		nodes <- object$nodes
-	}
-	object$tsp.nodes <- nodes
-
+	if(is.null(li$StartNode)) li$StartNode <- 1 
+	if(is.null(li$calcCij) | is.null(li$cij)) li$calcCij <- TRUE
+ 
 	if(li$calcCij){
-		object$tsp.costs <- HNU.OR.getDistanceMatrix(object, li$useNodes, li$useNodes, ...)
+
+		I <- length(object$tsp.nodes)
+		J <- length(object$tsp.nodes)
+
+		m<-matrix(rep(NA,I*J), nrow =I, ncol=J)
+		 
+		for(i in 1:I){
+			n1<- object$tsp.nodes[[i]] 
+			for(j in 1:J){
+				n2<- object$tsp.nodes[[j]] 
+				m[i,j] <- calc.Distance(n1,n2, ...) 
+			}
+		}  
+
+		rownames(m) <- sapply(object$tsp.nodes, function(o){o$id})
+		colnames(m) <- sapply(object$tsp.nodes , function(o){o$id})
+	 
+		object$tsp.costs <- m
 	}else if(!is.null(li$cij)){
 		object$tsp.costs <- li$cij
 	}
 	cij<- object$tsp.costs
-	n<-length(nodes)
+	n<-length(object$tsp.nodes)
 	if(is.null(cij)) stop("Error: No cost-matrix found")
 	if(ncol(cij)!=n) stop("Unexpected Cost-Matrix. (Number of Columns != ",n,")")
 	if(nrow(cij)!=n) stop("Unexpected Cost-Matrix. (Number of rows != "   ,n,")")
 	x <-  matrix(rep(0,n*n),nrow=n)
-	rownames(x) <- sapply(nodes, function(o){o$id})
-	colnames(x) <- sapply(nodes, function(o){o$id})
+	rownames(x) <- sapply(object$tsp.nodes, function(o){o$id})
+	colnames(x) <- sapply(object$tsp.nodes, function(o){o$id})
 
 
 	visitedNodes <- li$StartNode 
+
+	cat("Using ",object$tsp.nodes[[li$StartNode]]$id,"as startnode.\n")
+
 	iter <- 1
 	F <- 0 # Target Value
 	while(TRUE){
@@ -72,7 +87,9 @@ setGeneric("HNU.OR.TSP.NearestNeighbor",  function(object,...)  standardGeneric(
 			F = F, 
 			x = x, 
 			roundtrip = visitedNodes,
-			StartNode = li$StartNode
+			StartNode = li$StartNode,
+			cij = object$tsp.costs,
+			nodes = object$tsp.nodes
 		)
 
 		if(length(visitedNodes) == n+1) break # all customers are visited
