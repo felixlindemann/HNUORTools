@@ -10,4 +10,5 @@ HNUTPP05		Setup and Solution for a Transportation Problem with Matrix-Minimum-Me
 HNUTPP06		Setup and Solution for a Transportation Problem with Matrix-Minimum-Method and Modi-Method.
 HNUTPP07		Setup and Solution for a Transportation Problem with Modi-Method. - Taken from Bloech Managementlehre und Optimalplanung S. 72ff.
 HNUTPP07		Setup and Solution for a Transportation Problem with Stepping-Stone-Method. - Taken from Bloech Managementlehre und Optimalplanung S. 72ff.
-HNUTSP01		Setup and Solution for a Traveling Salesman Problem using the Nearest Neighbor Method
+HNUTSP01		Setup and Solution for a Traveling Salesman Problem using the Nearest Neighbor Method + 2opt
+HNUTSP02		Setup and Solution for a Traveling Salesman Problem using the Nearest Neighbor Method + 3opt

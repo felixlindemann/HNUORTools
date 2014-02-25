@@ -25,7 +25,8 @@
 	HNU.OR.TSP.drawrouting(geo)
 	text(cities[A,"x"],cities[A,"y"]+5, cities[A,"id"],col=2)
 
-	#2opt
-	geo<-HNU.OR.TSP.2OPT(geo)
+	#3opt 
+	geo<-HNU.OR.TSP.3OPT(geo)
 	HNU.OR.TSP.drawrouting(geo, col=2)
- 
+
+	
