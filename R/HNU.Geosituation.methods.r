@@ -65,6 +65,66 @@ setMethod( "getLink", signature(object= "HNUGeoSituation", conn = "character"),
     return (li)
 
   }
+) 
+
+setGeneric("getNodesDataFrame",  function(object,...)  standardGeneric("getNodesDataFrame") )
+setMethod( "getNodesDataFrame", signature(object= "HNUGeoSituation"),
+  function(object,  ...){
+    li <- list(...)
+ 
+    df<-data.frame()
+
+    for(i in 1:length(object$nodes)){
+    	o <- object$nodes[[i]]
+    	df <- rbind(df,as.data.frame(o,...))
+    }
+    return (df)
+  }
+)
+
+setGeneric("getCustomersDataFrame",  function(object,...)  standardGeneric("getCustomersDataFrame") )
+setMethod( "getCustomersDataFrame", signature(object= "HNUGeoSituation"),
+  function(object,  ...){
+    li <- list(...)
+ 
+    df<-data.frame()
+
+    for(i in 1:length(object$customers)){
+    	o <- object$customers[[i]]
+    	df <- rbind(df,as.data.frame(o,...))
+    }
+    return (df)
+  }
+)
+
+setGeneric("getLinksDataFrame",  function(object,...)  standardGeneric("getLinksDataFrame") )
+setMethod( "getLinksDataFrame", signature(object= "HNUGeoSituation"),
+  function(object,  ...){
+    li <- list(...)
+ 
+    df<-data.frame()
+
+    for(i in 1:length(object$links)){
+    	o <- object$links[[i]] 
+    	df <- rbind(df,as.data.frame(o,...))
+    }
+    return (df)
+  }
+)
+
+setGeneric("getWarehousesDataFrame",  function(object,...)  standardGeneric("getWarehousesDataFrame") )
+setMethod( "getWarehousesDataFrame", signature(object= "HNUGeoSituation"),
+  function(object,  ...){
+    li <- list(...)
+ 
+    df<-data.frame()
+
+    for(i in 1:length(object$warehouses)){
+    	o <- object$warehouses[[i]]
+    	df <- rbind(df,as.data.frame(o,...))
+    }
+    return (df)
+  }
 )
 
 
