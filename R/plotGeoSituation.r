@@ -87,8 +87,8 @@ setMethod("plotGeoSituation.nodes",signature(object="HNUGeoSituation"),
     n<-length(object$nodes)
     if(n>0){
       if(is.null(li$pch)) li$pch<- 21
-      if(is.null(li$p.cex)) li$p.cex<- 2
-      if(is.null(li$t.cex)) li$t.cex<- 0.5
+      if(is.null(li$p.cex)) li$p.cex<- 3
+      if(is.null(li$t.cex)) li$t.cex<- 0.75
       if(is.null(li$bg))  li$bg<- "white"
       if(is.null(li$col)) li$col<- 1
       if(is.null(li$withlabels)) li$withlabels<- TRUE
@@ -108,8 +108,13 @@ setMethod("plotGeoSituation.links",signature(object="HNUGeoSituation"),
     n<-length(object$links)
     if(n>0){
 
+      if(is.null(li$pch)) li$pch<- 21
+      if(is.null(li$p.cex)) li$lines.p.cex<- 2
+      if(is.null(li$t.cex)) li$lines.t.cex<- 0.5
       if(is.null(li$lwd)) li$lwd<- 1
+      if(is.null(li$bg))  li$bg<- "white" 
       if(is.null(li$lines.markused)) li$lines.markused<- TRUE
+      if(is.null(li$lines.plotlength)) li$lines.plotlength<- FALSE
       if(is.null(li$lwd.used)) li$lwd.used<- li$lwd*3
       if(is.null(li$lty)) li$lty<- 1 
       if(is.null(li$col)) li$col<- 1 
@@ -122,7 +127,13 @@ setMethod("plotGeoSituation.links",signature(object="HNUGeoSituation"),
           if(link$used & li$lines.markused){ 
             lines(x,y,lty=li$lty, lwd=li$lwd.used, col=li$col.used)#
           }
-          lines(x,y,lty=li$lty, lwd=li$lwd, col=li$col)#
+          if(li$lines.plotlength){
+            lines(x,y,lty=li$lty, lwd=li$lwd, col=li$col)#
+            x <- sum(x)/2
+            y <- sum(y)/2
+            points(x,y,pch = li$pch, bg = li$bg , cex=li$lines.p.cex)# 
+            text(x,y, link$distance, cex=li$lines.t.cex,col=li$col)#
+          }
       }
     }
   }
