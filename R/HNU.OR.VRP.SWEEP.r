@@ -73,27 +73,29 @@ setGeneric("HNU.OR.VRP.SWEEP",  function(object,...)  standardGeneric("HNU.OR.VR
 	  		stop("There is no valid costmatrix assigned. The number of customers is not equal to the number of columns in the transportation plan.")
 
   	}
+ 	
  
-
-  	if(is.null(li$vehiclecapacity.time))   	
+  	if(is.null(li$vehiclecapacity.maxstops)) 
 	{	
-		li$vehiclecapacity.time <- sum(object$tsp.costs)*2+1
-		warning("Maximum Vehicle Time Capacity is not given. providing default value.")
-  	}
+		li$vehiclecapacity.maxstops <- N*2+1
+		warning("Maximum number of stops is not given. Constraint not taken into account.")
+	}
   	if(is.null(li$vehiclecapacity.capacity)) 
 	{	
 		li$vehiclecapacity.capacity <- sum(object$tpp.x)*2+1
-		warning("Maximum Vehicle Loading Capacity is not given. providing default value.")
+		warning("Maximum Vehicle Loading Capacity is not given. Constraint not taken into account.")
 	}
   	if(is.null(li$vehiclecapacity.length)) 
 	{
 		li$vehiclecapacity.length <- sum(object$tsp.costs)*2+1
-		warning("Maximum Tour-Length is not given.providing default value.")
+		warning("Maximum Tour-Length is not given. Constraint not taken into account.")
 	}
+	if(is.null(li$rotateClockwise)) li$rotateClockwise <- TRUE
+
 
 
   	for(i in 1:M){
-
+  		# iterate over all warehouses
   		w<- object$warehouses[[j]]
   		df<-data.frame()
   		for(j in 1:N){ 
@@ -103,6 +105,65 @@ setGeneric("HNU.OR.VRP.SWEEP",  function(object,...)  standardGeneric("HNU.OR.VR
   			} 
   		}
   		# sort by col2.
+  		if(li$rotateClockwise ){
+  			df <- df[ order(df[,2]), ]
+		} else{
+			df <- df[ order(-df[,2]), ]
+		} 
+		vrp <- list()
+		vrp$maxstops <- li$vehiclecapacity.maxstops
+		vrp$maxlength <- li$vehiclecapacity.length
+		vrp$maxcapacity <- li$vehiclecapacity.capacity
+		vrp$x   <- object$tpp.x * 0
+		vrp$cij <- object$tsp.cij * 0
+
+		vrp$tours <- list()
+
+		tour <- list()
+  		tour$loading <- 0
+  		tour$length <- 0
+  		tour$stops <- 0
+  		tour$stops.list    <- list()
+  		tour$stops.indices <- list()
+  		 
+
+  		for( j in 1:N){
+
+  			cust <- object$customers[[df$j[j]]]
+  			newTour <- FALSE 
+  			newTour <- newTour | (tour$length  + object$tsp.costs[i, df$j[j]] > li$vehiclecapacity.length)
+  			newTour <- newTour | (tour$loading + cust$demand > li$vehiclecapacity.capacity)
+  			newTour <- newTour | (length(tour$stops) >=li$vehiclecapacity.maxstops) 
+  			if(newTour){	
+  				vrp$x[tour$stops.indices[length(tour$stops.indices)],i] <- 1
+  				tour$length <- tour$length + vrp$cij[tour$stops.indices[length(tour$stops.indices)],i] 
+  				vrp$tours[length(vrp$tours)+1] <- tour  
+  				tour <- list()
+		  		tour$loading <- 0
+		  		tour$length <- 0
+		  		tour$stops <-0
+		  		tour$stops.list    <- list()
+		  		tour$stops.indices <- list()
+			}	
+
+			tour$loading <- tour$loading + cust$demand
+			tour$stops <- tour$stops + 1
+			tour$stops.list[length(tour$stops.list)+1] <- cust
+			tour$stops.indices[length(tour$stops.indices)+1] <- df$j[j]
+
+			if(length(tour$stops.list) == 1){
+				tour$length <- tour$length + vrp$cij[tour$stops.indices[length(tour$stops.indices)],i] 				
+			}else{
+				tour$length <- tour$length + vrp$cij[tour$stops.indices[length(tour$stops.indices)-1],tour$stops.indices[length(tour$stops.indices)]] 
+			}
+  
+  		}
+
+  		vrp$x[tour$stops.indices[length(tour$stops.indices)],i] <- 1
+		tour$length <- tour$length + vrp$cij[tour$stops.indices[length(tour$stops.indices)],i] 
+		vrp$tours[length(vrp$tours)+1] <- tour  
+		w$vrp <- vrp
+		object$warehouses[[j]] <- w
   	}
 
   })
