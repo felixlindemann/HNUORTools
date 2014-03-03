@@ -70,8 +70,7 @@ setGeneric("HNU.OR.SPP.Dijkstra",  function(object,...)  standardGeneric("HNU.OR
 		p <- Q[1,"p"] 
 		# Log
  		if(li$log) {
- 			cat("\t\tCurrent Solution (sorted Q):\n")
- 			print(object$shortestpath) 
+ 			cat("\t\tCurrent Solution (sorted Q):", rownames(m)[Q$i],"\n")
  		}
 
 		# Log
