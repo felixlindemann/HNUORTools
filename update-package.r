@@ -4,5 +4,5 @@ setwd("/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject")
 library(devtools)
 
 load_all()
-demo(HNUTSP01)
+#demo(HNUTSP01)
 
