@@ -5,14 +5,16 @@ setClass(
         supply="numeric",
         fixcosts="numeric",
         open="logical",
-        isDummy="logical"
+        isDummy="logical",
+        vrp = "list"
     ),
     prototype=prototype(
         list(
             supply =numeric(),
             fixcosts = numeric (),
             open = logical(),
-            isDummy = logical()
+            isDummy = logical(),
+            vrp = list()
         )
     ),
     contains="HNUNode"
