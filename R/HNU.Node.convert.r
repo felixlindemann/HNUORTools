@@ -10,7 +10,11 @@ as.HNUNode.data.frame = function(x, ...){
 	return(new("HNUNode", x))
 }
 as.data.frame.HNUNode = function(x, ...){
-	data.frame(id=x@id, label = x@label, x= x@x, y= x@y)
+	li<-list(...)
+	if(is.null(li$withrownames)) li$withrownames <- FALSE
+	df<-data.frame(id=x@id, label = x@label, x= x@x, y= x@y)
+	if(li$withrownames) rownames(df)<-x@id
+	return (df)
 }
 as.list.HNUNode = function(x, ...){
 	list(id=x@id, label = x@label, x= x@x, y= x@y)

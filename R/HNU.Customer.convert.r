@@ -11,7 +11,11 @@ as.HNUCustomer.data.frame = function(x, ...){
 	return(new("HNUCustomer", x))
 }
 as.data.frame.HNUCustomer = function(x, ...){
-	data.frame(id=x@id, label = x@label, x= x@x, y= x@y, demand = x@demand)
+	li<-list(...)
+	if(is.null(li$withrownames)) li$withrownames <- FALSE
+	df<-	data.frame(id=x@id, label = x@label, x= x@x, y= x@y, demand = x@demand)
+	if(li$withrownames) rownames(df)<-x@id
+	return (df)
 }
 as.list.HNUCustomer = function(x, ...){
 	list(id=x@id, label = x@label, x= x@x, y= x@y, demand = x@demand)

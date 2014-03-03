@@ -11,7 +11,11 @@ as.HNUWarehouse.data.frame = function(x, ...){
 	return(new("HNUWarehouse", x))
 }
 as.data.frame.HNUWarehouse = function(x, ...){
-	data.frame(id=x@id, label = x@label, x= x@x, y= x@y, fixcosts = x@fixcosts, supply = x@supply, open = x@open)
+	li<-list(...)
+	if(is.null(li$withrownames)) li$withrownames <- FALSE
+	df<-data.frame(id=x@id, label = x@label, x= x@x, y= x@y, fixcosts = x@fixcosts, supply = x@supply, open = x@open)
+	if(li$withrownames) rownames(df)<-x@id
+	return (df)
 }
 as.list.HNUWarehouse = function(x, ...){
 	list(id=x@id, label = x@label, x= x@x, y= x@y, fixcosts = x@fixcosts, supply = x@supply, open = x@open)

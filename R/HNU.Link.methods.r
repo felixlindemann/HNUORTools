@@ -7,7 +7,4 @@ setMethod("$<-","HNULink",function(x,name,value) {
   valid<-validObject(x)
   return(x)
 }) 
-
-#is.HNULink
-setGeneric("is.HNULink",      function(x, ...) standardGeneric( "is.HNULink")) 
-setMethod( "is.HNULink", "HNULink", function(x, ...){return(is(x ,"HNULink"))})
+ 
