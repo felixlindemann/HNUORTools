@@ -20,8 +20,7 @@ setGeneric("HNU.OR.TSP.drawrouting",  function(object,...)  standardGeneric("HNU
 
   				n2<-object$tsp.nodes[[j]]
 
-  				arrows(n1$x, n1$y, x1 = n2$x, y1 = n2$y, 
-  					length = 0.25, angle = 30, code = 2,  ...) 
+  				arrows(n1$x, n1$y, x1 = n2$x, y1 = n2$y, ...) 
   			} 
   		} 
   	} 
