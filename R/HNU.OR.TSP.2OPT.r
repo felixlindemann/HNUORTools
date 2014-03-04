@@ -11,10 +11,13 @@ setGeneric("HNU.OR.TSP.2OPT",  function(object,...)  standardGeneric("HNU.OR.TSP
 	R   <- object$tsp.solution$roundtrip 
 	n   <- length(R)-1
 	cij <- object$tsp.solution$cij
+	locations <- sapply(object$tsp.solution$nodes, function(o) {o$label})
+
 	if(li$log){
-		cat("\tNeue Route:\n")
-		print(R)
+		cat("\taktuelle Route:\n")
+		print(locations[R])
 	}
+
 	while(found){
 		found <- FALSE
 		for(i in 1:(n-2)){ 
@@ -29,12 +32,28 @@ setGeneric("HNU.OR.TSP.2OPT",  function(object,...)  standardGeneric("HNU.OR.TSP
 				c.neu <- cij[vi[1],vj[1]] +cij[vi[2],vj[2]]
 
 				if(li$log == TRUE) {
-					cat("Pruefe ob ", vi[1], "-", vj[1]," und ", vi[2], "-", vj[2]," kuerzer ist als ", vi[1], "-", vi[2]," und ", vj[1], "-", vj[2]," =  c.alt:",c.alt," > c.neu: ",c.neu," = ",c.alt>c.neu," \n") 
+					cat("Pruefe ob ", 
+							locations[vi[1]], "-", 
+							locations[vj[1]]," und ", 
+							locations[vi[2]], "-", 
+							locations[vj[2]]," kuerzer ist als ", 
+							locations[vi[1]], "-", 
+							locations[vi[2]]," und ", 
+							locations[vj[1]], "-", 
+							locations[vj[2]]," =  c.alt:",round(c.alt)," > c.neu: ",round(c.neu)," = ",c.alt>c.neu," \n") 
 				}
 
 				if(c.alt>c.neu){
 					if(li$log == TRUE) {
-						cat("Tausche ", vi[1], "-", vj[1]," und ", vi[2], "-", vj[2]," mit ", vi[1], "-", vi[2]," und ", vj[1], "-", vj[2],". Ersparnis: ",c.alt - c.neu,"\n") 
+						cat("Tausche ", 
+								locations[vi[1]], "-", 
+								locations[vj[1]]," und ", 
+								locations[vi[2]], "-", 
+								locations[vj[2]]," mit ", 
+								locations[vi[1]], "-", 
+								locations[vi[2]]," und ", 
+								locations[vj[1]], "-", 
+								locations[vj[2]],". Ersparnis: ",round(c.alt - c.neu),"\n") 
 					}
 
 
@@ -54,11 +73,11 @@ setGeneric("HNU.OR.TSP.2OPT",  function(object,...)  standardGeneric("HNU.OR.TSP
 
 					if(li$log == TRUE){
 						cat("\tNeue Route:\n")
-						print(R)
+						print(locations[R])
 						if(length(R)!=n+1){
 							cat("\n\n\n --------------------- ERRROR --------------------- \n---------------Neue Route zu lang --------------- \n\n")
 							cat("i:",i," - j:",j,"\n")
-							print(R)
+							print(locations[R])
 						}
 					} 
 					  
