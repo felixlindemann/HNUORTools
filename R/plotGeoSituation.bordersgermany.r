@@ -5,7 +5,7 @@ plotGeoSitatuon.bordersgermany.default<-function(...){
     message("plotGeoSitatuon.bordersgermany\n")
    
 	data(bordersgermany)
-
+ 
 	if(is.null(li$xlim)) li$xlim<- c(0,620)
 	if(is.null(li$ylim)) li$ylim<- c(0,850)
 	if(is.null(li$xlab)) li$xlab<- ""
@@ -18,7 +18,7 @@ plotGeoSitatuon.bordersgermany.default<-function(...){
 	if(is.null(li$plotCities))   li$plotCities <- TRUE
 
 	plot(NA, NA, xlim = li$xlim, ylim = li$ylim, xlab = li$xlab, ylab = li$ylab,
-		main = li$main, sub = li$sub)
+		main = li$main, sub = li$sub, asp=1)
 
 	for(i in li$plotPolygons){
 		l<-bordersgermany.polygon[[i]]  
