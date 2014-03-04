@@ -2,7 +2,14 @@ setGeneric("plotGeoSituation.transportplan", function(object,...)  standardGener
  setMethod("plotGeoSituation.transportplan",signature(object="HNUGeoSituation"),
   function(object,...){
     li<-list(...)  
-	x <- object$tpp.x		# store transportplan locally
+    x<- NA
+    if(is.null(li$isWLP)) li$isWLP <- FALSE
+		
+	if(li$isWLP)
+		x <- object$wlp.solution$x		# store transportplan locally
+
+	if(is.na(x))
+		x <- object$tpp.x		# store transportplan locally
 	I <- length(object$warehouses)	
 	J <- length(object$customers) 
 	if(length(x) == I * J){
@@ -37,19 +44,23 @@ setGeneric("plotGeoSituation.transportplan", function(object,...)  standardGener
 						lwd		= li$arrow.lwd,
 						col		= li$arrow.bg.col[i]
 					) 
-					points( warehouse$x + li$arrow.textposition *(customer$x-warehouse$x),
-							warehouse$y + li$arrow.textposition *(customer$y-warehouse$y), 
-							pch=li$arrow.point.pch,
-							cex=li$arrow.point.cex,
-							bg =li$arrow.point.bg[i],
-							col=li$arrow.point.col
-					) 
-					text(warehouse$x + li$arrow.textposition *(customer$x-warehouse$x),
-						 warehouse$y + li$arrow.textposition *(customer$y-warehouse$y), 
-						 x[i,j], 
-						 cex=li$arrow.font.cex,
-						 col=li$arrow.font.col
-					) 
+					if(   !li$isWLP){
+
+						points( warehouse$x + li$arrow.textposition *(customer$x-warehouse$x),
+								warehouse$y + li$arrow.textposition *(customer$y-warehouse$y), 
+								pch=li$arrow.point.pch,
+								cex=li$arrow.point.cex,
+								bg =li$arrow.point.bg[i],
+								col=li$arrow.point.col
+						) 
+						text(warehouse$x + li$arrow.textposition *(customer$x-warehouse$x),
+							 warehouse$y + li$arrow.textposition *(customer$y-warehouse$y), 
+							 x[i,j], 
+							 cex=li$arrow.font.cex,
+							 col=li$arrow.font.col
+						) 
+
+					}
 				}
 			} 
 		}
