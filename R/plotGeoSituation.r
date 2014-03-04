@@ -32,6 +32,9 @@ setMethod("plotGeoSituation",signature(object="HNUGeoSituation"),
     if(is.null(li$ylab)) li$ylab <- ""
     if(is.null(li$main)) li$main <- ""
 
+    if(is.null(li$plotBorders)) li$plotBorders<- FALSE
+    if(is.null(li$plotCities))  li$plotCities <- FALSE
+
     if(is.null(li$plotNodes)) li$plotNodes<- TRUE
     if(is.null(li$plotLinks)) li$plotLinks<- TRUE
     if(is.null(li$plotCustomers)) li$plotCustomers<- TRUE
@@ -52,16 +55,22 @@ setMethod("plotGeoSituation",signature(object="HNUGeoSituation"),
     if(length(li$grid.x) ==1) li$grid.x <- rep(li$grid.x,2)
     if(length(li$grid.y) ==1) li$grid.y <- rep(li$grid.y,2)
 
+    if(li$plotBorders){
 
-    plot(NULL,NULL, #
-        xlim = li$xlim, #
-        ylim = li$ylim,#
-        xlab=li$xlab,#
-        ylab=li$ylab,#
-        main=li$main,#
-        sub=li$sub#
-        #...
-    )#
+      plotGeoSitatuon.bordersgermany( ... ) 
+  
+    }else{
+
+      plot(NULL,NULL, #
+          xlim = li$xlim, #
+          ylim = li$ylim,#
+          xlab=li$xlab,#
+          ylab=li$ylab,#
+          main=li$main,#
+          sub=li$sub#
+          #...
+      )#
+    }
     for(i in 2:1){
       if(li$plotGrid[i]){
 
@@ -191,7 +200,7 @@ setMethod("plotGeoSituation.customer",signature(object="HNUCustomer"),
     polygon(dx, dy, col=li$bg.col, border = li$border.col)#
     points(object$x,object$y,pch=li$point.pch,cex=li$point.cex )#
     if(li$withlabels){
-      text(max(dx),min(dy)-1.5*li$zoom, object$label, cex=li$font.cex,col=li$font.col)#
+      text(max(dx),min(dy)-1.5*li$zoom, object$id, cex=li$font.cex,col=li$font.col)#
     }
   }
 )
@@ -213,7 +222,7 @@ setMethod("plotGeoSituation.warehouses",signature(object="HNUGeoSituation"),
       if(length(li$border.col) != n) li$border.col <- rep(li$border.col, n)
       if(length(li$font.col) != n) li$font.col <- rep(li$font.col, n)
       if(length(li$point.pch) != n) li$point.pch <- rep(li$point.pch, n)
-
+      if(is.null(li$isWLP)) li$isWLP <- FALSE
       for(i in 1:n){
           warehouse <- object$warehouses[[i]]
           plotGeoSituation.warehouse(warehouse,#
@@ -224,7 +233,8 @@ setMethod("plotGeoSituation.warehouses",signature(object="HNUGeoSituation"),
                 font.col=li$font.col[i],
                 point.pch=li$point.pch[i],
                 point.cex=li$point.cex,
-                withlabels =li$withlabels
+                withlabels =li$withlabels,
+                isWLP=  li$isWLP
             )
       }
     }
@@ -241,13 +251,16 @@ setMethod("plotGeoSituation.warehouse",signature(object="HNUWarehouse"),
     if(is.null(li$point.pch )) li$point.pch <- 20
     if(is.null(li$point.cex )) li$point.cex <- 1#
     if(is.null(li$withlabels)) li$withlabels<- TRUE
+    if(is.null(li$isWLP)) li$isWLP <- FALSE
+
+    if(li$isWLP & object$open ==0) li$warehouses.bg.col <- "white"
 
     dx<-(c(0,0,1,1,2,2,3,3,4,4,5,5,0)-2.5)*li$zoom + object$x#
     dy<-(c(0,3.5,2,3.5,2,3.5,2,3.5,2,5,5,0,0)-1.5) *li$zoom + object$y#
     polygon(dx, dy, col=li$warehouses.bg.col, border =li$border.col)#
     points(object$x,object$y,pch=li$point.pch,cex=li$point.cex )#
     if(li$withlabels){
-      text(max(dx),min(dy)-1.5*li$zoom, object$label, cex=li$font.cex,col=li$font.col)#
+      text(max(dx),min(dy)-1.5*li$zoom, object$id, cex=li$font.cex,col=li$font.col)#
     }
   }
 )
