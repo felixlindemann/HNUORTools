@@ -15,8 +15,8 @@ HNU.Math.getPhi.default<-function(x,y,...){
     if(is.null(li$nonnegative)) li$nonnegative = TRUE
     if(is.null(li$startangle)) li$startangle <- 0
 
-    x<-x-x0
-	y<-y-y0
+    x<-x-li$x0
+	y<-y-li$y0
 	if(x==0){
 		if(y>0){
 			value<-pi/2
