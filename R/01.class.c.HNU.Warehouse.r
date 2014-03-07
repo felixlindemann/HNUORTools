@@ -104,10 +104,10 @@
 #'              \item{\code{is.Warehouse(obj)}}{
 #'                  Checks if the object \code{obj} is of type \code{\link{Warehouse}}.
 #'              } 
-#'    \item{\code{\link{calc.Distance}}}{
+#'    \item{\code{\link{getDistance}}}{
 #'      Calculating the distance between two \code{\link{Node}s}.
 #'    }
-#'    \item{\code{\link{calc.polar}}}{
+#'    \item{\code{\link{getpolar}}}{
 #'      Calculating the angle to the x-Axis of a link, 
 #'      connecting two \code{\link{Node}s}.
 #'    }
@@ -140,7 +140,7 @@
 #' @seealso \code{\link{TPP.NW}},\code{\link{TPP.CMM}},\code{\link{TPP.MMM}},
 #'           \code{\link{TPP.SteppingStone}},\code{\link{TPP.MODI}},
 #'           \code{\link{WLP.ADD}},\code{\link{VRP.SWEEP}},
-#'           \code{\link{VRP.SAVINGS}},\code{\link{calc.Distance}},
+#'           \code{\link{VRP.SAVINGS}},\code{\link{getDistance}},
 #'           \code{\link{Node}}, \code{\link{Warehouse}}
 #' @note 
 #'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.
@@ -193,10 +193,133 @@ setClass(
             vrp = list()
         )
     ),
-    contains="Node"
+    contains="Node",
+    validity = function(object){ 
+        if( sum(is.null(object@fixcosts)) + sum( is.na(object@fixcosts)) > 0 ) {
+            return(paste("Error with value fixcosts: Value is not initialized", class(object@fixcosts)))
+        } else if( class(object@fixcosts)!="numeric" ) {
+            return(paste("Error with value fixcosts: expected numeric datatype, but obtained", class(object@fixcosts)))
+        } else if( object@fixcosts < 0  ) {
+            return(paste("Error with value fixcosts: expected numeric non negative value, but obtained", object@fixcosts))
+        } else if( sum(is.null(object@supply)) + sum( is.na(object@supply)) > 0 ) {
+            return(paste("Error with value supply: Value is not initialized", class(object@supply)))
+        } else if( class(object@supply)!="numeric" ) {
+            return(paste("Error with value supply: expected numeric datatype, but obtained", class(object@supply)))
+        } else if( object@supply < 0  ) {
+            return(paste("Error with value supply: expected numeric non negative value, but obtained", object@supply))
+        }  
+        else{
+            ## validity tests are not applied recursively by default,
+            ## so this object is created (invalidly)
+            return(validObject(new("Node", as.data.frame(object))))
+       }
+    }
 )
+################################### initialize - Method ###################################################
+#' @title initialize Method
+#' @name initialize
+#' @aliases initialize,Warehouse-method 
+#' @rdname initialize-methods 
+setMethod("initialize", "Warehouse", function(.Object, data=NULL, ...) {
+      
+    li <- list(...)
 
-#to-String(Method)
+    if(is.null(li$showwarnings)) li$showwarnings <- FALSE 
+    
+
+    if(!is.null(data)){ 
+        if(class(data) =="data.frame") {
+            if(nrow(data) !=1) stop("Dataframes may only have one row for init.")
+            li$supply <- data$supply
+            li$fixcosts <- data$fixcosts
+            li$isDummy <- data$isDummy
+            li$open <- data$open 
+        } else if(class(data) =="list") {
+            
+            duplicate.fields <- NULL
+            for(j in 1:length(data)){
+                l <- which(names(data)[j]==names(li))
+                if(length(l) > 0){
+                    duplicate.fields <- c(duplicate.fields,names(li)[l])
+                }
+            }
+            duplicate.fields <- unique(duplicate.fields) 
+            if(length(duplicate.fields)>0)  
+                stop(paste("Cannot Construct Object. The field(s) '",
+                        paste( 
+                            duplicate.fields, 
+                            collapse="', '", 
+                            sep=""
+                        ),
+                        "' are given more than once.", 
+                        sep=""
+                     )
+                )
+
+            li<- append( data,li) 
+        } else{ 
+            stop("Error: argument data should be of type 'data.frame' or 'list'!")
+        }
+    }
+ 
+    if(is.null(li$isDummy)) {
+        li$isDummy <- FALSE 
+        w <- paste("Attribute isDummy set to default: FALSE.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$isDummy)!=1){
+            stop("only 1 item for attribute isDummy accepted.")
+        } 
+    }
+    if(is.null(li$open))  {
+        li$open <- TRUE
+        w <- paste("Attribute Open set to default: TRUE.")
+        if(li$showwarnings) warning(w) 
+    } else  {
+        if(length(li$open)!=1){
+            stop("only 1 item for attribute supply accepted.")
+        } 
+    }   
+    if(is.null(li$supply))    {
+        li$supply <-   as.numeric(sample(1:1000,1))
+        w <- paste("Random supply (",li$supply,") provided.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$supply)!=1){
+            stop("only 1 item for attribute supply accepted.")
+        } 
+    }  
+    if(is.null(li$fixcosts)){
+        li$fixcosts <- as.numeric(sample(1:1000,1))
+        w <- paste("Random fixcosts (",li$fixcosts,") provided.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$fixcosts)!=1){
+            stop("only 1 item for attribute fixcosts accepted.")
+        }
+    }    
+    .Object@isDummy <- li$isDummy
+    .Object@supply     <- li$supply
+    .Object@open     <- as.logical(li$open) 
+    .Object@fixcosts     <- as.numeric(li$fixcosts) 
+    .Object@supply <- as.numeric(li$supply) 
+     
+    #get initalizer for Node
+    .Object<-callNextMethod(.Object,data,...)
+
+    if(validObject(.Object)) {
+        return(.Object )
+    }else{
+         stop("No valid Object was created.")
+    }
+})
+################################### Show - Method ###################################################
+#' @title show Method
+#' @name show
+#' @description Object can be of type \code{\link{Warehouse}} 
+#' @param object Object can be of type \code{\link{Warehouse}} 
+#' @aliases show,Warehouse-method 
+#' @rdname show-methods 
 setMethod ("show", "Warehouse", function(object){
         cat("S4 class Warehouse:")
          
@@ -214,3 +337,39 @@ setMethod ("show", "Warehouse", function(object){
         cat("####################################################\n")
     }
 ) # end show method
+################################### as... - Method ###################################################
+as.Warehouse.list = function(x, ...){return(new("Warehouse", x))}
+as.Warehouse.data.frame = function(x, ...){return(new("Warehouse", x))}
+as.data.frame.Warehouse = function(x, ...){
+    li<-list(...)
+    if(is.null(li$withrownames)) li$withrownames <- FALSE
+    df<-data.frame(id=x@id, label = x@label, x= x@x, y= x@y, fixcosts = x@fixcosts, supply = x@supply, open = x@open)
+    if(li$withrownames) rownames(df)<-x@id
+    return (df)
+}
+as.list.Warehouse = function(x, ...){
+    list(id=x@id, label = x@label, x= x@x, y= x@y, fixcosts = x@fixcosts, supply = x@supply, open = x@open)
+}
+ 
+setGeneric("as.Warehouse",  function(x, ...) standardGeneric( "as.Warehouse")) 
+setGeneric("is.Warehouse",  function(x, ...) standardGeneric( "is.Warehouse")) 
+
+ 
+setMethod("as.Warehouse",     signature(x = "list"),      as.Warehouse.list) 
+setMethod("as.Warehouse",   signature(x = "data.frame"),  as.Warehouse.data.frame) 
+ 
+setMethod("as.list",        signature(x = "Warehouse"),       as.list.Warehouse) 
+setMethod("as.data.frame",  signature(x = "Warehouse"),       as.data.frame.Warehouse) 
+
+
+setAs("data.frame", "Warehouse", def=function(from){
+    return(as.Warehouse.data.frame(from))
+})
+
+setAs("list", "Warehouse", def=function(from){
+    return(as.Warehouse.list(from))
+})
+
+################################### is... - Method ###################################################
+setMethod( "is.Warehouse", "Warehouse", function(x, ...){return(is(x ,"Warehouse"))})
+ 

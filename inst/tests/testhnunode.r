@@ -51,12 +51,12 @@ test_that("Is.Node working", {
 
 
 context("\tTest 04: Are Objects correctly converted back and forwards?")
-node.orignal<- new("Node",) #random node
+node.orignal<- new("Node") #random node
 df<- as.data.frame(node.orignal) 
  
 test_that("Back-Forward Conversion is working", {
     expect_that(node.orignal, equals(as.Node(df)))  
-    expect_that(node.orignal, equals(new("Node",df)))
+    expect_that(node.orignal, equals(new("Node",data=df)))
     expect_that(node.orignal, equals(as(df,"Node")))
 })
 
@@ -65,11 +65,11 @@ n1 <- new("Node",x=10,y=20, id ="n1")
 n2 <- new("Node",x=13,y=24, id ="n1")
  
 test_that("Distances are calculated correctly", {
-  	expect_that(calc.Distance(n1,n2), equals(5))  
+  	expect_that(getDistance(n1,n2), equals(5))  
 })
    
 test_that("Costs are calculated correctly", {
-  expect_that(calc.Distance(n1,n2, costfactor = 2), equals(10))  
+  expect_that(getDistance(n1,n2, costfactor = 2), equals(10))  
 })   
 
 context("done.") 

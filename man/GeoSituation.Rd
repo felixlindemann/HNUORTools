@@ -88,7 +88,7 @@ Phone +49(0)731-9762-1437 Web
 \code{\link{TPP.NW}},\code{\link{TPP.CMM}},\code{\link{TPP.MMM}},
 \code{\link{TPP.SteppingStone}},\code{\link{TPP.MODI}},
 \code{\link{WLP.ADD}},\code{\link{VRP.SWEEP}},
-\code{\link{VRP.SAVINGS}},\code{\link{calc.Distance}},
+\code{\link{VRP.SAVINGS}},\code{\link{getDistance}},
 \code{\link{Node}}, \code{\link{Warehouse}}
 }
 

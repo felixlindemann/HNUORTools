@@ -45,7 +45,7 @@
 #' @seealso \code{\link{TPP.NW}},\code{\link{TPP.CMM}},\code{\link{TPP.MMM}},
 #'           \code{\link{TPP.SteppingStone}},\code{\link{TPP.MODI}},
 #'           \code{\link{WLP.ADD}},\code{\link{VRP.SWEEP}},
-#'           \code{\link{VRP.SAVINGS}},\code{\link{calc.Distance}},
+#'           \code{\link{VRP.SAVINGS}},\code{\link{getDistance}},
 #'           \code{\link{Node}}, \code{\link{Warehouse}}
 #' @note 
 #'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.

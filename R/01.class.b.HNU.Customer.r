@@ -88,10 +88,10 @@
 #'              \item{\code{is.Customer(obj)}}{
 #'                  Checks if the object \code{obj} is of type \code{\link{Customer}}.
 #'              } 
-#'    \item{\code{\link{calc.Distance}}}{
+#'    \item{\code{\link{getDistance}}}{
 #'      Calculating the distance between two \code{\link{Node}s}.
 #'    }
-#'    \item{\code{\link{calc.polar}}}{
+#'    \item{\code{\link{getpolar}}}{
 #'      Calculating the angle to the x-Axis of a link, 
 #'      connecting two \code{\link{Node}s}.
 #'    }
@@ -124,7 +124,7 @@
 #' @seealso \code{\link{TPP.NW}},\code{\link{TPP.CMM}},\code{\link{TPP.MMM}},
 #'           \code{\link{TPP.SteppingStone}},\code{\link{TPP.MODI}},
 #'           \code{\link{WLP.ADD}},\code{\link{VRP.SWEEP}},
-#'           \code{\link{VRP.SAVINGS}},\code{\link{calc.Distance}},
+#'           \code{\link{VRP.SAVINGS}},\code{\link{getDistance}},
 #'           \code{\link{Node}}, \code{\link{Warehouse}}
 ##' @note 
 #'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.
@@ -174,10 +174,116 @@ setClass(
             isDummy = logical()
         )
     ),
-    contains="Node"
-)
+    contains="Node",
+    validity = function(object){ 
+        if( sum(is.null(object@demand)) + sum( is.na(object@demand)) > 0 ) {
+            return(paste("Error with value demand: Value is not initialized", class(object@demand)))
+        } else if( class(object@demand)!="numeric" ) {
+            return(paste("Error with value demand: expected numeric datatype, but obtained", class(object@demand)))
+        } else if( object@demand < 0  ) {
+            return(paste("Error with value demand: expected numeric non negative value, but obtained", object@demand))
+        } else{
+            ## validity tests are not applied recursively by default,
+            ## so this object is created (invalidly)
+            return(validObject(new("Node", as.data.frame(object))))
+       } 
+    } 
 
-#to-String(Method)
+)
+################################### initialize - Method ###################################################
+#' @title initialize Method
+#' @name initialize
+#' @aliases initialize,Customer-method 
+#' @rdname initialize-methods 
+setMethod("initialize", "Customer", function(.Object, data=NULL, ... ) {
+      
+    li <- list(...)
+    if(is.null(li$showwarnings))  li$showwarnings <- FALSE
+   
+    if(!is.null(data)){ 
+        if(class(data) =="data.frame") {
+            if(nrow(data) !=1) stop("Dataframes may only have one row for init.")
+            li$demand <- data$demand 
+            li$isDummy <- data$isDummy 
+        } else if(class(data) =="list") {
+            
+            duplicate.fields <- NULL
+            for(j in 1:length(data)){
+                l <- which(names(data)[j]==names(li))
+                if(length(l) > 0){
+                    duplicate.fields <- c(duplicate.fields,names(li)[l])
+                }
+            }
+            duplicate.fields <- unique(duplicate.fields) 
+            if(length(duplicate.fields)>0)  
+                stop(paste("Cannot Construct Object. The field(s) '",
+                        paste( 
+                            duplicate.fields, 
+                            collapse="', '", 
+                            sep=""
+                        ),
+                        "' are given more than once.", 
+                        sep=""
+                     )
+                )
+
+            li<- append( data,li) 
+        } else{ 
+            stop("Error: argument data should be of type 'data.frame' or 'list'!")
+        }
+    }
+    if(is.null(li$isDummy)) {
+        li$isDummy <- FALSE 
+        w <- paste("Attribute isDummy set to default: FALSE.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$isDummy)!=1){
+            stop("only 1 item for attribute isDummy accepted.")
+        } 
+    }
+     if(is.null(li$demand))    {
+        li$demand <-   as.numeric(sample(1:1000,1))
+        w <- paste("Random demand (",li$demand,") provided.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$demand)!=1){
+            stop("only 1 item for attribute demand accepted.")
+        } 
+    }  
+
+    .Object@isDummy <- li$isDummy
+    .Object@demand     <- as.numeric(li$demand) 
+    
+    #get initalizer for Node
+    .Object<-callNextMethod(.Object,data,...)
+
+    if(validObject(.Object)) {
+        return(.Object )
+    }
+})
+################################### extract - Method ###################################################
+#' @title Extract Method
+#' @name $
+#' @aliases $,Customer-method 
+#' @rdname extract-methods 
+setMethod("$","Customer",function(x,name) {return(slot(x,name))})
+################################### Set - Method ###################################################
+#' @title Set Method 
+#' @name $<-
+#' @aliases $<-,Customer-method 
+#' @rdname set-methods
+setMethod("$<-","Customer",function(x,name,value) {
+  slot(x,name,check=TRUE) <- value
+  valid<-validObject(x)
+  return(x)
+}) 
+################################### Show - Method ###################################################
+#' @title show Method
+#' @description Object can be of type \code{\link{Customer}} 
+#' @name show
+#' @aliases show,Customer-method 
+#' @param object Object can be of type \code{\link{Customer}} 
+#' @rdname show-methods 
 setMethod ("show", "Customer", function(object){
         cat("S4 class Customer:")
          
@@ -189,3 +295,40 @@ setMethod ("show", "Customer", function(object){
         cat("####################################################\n")
     }
 ) # end show method
+################################### as... - Method ###################################################
+
+as.Customer.list = function(x, ...){return(new("Customer", x))}
+as.Customer.data.frame = function(x, ...){return(new("Customer", x))}
+as.data.frame.Customer = function(x, ...){
+    li<-list(...)
+    if(is.null(li$withrownames)) li$withrownames <- FALSE
+    df<-    data.frame(id=x@id, label = x@label, x= x@x, y= x@y, demand = x@demand)
+    if(li$withrownames) rownames(df)<-x@id
+    return (df)
+}
+as.list.Customer = function(x, ...){
+    list(id=x@id, label = x@label, x= x@x, y= x@y, demand = x@demand)
+}
+ 
+
+setGeneric("as.Customer",   function(x, ...) standardGeneric( "as.Customer")) 
+setGeneric("is.Customer",   function(x, ...) standardGeneric( "is.Customer")) 
+  
+setMethod("as.Customer",     signature(x = "list"),       as.Customer.list) 
+setMethod("as.Customer",    signature(x = "data.frame"),  as.Customer.data.frame) 
+ 
+setMethod("as.list",        signature(x = "Customer"),        as.list.Customer) 
+setMethod("as.data.frame",  signature(x = "Customer"),        as.data.frame.Customer) 
+
+
+setAs("data.frame", "Customer", def=function(from){
+    return(as.Customer.data.frame(from))
+})
+
+setAs("list", "Customer", def=function(from){
+    return(as.Customer.list(from))
+})
+################################### is... - Method ###################################################
+setMethod( "is.Customer", "Customer", function(x, ...){return(is(x ,"Customer"))})
+
+

@@ -47,8 +47,8 @@ Operations Research Tools. R package version 1.1-0.
   \code{FALSE}.} } } \subsection{Forwarded to the
   follwowing functions}{ You may want to check these
   functions for any other optional parameters.  \itemize{
-  \item{\code{\link{calc.polar}} (offset-parameter is used
-  by \code{\link{VRP.SWEEP}}} } }
+  \item{\code{\link{getpolar}} (offset-parameter is used by
+  \code{\link{VRP.SWEEP}}} } }
 }
 \examples{
 # demo(HNUVRP01)

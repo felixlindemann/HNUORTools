@@ -68,10 +68,10 @@
 #'              \item{\code{is.Node(obj)}}{
 #'                  Checks if the object \code{obj} is of type \code{\link{Node}}.
 #'              } 
-#'              \item{\code{\link{calc.Distance}}}{
+#'              \item{\code{\link{getDistance}}}{
 #'                  Calculating the distance between two \code{\link{Node}s}.
 #'              }
-#'              \item{\code{\link{calc.polar}}}{
+#'              \item{\code{\link{getpolar}}}{
 #'                  Calculating the angle to the x-Axis of a link, 
 #'                  connecting two \code{\link{Node}s}.
 #'              }
@@ -145,11 +145,141 @@ setClass(
             x     = numeric(),
             y     = numeric() 
     	)
-    )
+    ),
+    validity = function(object){
+        if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {
+            return(paste("Error with value x: Value is not initialized", class(object@x)))
+        } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {
+            return(paste("Error with value y: Value is not initialized", class(object@y)))
+        } else if( class(object@x)!="numeric" ) {
+            return(paste("Error with value x: expected numeric datatype, but obtained", class(object@x)))
+        } else if( class(object@y)!="numeric" ) {
+            return(paste("Error with value y: expected numeric datatype, but obtained", class(object@y)))
+        } else if( length(object@x)!=1 ){ 
+            return(paste("Error with value x: expected numeric data of length 1, but obtained", length(object@x), ": no arrays supported here"))
+        } else if( length(object@y)!=1 ){ 
+            return(paste("Error with value y: expected numeric data of length 1, but obtained", length(object@y), ": no arrays supported here"))
+        } else{ 
+            return(TRUE)
+        }
+    } 
 )
+################################### initialize - Method ###################################################
+#' @title initialize Method
+#' @name initialize
+#' @aliases initialize,Node-method 
+#' @rdname initialize-methods 
+#' @param data can of type \code{\link{data.frame}} or \code{\link{list}}
+setMethod("initialize", signature="Node", function(.Object, data=NULL, ...) {
+      
+    li <- list(...)
+    if(is.null(li$showwarnings))  li$showwarnings <- FALSE
+    if(!is.null(data)){ 
+        if(class(data) =="data.frame") {
+            if(nrow(data) !=1) stop("Dataframes may only have one row for init.")
+            li$x <- data$x
+            li$y <- data$y
+            li$id <- data$id
+            li$label <- data$label 
+        } else if(class(data) =="list") {
+            
+            duplicate.fields <- NULL
+            for(j in 1:length(data)){
+                l <- which(names(data)[j]==names(li))
+                if(length(l) > 0){
+                    duplicate.fields <- c(duplicate.fields,names(li)[l])
+                }
+            }
+            duplicate.fields <- unique(duplicate.fields) 
+            if(length(duplicate.fields)>0)  
+                stop(paste("Cannot Construct Object. The field(s) '",
+                        paste( 
+                            duplicate.fields, 
+                            collapse="', '", 
+                            sep=""
+                        ),
+                        "' are given more than once.", 
+                        sep=""
+                     )
+                )
 
- 
-#to-String(Method)
+            li<- append( data,li) 
+        } else{ 
+            stop("Error: argument data should be of type 'data.frame' or 'list'!")
+        }
+    }
+    
+    if(is.null(li$x)) {
+        li$x <- as.numeric(runif(1,0,100)) 
+        w <- paste("x-Coordinate simulated (x= ",li$x,").")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$x)!=1){
+            stop("only 1 item for attribute x accepted.")
+        } 
+    } 
+    if(is.null(li$y)) {
+        li$y <- as.numeric(runif(1,0,100)) 
+        w <- paste("y-Coordinate simulated (y= ",li$y,").")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$y)!=1){
+            stop("only 1 item for attribute y accepted.")
+        } 
+    }
+
+    if(is.null(li$id)) {
+        li$id <- paste("n",sample(1:1000,1),sep="")
+        w <- paste("Random ID (",li$id,") provided. Uniqueness may not be given.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$id)!=1){
+            stop("only 1 item for attribute id accepted.")
+        } 
+    } 
+    if(is.null(li$label)) {
+        li$label <- li$id
+        w <- paste("Random label (",li$label,") provided. Uniqueness may not be given.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$label)!=1){
+            stop("only 1 item for attribute label accepted.")
+        } 
+    }
+
+    .Object@x      <- as.numeric(  li$x)
+    .Object@y      <- as.numeric(  li$y)
+    .Object@id     <- as.character(li$id)
+    .Object@label  <- as.character(li$label)
+  
+  
+    if(validObject(.Object)) {
+        return(.Object )
+    }
+})
+################################### extract - Method ###################################################
+
+#' @aliases $,Node-method 
+#' @rdname extract-methods 
+setMethod("$","Node",function(x,name) {return(slot(x,name))})
+
+################################### Set - Method ###################################################
+
+#' @aliases $<-,Node-method 
+#' @rdname set-methods
+setMethod("$<-","Node",function(x,name,value) {
+  slot(x,name,check=TRUE) <- value
+  valid<-validObject(x)
+  return(x)
+})
+
+################################### Show - Method ###################################################
+#' @title show Method 
+#' @param object Object can be of type \code{\link{Node}}
+#' @name show
+#' @description Object can be of type \code{\link{Node}} 
+#' @aliases show,Node-method 
+#' @rdname show-methods 
 setMethod ("show", "Node", function(object){
         cat("S4 class Node:")
         if(!is.null(object@id)) {
@@ -164,3 +294,28 @@ setMethod ("show", "Node", function(object){
         } 
     }
 ) # end show method
+################################### as... - Method ###################################################
+as.Node.list = function(x, ...){return(new("Node", data=x))}
+as.Node.data.frame = function(x, ...){return(new("Node", data=x))}
+as.data.frame.Node = function(x, ...){
+    li<-list(...)
+    if(is.null(li$withrownames)) li$withrownames <- FALSE
+    df<-data.frame(id=x@id, label = x@label, x= x@x, y= x@y)
+    if(li$withrownames) rownames(df)<-x@id
+    return (df)
+}
+as.list.Node = function(x, ...){list(id=x@id, label = x@label, x= x@x, y= x@y)}
+ 
+setGeneric("as.Node",       function(x, ...) standardGeneric( "as.Node")) 
+setGeneric("is.Node",       function(x, ...) standardGeneric( "is.Node")) 
+ 
+setMethod("as.Node",     signature(x = "list"),       as.Node.list) 
+setMethod("as.Node",    signature(x = "data.frame"),  as.Node.data.frame)  
+setMethod("as.list",        signature(x = "Node"),        as.list.Node) 
+setMethod("as.data.frame",  signature(x = "Node"),        as.data.frame.Node) 
+ 
+setAs("data.frame", "Node", def=function(from){return(as.Node.data.frame(from))})
+setAs("list", "Node", def=function(from){return(as.Node.list(from))})
+################################### is... - Method ###################################################
+setMethod( "is.Node", "Node", function(x, ...){return(is(x ,"Node"))})
+ 

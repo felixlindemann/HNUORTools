@@ -52,7 +52,7 @@ setGeneric("TPP.getCostMatrix", function(object,...)  standardGeneric("TPP.getCo
   function(object,...){  
     li<-list(...) 
 
-    if(!is.null(li$transportcosts)) warning("The use of the attribute transportcosts is obsolete. Please use the forwarded attribute 'costfactor' of method 'calc.distance' for consistency reasons.")
+    if(!is.null(li$transportcosts)) warning("The use of the attribute transportcosts is obsolete. Please use the forwarded attribute 'costfactor' of method 'getdistance' for consistency reasons.")
 	
 	if(is.null(li$transportcosts)) li$transportcosts <- 1
 	if(is.null(li$log)) li$log <- FALSE

@@ -22,7 +22,7 @@ getDistanceMatrix(object, sorigin, sdestination, ...)
 }
 \description{
 calculates the euklidian-distance. calls the function
-\code{\link{calc.Distance}(...)}
+\code{\link{getDistance}(...)}
 }
 \note{
 for citing use: Felix Lindemann (2014). HNUORTools:
@@ -35,7 +35,7 @@ Operations Research Tools. R package version 1.1-0.
   directly.} } } \subsection{Forwarded to the follwowing
   functions}{ You may want to check these functions for any
   other optional parameters.  \itemize{
-  \item{\code{\link{calc.Distance}}} } }
+  \item{\code{\link{getDistance}}} } }
 }
 \examples{
 #
@@ -57,7 +57,7 @@ Phone +49(0)731-9762-1437 Web
 \url{http://felixlindemann.blogspot.de}
 }
 \seealso{
-\code{\link{calc.Distance}}, code{\link{GeoSituation}},
+\code{\link{getDistance}}, code{\link{GeoSituation}},
 code{\link{Node}}
 }
 \keyword{Distance}

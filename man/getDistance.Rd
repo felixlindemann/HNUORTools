@@ -1,16 +1,21 @@
 \docType{methods}
-\name{calc.Distance}
-\alias{calc.Distance}
+\name{getDistance}
+\alias{getDistance}
+\alias{getDistance,Node,Node-method}
 \title{distance between two \code{\link{Node}s}}
 \usage{
-calc.Distance(n1, n2, ...)
+getDistance(n0, n1, ...)
+
+\S4method{getDistance}{Node,Node}(n0, n1, ...)
 }
 \arguments{
-  \item{n1}{an object of class \code{"Node"} or a class
-  derived from \code{"Node"}.}
+  \item{n0}{an object of class \code{"numeric"} with a
+  length of 2 (x/y-coordinates) or a class derived from
+  \code{"Node"}. Used as origin.}
 
-  \item{n2}{an object of class \code{"Node"} or a class
-  derived from \code{"Node"}.}
+  \item{n1}{an object of class \code{"numeric"} with a
+  length of 2 (x/y-coordinates) or a class derived from
+  \code{"Node"}.}
 
   \item{...}{\emph{Optional Parameters} See Below.}
 }
@@ -18,7 +23,7 @@ calc.Distance(n1, n2, ...)
 Calculates the distance between to nodes.
 }
 \section{Optional Parameters (\code{...})}{
-  \subsection{used by \code{\link{calc.Distance}}}{
+  \subsection{used by \code{\link{getDistance}}}{
   \describe{ \item{log}{\code{"logical"} Optional
   Parameter. Indicating, if the calculation should be
   logged to console. Default is \code{FALSE}.}
@@ -29,6 +34,12 @@ Calculates the distance between to nodes.
   functions for any other optional parameters.  \itemize{
   \item{\code{\link{...}} currently not used and not
   forewarded. } } }
+}
+\examples{
+# w1 <- new("Warehouse", x=0, y=0)
+# c1 <- new("Customer",  x=3, y=4)
+# getDistance(w1,c1) # should result 5.
+# getDistance(w1,c1,costfactor=3) # should result 15.
 }
 \author{
 Dipl. Kfm. Felix Lindemann

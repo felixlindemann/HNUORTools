@@ -2,7 +2,7 @@
 #' @name getInitialMatrix
 #' @rdname getInitialMatrix 
 #' @description  Calculates an inital NxM-matrix 
-#' calls the function \code{\link{calc.Distance}(...)}
+#' calls the function \code{\link{getDistance}(...)}
 #' @param object Object of Type \code{\link{GeoSituation}}
 #' @param ... \emph{Optional Parameters} See Below.
 #'     

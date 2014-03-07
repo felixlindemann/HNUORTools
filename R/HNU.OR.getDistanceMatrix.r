@@ -2,7 +2,7 @@
 #' @rdname getDistanceMatrix 
 #' @title Calculates the distance matrix for a given origin-destination set 
 #' @description calculates the euklidian-distance.
-#' calls the function \code{\link{calc.Distance}(...)}
+#' calls the function \code{\link{getDistance}(...)}
 #' @param object Object of Type \code{\link{GeoSituation}}
 #' @param sorigin String taking one of the following values (nodes, customers, warehouses)
 #' @param sdestination String taking one of the following values (nodes, customers, warehouses)
@@ -17,12 +17,12 @@
 #' \subsection{Forwarded to the follwowing functions}{  
 #'    You may want to check these functions for any other optional parameters.
 #'    \itemize{
-#'      \item{\code{\link{calc.Distance}}} 
+#'      \item{\code{\link{getDistance}}} 
 #'    }
 #' } 
 #' @keywords OR Euklid Distance
 #' @export   
-#' @seealso \code{\link{calc.Distance}}, code{\link{GeoSituation}}, code{\link{Node}}  
+#' @seealso \code{\link{getDistance}}, code{\link{GeoSituation}}, code{\link{Node}}  
 #' @examples
 #' #  
 ##' @note 
@@ -96,7 +96,7 @@ setMethod("getDistanceMatrix",signature(object="GeoSituation",sorigin="character
 			n1<- origin[[i]] 
 			for(j in 1:J){
 				n2<- destination[[j]] 
-				m[i,j] <- calc.Distance(n1,n2, ...) 
+				m[i,j] <- getDistance(n1,n2, ...) 
 			}
 		}  
 
