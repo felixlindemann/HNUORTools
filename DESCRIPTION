@@ -1,8 +1,8 @@
 Package: HNUORTools
-Version: 0.1-1
+Version: 2.1-0
 Date: 2014-01-27
-Title: HNU Operations Research Tools
-Authors@R: c(person("Felix Lindemann", "Developer", role = c("aut", "cre"),
+Title: Operations Research Tools
+Authors@R: c(person("Felix Lindemann", role = c("aut", "cre"),
     email = "felix.lindemann@hs-neu-ulm.de"))
 Author: Felix Lindemann
 Maintainer: Felix Lindemann <felix.lindemann@hs-neu-ulm.de>

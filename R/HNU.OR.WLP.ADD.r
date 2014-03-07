@@ -1,29 +1,78 @@
-setGeneric("HNU.OR.WLP.ADD",  function(object,...)  standardGeneric("HNU.OR.WLP.ADD") )
- setMethod("HNU.OR.WLP.ADD", signature(object="HNUGeoSituation"),
+#' @name WLP.ADD 
+#' @rdname WLP.ADD 
+#' @title Warehouse-Location-Problem -- ADD-Algorithm
+#'
+#' @description Improves a given Route by switching links.
+#' @param object Object of Type \code{\link{GeoSituation}}
+#' @param ... \emph{Optional Parameters} See Below.
+#'     
+#' @section Optional Parameters (\code{...}): 
+#' \subsection{used by \code{\link{WLP.ADD}}}{
+#'    \describe{ 
+#' 		\item{log}{\code{"logical"} Optional Parameter. Indicating, if the calculation should be logged to console. Default is \code{FALSE}.}
+#' 		\item{maxiter}{\code{"numeric"} Optional Parameter. if \code{maxiter} is a positive value, the algorithm terminates after \code{maxiter}-iterations.} 
+#'		\item{cij}{\code{"matrix"} \emph{Optional Parameter}. use for a user-defined cij-matrix.}
+#'    } 
+#' }
+#' \subsection{Forwarded to the follwowing functions}{  
+#'    You may want to check these functions for any other optional parameters.
+#'    \itemize{
+#'      \item{\code{\link{...}} currently not used and not forewarded. } 
+#'    }
+#' } 
+#' @keywords OR Warehouse-Location-Problem WLP ADD-Algorithm
+#' @details Explain what ADD-Algorithm does.
+#' @return same modified object of Type \code{\link{GeoSituation}}.
+#'      The Solution will be assigned the attribute \code{WLP.solution}.
+#' @export  
+#' @references Domschke
+#' @seealso \code{\link{GeoSituation}}, \code{\link{Node}},\code{\link{Warehouse}},\code{\link{Customer}}, \code{\link{WLP.ADD}}
+#' @examples
+#' # demo(HNUWLP01) 
+#' @note 
+#'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.
+#'      
+#' @author Dipl. Kfm. Felix Lindemann \email{felix.lindemann@@hs-neu-ulm.de} 
+#' 
+#' Wissenschaftlicher Mitarbeiter
+#' Kompetenzzentrum Logistik
+#' Buro ZWEI, 17
+#'
+#' Hochschule fur angewandte Wissenschaften 
+#' Fachhochschule Neu-Ulm | Neu-Ulm University 
+#' Wileystr. 1 
+#' 
+#' D-89231 Neu-Ulm 
+#' 
+#' 
+#' Phone   +49(0)731-9762-1437 
+#' Web      \url{www.hs-neu-ulm.de/felix-lindemann/} 
+#'			\url{http://felixlindemann.blogspot.de}
+setGeneric("WLP.ADD",  function(object,...)  standardGeneric("WLP.ADD") )
+
+#' @aliases WLP.ADD,GeoSituation-method
+#' @rdname WLP.ADD
+ setMethod("WLP.ADD", signature(object="GeoSituation"),
   function(object,...){ 
-    message("This is HNU.OR.WLP.ADD")
+    message("This is .OR.WLP.ADD")
     li<-list(...)   
 	
-	I <- length(object$warehouses)
-	J <- length(object$customers)
-
-  	if(is.null(li$cij)){
-  		li$cij <- object$wlp.costs
-  	} 
+  	if(is.null(li$cij)) li$cij <- object$wlp.costs 
 
 	if(length(li$cij) ==1){
 		stop("no costs matrix given. Problem not solveable.")
 	}
+	I <- length(object$warehouses)
+	J <- length(object$customers)
   	if(nrow(li$cij)!=I){
   		stop("The number of rows in the given costs-matrix is wrong. (Expected:",I," given:",nrow(li$cij),")")
   	}
   	if(ncol(li$cij)!=J){
   		stop("The number of columns in the given costs-matrix is wrong. (Expected:",J," given:",ncol(li$cij),")")
   	}
-
+  	
   	if(is.null(li$maxiter)) li$maxiter <- I * 2 +1 # make sure, it will not abort early
   	if(is.null(li$log)) li$log <- FALSE
-  	if(is.null(li$plot)) li$plot <- FALSE
 
   	if(li$log){
 
@@ -74,12 +123,7 @@ setGeneric("HNU.OR.WLP.ADD",  function(object,...)  standardGeneric("HNU.OR.WLP.
 	if(is.na(i)){
 		stop("This shouldn't happen. could not find cheapest warehouse.")
 	}
-
-
-	if(li$plot){ 
-		dev.new()
-		plotGeoSituation(object, ...) # fuer Aufgabenstellung
-	}
+ 
 	# Setzte I1
 	result$I1 <- c(result$I1, k)
 	# update IOVL
@@ -95,10 +139,10 @@ setGeneric("HNU.OR.WLP.ADD",  function(object,...)  standardGeneric("HNU.OR.WLP.
 	object$wlp.solution <- result 
 	if(li$log){
 
-		cat("Berechnete C(ij)-Matrix:\n")
+		cat("calculated C(ij)-Matrix:\n")
 		print(result$cij)
-		cat("Ausgewähltes Lager: ", k, "(k.min=",cij.min,")\n")
-		cat("Definierte Mengen\n")
+		cat("chosen Warehouse: ", k, "(k.min=",cij.min,")\n")
+		cat("defined sets\n")
 		cat("\tI1:   {", result$I1, "}\n")
 		cat("\tIO:   {", result$IO, "}\n")
 		cat("\tIOVL: {", result$IOVL, "}\n")
@@ -109,18 +153,12 @@ setGeneric("HNU.OR.WLP.ADD",  function(object,...)  standardGeneric("HNU.OR.WLP.
 		cat("Current Soultion y(i):\n")
 		print(result$y)
 
-	}	
-	if(li$plot){ 
-		dev.new() 
-		plotGeoSituation(object, ...)
-		plotGeoSituation.transportplan(object, ...)
-		title(sub=paste("Totalcosts: ",round(result$totalcosts) ))
-	}
+	}	 
 	# iteriere solange, wie Laeger vorlaeufig verworfen sind
 	while(length(result$IOVL)>0 && result$Iteration < li$maxiter){
 		result$Iteration<-result$Iteration+1
 		if(li$log){
-			cat("############# Beginne Iteration ",result$Iteration," #############\n\n")
+			cat("############# beginning Iteration ",result$Iteration," #############\n\n")
 		}
 
 		#update WIJ
@@ -132,7 +170,7 @@ setGeneric("HNU.OR.WLP.ADD",  function(object,...)  standardGeneric("HNU.OR.WLP.
 			for(j in 1:J){
 				#setze einsparung des Kunden gemaess max(0,...)
 				if(result$Iteration == 1){
-					result$w[i,j]<-max(cij[k,j]-cij[i,j],0) 
+					result$w[i,j]<-max(result$cij[k,j]-result$cij[i,j],0) 
 				}else{
 					result$w[i,j]<-max(result$w[i,j]-result$w[k,j],0) 
 				} 
@@ -145,21 +183,21 @@ setGeneric("HNU.OR.WLP.ADD",  function(object,...)  standardGeneric("HNU.OR.WLP.
 
 	 	if(li$log){
   
-			cat("Berechnete W(ij)-Matrix:\n")
+			cat("calculated W(ij)-Matrix:\n")
 			print(result$w[result$IOVL, ])
 		}
 
 		# verwerfe alle laeger endgueltig, deren Gesamtersparnisse negativ sind
 	 	IO.tmp <- result$IOVL[result$w$wifi[result$IOVL] <= 0]
 	 	if(li$log){
-	 		cat("Verwerfe folgende Standorte:", IO.tmp, "\n")
+	 		cat("closing the following warehouses eventually:", IO.tmp, "\n")
 	 	}
 	 	for(l in IO.tmp){
 			result$IO <- c(result$IO, l)
 			result$IOVL <- result$IOVL[-which(result$IOVL == l )] 
 	 	} 
 	 	if(li$log){
-			cat("Definierte Mengen\n")
+			cat("defined sets:\n")
 			cat("\tIOVL: {", result$IOVL, "}\n")
 			cat("\tI1:   {", result$I1, "}\n")
 			cat("\tIO:   {", result$IO, "}\n") 
@@ -197,10 +235,10 @@ setGeneric("HNU.OR.WLP.ADD",  function(object,...)  standardGeneric("HNU.OR.WLP.
 		object$wlp.solution <- result 
 
 		if(li$log){
- 
-			cat("Ausgewähltes Lager: ", k, "(Ersparnis:",w.max,")\n")
-			cat("Aktuelle Lösung: ", result$totalcosts , "\n")
-			cat("Definierte Mengen\n")
+ 			 
+			cat("chosen Warehouse: ", k, "(saving:",w.max,")\n")
+			cat("current solution: ", result$totalcosts , "\n")
+			cat("defined sets\n")		
 			cat("\tIOVL: {", result$IOVL, "}\n")
 			cat("\tI1:   {", result$I1, "}\n")
 			cat("\tIO:   {", result$IO, "}\n")
@@ -212,13 +250,7 @@ setGeneric("HNU.OR.WLP.ADD",  function(object,...)  standardGeneric("HNU.OR.WLP.
 			print(result$y)
 
 		}	
-	 
-		if(li$plot){ 
-			dev.new() 
-			plotGeoSituation(object, ...)
-			plotGeoSituation.transportplan(object, ...)
-			title(sub=paste("Totalcosts: ",round(result$totalcosts) ))
-		}
+	  
 		if(length(result$IOVL) ==0) 
 			break
 		if(result$Iteration >= li$maxiter)
@@ -226,7 +258,7 @@ setGeneric("HNU.OR.WLP.ADD",  function(object,...)  standardGeneric("HNU.OR.WLP.
 	} 
 	if(li$log){
 			message("Target-Value:",result$totalcosts,"\n")
-		    message("This was(!) HNU.OR.WLP.ADD")
+		    message("This was(!) .OR.WLP.ADD")
 	}
 	return(object)
   }

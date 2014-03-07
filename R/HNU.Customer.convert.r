@@ -4,42 +4,42 @@
 #	konvertierungen
 #
 # 
-as.HNUCustomer.list = function(x, ...){
-	return(new("HNUCustomer", x))
+as.Customer.list = function(x, ...){
+	return(new("Customer", x))
 }
-as.HNUCustomer.data.frame = function(x, ...){
-	return(new("HNUCustomer", x))
+as.Customer.data.frame = function(x, ...){
+	return(new("Customer", x))
 }
-as.data.frame.HNUCustomer = function(x, ...){
+as.data.frame.Customer = function(x, ...){
 	li<-list(...)
 	if(is.null(li$withrownames)) li$withrownames <- FALSE
 	df<-	data.frame(id=x@id, label = x@label, x= x@x, y= x@y, demand = x@demand)
 	if(li$withrownames) rownames(df)<-x@id
 	return (df)
 }
-as.list.HNUCustomer = function(x, ...){
+as.list.Customer = function(x, ...){
 	list(id=x@id, label = x@label, x= x@x, y= x@y, demand = x@demand)
 }
  
-setGeneric("as.HNUCustomer", function(x, ...) standardGeneric( "as.HNUCustomer")) 
+setGeneric("as.Customer", function(x, ...) standardGeneric( "as.Customer")) 
  
-setMethod("as.HNUCustomer",     signature(x = "list"),  	  as.HNUCustomer.list) 
-setMethod("as.HNUCustomer",  	signature(x = "data.frame"),  as.HNUCustomer.data.frame) 
+setMethod("as.Customer",     signature(x = "list"),  	  as.Customer.list) 
+setMethod("as.Customer",  	signature(x = "data.frame"),  as.Customer.data.frame) 
  
-setMethod("as.list",        signature(x = "HNUCustomer"),  	  as.list.HNUCustomer) 
-setMethod("as.data.frame",  signature(x = "HNUCustomer"),  	  as.data.frame.HNUCustomer) 
+setMethod("as.list",        signature(x = "Customer"),  	  as.list.Customer) 
+setMethod("as.data.frame",  signature(x = "Customer"),  	  as.data.frame.Customer) 
 
 
-setAs("data.frame", "HNUCustomer", def=function(from){
-    return(as.HNUCustomer.data.frame(from))
+setAs("data.frame", "Customer", def=function(from){
+    return(as.Customer.data.frame(from))
 })
 
-setAs("list", "HNUCustomer", def=function(from){
-    return(as.HNUCustomer.list(from))
+setAs("list", "Customer", def=function(from){
+    return(as.Customer.list(from))
 })
  
  
-#is.HNUCustomer
-setGeneric("is.HNUCustomer",      function(x, ...) standardGeneric( "is.HNUCustomer")) 
-setMethod( "is.HNUCustomer", "HNUCustomer", function(x, ...){return(is(x ,"HNUCustomer"))})
+#is.Customer
+setGeneric("is.Customer",      function(x, ...) standardGeneric( "is.Customer")) 
+setMethod( "is.Customer", "Customer", function(x, ...){return(is(x ,"Customer"))})
  

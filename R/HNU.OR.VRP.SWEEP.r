@@ -1,13 +1,73 @@
-setGeneric("HNU.OR.VRP.SWEEP",  function(object,...)  standardGeneric("HNU.OR.VRP.SWEEP") )
- setMethod("HNU.OR.VRP.SWEEP", signature(object="HNUGeoSituation"),
+#' @name VRP.SWEEP 
+#' @rdname VRP.SWEEP 
+#' @title Vehicle-Routing-Problem -- SWEEP-Algorithm
+#'
+#' @description Calculate solution for the VRP using the SWEEP-Algorithm.
+#' @param object Object of Type \code{\link{GeoSituation}}
+#' @param ... \emph{Optional Parameters} See Below.
+#'     
+#' @section Optional Parameters (\code{...}): 
+#' \subsection{used by \code{\link{VRP.SWEEP}}}{
+#'    \describe{ 
+#'      \item{alpha}{ numeric The \code{alpha}-Shape-Parameter of the SWEEP-algorithm (Offset of Sweep-Angle. To be rovided in Radians!)}
+#'      \item{vehiclecapacity}{ numeric \emph{Optional Parameter}. Defining the maximum loading-capacity of each tour. Default is 2*sum(demand) +1 (will be ignored).}
+#'      \item{vehiclecapacity.maxstops}{numeric \emph{Optional Parameter}. Defining the maximum Stops of each tour. Default is 2*n +1 (will be ignored).}
+#'      \item{roundcij}{ logical Optional Parameter. Indicating, if the calculated costs should be round. Default is \code{TRUE}.}
+#'      \item{log}{logical Optional Parameter. Indicating, if the calculation should be logged to console. Default is \code{FALSE}.}
+#'    } 
+#' }
+#' \subsection{Forwarded to the follwowing functions}{  
+#'    You may want to check these functions for any other optional parameters.
+#'    \itemize{
+#'      \item{\code{\link{calc.polar}} (offset-parameter is used by \code{\link{VRP.SWEEP}}}
+#'    }
+#' }  
+#' @return same modified object of Type \code{\link{GeoSituation}}.
+#'      The Solution will be assigned to each \code{\link{Warehouse}$vrp}
+#' @keywords OR Vehicle-Routing-Problem VRP SWEEP
+#' @details Explain what VRP.SWEEP does.
+#' @export 
+#' @references Domschke
+#' @seealso \code{\link{GeoSituation}}, \code{\link{Node}}, \code{\link{VRP.SWEEP}} \code{\link{VRP.SAVINGS}}
+#' @examples
+#' # demo(HNUVRP01)
+#' # demo(HNUVRP02) 
+#' @note 
+#'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.
+#'      
+#' @author Dipl. Kfm. Felix Lindemann \email{felix.lindemann@@hs-neu-ulm.de} 
+#' 
+#' Wissenschaftlicher Mitarbeiter
+#' Kompetenzzentrum Logistik
+#' Buro ZWEI, 17
+#'
+#' Hochschule fur angewandte Wissenschaften 
+#' Fachhochschule Neu-Ulm | Neu-Ulm University 
+#' Wileystr. 1 
+#' 
+#' D-89231 Neu-Ulm 
+#' 
+#' 
+#' Phone   +49(0)731-9762-1437 
+#' Web      \url{www.hs-neu-ulm.de/felix-lindemann/} 
+#'      \url{http://felixlindemann.blogspot.de}
+setGeneric("VRP.SWEEP",  function(object,...)  standardGeneric("VRP.SWEEP") )
+
+#' @aliases VRP.SWEEP,GeoSituation-method
+#' @rdname VRP.SWEEP
+ setMethod("VRP.SWEEP", signature(object="GeoSituation"),
   function(object,...){ 
-    message("HNU.OR.VRP.SWEEP\n")
+    message("VRP.SWEEP\n")
   	li <- list(...) 
+
+
+    if(is.null(li$log)) li$log <- TRUE
+    if(is.null(li$roundcij)) li$roundcij <- TRUE 
+    if(is.null(li$rotateClockwise)) li$rotateClockwise <- FALSE
+    if(is.null(li$alpha)) li$alpha <- 0
 
   	M <- length(object$warehouses)
   	N <- length(object$customers)
-  	if(is.null(li$log)) li$log <- TRUE
-  	if(is.null(li$round.cij)) li$round.cij <- TRUE
   	totalcosts <- 0
   	if(length(object$tpp.x) == 1){
 
@@ -67,7 +127,7 @@ setGeneric("HNU.OR.VRP.SWEEP",  function(object,...)  standardGeneric("HNU.OR.VR
  			}
  			
  		}
- 		if(li$round.cij)
+ 		if(li$roundcij)
  			cij <- round(cij)
  		object$tsp.nodes <- nodes
  		object$tsp.costs <- cij
@@ -86,19 +146,15 @@ setGeneric("HNU.OR.VRP.SWEEP",  function(object,...)  standardGeneric("HNU.OR.VR
   	}
  	
  
-  	if(is.null(li$vehiclecapacity.maxstops)) 
-	{	
-		li$vehiclecapacity.maxstops <- N*2+1
-		warning("Maximum number of stops is not given. Constraint not taken into account.")
-	}
-  	if(is.null(li$vehiclecapacity)) 
-	{	
-		li$vehiclecapacity <- sum(object$tpp.x)*2+1
-		warning("Maximum Vehicle Loading Capacity is not given. Constraint not taken into account.")
-	} 
-	if(is.null(li$rotateClockwise)) li$rotateClockwise <- FALSE
 
-
+    if(is.null(li$vehiclecapacity.maxstops)) { 
+      li$vehiclecapacity.maxstops <- N*2+1
+      warning("Maximum number of stops is not given. Constraint not taken into account.")
+    }
+    if(is.null(li$vehiclecapacity)) { 
+      li$vehiclecapacity <- sum(object$tpp.x)*2+1
+      warning("Maximum Vehicle Loading Capacity is not given. Constraint not taken into account.")
+    } 
 
   	for(i in 1:M){
   		# iterate over all warehouses
@@ -110,7 +166,7 @@ setGeneric("HNU.OR.VRP.SWEEP",  function(object,...)  standardGeneric("HNU.OR.VR
   		for(j in 1:N){ 
   			if(object$tpp.x[i,j] >0){
   				cust <- object$customers[[j]] 
-  				df<-rbind(df, data.frame(j = j , polar= calc.polar(w,cust, ...) ))
+  				df<-rbind(df, data.frame(j = j , polar= calc.polar(w,cust, offset = li$alpha,  ...) ))
   			} 
   		} 
   		# sort by col2.

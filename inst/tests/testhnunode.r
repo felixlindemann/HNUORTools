@@ -1,7 +1,7 @@
-context("Testing HNUNodes.")  
+context("Testing Nodes.")  
 
 # create a new Node with specific values"
-node<- new("HNUNode", x= 10, y=20, id="myid", label = "mylabel")
+node<- new("Node", x= 10, y=20, id="myid", label = "mylabel")
 
 # test_that('Coordinates are correct')"
 context("\tTest 01: Are Objects correctly created?")
@@ -20,9 +20,9 @@ test_that("Coordinates are correct", {
 df<- data.frame(x=10,y=20, id ="myid", label ="mylabel")
 li<- list(x=10,y=20, id ="myid", label ="mylabel")
 
-node01 <- new("HNUNode", df)
-node02 <-  as(df, "HNUNode") 
-node03 <- as.HNUNode(df)
+node01 <- new("Node", df)
+node02 <-  as(df, "Node") 
+node03 <- as.Node(df)
 
 
 context("\tTest 02: Are Objects correctly converted from a data.frame?")
@@ -39,30 +39,30 @@ test_that("Conversion are correct", {
 
 context("\tTest 03: Are Objects correctly converted from a list?")
 
-node01 <- new("HNUNode", li)
-node02 <- as(li, "HNUNode") 
-node03 <- as.HNUNode(li)
+node01 <- new("Node", li)
+node02 <- as(li, "Node") 
+node03 <- as.Node(li)
  
-test_that("Is.HNUNode working", {
-  expect_false(is(li, "HNUNode"))
-  expect_true(is(node01, "HNUNode"))
-  expect_true(is.HNUNode(node01))
+test_that("Is.Node working", {
+  expect_false(is(li, "Node"))
+  expect_true(is(node01, "Node"))
+  expect_true(is.Node(node01))
 })
 
 
 context("\tTest 04: Are Objects correctly converted back and forwards?")
-node.orignal<- HNUNode.create() #random node
+node.orignal<- new("Node",) #random node
 df<- as.data.frame(node.orignal) 
  
 test_that("Back-Forward Conversion is working", {
-    expect_that(node.orignal, equals(as.HNUNode(df)))  
-    expect_that(node.orignal, equals(new("HNUNode",df)))
-    expect_that(node.orignal, equals(as(df,"HNUNode")))
+    expect_that(node.orignal, equals(as.Node(df)))  
+    expect_that(node.orignal, equals(new("Node",df)))
+    expect_that(node.orignal, equals(as(df,"Node")))
 })
 
 context("\tTest 05: Are Node-Methods working correctly?") 
-n1 <- new("HNUNode",x=10,y=20, id ="n1")
-n2 <- new("HNUNode",x=13,y=24, id ="n1")
+n1 <- new("Node",x=10,y=20, id ="n1")
+n2 <- new("Node",x=13,y=24, id ="n1")
  
 test_that("Distances are calculated correctly", {
   	expect_that(calc.Distance(n1,n2), equals(5))  

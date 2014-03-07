@@ -1,6 +1,6 @@
 
 # Set validity Check
-.HNULink.valid <- function(object){
+.Link.valid <- function(object){
 
 
         if( sum(is.null(object@origin)) + sum( is.na(object@origin)) > 0 ) {
@@ -9,11 +9,11 @@
         if( sum(is.null(object@destination)) + sum( is.na(object@destination)) > 0) {
             return(paste("Error with value destination: Value is not initialized", class(object@destination)))
         } 
-        if( !is.HNUNode(object@origin) ) {
-            return(paste("Error with value origin: expected HNUNode, but obtained", class(object@origin)))
+        if( !is.Node(object@origin) ) {
+            return(paste("Error with value origin: expected Node, but obtained", class(object@origin)))
         } 
-        if( !is.HNUNode(object@destination) ) {
-            return(paste("Error with value destination: expected HNUNode, but obtained", class(object@destination)))
+        if( !is.Node(object@destination) ) {
+            return(paste("Error with value destination: expected Node, but obtained", class(object@destination)))
         } 
         if( length(object@distance  ) != 1 ){ 
             return(paste("Error with value distance: expected value of length 1, but obtained", length(object@distance)))
@@ -31,4 +31,4 @@
         return(TRUE)
          
 }
-setValidity("HNULink", .HNULink.valid)
+setValidity("Link", .Link.valid)

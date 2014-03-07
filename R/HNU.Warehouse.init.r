@@ -1,15 +1,5 @@
-
-#User-friendly creator
-#
-#
-HNUWarehouse.create <- function(...) UseMethod("HNUWarehouse.create")
-HNUWarehouse.create.default<-function(...){
-    Warehouse <- new("HNUWarehouse", ...)
-    
-    return(Warehouse)
-}
  
-setMethod("initialize", "HNUWarehouse", function(.Object, data=NULL, ...) {
+setMethod("initialize", "Warehouse", function(.Object, data=NULL, ...) {
       
     li <- list(...)
 
@@ -93,7 +83,7 @@ setMethod("initialize", "HNUWarehouse", function(.Object, data=NULL, ...) {
     .Object@fixcosts     <- as.numeric(li$fixcosts) 
     .Object@supply <- as.numeric(li$supply) 
      
-    #get initalizer for HNUNode
+    #get initalizer for Node
     .Object<-callNextMethod(.Object,data,...)
 
     if(validObject(.Object)) {

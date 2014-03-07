@@ -1,18 +1,65 @@
-setGeneric("HNU.OR.TPP.SteppingStone.GetPolygonZuege",  function(object,...)  standardGeneric("HNU.OR.TPP.SteppingStone.GetPolygonZuege") )
- setMethod("HNU.OR.TPP.SteppingStone.GetPolygonZuege", signature(object="HNUGeoSituation"),
-  function(object,...){ 
+#' @name TPP.SteppingStone.GetPolygonZuege
+#' @rdname TPP.SteppingStone.GetPolygonZuege 
+#' @title Transportation-Problem -- Stepping-Stone-Method -- Helper: GetPolygonZuege
+#'
+#' @description Calculates all Polygon-Cycles.
+#' @section WARNING:
+#'	This function is meant for internal purposes only. It is not required to call this function manually at any time!
+#' @param object Object of Type \code{\link{GeoSituation}}
+#' @param i_i integer REQUIRED. Describes the pivot-Element the polygon-cycles should be searched for.
+#' @param j_j integer REQUIRED. Describes the pivot-Element the polygon-cycles should be searched for.
+#' @param ... \emph{Optional Parameters} See Below.
+#'     
+#' @section Optional Parameters (\code{...}): 
+#' \subsection{used by \code{\link{TPP.SteppingStone.GetPolygonZuege}}}{
+#'    \describe{ 
+#' 		\item{log}{\code{"logical"} Optional Parameter. Indicating, if the calculation should be logged to console. Default is \code{FALSE}.}  
+#' 		\item{Poly}{\code{"list"} \emph{Optional Parameter}. Used only if the function is called recursively.}
+#'    } 
+#' }
+#' \subsection{Forwarded to the follwowing functions}{  
+#'    You may want to check these functions for any other optional parameters.
+#'    \itemize{
+#'      \item{\code{\link{TPP.SteppingStone.CalcPolyGonZug}}}
+#'      \item{\code{\link{TPP.SteppingStone.GetPolygonZuege}}}
+#'    }
+#' }  
+#' @keywords OR Transportation-Problem TPP Stepping-Stone
+#' @details Explain what SSM does.
+#' @export  
+#' @references Domschke
+#' @seealso \code{\link{GeoSituation}}, \code{\link{Node}}, \code{\link{TPP.NW}}, \code{\link{TPP.CMM}}, \code{\link{TPP.MMM}}, \code{\link{TPP.SteppingStone}}, \code{\link{TPP.MODI}}
+#' @note 
+#'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.
+#'      
+#' @author Dipl. Kfm. Felix Lindemann \email{felix.lindemann@@hs-neu-ulm.de} 
+#' 
+#' Wissenschaftlicher Mitarbeiter
+#' Kompetenzzentrum Logistik
+#' Buro ZWEI, 17
+#'
+#' Hochschule fur angewandte Wissenschaften 
+#' Fachhochschule Neu-Ulm | Neu-Ulm University 
+#' Wileystr. 1 
+#' 
+#' D-89231 Neu-Ulm 
+#' 
+#' 
+#' Phone   +49(0)731-9762-1437 
+#' Web      \url{www.hs-neu-ulm.de/felix-lindemann/} 
+#'			\url{http://felixlindemann.blogspot.de}
+setGeneric("TPP.SteppingStone.GetPolygonZuege",  function(object,i_i, j_j, ...)  standardGeneric("TPP.SteppingStone.GetPolygonZuege") )
+ 
+#' @aliases TPP.SteppingStone.GetPolygonZuege,GeoSituation,integer,integer-method
+#' @rdname TPP.SteppingStone.GetPolygonZuege
+ setMethod("TPP.SteppingStone.GetPolygonZuege", signature(object="GeoSituation", i_i = "integer", j_j = "integer"),
+  function(object,i_i, j_j,...){ 
  
   		li <- list(...)  
 		result<-NULL  #Rueckgabe 
 	  	if(is.null(li$log)) li$log <- TRUE 
-	  	if(li$log){ 
-    		#message("\tHNU.OR.TPP.SteppingStone.GetPolygonZuege\n")
-	  	} 
-		
-		if(is.null(li$i_i)) 	 stop("Required Parameter i_i is missing.")
-		if(is.null(li$j_j)) 	 stop("Required Parameter j_j is missing.") 
-		i_i <- li$i_i
-		j_j <- li$j_j
+	  	 
+		 
 		cij <- object$tpp.costs
 		xij <- object$tpp.x
 		 
@@ -58,7 +105,7 @@ setGeneric("HNU.OR.TPP.SteppingStone.GetPolygonZuege",  function(object,...)  st
 					for (i in Y){
 						# temp<-paste("x[",i,",",j,"] = ",xij[i,j])
 						# print(temp) 
-						n.Poly<-HNU.OR.TPP.SteppingStone.CalcPolyGonZug(object,i=i,j=j,Poly=Poly, ...)
+						n.Poly<-TPP.SteppingStone.CalcPolyGonZug(object,i=i,j=j,Poly=Poly)
 						if (!is.null(n.Poly)){
 							result<-rbind(result,n.Poly)
 						}
@@ -81,7 +128,7 @@ setGeneric("HNU.OR.TPP.SteppingStone.GetPolygonZuege",  function(object,...)  st
 					for (j in X){ 
 						# temp<-paste("x[",i,",",j,"] = ",xij[i,j])
 						# print(temp)   
-						n.Poly<-HNU.OR.TPP.SteppingStone.CalcPolyGonZug(object,i=i,j=j,Poly=Poly, ...)
+						n.Poly<-TPP.SteppingStone.CalcPolyGonZug(object,i=i,j=j,Poly=Poly)
 						if (!is.null(n.Poly)){
 							result<-rbind(result,n.Poly)
 						}
@@ -101,7 +148,7 @@ setGeneric("HNU.OR.TPP.SteppingStone.GetPolygonZuege",  function(object,...)  st
 						result<-rbind(result,n.Poly)
 					}
 				}else{
-					n.result<-HNU.OR.TPP.SteppingStone.GetPolygonZuege(object,i_i=i,j_j=j,Poly=n.Poly, ...)
+					n.result<-TPP.SteppingStone.GetPolygonZuege(object,i_i=i,j_j=j,Poly=n.Poly)
 					if (!is.null(n.result)){
 						Y<-nrow(n.result)
 

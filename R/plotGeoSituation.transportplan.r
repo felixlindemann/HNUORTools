@@ -1,15 +1,15 @@
 setGeneric("plotGeoSituation.transportplan", function(object,...)  standardGeneric("plotGeoSituation.transportplan") ) 
- setMethod("plotGeoSituation.transportplan",signature(object="HNUGeoSituation"),
+ setMethod("plotGeoSituation.transportplan",signature(object="GeoSituation"),
   function(object,...){
     li<-list(...)  
     x<- NA
     if(is.null(li$isWLP)) li$isWLP <- FALSE
 		
-	if(li$isWLP)
+	if(li$isWLP){
 		x <- object$wlp.solution$x		# store transportplan locally
-
-	if(is.na(x))
+	}else{
 		x <- object$tpp.x		# store transportplan locally
+	}
 	I <- length(object$warehouses)	
 	J <- length(object$customers) 
 	if(length(x) == I * J){

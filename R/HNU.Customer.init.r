@@ -2,14 +2,14 @@
 #User-friendly creator
 #
 #
-HNUCustomer.create <- function(...) UseMethod("HNUCustomer.create")
-HNUCustomer.create.default<-function(...){
-    customer <- new("HNUCustomer", ...)
+Customer.create <- function(...) UseMethod("Customer.create")
+Customer.create.default<-function(...){
+    customer <- new("Customer", ...)
     
     return(customer)
 }
  
-setMethod("initialize", "HNUCustomer", function(.Object, data=NULL, ... ) {
+setMethod("initialize", "Customer", function(.Object, data=NULL, ... ) {
       
     li <- list(...)
     if(is.null(li$showwarnings))  li$showwarnings <- FALSE
@@ -68,7 +68,7 @@ setMethod("initialize", "HNUCustomer", function(.Object, data=NULL, ... ) {
     .Object@isDummy <- li$isDummy
     .Object@demand     <- as.numeric(li$demand) 
     
-    #get initalizer for HNUNode
+    #get initalizer for Node
     .Object<-callNextMethod(.Object,data,...)
 
     if(validObject(.Object)) {

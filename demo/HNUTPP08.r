@@ -1,20 +1,20 @@
-	geo<-HNUGeoSituation.create()
+	geo<-new("GeoSituation")
  	#example taken from
  	#Bloech Management Methoden und Optimalplanung S. 72
  	# coordinates of Locations can be random
-	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 100   ))
-	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 130   ))
-	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 170   )) 
+	geo<-add(geo,new("Warehouse", id="L1", x=25,   y=70,   supply = 100   ))
+	geo<-add(geo,new("Warehouse", id="L2", x=150,  y=115,  supply = 130   ))
+	geo<-add(geo,new("Warehouse", id="L3", x=80,   y=140,  supply = 170   )) 
  
-	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))
-	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 120   ))
-	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 80   ))
-	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 50   ))
+	geo<-add(geo,new("Customer",  id="K1", x=15,   y=130,  demand = 150   ))
+	geo<-add(geo,new("Customer",  id="K2", x=60,   y=80,   demand = 120   ))
+	geo<-add(geo,new("Customer",  id="K3", x=175,  y=140,  demand = 80   ))
+	geo<-add(geo,new("Customer",  id="K4", x=50,   y=100,  demand = 50   ))
 	  
  	demand <- sapply(geo$customers, function(o){o$demand})
  	supply <- sapply(geo$warehouses, function(o){o$supply})
  	sum(demand)  == sum(supply) # true
-	x<-HNU.OR.getInitialMatrix(geo, initialvalue=0) # just for setting up all variables.
+	x<-getInitialMatrix(geo, initialvalue=0) # just for setting up all variables.
 	
 	# setting values from example
 	x[1,1] <- 100
@@ -31,7 +31,7 @@
  	cat(paste("\ntotalcosts: ", totalcosts, "\n"))
 	totalcosts == 2300 # true
 	   
-	geo<- HNU.OR.TPP.SteppingStone(geo, log=TRUE) 	
+	geo<- TPP.SteppingStone(geo, log=TRUE) 	
  	opp <- geo$tpp.costs.opp 
 	x <- geo$tpp.x 
 
