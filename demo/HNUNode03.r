@@ -4,5 +4,5 @@ n2 <- new("Node",x=13,y=24, id ="n1")
 
 # calculate Beeline distance
 
-calc.Distance(n1,n2) # should result 5
-calc.Distance(n1,n2, costs = 2) # should result 10
+getDistance(n1,n2) # should result 5
+getDistance(n1,n2, costs = 2) # should result 10

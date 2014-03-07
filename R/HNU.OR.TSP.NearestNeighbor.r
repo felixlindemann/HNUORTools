@@ -82,7 +82,7 @@ setGeneric("TSP.NearestNeighbor",  function(object,...)  standardGeneric("TSP.Ne
 			n1<- object$tsp.nodes[[i]] 
 			for(j in 1:J){
 				n2<- object$tsp.nodes[[j]] 
-				m[i,j] <- calc.Distance(n1,n2, ...) 
+				m[i,j] <- getDistance(n1,n2, ...) 
 			}
 		}  
 

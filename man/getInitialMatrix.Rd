@@ -16,7 +16,7 @@ getInitialMatrix(object, ...)
 }
 \description{
 Calculates an inital NxM-matrix calls the function
-\code{\link{calc.Distance}(...)}
+\code{\link{getDistance}(...)}
 }
 \note{
 for citing use: Felix Lindemann (2014). HNUORTools:

@@ -116,5 +116,209 @@ setClass(
             oneway = logical() ,
             used = logical()
     	)
-    )
+    ),
+    validity = function(object){
+
+
+        if( sum(is.null(object@origin)) + sum( is.na(object@origin)) > 0 ) {
+            return(paste("Error with value origin: Value is not initialized", class(object@origin)))
+        } 
+        if( sum(is.null(object@destination)) + sum( is.na(object@destination)) > 0) {
+            return(paste("Error with value destination: Value is not initialized", class(object@destination)))
+        } 
+        if( !is.Node(object@origin) ) {
+            return(paste("Error with value origin: expected Node, but obtained", class(object@origin)))
+        } 
+        if( !is.Node(object@destination) ) {
+            return(paste("Error with value destination: expected Node, but obtained", class(object@destination)))
+        } 
+        if( length(object@distance  ) != 1 ){ 
+            return(paste("Error with value distance: expected value of length 1, but obtained", length(object@distance)))
+        } 
+        if( length(object@costs  ) != 1 ){ 
+            return(paste("Error with value costs: expected value of length 1, but obtained", length(object@costs)))
+        }  
+        if( object@distance < 0 ){ 
+            return(paste("Error with value distance: expected non-negative value, but obtained", object@distance))
+        } 
+        if( object@costs < 0 ){ 
+            return(paste("Error with value costs: expected non-negative value, but obtained", object@costs))
+        } 
+        return(TRUE)
+    } 
 )
+################################### initialize - Method ###################################################
+#' @title initialize Method
+#' @name initialize
+#' @aliases initialize,Link-method 
+#' @rdname initialize-methods 
+#' @param n1 Origin-\code{\link{Node}}
+#' @param n2 Destination-\code{\link{Node}}
+setMethod("initialize", "Link", function(.Object, n1,n2,... ) {
+      
+    li <- list(...)
+    
+    if(is.null(li$showwarnings))  li$showwarnings <- FALSE
+   
+     
+    if(is.null(n1))  stop("No Origin node is provided.")  
+    if(is.null(n2))  stop("No Destination node is provided.")  
+    
+    #if(length(n1) !=1 ) stop("Incorrect Number of items of Origin-Node. Expected is one.")
+    #if(length(n2) !=1 ) stop("Incorrect Number of items of Destination-Node. Expected is one.")
+
+    if(!is.Node(n1)) stop("The value for the origin Node is not of type Node")
+    if(!is.Node(n2)) stop("The value for the destination Node is not of type Node")
+
+    .Object@origin          <- n1
+    .Object@destination     <- n2
+    if(is.null(li$oneway)) {
+        li$oneway <- FALSE 
+        w <- paste("Attribute oneway set to default: FALSE.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$oneway)!=1){
+            stop("only 1 item for attribute oneway accepted.")
+        } 
+    }
+    if(is.null(li$used)) {
+        li$used <- FALSE 
+        w <- paste("Attribute used set to default: FALSE.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$used)!=1){
+            stop("only 1 item for attribute used accepted.")
+        } 
+    }
+    if(is.null(li$distance)) {
+        li$distance <- getDistance(n1,n2)
+        w <- paste("automatic distance (",li$distance,") calculated.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$distance)!=1){
+            stop("only 1 item for attribute distance accepted.")
+        } 
+    }
+    if(is.null(li$costs)) {
+        if(is.null(li$costfactor)) {li$costfactor <- 1}
+        else{
+            if(length(li$costfactor)!=1){
+                stop("only 1 item for attribute costfactor accepted.")
+            } 
+        }
+        li$costs <- getDistance(n1,n2,li$costfactor) 
+        w <- paste("automatic costs (",li$costs,") calculated.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$costs)!=1){
+            stop("only 1 item for attribute costs accepted.")
+        } 
+    }
+    if(is.null(li$id)) {
+        li$id <- paste("l",sample(1:1000,1),sep="")
+        w <- paste("Random ID (",li$id,") provided. Uniqueness may not be given.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$id)!=1){
+            stop("only 1 item for attribute id accepted.")
+        } 
+    } 
+    if(is.null(li$label)) {
+        li$label <- li$id
+        w <- paste("Random label (",li$label,") provided. Uniqueness may not be given.")
+        if(li$showwarnings) warning(w) 
+    }else{
+        if(length(li$label)!=1){
+            stop("only 1 item for attribute label accepted.")
+        } 
+    }
+
+    .Object@used     <- as.logical(li$used)
+    .Object@oneway   <- as.logical(li$oneway)
+    .Object@distance <- as.numeric(li$distance)
+    .Object@costs    <- as.numeric(li$costs)
+    .Object@label    <- as.character(li$label) 
+    .Object@id       <- as.character(li$id) 
+    
+ 
+    if(validObject(.Object)) {
+        return(.Object )
+    }
+})
+
+################################### Extract - Method ###################################################
+#' @title Extract Method
+#' @name $
+#' @aliases $,Link-method 
+#' @rdname extract-methods 
+setMethod("$","Link",function(x,name) {return(slot(x,name))})
+################################### Set - Method ###################################################
+#' @title Set Method 
+#' @name $<-
+#' @aliases $<-,Link-method 
+#' @rdname set-methods
+setMethod("$<-","Link",function(x,name,value) {
+  slot(x,name,check=TRUE) <- value
+  valid<-validObject(x)
+  return(x)
+}) 
+ #' @title show Method
+#' @name show
+#' @aliases show,Link-method 
+#' @description Object can be of type \code{\link{Link}} 
+#' @param object Object can be of type \code{\link{Link}} 
+#' @rdname show-methods 
+setMethod ("show", "Link", function(object){
+        cat("S4 class Link: (",object@id," '",object@label,"')\n")
+        cat("\tOrigin:", object@origin@label)
+        if(!object@oneway) cat("<-")
+        cat("-> Destination:", object@destination@label) 
+        cat("\tdistance:", object@distance)
+        cat("\tcosts:", object@costs)  
+        cat("\n")
+    }
+) # end show method
+################################### as... - Method ###################################################
+
+as.Link.list = function(x, ...){return(new("Link", x))}
+as.list.Link = function(x, ...){
+    li<-list(
+        id=x@id, label = x@label, 
+        origin= x@origin$id, 
+        destination = x@destination$id, 
+        costs = x@costs,
+        distance = x@distance,
+        oneway = x@oneway,
+        used = x@used)
+    return(li)
+}
+as.Link.data.frame = function(x, ...){return(new("Link", x))}
+as.data.frame.Link = function(x, ...){
+    li<-list(...)
+    if(is.null(li$withrownames)) li$withrownames <- FALSE
+    df<-data.frame(
+        id=x@id, label = x@label, 
+        origin= x@origin$id, 
+        destination = x@destination$id, 
+        costs = x@costs,
+        distance = x@distance,
+        oneway = x@oneway,
+        used = x@used)
+    if(li$withrownames) rownames(df)<-x@id
+    return (df)
+} 
+#
+#
+setGeneric("as.Link",       function(x, ...) standardGeneric( "as.Link")) 
+setGeneric("is.Link",       function(x, ...) standardGeneric( "is.Link")) 
+ 
+setMethod("as.Link",        signature(x = "list"),       as.Link.list) 
+setMethod("as.Link",        signature(x = "data.frame"),  as.Link.data.frame)  
+setMethod("as.list",        signature(x = "Link"),        as.list.Link) 
+setMethod("as.data.frame",  signature(x = "Link"),        as.data.frame.Link) 
+# 
+setAs("data.frame", "Link", def=function(from){ return(as.Link.data.frame(from))})
+setAs("list", "Link", def=function(from){return(as.Link.list(from))})
+################################### is... - Method ###################################################
+setMethod( "is.Link", "Link", function(x, ...){return(is(x ,"Link"))})
+

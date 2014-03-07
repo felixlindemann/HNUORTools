@@ -120,7 +120,7 @@ setGeneric("VRP.SAVINGS",  function(object,...)  standardGeneric("VRP.SAVINGS") 
 
    			for(j in (i+1):K){
    				n2 <- nodes[[j]]
-   				cij[i,j] <- calc.Distance(n1,n2,...)
+   				cij[i,j] <- getDistance(n1,n2,...)
    				cij[j,i] <- cij[i,j]
    			}
    			

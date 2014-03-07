@@ -1,5 +1,5 @@
 \docType{methods}
-\name{$}
+\name{$,Node-method}
 \alias{$}
 \alias{$,Customer-method}
 \alias{$,GeoSituation-method}
@@ -8,13 +8,13 @@
 \alias{$,Warehouse-method}
 \title{Extract Method}
 \usage{
-\S4method{$}{Customer}(x, name)
+\S4method{$}{Node}(x, name)
 
-\S4method{$}{GeoSituation}(x, name)
+\S4method{$}{Customer}(x, name)
 
 \S4method{$}{Link}(x, name)
 
-\S4method{$}{Node}(x, name)
+\S4method{$}{GeoSituation}(x, name)
 
 \S4method{$}{Warehouse}(x, name)
 }

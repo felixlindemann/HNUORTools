@@ -35,9 +35,9 @@ test_that("Test for identical objects", {
 context("\tTest 02: Are the Node-Methods for Warehouse working?") 
 test_that("Node-Methods work for Warehouse", {
    
-  expect_true(calc.Distance(w2,w3) == 5)  			   # should be 5
+  expect_true(getDistance(w2,w3) == 5)  			   # should be 5
 	# use a cost-factor: 
-  expect_true(calc.Distance(w2,w3, costfactor = 2) == 10)   # should be 10 
+  expect_true(getDistance(w2,w3, costfactor = 2) == 10)   # should be 10 
 })
 context("\tTest 03: Are the Warehouses correctly validated?") 
 test_that("Validation is implemented correctly", {

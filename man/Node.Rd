@@ -58,10 +58,9 @@ Operations Research Tools. R package version 1.1-0.
   \code{\link{data.frame}} or of class \code{\link{list}}
   into a \code{\link{Node}}.  } \item{\code{is.Node(obj)}}{
   Checks if the object \code{obj} is of type
-  \code{\link{Node}}.  }
-  \item{\code{\link{calc.Distance}}}{ Calculating the
-  distance between two \code{\link{Node}s}.  }
-  \item{\code{\link{calc.polar}}}{ Calculating the angle to
+  \code{\link{Node}}.  } \item{\code{\link{getDistance}}}{
+  Calculating the distance between two \code{\link{Node}s}.
+  } \item{\code{\link{getpolar}}}{ Calculating the angle to
   the x-Axis of a link, connecting two \code{\link{Node}s}.
   } }
 }

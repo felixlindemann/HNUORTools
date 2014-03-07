@@ -1,5 +1,5 @@
 \docType{methods}
-\name{$<-}
+\name{$<-,Node-method}
 \alias{$<-}
 \alias{$<-,Customer-method}
 \alias{$<-,GeoSituation-method}
@@ -8,13 +8,13 @@
 \alias{$<-,Warehouse-method}
 \title{Set Method}
 \usage{
-\S4method{$}{Customer}(x, name) <- value
+\S4method{$}{Node}(x, name) <- value
 
-\S4method{$}{GeoSituation}(x, name) <- value
+\S4method{$}{Customer}(x, name) <- value
 
 \S4method{$}{Link}(x, name) <- value
 
-\S4method{$}{Node}(x, name) <- value
+\S4method{$}{GeoSituation}(x, name) <- value
 
 \S4method{$}{Warehouse}(x, name) <- value
 }

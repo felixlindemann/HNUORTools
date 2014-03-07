@@ -19,7 +19,7 @@
 #' \subsection{Forwarded to the follwowing functions}{  
 #'    You may want to check these functions for any other optional parameters.
 #'    \itemize{
-#'      \item{\code{\link{calc.polar}} (offset-parameter is used by \code{\link{VRP.SWEEP}}}
+#'      \item{\code{\link{getpolar}} (offset-parameter is used by \code{\link{VRP.SWEEP}}}
 #'    }
 #' }  
 #' @return same modified object of Type \code{\link{GeoSituation}}.
@@ -122,7 +122,7 @@ setGeneric("VRP.SWEEP",  function(object,...)  standardGeneric("VRP.SWEEP") )
 
  			for(j in (i+1):K){
  				n2 <- nodes[[j]]
- 				cij[i,j] <- calc.Distance(n1,n2,...)
+ 				cij[i,j] <- getDistance(n1,n2,...)
  				cij[j,i] <- cij[i,j]
  			}
  			
@@ -166,7 +166,7 @@ setGeneric("VRP.SWEEP",  function(object,...)  standardGeneric("VRP.SWEEP") )
   		for(j in 1:N){ 
   			if(object$tpp.x[i,j] >0){
   				cust <- object$customers[[j]] 
-  				df<-rbind(df, data.frame(j = j , polar= calc.polar(w,cust, offset = li$alpha,  ...) ))
+  				df<-rbind(df, data.frame(j = j , polar= getpolar(w,cust, offset = li$alpha,  ...) ))
   			} 
   		} 
   		# sort by col2.

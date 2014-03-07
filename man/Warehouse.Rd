@@ -93,9 +93,9 @@ Operations Research Tools. R package version 1.1-0.
   \code{\link{list}} into a \code{\link{Warehouse}}.  }
   \item{\code{is.Warehouse(obj)}}{ Checks if the object
   \code{obj} is of type \code{\link{Warehouse}}.  }
-  \item{\code{\link{calc.Distance}}}{ Calculating the
+  \item{\code{\link{getDistance}}}{ Calculating the
   distance between two \code{\link{Node}s}.  }
-  \item{\code{\link{calc.polar}}}{ Calculating the angle to
+  \item{\code{\link{getpolar}}}{ Calculating the angle to
   the x-Axis of a link, connecting two \code{\link{Node}s}.
   } }
 }
@@ -154,7 +154,7 @@ Phone +49(0)731-9762-1437 Web
 \code{\link{TPP.NW}},\code{\link{TPP.CMM}},\code{\link{TPP.MMM}},
 \code{\link{TPP.SteppingStone}},\code{\link{TPP.MODI}},
 \code{\link{WLP.ADD}},\code{\link{VRP.SWEEP}},
-\code{\link{VRP.SAVINGS}},\code{\link{calc.Distance}},
+\code{\link{VRP.SAVINGS}},\code{\link{getDistance}},
 \code{\link{Node}}, \code{\link{Warehouse}}
 }
 
