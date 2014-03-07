@@ -1,26 +1,26 @@
-context("Testing HNUCustomer")  
+context("Testing Customer")  
 
 #create a random Customer with user friendly function 
 #	-- showwarnings=TRUE to indicate this. Default is FALSE
 #	
 # context("\t\tcreate a random Customer with user friendly function ") 
-c1<- HNUCustomer.create(showwarnings=FALSE)
+c1<- new("Customer",showwarnings=FALSE)
 
 
 # context("\t\tcreate an explizit defined Customer with S4 initializer")  
-c2<- new("HNUCustomer",id = "C02", label="Customer 02", x = 10, y= 20, demand = 10 )
+c2<- new("Customer",id = "C02", label="Customer 02", x = 10, y= 20, demand = 10 )
 
 
 # context("\t\tcreate a Customer from a data.frame")  
 df <- data.frame(id = "C02", label="Customer 02", x = 14, y= 23, demand = 10 )
-c3 <- HNUCustomer.create(df)
+c3 <- new("Customer",df)
 
 
-# context("\t\tconvert HNUCustomer to data.frame")   
+# context("\t\tconvert Customer to data.frame")   
 df <- as.data.frame(c3)
 
-# context("\t\tor convert a data.frame to a HNUCustomer")   
-c3a <- as.HNUCustomer(df)
+# context("\t\tor convert a data.frame to a Customer")   
+c3a <- as.Customer(df)
 
 
 #Do some testing
@@ -42,7 +42,7 @@ test_that("Node-Methods work for Customer", {
 context("\tTest 03: Are the Customers correctly validated?") 
 test_that("Validation is implemented correctly", {
    
-  	expect_error(c1$demand <- -12, "invalid class “HNUCustomer” object: Error with value demand: expected numeric non negative value, but obtained -12")
+  	expect_error(c1$demand <- -12, "invalid class “Customer” object: Error with value demand: expected numeric non negative value, but obtained -12")
 })
 
 context("done.")   

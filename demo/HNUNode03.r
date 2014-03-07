@@ -1,6 +1,6 @@
 #create some nodes
-n1 <- new("HNUNode",x=10,y=20, id ="n1")
-n2 <- new("HNUNode",x=13,y=24, id ="n1")
+n1 <- new("Node",x=10,y=20, id ="n1")
+n2 <- new("Node",x=13,y=24, id ="n1")
 
 # calculate Beeline distance
 

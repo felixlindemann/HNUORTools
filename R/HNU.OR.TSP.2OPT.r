@@ -1,18 +1,69 @@
-setGeneric("HNU.OR.TSP.2OPT",  function(object,...)  standardGeneric("HNU.OR.TSP.2OPT") )
- setMethod("HNU.OR.TSP.2OPT", signature(object="HNUGeoSituation"),
+#' @name TSP.2OPT 
+#' @rdname TSP.2OPT 
+#' @title Travelling-Salesman-Problem -- Two-Opt
+#'
+#' @description Improves a given Route by switching links.
+#' @param object Object of Type \code{\link{GeoSituation}}
+#' @param ... \emph{Optional Parameters} See Below.
+#'     
+#' @section Optional Parameters (\code{...}): 
+#' \subsection{used by \code{\link{TSP.3OPT}}}{
+#'    \describe{ 
+#' 		\item{log}{\code{"logical"} Optional Parameter. Indicating, if the calculation should be logged to console. Default is \code{FALSE}.}  
+#'    } 
+#' }
+#' \subsection{Forwarded to the follwowing functions}{  
+#'    You may want to check these functions for any other optional parameters.
+#'    \itemize{
+#'      \item{\code{\link{...}} currently not forewarded.}
+#'    }
+#' }  
+#' @keywords OR Travelling-Salesman-Problem TSP 2-opt two-opt
+#' @details Explain what two-opt does.
+#' @export  
+#' @return same modified object of Type \code{\link{GeoSituation}}.
+#'      The Solution will be assigned the attribute \code{tsp.solution}.
+#' @references Domschke
+#' @seealso \code{\link{GeoSituation}}, \code{\link{Node}}, \code{\link{TSP.NearestNeighbor}}, \code{\link{TSP.2OPT}},  \code{\link{TSP.3OPT}}
+#' @examples
+#' # demo(HNUTSP01)
+#' # demo(HNUTSP02) 
+#' @note 
+#'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.
+#'      
+#' @author Dipl. Kfm. Felix Lindemann \email{felix.lindemann@@hs-neu-ulm.de} 
+#' 
+#' Wissenschaftlicher Mitarbeiter
+#' Kompetenzzentrum Logistik
+#' Buro ZWEI, 17
+#'
+#' Hochschule fur angewandte Wissenschaften 
+#' Fachhochschule Neu-Ulm | Neu-Ulm University 
+#' Wileystr. 1 
+#' 
+#' D-89231 Neu-Ulm 
+#' 
+#' 
+#' Phone   +49(0)731-9762-1437 
+#' Web      \url{www.hs-neu-ulm.de/felix-lindemann/} 
+#'			\url{http://felixlindemann.blogspot.de}
+setGeneric("TSP.2OPT",  function(object,...)  standardGeneric("TSP.2OPT") )
+
+#' @aliases TSP.2OPT,GeoSituation-method
+#' @rdname TSP.2OPT
+ setMethod("TSP.2OPT", signature(object="GeoSituation"),
   function(object,...){ 
-    message("HNU.OR.TSP.2OPT\n")
+    message("TSP.2OPT\n")
   	li <- list(...) 
 
-	found<-TRUE
-	if(is.null(li$log))  li$log  <- FALSE
-	if(is.null(li$plot)) li$plot <- FALSE
+	if(is.null(li$log))  li$log  <- FALSE 
 	
 	R   <- object$tsp.solution$roundtrip 
 	n   <- length(R)-1
 	cij <- object$tsp.solution$cij
 	locations <- sapply(object$tsp.solution$nodes, function(o) {o$label})
 
+	found<-TRUE
 	if(li$log){
 		cat("\taktuelle Route:\n")
 		print(locations[R])

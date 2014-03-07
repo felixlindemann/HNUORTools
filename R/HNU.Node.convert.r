@@ -3,41 +3,41 @@
 #	konvertierungen
 #
 # 
-as.HNUNode.list = function(x, ...){
-	return(new("HNUNode", x))
+as.Node.list = function(x, ...){
+	return(new("Node", x))
 }
-as.HNUNode.data.frame = function(x, ...){
-	return(new("HNUNode", x))
+as.Node.data.frame = function(x, ...){
+	return(new("Node", x))
 }
-as.data.frame.HNUNode = function(x, ...){
+as.data.frame.Node = function(x, ...){
 	li<-list(...)
 	if(is.null(li$withrownames)) li$withrownames <- FALSE
 	df<-data.frame(id=x@id, label = x@label, x= x@x, y= x@y)
 	if(li$withrownames) rownames(df)<-x@id
 	return (df)
 }
-as.list.HNUNode = function(x, ...){
+as.list.Node = function(x, ...){
 	list(id=x@id, label = x@label, x= x@x, y= x@y)
 }
  
-setGeneric("as.HNUNode", function(x, ...) standardGeneric( "as.HNUNode")) 
+setGeneric("as.Node", function(x, ...) standardGeneric( "as.Node")) 
  
-setMethod("as.HNUNode",     signature(x = "list"),  	  as.HNUNode.list) 
-setMethod("as.HNUNode",  	signature(x = "data.frame"),  as.HNUNode.data.frame) 
+setMethod("as.Node",     signature(x = "list"),  	  as.Node.list) 
+setMethod("as.Node",  	signature(x = "data.frame"),  as.Node.data.frame) 
  
-setMethod("as.list",        signature(x = "HNUNode"),  	  as.list.HNUNode) 
-setMethod("as.data.frame",  signature(x = "HNUNode"),  	  as.data.frame.HNUNode) 
+setMethod("as.list",        signature(x = "Node"),  	  as.list.Node) 
+setMethod("as.data.frame",  signature(x = "Node"),  	  as.data.frame.Node) 
 
 
-setAs("data.frame", "HNUNode", def=function(from){
-    return(as.HNUNode.data.frame(from))
+setAs("data.frame", "Node", def=function(from){
+    return(as.Node.data.frame(from))
 })
 
-setAs("list", "HNUNode", def=function(from){
-    return(as.HNUNode.list(from))
+setAs("list", "Node", def=function(from){
+    return(as.Node.list(from))
 })
  
  
-#is.HNUNode
-setGeneric("is.HNUNode",      function(x, ...) standardGeneric( "is.HNUNode")) 
-setMethod( "is.HNUNode", "HNUNode", function(x, ...){return(is(x ,"HNUNode"))})
+#is.Node
+setGeneric("is.Node",      function(x, ...) standardGeneric( "is.Node")) 
+setMethod( "is.Node", "Node", function(x, ...){return(is(x ,"Node"))})

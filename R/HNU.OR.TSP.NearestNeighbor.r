@@ -1,19 +1,76 @@
-setGeneric("HNU.OR.TSP.NearestNeighbor",  function(object,...)  standardGeneric("HNU.OR.TSP.NearestNeighbor") )
- setMethod("HNU.OR.TSP.NearestNeighbor", signature(object="HNUGeoSituation"),
+#' @name TSP.NearestNeighbor 
+#' @rdname TSP.NearestNeighbor 
+#' @title Travelling-Salesman-Problem -- NearestNeighbor
+#'
+#' @description Improves a given Route by switching links.
+#' @param object Object of Type \code{\link{GeoSituation}}
+#' @param ... \emph{Optional Parameters} See Below.
+#'     
+#' @section Optional Parameters (\code{...}): 
+#' \subsection{used by \code{\link{TSP.NearestNeighbor}}}{
+#'    \describe{ 
+#'    \item{log}{\code{logical} Optional Parameter. Indicating, if the calculation should be logged to console. Default is \code{FALSE}.}  
+#'    \item{alpha}{\code{numeric} The \code{alpha}-Shape-Parameter of the savings-algorithm. Default is \code{1}}
+#'    \item{calcCij}{\code{logical} \emph{Optional Parameter}. Indicating, if the cost matrix cij has to be calculated. Default is \code{TRUE}.}
+#'    \item{cij}{\code{matrix} \emph{Optional Parameter}. Use for providing a user-defined cij-matrix. By default it's calculated.}
+#'    } 
+#' }
+#' \subsection{Forwarded to the follwowing functions}{  
+#'    You may want to check these functions for any other optional parameters.
+#'    \itemize{
+#'      \item{\code{\link{TPP.SteppingStone.GetPolygonZuege}}}
+#'    }
+#' }    
+#' @keywords OR Travelling-Salesman-Problem TSP NearestNeighbor
+#' @details Explain what NearestNeighbor does.
+#' @return same modified object of Type \code{\link{GeoSituation}}.
+#'      The Solution will be assigned the attribute \code{tsp.solution}.
+#' @export  
+#' @references Domschke
+#' @seealso \code{\link{GeoSituation}}, \code{\link{Node}}, \code{\link{TSP.NearestNeighbor}}, \code{\link{TSP.2OPT}},  \code{\link{TSP.3OPT}}
+#' @examples
+#' # demo(HNUTSP01)
+#' # demo(HNUTSP02) 
+#' @note 
+#'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.
+#'      
+#' @author Dipl. Kfm. Felix Lindemann \email{felix.lindemann@@hs-neu-ulm.de} 
+#' 
+#' Wissenschaftlicher Mitarbeiter
+#' Kompetenzzentrum Logistik
+#' Buro ZWEI, 17
+#'
+#' Hochschule fur angewandte Wissenschaften 
+#' Fachhochschule Neu-Ulm | Neu-Ulm University 
+#' Wileystr. 1 
+#' 
+#' D-89231 Neu-Ulm 
+#' 
+#' 
+#' Phone   +49(0)731-9762-1437 
+#' Web      \url{www.hs-neu-ulm.de/felix-lindemann/} 
+#'			\url{http://felixlindemann.blogspot.de}
+setGeneric("TSP.NearestNeighbor",  function(object,...)  standardGeneric("TSP.NearestNeighbor") )
+
+#' @aliases TSP.NearestNeighbor,GeoSituation-method
+#' @rdname TSP.NearestNeighbor
+ setMethod("TSP.NearestNeighbor", signature(object="GeoSituation"),
   function(object,...){ 
-    message("HNU.OR.TSP.NearestNeighbor\n")
+    message("TSP.NearestNeighbor\n")
   	li <- list(...) 
   	# Voraussetzung: Die Kostenmatrix C;:; (cij) eines ungerichteten, vollstaendigen,schlichten,
 	# bewerteten Graphen G = [V, E, c] mit n Knoten; ein Startknoten v1; 
 	# Variable F fuer die Laenge der Rundreise.
 	# 
+	
+	if(is.null(li$log)) li$log <- FALSE 
+	if(is.null(li$StartNode)) li$StartNode <- 1 
+	if(is.null(li$calcCij) | is.null(li$cij)) li$calcCij <- TRUE
+ 
 	if(is.null(li$nodes)) stop("No Nodes for TSP are given.") 
 	if(length(li$nodes) == 0) stop("The Origin-Datasource is empty") 
 	object$tsp.nodes <- li$nodes
 
-	if(is.null(li$StartNode)) li$StartNode <- 1 
-	if(is.null(li$calcCij) | is.null(li$cij)) li$calcCij <- TRUE
- 
 	if(li$calcCij){
 
 		I <- length(object$tsp.nodes)

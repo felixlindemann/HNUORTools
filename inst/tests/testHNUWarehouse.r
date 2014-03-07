@@ -1,26 +1,26 @@
-context("Testing HNUWarehouse")  
+context("Testing Warehouse")  
 
 #create a random Warehouse with user friendly function 
 #	-- showwarnings=TRUE to indicate this. Default is FALSE
 #	
 # context("\t\tcreate a random Warehouse with user friendly function ") 
-w1<- HNUWarehouse.create(showwarnings=FALSE)
+w1<- new("Warehouse",showwarnings=FALSE)
 
 
 # context("\t\tcreate an explizit defined Warehouse with S4 initializer")  
-w2<- new("HNUWarehouse",id = "W02", label="Warehouse 02", x = 10, y= 20, supply = 10, fixcosts = 1000 )
+w2<- new("Warehouse",id = "W02", label="Warehouse 02", x = 10, y= 20, supply = 10, fixcosts = 1000 )
 
 
 # context("\t\tcreate a Warehouse from a data.frame")  
 df <- data.frame(id = "W02", label="Warehouse 02", x = 14, y= 23, supply = 10, fixcosts = 1000 )
-w3 <- HNUWarehouse.create(df)
+w3 <- new("Warehouse",df)
 
 
-# context("\t\tconvert HNUWarehouse to data.frame")   
+# context("\t\tconvert Warehouse to data.frame")   
 df <- as.data.frame(w3)
 
-# context("\t\tor convert a data.frame to a HNUWarehouse")   
-w3a <- as.HNUWarehouse(df)
+# context("\t\tor convert a data.frame to a Warehouse")   
+w3a <- as.Warehouse(df)
 
 
 #Do some testing
@@ -42,8 +42,8 @@ test_that("Node-Methods work for Warehouse", {
 context("\tTest 03: Are the Warehouses correctly validated?") 
 test_that("Validation is implemented correctly", {
    
-  	expect_error(w1$supply   <- -12, "invalid class “HNUWarehouse” object: Error with value supply: expected numeric non negative value, but obtained -12")
- 	expect_error(w1$fixcosts <- -12, "invalid class “HNUWarehouse” object: Error with value fixcosts: expected numeric non negative value, but obtained -12")
+  	expect_error(w1$supply   <- -12, "invalid class “Warehouse” object: Error with value supply: expected numeric non negative value, but obtained -12")
+ 	expect_error(w1$fixcosts <- -12, "invalid class “Warehouse” object: Error with value fixcosts: expected numeric non negative value, but obtained -12")
 })
 
 context("done.")   

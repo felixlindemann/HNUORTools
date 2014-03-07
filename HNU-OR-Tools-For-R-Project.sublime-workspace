@@ -4,8 +4,40 @@
 		"selected_items":
 		[
 			[
+				"expc",
+				"expect_true"
+			],
+			[
+				"expe",
+				"expect_true"
+			],
+			[
+				"exp",
+				"expect_true"
+			],
+			[
+				"is",
+				"isEndCustomer"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"n",
+				"HNU.Node.convert.r"
+			],
+			[
+				"row",
+				"rowSums"
+			],
+			[
 				"max",
-				"maxstops"
+				"maxiter"
+			],
+			[
+				"nod",
+				"nodes"
 			],
 			[
 				"e",
@@ -46,10 +78,6 @@
 			[
 				"fie",
 				"fields"
-			],
-			[
-				"is",
-				"isDummy"
 			],
 			[
 				"custom",
@@ -227,30 +255,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "\n			\n\n			# li$cij is now a distance matrix/cost matrix (if transportcosts are provided). \n			# \n			# in this context we need the costs per transported item.\n			# so we calculate for each pivot-element cij[i,j] <- cij[i,j] * demand[j]\n			cij <- t(t(cij)*demand) \nr",
-			"settings":
-			{
-				"buffer_size": 263,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "README.md",
-			"settings":
-			{
-				"buffer_size": 213,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "R/HNU.OR.VRP.SWEEP.r",
-			"settings":
-			{
-				"buffer_size": 13423,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
@@ -384,134 +388,134 @@
 	},
 	"file_history":
 	[
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.c.HNU.Warehouse.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.methods.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Math.getPhi.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.e.HNU.GeoSituation.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.2OPT.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.getDistanceMatrix.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.3OPT.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/SPP.Dijkstra.Rd",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.a.HNU.Node.r",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.b.HNU.Customer.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.c.HNU.Warehouse.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.cd.HNU.Link.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.e.HNU.GeoSituation.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Math.getPhi.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.getDistanceMatrix.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.getInitialMatrix.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.SPP.Dijsktra.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.CMM.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.MMM.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.MODI.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.NorhtwestCornerRule.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.Prepare.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.CalcOppMatrix.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.CalcPolyGonZug.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.GetBestPolygonZug.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.GetPolygonZuege.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.2OPT.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.3OPT.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.drawrouting.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.NearestNeighbor.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.VRP.SAVINGS.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.VRP.SWEEP.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.WLP.ADD.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/DESCRIPTION",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.methods.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Geosituation.methods.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.methods.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.methods.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/getDistanceMatrix.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/getInitialMatrix.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/TPP.CMM.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPMatrix-Minium-Method.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUSPP01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Geosituation.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.convert.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/00Index",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/Customer.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/Node.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/00init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/HNU.Math.getPhi.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.gitignore",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rapp.history",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rbuildignore",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rhistory",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rproj.user/2035E017/pcs/files-pane.pper",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rproj.user/2035E017/persistent-state",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rproj.user/2035E017/sdb/prop/INDEX",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rproj.user/2035E017/sdb/s-3E143013/F6ABA316",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNULink01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUNode01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUNode02.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUNode03.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP02.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP03.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP04.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP05.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP06.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP07.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP08.r",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTSP01.r",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTSP02.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/00Index",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.NearestNeighbor.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTSPNearestNeighbor.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUWLP01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/NAMESPACE",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/HNU-OR-Tools-For-R-Project.sublime-project",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/HNU-OR-Tools-For-R-Project.sublime-workspace",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUCustomer.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUGeoSituation.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testhnulink.r",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testhnunode.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPColumn-Minium-Method Column-Minium-Method Column-Minium-Method.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPMatrix-Minium-Method Column-Minium-Method Column-Minium-Method.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPMODIMethode.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPNorthWestCornerRule.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPprepare.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPSteppingStone.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTSPNearestNeighbor.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORVRPSavings.r",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUWarehouse.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.drawrouting.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.init.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/plotGeoSituation.bordersgermany.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/HNU.OR.getDistanceMatrix.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/README.md",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/update-package.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Geosituation.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/plotGeoSituation.bordersgermany.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.getCostMatrix.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.MODI.CalcOppCosts.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.VRP.drawrouting.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehosue.valid.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehouse.convert.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehouse.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehouse.methods.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/plotGeoSituation.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/plotGeoSituation.transportplan.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.valid.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.valid.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.convert.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.valid.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.convert.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/R-Skripte - obsolete?/HNU-R-Tools/hnurtools/man/getPhi.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/bordersgermany.Rd",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/8 VRP 1/Transportwirtschaft-Tutorium Übungsblatt 7 VRP(1) SoSe 2014.r",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/7 VRP 1/Transportwirtschaft-Tutorium Übungsblatt 7 VRP(1) SoSe 2014.r",
+		"/private/var/folders/tl/744j2yv55mn9hmq96_fs72n80000gn/T/RtmpvTK5UT/HNUORTools.Rcheck/00install.out",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/5 TSP 1/Transportwirtschaft-Tutorium Übungsblatt 5 TSP(1) SoSe 2014 v.1 .r",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/4 WLP/Transportwirtschaft-Tutorium Übungsblatt 4 WLP SoSe 2014 v.1 Aufgabenstellung.r",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/7 VRP 1/Transportwirtschaft-Tutorium Übungsblatt 8 VRP(1) SoSe 2013.r",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/3 TPP 2/Transportwirtschaft-Tutorium Übungsblatt 3 TPP2 SoSe 2014 v.1 Aufgabenstellung.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/WLP.ADD.R",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/VRP.SWEEP.R",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/3 TPP 2/Transportwirtschaft-Tutorium Übungsblatt 3 TPP2 SoSe 2014 v.1 Aufgabenstellung.pdf",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/1 SPP/Transportwirtschaft-Tutorium Übungsblatt 2 TPP SoSe 2014 v.1 Aufg-2.r",
+		"/Volumes/Daten/FelixLindemann/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/1 SPP/Transportwirtschaft-Tutorium Übungsblatt 1 SPP SoSe 2014 v.1 Aufg-3.r",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/2 SPP/Transportwirtschaft-Tutorium Übungsblatt 1 SPP SoSe 2014 v.1 b).r",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2014 Sommersemester/2 SPP/Transportwirtschaft-Tutorium Übungsblatt 1 SPP SoSe 2014 v.1 a).r",
+		"/private/var/folders/tl/744j2yv55mn9hmq96_fs72n80000gn/T/Rtmp7Wm77T/HNUORTools.Rcheck/00install.out",
+		"/private/var/folders/tl/744j2yv55mn9hmq96_fs72n80000gn/T/Rtmp7Wm77T/HNUORTools.Rcheck/00check.log",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/src/bordersgermany02.r",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/src/calibratingCities.r",
 		"/Volumes/Daten/FelixLindemann/Dropbox/Latex/Meine Klassen und Stile/Karte/Karte.sty",
 		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/src/bordersgermany01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/data/bordersgermany.rda",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/data/bordersgermany.polygon.rda",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.getCostMatrix.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/src/cities.data.frame.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rbuildignore",
-		"/Volumes/Daten/FelixLindemann/Documents/tmp/tmp2.txt",
-		"/Volumes/Daten/FelixLindemann/Documents/tmp/mp.rda",
-		"/Volumes/Daten/FelixLindemann/Documents/tmp/test/data/df.rda",
-		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2010SoSe/Tutorium 5 - TSP 2/Tutorium 5 - TSP 2/dKarte.sty",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP08.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.CMM.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.MMM.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.CalcOppMatrix.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.MODI.CalcOppCosts.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPSteppingStone.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPMODIMethode.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP06.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.MODI.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP07.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/HNUExceltools/HNUExcelTools/HNUExceltoolsXLL/OR-Probleme/TPP/TPP.vb",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP04.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.GetBestPolygonZug.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP05.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.CalcPolyGonZug.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.GetPolygonZuege.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/TPP.SteppingStone.GetPolygonZuege.R",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.GetOppMatrix.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/g g HNU.OR.TPP.SteppingStone.CalcPolyGonZug.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP03.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPprepare.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/plotGeoSituation.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/plotGeoSituation.transportplan.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP02.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.getCostMatrix.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUGeoSituation.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.NorhtwestCornerRule.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/00init.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.init.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehouse.init.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.convert.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.convert.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehouse.convert.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.init.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.SPP.Dijsktra.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.getInitialMatrix.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPColumn-Minium-Method Column-Minium-Method Column-Minium-Method.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPMatrix-Minium-Method Column-Minium-Method Column-Minium-Method.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPNorthWestCornerRule.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUSPP01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Geosituation.methods.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.addTransportCosts.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Geosituation.methods.plot.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.methods.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/SPP.Dijkstra.R",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/DESCRIPTION",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.cd.HNU.Link.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUNode02.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.MPP.CMM.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/TPP.SMM.1995.R",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.addTransportplan.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.Prepare.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/draw.TPP.plot.TransportPlan.R",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rapp.history",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testhnulink.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehouse.methods.r",
-		"/private/var/folders/tl/744j2yv55mn9hmq96_fs72n80000gn/T/RtmpbAfsmu/HNUORTools.Rcheck/00install.out",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.valid.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNULink01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehosue.valid.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.methods.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/untitled",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.gitignore",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.valid.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.a.base.pnumeric.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testhnunode02.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testhnunode03.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.intitalize.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testhnunode01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUNode03.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/test/testhnunode02.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUNode01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/test/testhnunode01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/test.hnunode01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/tests/test.hnunode01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/dev/update-package.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.a.HNU.Geosituation.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rhistory",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/DESCRIPTION",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/README.md",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNU.Node02.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNU.Node01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/HNU-OR-Tools-For-R-Project.sublime-project",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.valid.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/dev/temp/HNUORToolsForRProject.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/NAMESPACE",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/HNU.Node.Rd",
-		"/Volumes/Daten/FelixLindemann/Downloads/gsubfn/demo/00Index",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node01.r",
-		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.def.b.HNU.Customer.r"
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/data/bordersgermany.rda"
 	],
 	"find":
 	{
@@ -519,9 +523,11 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject",
+			"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R",
 			""
 		]
 	},
@@ -530,134 +536,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"list",
-			"tour.",
-			"tour.loading",
-			"providing default value",
-			".capacity",
-			"capacity",
-			"li",
-			"tpp",
-			"Transportplan",
-			"TSP.2OPT",
-			"deg",
-			"demand",
-			"x0",
-			"HNUCustomer.create",
-			"t",
-			"T",
-			"t",
-			"T",
-			"t",
-			"T",
-			"2OPT",
-			"R[j]",
-			"R[j+1]",
-			"vi[2",
-			"R[i+1]",
-			"R[i]",
-			"PLOT",
-			"DEBUG",
-			"object",
-			"HNU.OR.TSP.NearestNeighbor",
-			"nodes",
-			"li$nodes",
-			"HNUNode.create",
-			"HNU.OR.TSP.drawrouting",
-			"object",
-			"<-",
+			"@author Dipl. Kfm. Felix Lindemann felix.lindemann@@hs-neu-ulm.de",
+			"mail",
+			"\\url{http://felixlindemann.github.io/HNUORTools/, https://github.com/felixlindemann/HNUORTools}",
+			"ink$costs",
+			"Link",
+			"link",
+			"Link",
+			"GeoSituation",
+			"Customer",
+			"[",
+			"Giving",
+			"giving",
+			"}",
+			"indicating",
+			"default",
+			"}{",
+			" \\item",
+			"@param ",
+			"item",
+			"@param ",
+			"...",
+			"getPhi",
+			"GetPhi",
+			"@title",
+			"\".OR.",
+			"@title",
+			"...",
+			")\n",
+			"li$plot",
 			"NearestNeighbor",
-			"StartNode",
-			"x",
-			"main",
-			"ylab",
-			"ylim",
-			"xlim",
-			"Ylim",
-			"ylim",
-			"Ylim",
-			"Xlim",
-			"xlim",
-			"Xlim",
-			"20",
-			"y",
-			"x",
-			"X",
-			"x",
-			"X",
-			"x",
-			"l.c",
-			"/1.041383",
-			"/2",
-			"164",
-			"212",
-			"67.6",
-			"231",
-			"170",
-			"317",
-			"190",
-			"162",
-			"92",
-			"144",
-			"87",
-			"199",
-			"397",
-			"436",
-			"697",
-			"x",
-			"#",
-			"bl.index[i]",
-			"plotPolygons",
-			"ylab",
-			"lim",
-			")]",
-			"i",
-			"ncol=2",
+			"Travelling-Salesman-Problem",
+			"TSP",
+			"tsp",
+			"TSP",
+			"TSP.NearestNeighbor",
+			"alpha",
+			"round.cij",
+			"{ ",
+			"{",
+			"Savings",
+			"savings",
+			"Savings",
+			"SAVINGS",
+			"round.cij",
+			"Travelling-Salesman-Problem",
+			"TSP",
+			"TSP.drawrouting",
+			"bg",
+			"background",
 			"<-",
-			"--",
-			"-- cycle;",
-			"-- cycle;\nland_30<-matrix(c(",
-			"\\draw[tikzLandStyle] ",
-			"25",
-			"df",
-			")",
-			"df <-",
-			"cities[length(cities)] <- new(\"HNUNode\",",
-			"y =",
-			"new(",
-			"id =",
-			")",
-			"label",
-			"y=",
-			"x =",
-			"label",
-			"y=",
-			"= ,",
-			"= ",
-			"=",
-			",",
-			"]",
-			"route",
-			"length(nodes)",
+			"s.node",
+			"bg",
+			"startnode.pch",
+			"pch",
 			"col",
-			"useNodes",
-			"tsp.costs",
-			"TSPRoute",
-			"TPP.MODI",
-			"=",
-			"ncol(opp)",
-			"nrow(opp)",
-			"expect_true",
-			"expect_equal",
-			"equal",
-			"Modi",
-			"Stepping Stone",
-			"itermax",
-			"geo$",
-			"geo",
-			"itermax",
-			"An error occured",
-			"demand"
+			"3OPT",
+			"StartNode",
+			"two",
+			"Two",
+			"2",
+			"TPP.SteppingStone.GetPolygonZuege",
+			"CalcPolyGonZug",
+			"iter.max",
+			"GetBestPolygonZug",
+			"_",
+			"GetPolygonZuege",
+			"Optional Parameter",
+			"NW",
+			"logical",
+			"TPP.NW",
+			"TSP.2OPT ",
+			"Type GeoSituation",
+			"currently not but",
+			"...",
+			"Optional Parameter",
+			"li$plot",
+			"Transportation-Problem",
+			"Transportation",
+			"li$iter",
+			"li$plot",
+			"Column",
+			"optional",
+			"logical",
+			"numeric",
+			"Shortest-Path",
+			"Shortest Path",
+			"if(li$plot){",
+			"Warehouse",
+			"tpp",
+			"node",
+			"nodes",
+			"node",
+			"nodes",
+			"label",
+			"id",
+			"Warehouse",
+			"warehouse",
+			"Warehouse",
+			"Node",
+			"node",
+			"Node",
+			"		",
+			"Customer",
+			"Node",
+			"node",
+			"node)",
+			"node",
+			"data.frame",
+			"distance",
+			"length",
+			"costs",
+			"origin",
+			"x",
+			"Warehouse",
+			" supply=10",
+			"demand",
+			"c1",
+			"Customer",
+			"customer",
+			"Customer",
+			"#' @section",
+			"#'  \\describe{",
+			"The default value is",
+			"\\code{\\link{Warehouse}}s",
+			"# ",
+			"\\code{\\link{Node}}",
+			"#'   }",
+			"   \\item"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -665,6 +671,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"@author Dipl. Kfm. Felix Lindemann \\email{felix.lindemann@@hs-neu-ulm.de}",
+			"\\url{http://felixlindemann.github.io/HNUORTools/}",
+			"\"",
+			"Type \\code{\\link{Geosituation}}",
+			"currently not used but",
+			"",
 			"test",
 			"\nSpielSystemEditor.$SpielsystemElemente",
 			"\\ldots",
@@ -682,798 +694,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"settings":
-					{
-						"buffer_size": 263,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								262,
-								263
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublime_auto_complete": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/R/R.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "README.md",
-					"settings":
-					{
-						"buffer_size": 213,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								50,
-								117
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublime_auto_complete": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "R/HNU.OR.VRP.SWEEP.r",
-					"settings":
-					{
-						"buffer_size": 13423,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4874,
-								4874
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublime_auto_complete": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/R/R.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 1.0,
-						"translation.y": 2400.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1537,6 +759,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 328.0,
+	"side_bar_width": 285.0,
 	"status_bar_visible": true
 }

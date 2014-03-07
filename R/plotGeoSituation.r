@@ -1,4 +1,35 @@
 
+##############################################################
+#' @name plotGeoSituation 
+#' @docType methods
+#' @export  
+#' @rdname plotGeoSituation 
+#'
+#' @title Plot an Object of Type \code{\link{GeoSituation}}
+#' @description This method should simplify the use of HNUORTools.
+#'  
+#' @param object an object of class \code{\link{GeoSituation}}
+#' @param ... Additional argument list that might not ever be used.
+#' @return The updated object of class \code{\link{GeoSituation}}.
+#' @note 
+#'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.
+#'      
+#' @author Dipl. Kfm. Felix Lindemann \email{felix.lindemann@@hs-neu-ulm.de} 
+#' 
+#' Wissenschaftlicher Mitarbeiter
+#' Kompetenzzentrum Logistik
+#' Buro ZWEI, 17
+#'
+#' Hochschule fur angewandte Wissenschaften 
+#' Fachhochschule Neu-Ulm | Neu-Ulm University 
+#' Wileystr. 1 
+#' 
+#' D-89231 Neu-Ulm 
+#' 
+#' 
+#' Phone   +49(0)731-9762-1437 
+#' Web      \url{www.hs-neu-ulm.de/felix-lindemann/} 
+#'      \url{http://felixlindemann.blogspot.de}
 setGeneric("plotGeoSituation",            function(object,...)  standardGeneric("plotGeoSituation") )
 setGeneric("plotGeoSituation.nodes",      function(object,...)  standardGeneric("plotGeoSituation.nodes") )
 setGeneric("plotGeoSituation.links",      function(object,...)  standardGeneric("plotGeoSituation.links") )
@@ -6,9 +37,9 @@ setGeneric("plotGeoSituation.warehouses", function(object,...)  standardGeneric(
 setGeneric("plotGeoSituation.customers",  function(object,...)  standardGeneric("plotGeoSituation.customers") )
 setGeneric("plotGeoSituation.warehouse",  function(object,...)  standardGeneric("plotGeoSituation.warehouse") )
 setGeneric("plotGeoSituation.customer",   function(object,...)  standardGeneric("plotGeoSituation.customer") )
-
-
-setMethod("plotGeoSituation",signature(object="HNUGeoSituation"),
+#' @aliases plotGeoSituation,GeoSituation-method
+#' @rdname plotGeoSituation 
+setMethod("plotGeoSituation",signature(object="GeoSituation"),
   function(object,...){ 
     
     li<-list(...)
@@ -90,7 +121,7 @@ setMethod("plotGeoSituation",signature(object="HNUGeoSituation"),
   }
 )
 
-setMethod("plotGeoSituation.nodes",signature(object="HNUGeoSituation"),
+setMethod("plotGeoSituation.nodes",signature(object="GeoSituation"),
   function(object,...){
     li<-list(...)
     n<-length(object$nodes)
@@ -111,7 +142,7 @@ setMethod("plotGeoSituation.nodes",signature(object="HNUGeoSituation"),
   }
 )
 
-setMethod("plotGeoSituation.links",signature(object="HNUGeoSituation"),
+setMethod("plotGeoSituation.links",signature(object="GeoSituation"),
   function(object,...){
     li<-list(...)
     n<-length(object$links)
@@ -136,8 +167,8 @@ setMethod("plotGeoSituation.links",signature(object="HNUGeoSituation"),
           if(link$used & li$lines.markused){ 
             lines(x,y,lty=li$lty, lwd=li$lwd.used, col=li$col.used)#
           }
-          if(li$lines.plotlength){
             lines(x,y,lty=li$lty, lwd=li$lwd, col=li$col)#
+          if(li$lines.plotlength){
             x <- sum(x)/2
             y <- sum(y)/2
             points(x,y,pch = li$pch, bg = li$bg , cex=li$lines.p.cex)# 
@@ -147,7 +178,7 @@ setMethod("plotGeoSituation.links",signature(object="HNUGeoSituation"),
     }
   }
 )
-setMethod("plotGeoSituation.customers",signature(object="HNUGeoSituation"),
+setMethod("plotGeoSituation.customers",signature(object="GeoSituation"),
   function(object,...){ 
     li<-list(...)
     n<-length(object$customers)
@@ -182,7 +213,7 @@ setMethod("plotGeoSituation.customers",signature(object="HNUGeoSituation"),
     }
   }
 )
-setMethod("plotGeoSituation.customer",signature(object="HNUCustomer"),
+setMethod("plotGeoSituation.customer",signature(object="Customer"),
   function(object,...){ 
     li<-list(...)
     if(is.null(li$zoom ))       li$zoom <- .5
@@ -204,7 +235,7 @@ setMethod("plotGeoSituation.customer",signature(object="HNUCustomer"),
     }
   }
 )
-setMethod("plotGeoSituation.warehouses",signature(object="HNUGeoSituation"),
+setMethod("plotGeoSituation.warehouses",signature(object="GeoSituation"),
   function(object,...){ 
     li<-list(...)
     n<-length(object$warehouses)
@@ -240,7 +271,7 @@ setMethod("plotGeoSituation.warehouses",signature(object="HNUGeoSituation"),
     }
   }
 )
-setMethod("plotGeoSituation.warehouse",signature(object="HNUWarehouse"),
+setMethod("plotGeoSituation.warehouse",signature(object="Warehouse"),
   function(object,...){ 
     li<-list(...)
     if(is.null(li$zoom )) li$zoom <- .5

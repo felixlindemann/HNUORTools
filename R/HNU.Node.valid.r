@@ -1,6 +1,6 @@
 
 # Set validity Check
-.HNUNode.valid <- function(object){
+.Node.valid <- function(object){
                if( sum(is.null(object@x)) + sum( is.na(object@x)) > 0 ) {
             return(paste("Error with value x: Value is not initialized", class(object@x)))
         } else if( sum(is.null(object@y)) + sum( is.na(object@y)) > 0) {
@@ -17,4 +17,4 @@
             return(TRUE)
         }
 }
-setValidity("HNUNode", .HNUNode.valid)
+setValidity("Node", .Node.valid)

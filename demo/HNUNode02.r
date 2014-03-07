@@ -1,9 +1,9 @@
 df<- data.frame(x=10,y=20)
 
-new("HNUNode", df)
+new("Node", df)
 
-as(df, "HNUNode")
+as(df, "Node")
 
-as.HNUNode(df)
+as.Node(df)
 
-HNUNode.create(x=20, y=30)
+new("Node", x=20, y=30)

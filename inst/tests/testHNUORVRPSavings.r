@@ -3,22 +3,22 @@
 # Daher ist ist es erforderlich, Strings nicht als Factors zu setzen.
 options(stringsAsFactors=FALSE) #WICHTIG!!
 
-context("Testing HNU VRP-Savings-Algorithm")  
+context("Testing  VRP-Savings-Algorithm")  
  
 context("\tTest 01: is solution for a VRP calculated with the Savings-Algorithm correctly?") 
 test_that("Test for VRP- Savings-Algorithm", { 
 
-  # Setup for: SoSe13 HNU OR-Tutorium
+  # Setup for: SoSe13  OR-Tutorium
   # Working.Paper 9 Case Study    
-  geo<-HNUGeoSituation.create()   
-  geo<-add(geo,new("HNUCustomer",  id="K1",  x=-129.19173,   y=-139.83131, demand = 14))
-  geo<-add(geo,new("HNUCustomer",  id="K2",  x=  95.33256,   y=- 96.36450, demand = 18))
-  geo<-add(geo,new("HNUCustomer",  id="K3",  x= 132.78652,   y=  42.49961, demand = 14))
-  geo<-add(geo,new("HNUCustomer",  id="K4",  x=- 69.18544,   y=-143.13668, demand = 14))
-  geo<-add(geo,new("HNUCustomer",  id="K5",  x=- 99.19556,   y=-147.50255, demand = 13))
+  geo<-new("GeoSituation")   
+  geo<-add(geo,new("Customer",  id="K1",  x=-129.19173,   y=-139.83131, demand = 14))
+  geo<-add(geo,new("Customer",  id="K2",  x=  95.33256,   y=- 96.36450, demand = 18))
+  geo<-add(geo,new("Customer",  id="K3",  x= 132.78652,   y=  42.49961, demand = 14))
+  geo<-add(geo,new("Customer",  id="K4",  x=- 69.18544,   y=-143.13668, demand = 14))
+  geo<-add(geo,new("Customer",  id="K5",  x=- 99.19556,   y=-147.50255, demand = 13))
 
   
-  geo<-add(geo,new("HNUWarehouse", id="W1",  x=0,   y=0, 
+  geo<-add(geo,new("Warehouse", id="W1",  x=0,   y=0, 
       supply = sum(sapply(geo$customers, function(o){o$demand}))))
   
   expect_true(geo$warehouses[[1]]$supply == (3*14+18+13))
@@ -31,9 +31,10 @@ test_that("Test for VRP- Savings-Algorithm", {
   #         2 tours
   #         F = 1825
   #         
-  geo<-  HNU.OR.VRP.SAVINGS(geo, costfactor=2.2, 
+  geo<-  VRP.SAVINGS(geo, costfactor=2.2, 
           round.cij=TRUE, alpha=1.2 , 
           log=FALSE,
+          vehiclecapacity.maxstops =100, # avoid warning.
           vehiclecapacity = 50)
   cij <- geo$tsp.costs
   expect_true(geo$tpp.x[1,1] == 14)

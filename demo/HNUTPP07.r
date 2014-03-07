@@ -1,18 +1,18 @@
-	geo<-HNUGeoSituation.create()
+	geo<-new("GeoSituation")
  	#example taken from
  	#Bloech Management Methoden und Optimalplanung S. 72
-	geo<-add(geo,new("HNUWarehouse", id="L1", x=25,   y=70,   supply = 100   ))
-	geo<-add(geo,new("HNUWarehouse", id="L2", x=150,  y=115,  supply = 130   ))
-	geo<-add(geo,new("HNUWarehouse", id="L3", x=80,   y=140,  supply = 170   )) 
+	geo<-add(geo,new("Warehouse", id="L1", x=25,   y=70,   supply = 100   ))
+	geo<-add(geo,new("Warehouse", id="L2", x=150,  y=115,  supply = 130   ))
+	geo<-add(geo,new("Warehouse", id="L3", x=80,   y=140,  supply = 170   )) 
  
-	geo<-add(geo,new("HNUCustomer",  id="K1", x=15,   y=130,  demand = 150   ))
-	geo<-add(geo,new("HNUCustomer",  id="K2", x=60,   y=80,   demand = 120   ))
-	geo<-add(geo,new("HNUCustomer",  id="K3", x=175,  y=140,  demand = 80   ))
-	geo<-add(geo,new("HNUCustomer",  id="K4", x=50,   y=100,  demand = 50   ))
+	geo<-add(geo,new("Customer",  id="K1", x=15,   y=130,  demand = 150   ))
+	geo<-add(geo,new("Customer",  id="K2", x=60,   y=80,   demand = 120   ))
+	geo<-add(geo,new("Customer",  id="K3", x=175,  y=140,  demand = 80   ))
+	geo<-add(geo,new("Customer",  id="K4", x=50,   y=100,  demand = 50   ))
 	  
 
 	# NO changes here   
-	geo<- HNU.OR.TPP.MMM(geo)  # just for setting up all variables.
+	geo<- TPP.MMM(geo)  # just for setting up all variables.
 	x <- geo$tpp.x * 0 
 	# setting values from example
 	x[1,1] <- 100
@@ -34,7 +34,7 @@
  	totalcosts <- round(sum(x*cij))# 
 	totalcosts == 2300 # true 
 
-	geo<- HNU.OR.TPP.MODI(geo, log=TRUE) 	
+	geo<- TPP.MODI(geo, log=TRUE) 	
  	x <- geo$tpp.x
  	totalcosts <- round(sum(x*cij))# 
 	totalcosts == 2040 # true 

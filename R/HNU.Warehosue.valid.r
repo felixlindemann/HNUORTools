@@ -1,6 +1,6 @@
 
 # Set validity Check
-.HNUWarehouse.valid <- function(object){ 
+.Warehouse.valid <- function(object){ 
                if( sum(is.null(object@fixcosts)) + sum( is.na(object@fixcosts)) > 0 ) {
             return(paste("Error with value fixcosts: Value is not initialized", class(object@fixcosts)))
         } else if( class(object@fixcosts)!="numeric" ) {
@@ -17,7 +17,7 @@
         else{
             ## validity tests are not applied recursively by default,
             ## so this object is created (invalidly)
-            return(validObject(new("HNUNode", as.data.frame(object))))
+            return(validObject(new("Node", as.data.frame(object))))
        }
 }
-setValidity("HNUWarehouse", .HNUWarehouse.valid)
+setValidity("Warehouse", .Warehouse.valid)

@@ -1,7 +1,9 @@
 HNUNode01		simple creation Demos
-HNUNode02		conversions from objects to HNUNode
-HNUNode03		Methods for HNUNodes.
-HNULink01		Usage of HNULink-objects
+HNUNode02		conversions from objects to Node
+HNUNode03		Methods for Nodes.
+HNULink01		Usage of Link-objects
+HNUSPP01		Setup and Solutuon for a Shortest-Path-Problem with the Dijkstra Algorithm.
+HNUSPP02		Random Setup and Solutuon for a Shortest-Path-Problem with the Dijkstra Algorithm.
 HNUTPP01		Setup and Solution for a Transportation Problem with North-west-corner Rule
 HNUTPP02		Setup and Solution for a Transportation Problem with Column-Minimum-Method.
 HNUTPP03		Setup and Solution for a Transportation Problem with Matrix-Minimum-Method.
@@ -10,5 +12,7 @@ HNUTPP05		Setup and Solution for a Transportation Problem with Matrix-Minimum-Me
 HNUTPP06		Setup and Solution for a Transportation Problem with Matrix-Minimum-Method and Modi-Method.
 HNUTPP07		Setup and Solution for a Transportation Problem with Modi-Method. - Taken from Bloech Managementlehre und Optimalplanung S. 72ff.
 HNUTPP07		Setup and Solution for a Transportation Problem with Stepping-Stone-Method. - Taken from Bloech Managementlehre und Optimalplanung S. 72ff.
+HNUTPP08		Setup and Solution for a Transportation Problem with Stepping-Stone-Method. 
 HNUTSP01		Setup and Solution for a Traveling Salesman Problem using the Nearest Neighbor Method + 2opt
-HNUTSP02		Setup and Solution for a Traveling Salesman Problem using the Nearest Neighbor Method + 3opt
+HNUTSP02		Setup and Solution for a Traveling Salesman Problem using the Nearest Neighbor Method + 3opt 
+HNUWLP01		Setup and Solution for a Warehous-Location-Problem using the ADD-Algorithm.

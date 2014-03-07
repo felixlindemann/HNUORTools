@@ -1,17 +1,74 @@
-setGeneric("HNU.OR.SPP.Dijkstra",  function(object,...)  standardGeneric("HNU.OR.SPP.Dijkstra") )
- setMethod("HNU.OR.SPP.Dijkstra", signature(object="HNUGeoSituation"),
+#' @name SPP.Dijkstra
+#' @rdname SPP.Dijkstra
+#' @title Shortest-Path-Problem -- Algorithm of Dijkstra
+#'
+#' @description Calculates the Shortest Path from one node to all others in a network.
+#' @details This implementation uses the \code{costs} attribute of the \code{\link{Link}s} provided.
+#' @param object Object of Type \code{\link{GeoSituation}}
+#' @param ... See below for optional parameters.
+#' @section Optional Parameters (\code{...}):	
+#' \subsection{used by SPP.Dijkstra}{
+#'    \describe{ 
+#' 		\item{\code{log}}{
+#'			 \emph{optional} \code{"logical"}. Indicating if the calculations should be logged. \strong{Default} is \code{FALSE}}
+#'		\item{\code{start}}{
+#'			 \emph{optional} \code{"numeric"}. Indicates which \code{\link{Node}}(-index) should be used as startnode. 
+#'			  \strong{Default} is 1. 
+#'
+#'			  \strong{Has to be a positive 0 < value <= N} (with N = the number of nodes in the Scenario.)}
+#'    } 
+#' }
+#' \subsection{Forwarded to the follwowing functions}{	
+#'    \itemize{
+#'		\item{\code{...} is currently not forwared.}
+#'    }
+#' } 
+#' @keywords OR Shortest-Path-Problem SPP Dijkstra
+#' @export  
+#' @references Domschke
+#' @return same modified object of Type \code{\link{GeoSituation}}.
+#'      The Solution will be assigned the attribute \code{shortestpath}.
+#' @seealso \code{\link{GeoSituation}}, \code{\link{Node}}  
+#' @examples
+#' # demo(HNUSPP01)
+#' @note 
+#'      for citing use: Felix Lindemann (2014). HNUORTools: Operations Research Tools. R package version 1.1-0. \url{http://felixlindemann.github.io/HNUORTools/}.
+#'      
+#' @author Dipl. Kfm. Felix Lindemann \email{felix.lindemann@@hs-neu-ulm.de} 
+#' 
+#' Wissenschaftlicher Mitarbeiter
+#' Kompetenzzentrum Logistik
+#' Buro ZWEI, 17
+#'
+#' Hochschule fur angewandte Wissenschaften 
+#' Fachhochschule Neu-Ulm | Neu-Ulm University 
+#' Wileystr. 1 
+#' 
+#' D-89231 Neu-Ulm 
+#' 
+#' 
+#' Phone   +49(0)731-9762-1437 
+#' Web      \url{www.hs-neu-ulm.de/felix-lindemann/} 
+#'			\url{http://felixlindemann.blogspot.de}
+setGeneric("SPP.Dijkstra",  function(object,...)  standardGeneric("SPP.Dijkstra") )
+#' @aliases SPP.Dijkstra,GeoSituation-method
+#' @rdname SPP.Dijkstra
+ setMethod("SPP.Dijkstra", signature(object="GeoSituation"),
   function(object,...){ 
-    cat("HNU.OR.SPP.Dijkstra\n")
+    cat("SPP.Dijkstra\n")
   	li <- list(...)
- 	if(is.null(li$log))  li$log <- FALSE
- 	if(is.null(li$plot)) li$plot <- FALSE
- 	if(is.null(li$start)) li$start <- 1
- 	if(is.null(li$main)) li$main <- "Shortest Path Problem"
-
+ 	if(is.null(li$log))  li$log <- FALSE 
+ 	if(is.null(li$start)) li$start <- 1 
 
  	nodes <- object$nodes 
- 	N <- length(nodes)
+	N <- length(nodes)
  	L <- length(object$links)
+ 	
+
+ 	if(!(li$start) >0) stop("Dijkstra not solvable: The Parameter 'start' doesn't have a positive Value.")
+
+
+ 	if(!(li$start) <=N) stop("Dijkstra not solvable: The Parameter 'start' has a value which is larger than the number of Nodes in the provided network.")
  	cij <- matrix(rep(NA, N^2), ncol=N, byrow = TRUE) 
  	 
 
@@ -33,9 +90,10 @@ setGeneric("HNU.OR.SPP.Dijkstra",  function(object,...)  standardGeneric("HNU.OR
  			if(origin$id == nodes[[i]]$id){
  				for(j in 1:N){
  					if(destination$id == nodes[[j]]$id){
- 						cij[i,j] <- link$costs
+ 						value <- link$costs
+ 						cij[i,j] <- value
  						if(link$oneway == FALSE){
- 							cij[j,i] <- link$costs
+ 							cij[j,i] <- value
  						}
  						break
  					}
@@ -63,6 +121,7 @@ setGeneric("HNU.OR.SPP.Dijkstra",  function(object,...)  standardGeneric("HNU.OR
  	
 	object$shortestpath <- list(iteration = iter, Q = Q, tableau= m)
  	while (iter<=li$stopafter & length(Q) > 0){ # max N Iterations
+ 		object$shortestpath$iter <- iter
  		# get current Q
  		if(li$log) cat("\n\n----------- new iteration:", iter, "-----------\n\n")
 		i <- Q[1,"i"]
@@ -139,10 +198,7 @@ setGeneric("HNU.OR.SPP.Dijkstra",  function(object,...)  standardGeneric("HNU.OR
  		iter <- iter + 1
  	}
  	object$shortestpath$finaltableau <- tableau
-	if(li$plot){
-		dev.new()
-		plotGeoSituation(object, main=li$main, sub = paste("iteration:", iter))
-	}
+	 
  	# Log
 	if(li$log) {
 		cat("Final solution (sorted Q):\n")

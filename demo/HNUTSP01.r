@@ -1,4 +1,4 @@
-	geo<-HNUGeoSituation.create()
+	geo<-new("GeoSituation")
  	#example taken from
  	
  	data(bordersgermany)
@@ -8,12 +8,12 @@
 
  	for(a in A){
  		df <- cities[a, ]
- 		geo<-add(geo,new("HNUNode", id=df$id, label = df$label, x=df$x,   y=df$y))
+ 		geo<-add(geo,new("Node", id=df$id, label = df$label, x=df$x,   y=df$y))
  	}
  	t.costs <- 1
  	s.node <- 3 # index of dresden in geo$nodes
 
- 	geo<- HNU.OR.TSP.NearestNeighbor(geo, nodes=geo$nodes, StartNode = s.node)
+ 	geo<- TSP.NearestNeighbor(geo, nodes=geo$nodes, StartNode = s.node)
 
 
 	plotGeoSitatuon.bordersgermany( 
@@ -22,10 +22,10 @@
 		ylim=range(cities[A, "y"])+c(0,10)
 	)
 
-	HNU.OR.TSP.drawrouting(geo)
+	TSP.drawrouting(geo)
 	text(cities[A,"x"],cities[A,"y"]+5, cities[A,"id"],col=2)
 
 	#2opt
-	geo<-HNU.OR.TSP.2OPT(geo)
-	HNU.OR.TSP.drawrouting(geo, col=2)
+	geo<-TSP.2OPT(geo)
+	TSP.drawrouting(geo, col=2)
  

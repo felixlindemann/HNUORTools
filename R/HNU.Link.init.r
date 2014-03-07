@@ -1,15 +1,5 @@
-
-#User-friendly creator
-#
-#
-HNULink.create <- function(n1,n2,...) UseMethod("HNULink.create")
-HNULink.create.default<-function(n1,n2,...){
-    Link <- new("HNULink", n1,n2,...)
-    
-    return(Link)
-}
  
-setMethod("initialize", "HNULink", function(.Object, n1,n2,... ) {
+setMethod("initialize", "Link", function(.Object, n1,n2,... ) {
       
     li <- list(...)
     
@@ -22,8 +12,8 @@ setMethod("initialize", "HNULink", function(.Object, n1,n2,... ) {
     # if(length(n1) !=1 ) stop("Incorrect Number of items of Origin-Node. Expected is one.")
     # if(length(n2) !=1 ) stop("Incorrect Number of items of Destination-Node. Expected is one.")
 
-    if(!is.HNUNode(n1)) stop("The value for the origin Node is not of type HNUNode")
-    if(!is.HNUNode(n2)) stop("The value for the destination Node is not of type HNUNode")
+    if(!is.Node(n1)) stop("The value for the origin Node is not of type Node")
+    if(!is.Node(n2)) stop("The value for the destination Node is not of type Node")
 
     .Object@origin          <- n1
     .Object@destination     <- n2

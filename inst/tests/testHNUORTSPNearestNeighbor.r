@@ -1,13 +1,13 @@
-context("Testing HNU TSP-Nearest-Neighbor Method")  
+context("Testing  TSP-Nearest-Neighbor Method")  
 
 #create 4 Nodes
 
-# HNU GeoSituation
+#  GeoSituation
 
 context("\tTest 01: is solution for a TSP calculated with TSP-Nearest-Neighbor Method correctly?") 
 test_that("Test for TSP-Nearest-Neighbor Method", {	
 
-	geo<-HNUGeoSituation.create()
+	geo<-new("GeoSituation")
  	#example taken from
  	
  	data(bordersgermany)
@@ -17,12 +17,12 @@ test_that("Test for TSP-Nearest-Neighbor Method", {
 
  	for(a in A){
  		df <- cities[a, ]
- 		geo<-add(geo,new("HNUNode", id=df$id, label = df$label, x=df$x,   y=df$y))
+ 		geo<-add(geo,new("Node", id=df$id, label = df$label, x=df$x,   y=df$y))
  	}
  	t.costs <- 1
  	s.node <- 3 # index of dresden in geo$nodes
 
- 	geo<- HNU.OR.TSP.NearestNeighbor(geo, nodes =geo$nodes, StartNode = s.node)
+ 	geo<- TSP.NearestNeighbor(geo, nodes =geo$nodes, StartNode = s.node)
 
  	expect_true(round(geo$tsp.solution$F) == round(631.8579))
 
@@ -35,7 +35,7 @@ test_that("Test for TSP-Nearest-Neighbor Method", {
 context("\tTest 02 is solution for a TSP calculated with TSP-Nearest-Neighbor Method + 2opt correctly?") 
 test_that("Test for TSP-Nearest-Neighbor Method + 2opt", {	
 
-	geo<-HNUGeoSituation.create()
+	geo<-new("GeoSituation")
  	#example taken from
  	
  	data(bordersgermany)
@@ -45,12 +45,12 @@ test_that("Test for TSP-Nearest-Neighbor Method + 2opt", {
 
  	for(a in A){
  		df <- cities[a, ]
- 		geo<-add(geo,new("HNUNode", id=df$id, label = df$label, x=df$x,   y=df$y))
+ 		geo<-add(geo,new("Node", id=df$id, label = df$label, x=df$x,   y=df$y))
  	}
  	t.costs <- 1
  	s.node <- 3 # index of dresden in geo$nodes
 
- 	geo<- HNU.OR.TSP.NearestNeighbor(geo, nodes =geo$nodes, StartNode = s.node)
+ 	geo<- TSP.NearestNeighbor(geo, nodes =geo$nodes, StartNode = s.node)
 
  	expect_true(round(geo$tsp.solution$F) == round(631.8579))
 
@@ -58,7 +58,7 @@ test_that("Test for TSP-Nearest-Neighbor Method + 2opt", {
  	expect_true(geo$tsp.solution$x[2,3] == 1)
  	expect_true(geo$tsp.solution$x[4,2] == 1)
 
- 	geo<-HNU.OR.TSP.2OPT(geo)
+ 	geo<-TSP.2OPT(geo)
  	expect_true(round(geo$tsp.solution$F) == round(540.7254))
  	expect_true(geo$tsp.solution$x[1,6] == 1)
  	expect_true(geo$tsp.solution$x[2,3] == 1)

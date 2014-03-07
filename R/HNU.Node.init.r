@@ -1,15 +1,5 @@
-#User-friendly creator 
-
-HNUNode.create <- function(...) UseMethod("HNUNode.create")
-HNUNode.create.default<-function(...){
-    node <- new("HNUNode", ...)
-    # nodes <- get("nodes",envir=HNUORToolsEnv)
-    # nodes[[length(nodes)+1]] <- node
-    # assign("nodes",nodes,envir=HNUORToolsEnv)
-    return(node)
-}
-
-setMethod("initialize", signature="HNUNode", function(.Object, data=NULL, ...) {
+ 
+setMethod("initialize", signature="Node", function(.Object, data=NULL, ...) {
       
     li <- list(...)
     if(is.null(li$showwarnings))  li$showwarnings <- FALSE

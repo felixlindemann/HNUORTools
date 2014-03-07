@@ -1,12 +1,5 @@
-
-HNUGeoSituation.create <- function(...) UseMethod("HNUGeoSituation.create")
-HNUGeoSituation.create.default<-function(...){
-    geo <- new("HNUGeoSituation", ...)
-    
-    return(geo)
-}
  
-setMethod("initialize", "HNUGeoSituation", function(.Object, ... ) {
+setMethod("initialize", "GeoSituation", function(.Object, ... ) {
       
     li <- list(...)
     .Object@nodes <- list()

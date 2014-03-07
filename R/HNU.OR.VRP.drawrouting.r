@@ -1,7 +1,7 @@
-setGeneric("HNU.OR.VRP.drawrouting",  function(object,...)  standardGeneric("HNU.OR.VRP.drawrouting") )
- setMethod("HNU.OR.VRP.drawrouting", signature(object="HNUGeoSituation"),
+setGeneric("VRP.drawrouting",  function(object,...)  standardGeneric("VRP.drawrouting") )
+ setMethod("VRP.drawrouting", signature(object="GeoSituation"),
   function(object,...){ 
-    message("HNU.OR.VRP.drawrouting\n")
+    message("VRP.drawrouting\n")
   	li <- list(...)  
     ################################################################################
     # parameters:
