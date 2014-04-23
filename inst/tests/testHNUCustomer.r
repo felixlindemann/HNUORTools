@@ -17,18 +17,20 @@ c3 <- new("Customer",df)
 
 
 # context("\t\tconvert Customer to data.frame")   
-df <- as.data.frame(c3)
+df2 <- as.data.frame(c3)
 
 # context("\t\tor convert a data.frame to a Customer")   
-c3a <- as.Customer(df)
+c3a <- as.Customer(df2)
 
-
+lic3 <- as.list(c3) 
+c3b <- as.Customer(lic3) 
 #Do some testing
 #
 context("\tTest 01: Are Objects created correctly?") 
 test_that("Test for identical objects", {
   expect_false(identical(c1,c3)) # Customer 1 and 3  should NOT be idenitical
   expect_true(identical(c3,c3a)) # Customer 3 and 3a should be idenitical
+  expect_true(identical(c3,c3b)) # Customer 3 and 3b should be idenitical
   
 })
 
@@ -42,7 +44,7 @@ test_that("Node-Methods work for Customer", {
 context("\tTest 03: Are the Customers correctly validated?") 
 test_that("Validation is implemented correctly", {
    
-  	expect_error(c1$demand <- -12, "invalid class “Customer” object: Error with value demand: expected numeric non negative value, but obtained -12")
+  	expect_error(c1$demand <- -12, "Invalid Object of Type 'Customer': Error with value demand: at least one value is negative. Only positive Values are allowed.")
 })
 
 context("done.")   

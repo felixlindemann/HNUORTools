@@ -14,11 +14,12 @@ TPP.CMM(object, ...)
   \item{...}{\emph{Optional Parameters} See Below.}
 }
 \value{
-same modified object of Type \code{\link{GeoSituation}}.
-The Solution will be assigned the attribute \code{tpp.x}.
+same (but modified) object of Type
+\code{\link{GeoSituation}}.  The Solution will be assigned
+the attribute \code{tpp.x}.
 }
 \description{
-Calculates the Transportationplan.
+Calculates the Transportation-Plan.
 }
 \note{
 for citing use: Felix Lindemann (2014). HNUORTools:

@@ -15,7 +15,7 @@ TPP.MODI(object, ...)
 }
 \value{
 same modified object of Type \code{\link{GeoSituation}}.
-The Solution will be assigned the attribute \code{tpp.x}.
+The Solution will be assigned the attribute \code{tpp$x}.
 }
 \description{
 Calculates the Transportationplan.

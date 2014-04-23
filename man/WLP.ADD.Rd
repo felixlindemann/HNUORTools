@@ -64,7 +64,8 @@ Phone +49(0)731-9762-1437 Web
 \url{http://felixlindemann.blogspot.de}
 }
 \references{
-Domschke
+Algorithmus 3.1 Domschke, Wolfgang (1996): Logistik.
+Standorte. 4. Aufl. Muenchen: Oldenbourg (3) S.62
 }
 \seealso{
 \code{\link{GeoSituation}},

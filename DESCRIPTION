@@ -1,13 +1,14 @@
 Package: HNUORTools
-Version: 2.1-0
-Date: 2014-01-27
+Version: 3.0-0
+Date: 2014-04-23
 Title: Operations Research Tools
 Authors@R: c(person("Felix Lindemann", role = c("aut", "cre"),
     email = "felix.lindemann@hs-neu-ulm.de"))
 Author: Felix Lindemann
 Maintainer: Felix Lindemann <felix.lindemann@hs-neu-ulm.de>
 Depends:
-    R (>= 2.15.0),methods
+    R (>= 2.15.0),methods,
+    uuid
 Suggests:
     devtools
 Description: In diesem Paket sind viele Operations Research Algorithmen
@@ -16,3 +17,4 @@ License: MIT + file LICENSE
 URL: http://felixlindemann.github.io/HNUORTools/,
     https://github.com/felixlindemann/HNUORTools
 BugReports: https://github.com/felixlindemann/HNUORTools/issues
+Packaged: 2014-03-07 00:01:25 UTC; felixlindemann

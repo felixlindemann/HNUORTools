@@ -22,6 +22,8 @@ df <- as.data.frame(w3)
 # context("\t\tor convert a data.frame to a Warehouse")   
 w3a <- as.Warehouse(df)
 
+liw3 <- as.list(w3)
+w3b <- as.Warehouse(liw3)
 
 #Do some testing
 #
@@ -29,6 +31,7 @@ context("\tTest 01: Are Objects created correctly?")
 test_that("Test for identical objects", {
   expect_false(identical(w1,w3)) # Warehouse 1 and 3  should NOT be idenitical
   expect_true(identical(w3,w3a)) # Warehouse 3 and 3a should be idenitical
+  expect_true(identical(w3,w3b)) # Warehouse 3 and 3b should be idenitical
   
 })
 
@@ -42,8 +45,8 @@ test_that("Node-Methods work for Warehouse", {
 context("\tTest 03: Are the Warehouses correctly validated?") 
 test_that("Validation is implemented correctly", {
    
-  	expect_error(w1$supply   <- -12, "invalid class “Warehouse” object: Error with value supply: expected numeric non negative value, but obtained -12")
- 	expect_error(w1$fixcosts <- -12, "invalid class “Warehouse” object: Error with value fixcosts: expected numeric non negative value, but obtained -12")
+  	expect_error(w1$supply   <- -12, "Invalid Object of Type 'Warehouse': Error with value supply: at least one value is negative. Only positive Values are allowed.")
+ 	expect_error(w1$fixcosts <- -12, "Invalid Object of Type 'Warehouse': Error with value fixcosts: at least one value is negative. Only positive Values are allowed.")
 })
 
 context("done.")   

@@ -15,8 +15,7 @@ getInitialMatrix(object, ...)
   \item{...}{\emph{Optional Parameters} See Below.}
 }
 \description{
-Calculates an inital NxM-matrix calls the function
-\code{\link{getDistance}(...)}
+Calculates an inital MxN-matrix (Warehouses x Customers)
 }
 \note{
 for citing use: Felix Lindemann (2014). HNUORTools:

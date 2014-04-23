@@ -1,6 +1,0 @@
-
-#
-#	by Felix Lindemann
-#	konvertierungen
-#
-# 

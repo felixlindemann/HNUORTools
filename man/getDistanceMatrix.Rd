@@ -13,10 +13,10 @@ getDistanceMatrix(object, sorigin, sdestination, ...)
   \item{object}{Object of Type \code{\link{GeoSituation}}}
 
   \item{sorigin}{String taking one of the following values
-  (nodes, customers, warehouses)}
+  Node, Customer, Warehouse}
 
   \item{sdestination}{String taking one of the following
-  values (nodes, customers, warehouses)}
+  values Node, Customer, Warehouse}
 
   \item{...}{\emph{Optional Parameters} See Below.}
 }
@@ -31,11 +31,13 @@ Operations Research Tools. R package version 1.1-0.
 }
 \section{Optional Parameters (\code{...})}{
   \subsection{used by \code{\link{getDistanceMatrix}}}{
-  \describe{ \item{...}{No Optional Parameters are accepted
-  directly.} } } \subsection{Forwarded to the follwowing
-  functions}{ You may want to check these functions for any
-  other optional parameters.  \itemize{
-  \item{\code{\link{getDistance}}} } }
+  \describe{ \item{\code{...}:}{no optional parameters are
+  used by this function directly.} } }
+  \subsection{Forwarded to the follwowing functions}{ You
+  may want to check these functions for any other optional
+  parameters.  \itemize{
+  \item{\code{\link{getDistance}}:}{Parameters are
+  forwarded.} } }
 }
 \examples{
 #

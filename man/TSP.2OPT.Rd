@@ -15,8 +15,7 @@ TSP.2OPT(object, ...)
 }
 \value{
 same modified object of Type \code{\link{GeoSituation}}.
-The Solution will be assigned the attribute
-\code{tsp.solution}.
+The Solution will be assigned the attribute \code{tsp}.
 }
 \description{
 Improves a given Route by switching links.

@@ -1,0 +1,1288 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"is",
+				"isDummy"
+			],
+			[
+				"one",
+				"oneway"
+			],
+			[
+				"bo",
+				"bordersgermany"
+			],
+			[
+				"expc",
+				"expect_true"
+			],
+			[
+				"expe",
+				"expect_true"
+			],
+			[
+				"exp",
+				"expect_true"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"n",
+				"HNU.Node.convert.r"
+			],
+			[
+				"row",
+				"rowSums"
+			],
+			[
+				"max",
+				"maxiter"
+			],
+			[
+				"nod",
+				"nodes"
+			],
+			[
+				"e",
+				"expect_true"
+			],
+			[
+				"stat",
+				"startnode"
+			],
+			[
+				"start",
+				"StartNode"
+			],
+			[
+				"star",
+				"StartNode"
+			],
+			[
+				"visi",
+				"visitedNodes"
+			],
+			[
+				"vis",
+				"visitedNodes"
+			],
+			[
+				"TSP",
+				"TSP_NearestNeighbor"
+			],
+			[
+				"ex",
+				"example"
+			],
+			[
+				"x",
+				"xRichtung"
+			],
+			[
+				"fie",
+				"fields"
+			],
+			[
+				"custom",
+				"customers"
+			],
+			[
+				"ware",
+				"warehouses"
+			],
+			[
+				"war",
+				"warehouses"
+			],
+			[
+				"valid",
+				"validObject"
+			],
+			[
+				"simple",
+				"simpleError"
+			],
+			[
+				"lon",
+				"lonlat"
+			],
+			[
+				"add",
+				"addMarker"
+			],
+			[
+				"VISUM",
+				"VISUM.DRAW.NET<-function"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"Read",
+				"ReadLine"
+			],
+			[
+				"Re",
+				"ReadVisumNet"
+			],
+			[
+				"current",
+				"CurrentTable"
+			],
+			[
+				"targ",
+				"targetY"
+			],
+			[
+				"adden",
+				"addEndPlatz"
+			],
+			[
+				"adde",
+				"addEinPlatz"
+			],
+			[
+				"ta",
+				"targetY"
+			],
+			[
+				"Spiel",
+				"SpielContent"
+			],
+			[
+				"dis",
+				"disable"
+			],
+			[
+				"SP",
+				"SpielId"
+			],
+			[
+				"contain",
+				"Container"
+			],
+			[
+				"ini",
+				"initButtons"
+			],
+			[
+				"app",
+				"append"
+			],
+			[
+				"get",
+				"getSpielsystemElement"
+			],
+			[
+				"Spie",
+				"spielsystemelement"
+			],
+			[
+				"t",
+				"targetX"
+			],
+			[
+				"delt",
+				"deltaY"
+			],
+			[
+				"targe",
+				"targetX"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"border",
+				"border-width"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"dist",
+				"distributeY"
+			],
+			[
+				"align",
+				"alignCenterY"
+			],
+			[
+				"alig",
+				"alignCenterX"
+			],
+			[
+				"Align",
+				"alignLeft"
+			],
+			[
+				"pr",
+				"preventDefault"
+			],
+			[
+				"min",
+				"minY"
+			],
+			[
+				"sele",
+				"selector"
+			],
+			[
+				"Connec",
+				"connections"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"border-col",
+				"border-color"
+			],
+			[
+				"Prof",
+				"KlausurProfessorA"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Volumes/Daten/FelixLindemann/Desktop/R Backup/R/HNU.Geosituation.methods.r",
+			"settings":
+			{
+				"buffer_size": 3013,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Volumes/Daten/FelixLindemann/Desktop/R Backup/R/HNU.OR.getDistanceMatrix.r",
+			"settings":
+			{
+				"buffer_size": 3427,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Volumes/Daten/FelixLindemann/Desktop/R Backup/R/HNU.OR.getInitialMatrix.r",
+			"settings":
+			{
+				"buffer_size": 2177,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"git",
+				"Gist: Open Gist"
+			],
+			[
+				"gist",
+				"Gist: Open Gist"
+			],
+			[
+				"gists",
+				"Gist: Create Public Gist"
+			],
+			[
+				"updat",
+				"GitHub: Update Gist"
+			],
+			[
+				"update",
+				"GitHub: Update Gist"
+			],
+			[
+				"g",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"delte",
+				"LaTexTools: Delete temporary files"
+			],
+			[
+				"delete",
+				"LaTexTools: Delete temporary files"
+			],
+			[
+				"delet",
+				"LaTexTools: Delete temporary files"
+			],
+			[
+				"latex",
+				"LaTexTools: Delete temporary files"
+			],
+			[
+				"public",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"publi",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"r",
+				"Set Syntax: R"
+			],
+			[
+				"packag",
+				"Package Control: List Packages"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"github",
+				"GitHub: Update Gist"
+			],
+			[
+				"gubt",
+				"GitHub: Open Gist in Browser"
+			],
+			[
+				"gitb",
+				"GitHub: Open Gist in Browser"
+			],
+			[
+				"gist ",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"latextool",
+				"LaTeXTools: Jump to PDF"
+			],
+			[
+				"gitg",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"gith",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"GITHUB",
+				"GitHub: Update Gist"
+			],
+			[
+				"github publ",
+				"GitHub: Public Gist from Selection"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/man/as.data.frame-methods.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/R/00.HNUMathgetPhi.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/R/00.Generics.r",
+		"/private/var/folders/tl/744j2yv55mn9hmq96_fs72n80000gn/T/RtmpKmrXfV/HNUORTools.Rcheck/00install.out",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/R/01Node.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/man/Set-methods2.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/R/HNU.Node.methods.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/.Rbuildignore",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/R/HNU.Math.getPhi.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/inst/CITATION",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/man/bordersgermany.Rd",
+		"/private/var/folders/tl/744j2yv55mn9hmq96_fs72n80000gn/T/RtmpKmrXfV/HNUORTools.Rcheck/00check.log",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/DESCRIPTION",
+		"/Volumes/Daten/FelixLindemann/.Trash/HNUORToolsForRProject/DESCRIPTION",
+		"/Volumes/Daten/FelixLindemann/.Trash/HNUORToolsForRProject/demo/HNUNode03.r",
+		"/Volumes/Daten/FelixLindemann/.Trash/HNUORToolsForRProject/demo/HNUNode02.r",
+		"/Volumes/Daten/FelixLindemann/.Trash/HNUORToolsForRProject/demo/HNUNode01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORTools/R/01.class.a.HNU.Node.r",
+		"/Volumes/Daten/FelixLindemann/Dropbox/Meine Daten/Lime-Tree.de/Briefe/2014/Änderung des Vertrages Kabel BW/Änderung KabelBW.tex",
+		"/Volumes/Daten/FelixLindemann/Library/Application Support/Sublime Text 2/Packages/LaTeXTools/README.markdown",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/index.html",
+		"/Volumes/Daten/FelixLindemann/Desktop/Udo Lindenberg - MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version).xml",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/iTunesMetadata.plist",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/controllers/data.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/controllers/credits.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/controllers/gallery2.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/controllers/home.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/controllers/pages2.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/controllers/photos.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/controllers/slideshow.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/controllers/songs.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/controllers/videos.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/TuneKit/src/TuneKit.js",
+		"/Volumes/Daten/FelixLindemann/Music/iTunes/iTunes Media/Music/Udo Lindenberg/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version)/MTV Unplugged - Live aus dem Hotel Atlantic (Deluxe Version) - iTunes LP (v2.0).itlp/MTV Unplugged - Live aus dem Hotel.itlp",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/hnurtools2/R/triplealogrithmus",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.2OPT.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNU/HNU Tutorium Tools/HNUExceltools/HNUExcelTools/HNUExceltoolsXLL/OR-Probleme/VRP/ClassVRP.vb",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Math.getPhi.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/00.Generics.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.cd.HNU.Link.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.e.HNU.GeoSituation.r",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Literaturprojekt/eBooks/Statistik/Project R/Polarwinkel mit R",
+		"/Volumes/Daten/FelixLindemann/Dropbox/HNU/HNU Lehre/Prozessmanagement (Transportwirtschaft)/2010SoSe/Tutorium 6 - VRP Sweep/Quellcode_Sweep_v.1.0.vb",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.b.HNU.Customer.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/src/test.R",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/000myitem.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.a.HNU.Node.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/01.class.c.HNU.Warehouse.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/DESCRIPTION",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/plotGeoSituation.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testhnulink.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testhnunode.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/00init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Geosituation.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/plotGeoSituation.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/Customer.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUNode03.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/HNU-OR-Tools-For-R-Project.sublime-workspace",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUCustomer.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUWarehouse.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/calc.Distance.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/calc.polar.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/GeoSituation.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/getDistanceMatrix.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/getInitialMatrix.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/Node.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/VRP.SWEEP.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/Warehouse.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/NAMESPACE",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.methods.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.getDistanceMatrix.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.getInitialMatrix.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.getCostMatrix.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TSP.NearestNeighbor.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.VRP.SAVINGS.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.VRP.SWEEP.r",
+		"/private/var/folders/tl/744j2yv55mn9hmq96_fs72n80000gn/T/RtmpzAcodW/HNUORTools.Rcheck/00install.out",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/update-package.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/02.Generics.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehouse.convert.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.convert.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.methods.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/getPhi.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.convert.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.methods.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.convert.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehouse.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.init.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Warehosue.valid.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Node.valid.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Link.valid.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.Customer.valid.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/man/SPP.Dijkstra.Rd",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.SPP.Dijsktra.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUSPP01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUSPP02.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/00Index",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNULink01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rhistory",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUNode02.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUNode01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.WLP.ADD.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUWLP01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/plotGeoSituation.transportplan.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.CalcOppMatrix.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R/HNU.OR.TPP.SteppingStone.CalcPolyGonZug.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/.Rapp.history",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP02.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP03.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP04.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP05.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP06.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP07.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTPP08.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTSP01.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/demo/HNUTSP02.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUGeoSituation.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPColumnMiniumMethod.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPMatrix-Minium-Method.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPMODIMethode.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPNorthWestCornerRule.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPprepare.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTPPSteppingStone.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORTSPNearestNeighbor.r",
+		"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/inst/tests/testHNUORVRPSavings.r"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject",
+			"/Volumes/Daten/FelixLindemann/Documents/git/HNUORToolsForRProject/R",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"$<-",
+			"value",
+			"as.Node",
+			"is.Node",
+			"as.node",
+			"i Row Index",
+			"as.list",
+			"list",
+			"Extract",
+			"Set",
+			"data can of type \\code{\\link{data.frame}} or \\code{\\link{list}}",
+			"Extract",
+			"initialize",
+			"x@",
+			"Mark Heckmann",
+			"OpenRepGrid",
+			"openrepgrid",
+			"OpenRepGrid",
+			"\\\\",
+			"overline",
+			"40229 Düsseldorf",
+			"Konradstraße",
+			"621100491",
+			"621100369",
+			"69",
+			"369",
+			"0369",
+			"buildPlaylist",
+			"'",
+			"show",
+			"fixcosts",
+			"supply",
+			"isDummy",
+			"demand",
+			"supply",
+			"isDummy",
+			"supply",
+			"isDummy",
+			"supply",
+			"#Warehouse specific attributes",
+			"supply",
+			"fixcosts",
+			"supply",
+			"isDummy",
+			"supply",
+			"isDummy",
+			"supply",
+			"isDummy",
+			"supply",
+			"isDummy",
+			"supply",
+			"tsupply",
+			"demand",
+			"Customer",
+			"show",
+			"tmp.demand",
+			"y",
+			"@y",
+			"x",
+			"label",
+			"y",
+			"$x",
+			"demand",
+			"x",
+			"demand",
+			"label",
+			"#'",
+			"Customer",
+			"Node",
+			"node",
+			"Node",
+			"node",
+			"Node",
+			"MyItem",
+			"runif(1",
+			"(\"",
+			"stop",
+			"{",
+			"else",
+			"it ",
+			"it",
+			",check=TRUE",
+			"the length",
+			"attributes",
+			"<",
+			"<-",
+			"=",
+			",",
+			"id = ",
+			",",
+			"[i]",
+			"tmp.",
+			"x@",
+			"4",
+			"1:4",
+			"label",
+			"id",
+			"jj",
+			"+ ",
+			"+",
+			"\n#' @param object Object can be of type \\code{\\link{Link}} ",
+			"calc.",
+			"#' ",
+			"n2",
+			"()",
+			"ength of 2",
+			"{",
+			"polar",
+			"n1",
+			"1",
+			"x/y-Coordinate of ",
+			"numeric",
+			"1",
+			"li$y",
+			"\n\n\n",
+			"li$x",
+			"li$",
+			"0",
+			"n2",
+			"getPhi",
+			"n2",
+			"{",
+			"Node",
+			"Object",
+			"object",
+			"Object",
+			"{",
+			"'"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"get",
+			"calc.polar",
+			"new(\"GeoSituation\",",
+			"new(\"Customer\",",
+			"new(\"Warehouse\",",
+			"new(\"Node\",",
+			"new(\"Link\",",
+			"new(\"GeoSituation\")",
+			"Warehouse",
+			"Method",
+			"\\code{\\link{GeoSituation}}",
+			"@author Dipl. Kfm. Felix Lindemann \\email{felix.lindemann@@hs-neu-ulm.de}",
+			"\\url{http://felixlindemann.github.io/HNUORTools/}",
+			"\"",
+			"Type \\code{\\link{Geosituation}}",
+			"currently not used but",
+			"",
+			"test",
+			"\nSpielSystemEditor.$SpielsystemElemente",
+			"\\ldots",
+			"\\euro ",
+			"ü",
+			"",
+			"\\#"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Volumes/Daten/FelixLindemann/Desktop/R Backup/R/HNU.Geosituation.methods.r",
+					"settings":
+					{
+						"buffer_size": 3013,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/R/R.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Volumes/Daten/FelixLindemann/Desktop/R Backup/R/HNU.OR.getDistanceMatrix.r",
+					"settings":
+					{
+						"buffer_size": 3427,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								3427
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/R/R.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 12.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Volumes/Daten/FelixLindemann/Desktop/R Backup/R/HNU.OR.getInitialMatrix.r",
+					"settings":
+					{
+						"buffer_size": 2177,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/R/R.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 182.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 251.0,
+	"status_bar_visible": true
+}

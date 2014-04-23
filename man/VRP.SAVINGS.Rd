@@ -2,7 +2,7 @@
 \name{VRP.SAVINGS}
 \alias{VRP.SAVINGS}
 \alias{VRP.SAVINGS,GeoSituation-method}
-\title{Vehicle-Routing-Problem -- Savings-Algorithm}
+\title{Vehicle-Routing-Problem -- SAVINGS-Algorithm}
 \usage{
 VRP.SAVINGS(object, ...)
 
@@ -19,10 +19,10 @@ The Solution will be assigned to each
 \code{\link{Warehouse}$vrp}
 }
 \description{
-Calculate solution for the VRP using the Savings-Algorithm.
+Calculate solution for the VRP using the SAVINGS-Algorithm.
 }
 \details{
-Explain what VRP.SAVINGS does.
+todo
 }
 \note{
 for citing use: Felix Lindemann (2014). HNUORTools:
@@ -31,23 +31,23 @@ Operations Research Tools. R package version 1.1-0.
 }
 \section{Optional Parameters (\code{...})}{
   \subsection{used by \code{\link{VRP.SAVINGS}}}{
-  \describe{ \item{alpha}{\code{numeric} The
-  \code{alpha}-Shape-Parameter of the savings-algorithm.
-  Default is \code{1}} \item{vehiclecapacity}{ numeric
-  \emph{Optional Parameter}. Defining the maximum
-  loading-capacity of each tour. Default is 2*sum(demand)
-  +1 (will be ignored).}
-  \item{vehiclecapacity.maxstops}{numeric \emph{Optional
+  \describe{ \item{alpha}{ numeric The
+  \code{alpha}-Shape-Parameter of the SAVINGS-algorithm
+  (Offset of SAVINGS-Angle. To be rovided in Radians!)}
+  \item{constraint}{ numeric \emph{Optional Parameter}.
+  Defining the maximum loading-capacity of each tour.
+  Default is 2*sum(demand) +1 (will be ignored).}
+  \item{constraint.maxstops}{numeric \emph{Optional
   Parameter}. Defining the maximum Stops of each tour.
   Default is 2*n +1 (will be ignored).} \item{roundcij}{
-  logical Optional Parameter. Indicating, if the calculated
-  costs should be round. Default is \code{TRUE}.}
-  \item{log}{logical Optional Parameter. Indicating, if the
-  calculation should be logged to console. Default is
-  \code{FALSE}.} } } \subsection{Forwarded to the
-  follwowing functions}{ You may want to check these
-  functions for any other optional parameters.  \itemize{
-  \item{\code{\link{TPP.SteppingStone.GetPolygonZuege}}} }
+  Obsolete. Please use digits from
+  \code{\link{getDistance}}.} \item{log}{logical Optional
+  Parameter. Indicating, if the calculation should be
+  logged to console. Default is \code{FALSE}.} } }
+  \subsection{Forwarded to the follwowing functions}{ You
+  may want to check these functions for any other optional
+  parameters.  \itemize{ \item{\code{\link{getpolar}}
+  (offset-parameter is used by \code{\link{VRP.SAVINGS}}} }
   }
 }
 \examples{
@@ -71,14 +71,16 @@ Phone +49(0)731-9762-1437 Web
 \url{http://felixlindemann.blogspot.de}
 }
 \references{
-Domschke
+Algorithmus 5.3 S. 236: Domschke, Wolfgang (2010):
+Logistik. Rundreisen und Touren. 5., Aufl. Muenchen [u.a.]:
+Oldenbourg (2).
 }
 \seealso{
 \code{\link{GeoSituation}}, \code{\link{Node}},
-\code{\link{VRP.SWEEP}}
+\code{\link{VRP.SAVINGS}} \code{\link{VRP.SAVINGS}}
 }
 \keyword{OR}
-\keyword{Savings}
+\keyword{SAVINGS}
 \keyword{VRP}
 \keyword{Vehicle-Routing-Problem}
 

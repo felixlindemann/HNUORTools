@@ -2,6 +2,7 @@
 \name{initialize}
 \alias{initialize}
 \alias{initialize,Customer-method}
+\alias{initialize,GeoSituation-method}
 \alias{initialize,Link-method}
 \alias{initialize,Node-method}
 \alias{initialize,Warehouse-method}
@@ -11,9 +12,11 @@
 
 \S4method{initialize}{Customer}(.Object, data = NULL, ...)
 
+\S4method{initialize}{Link}(.Object, n1, n2, ...)
+
 \S4method{initialize}{Warehouse}(.Object, data = NULL, ...)
 
-\S4method{initialize}{Link}(.Object, n1, n2, ...)
+\S4method{initialize}{GeoSituation}(.Object, data = NULL, ...)
 }
 \arguments{
   \item{data}{can of type \code{\link{data.frame}} or
@@ -31,6 +34,8 @@
   class extends.}
 }
 \description{
+initialize Method
+
 initialize Method
 
 initialize Method

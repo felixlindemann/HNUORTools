@@ -59,10 +59,16 @@ Operations Research Tools. R package version 1.1-0.
   into a \code{\link{Node}}.  } \item{\code{is.Node(obj)}}{
   Checks if the object \code{obj} is of type
   \code{\link{Node}}.  } \item{\code{\link{getDistance}}}{
-  Calculating the distance between two \code{\link{Node}s}.
-  } \item{\code{\link{getpolar}}}{ Calculating the angle to
-  the x-Axis of a link, connecting two \code{\link{Node}s}.
-  } }
+  Calculating the distance between two \code{\link{Node}s}
+  (As the classes \code{\link{Customer}} and
+  \code{\link{Warehouse}} depend on \code{\link{Node}},
+  distances can be calculated between any of these
+  objects).  } \item{\code{\link{getpolar}}}{ Calculating
+  the polar-angle to the x-Axis of a link, connecting two
+  \code{\link{Node}s} (As the classes
+  \code{\link{Customer}} and \code{\link{Warehouse}} depend
+  on \code{\link{Node}}, polar-angles can be calculated
+  between any of these objects).  } }
 }
 
 \section{Derived Classes}{
@@ -78,19 +84,24 @@ Operations Research Tools. R package version 1.1-0.
 }
 
 \section{To be used for}{
-  \describe{ \item{Travelling-Salesman-Problem}{ Finding
-  the shortest roundtrip with e.g.  Nearest-Neighbor-Method
-  (\code{\link{TSP.NearestNeighbor}}), Two-Opt
-  (\code{\link{TSP.2OPT}}), Three-Opt
-  (\code{\link{TSP.3OPT}}) } \item{Shortest-Path-Problem}{
-  Calculating the shortest Path in a network of
-  \code{\link{Link}}s using e.g.  the algorithm of Dijkstra
-  (\code{\link{SPP.Dijkstra}}), } }
+  \describe{ \item{SPP}{ Shortest-Path-Problem }
+  \item{TSP}{ Travelling Salesman Problem } }
 }
 \examples{
-# demo(HNUNode01)
-# demo(HNUNode02)
-# demo(HNUNode03)
+# create a new Node with specific values
+x<- new("Node", x= 10, y=20, id="myid", label = "mylabel")
+x
+# create from data.frame
+df<- data.frame(x=10,y=20)
+new("Node", df)
+as(df, "Node")
+as.Node(df)
+#create some nodes
+n1 <- new("Node",x=10,y=20, id ="n1")
+n2 <- new("Node",x=13,y=24, id ="n1")
+# calculate Beeline distance
+#getDistance(n1,n2) # should result 5
+#getDistance(n1,n2, costs = 2) # should result 10
 }
 \author{
 Dipl. Kfm. Felix Lindemann

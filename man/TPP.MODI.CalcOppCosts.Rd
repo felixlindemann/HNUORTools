@@ -17,7 +17,7 @@ TPP.MODI.CalcOppCosts(object, ...)
 Calculates the Opportunity-Cost-Matrix
 }
 \details{
-Explain what SSM does.
+Explain what MODI does.
 }
 \note{
 for citing use: Felix Lindemann (2014). HNUORTools:

@@ -22,7 +22,8 @@ The Solution will be assigned to each
 Calculate solution for the VRP using the SWEEP-Algorithm.
 }
 \details{
-Explain what VRP.SWEEP does.
+Apart from Algorithm 5.1 at Domschke(2010) p. 229, the
+improvement steps with 2opt/3opt are not implemented.
 }
 \note{
 for citing use: Felix Lindemann (2014). HNUORTools:
@@ -33,22 +34,20 @@ Operations Research Tools. R package version 1.1-0.
   \subsection{used by \code{\link{VRP.SWEEP}}}{ \describe{
   \item{alpha}{ numeric The \code{alpha}-Shape-Parameter of
   the SWEEP-algorithm (Offset of Sweep-Angle. To be rovided
-  in Radians!)} \item{vehiclecapacity}{ numeric
-  \emph{Optional Parameter}. Defining the maximum
-  loading-capacity of each tour. Default is 2*sum(demand)
-  +1 (will be ignored).}
-  \item{vehiclecapacity.maxstops}{numeric \emph{Optional
+  in Radians!)} \item{constraint}{ numeric \emph{Optional
+  Parameter}. Defining the maximum loading-capacity of each
+  tour. Default is 2*sum(demand) +1 (will be ignored).}
+  \item{constraint.maxstops}{numeric \emph{Optional
   Parameter}. Defining the maximum Stops of each tour.
   Default is 2*n +1 (will be ignored).} \item{roundcij}{
-  logical Optional Parameter. Indicating, if the calculated
-  costs should be round. Default is \code{TRUE}.}
-  \item{log}{logical Optional Parameter. Indicating, if the
-  calculation should be logged to console. Default is
-  \code{FALSE}.} } } \subsection{Forwarded to the
-  follwowing functions}{ You may want to check these
-  functions for any other optional parameters.  \itemize{
-  \item{\code{\link{getpolar}} (offset-parameter is used by
-  \code{\link{VRP.SWEEP}}} } }
+  Obsolete. Please use digits from
+  \code{\link{getDistance}}.} \item{log}{logical Optional
+  Parameter. Indicating, if the calculation should be
+  logged to console. Default is \code{FALSE}.} } }
+  \subsection{Forwarded to the follwowing functions}{ You
+  may want to check these functions for any other optional
+  parameters.  \itemize{ \item{\code{\link{getpolar}}
+  (offset-parameter is used by \code{\link{VRP.SWEEP}}} } }
 }
 \examples{
 # demo(HNUVRP01)
@@ -71,7 +70,9 @@ Phone +49(0)731-9762-1437 Web
 \url{http://felixlindemann.blogspot.de}
 }
 \references{
-Domschke
+Algorithmus 5.1 S. 229: Domschke, Wolfgang (2010):
+Logistik. Rundreisen und Touren. 5., Aufl. Muenchen [u.a.]:
+Oldenbourg (2).
 }
 \seealso{
 \code{\link{GeoSituation}}, \code{\link{Node}},

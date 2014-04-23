@@ -34,11 +34,6 @@ Operations Research Tools. R package version 1.1-0.
 }
 \examples{
 # demo(HNUTPP03)
-# demo(HNUTPP04)
-# demo(HNUTPP05)
-# demo(HNUTPP06)
-# demo(HNUTPP07)
-# demo(HNUTPP08)
 }
 \author{
 Dipl. Kfm. Felix Lindemann

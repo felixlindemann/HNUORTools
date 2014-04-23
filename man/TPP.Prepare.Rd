@@ -19,7 +19,9 @@ The setup may be corrected (a warning will be provided if
 so).
 }
 \description{
-prepare the setup of a TPP to be not degenerated
+prepare the setup of a TPP to be not degenerated. This
+function is called automatically when needed. Executing by
+User should not required.
 }
 \note{
 for citing use: Felix Lindemann (2014). HNUORTools:
@@ -41,11 +43,6 @@ Operations Research Tools. R package version 1.1-0.
 }
 \examples{
 # demo(HNUTPP03)
-# demo(HNUTPP04)
-# demo(HNUTPP05)
-# demo(HNUTPP06)
-# demo(HNUTPP07)
-# demo(HNUTPP08)
 }
 \author{
 Dipl. Kfm. Felix Lindemann

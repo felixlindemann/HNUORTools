@@ -35,7 +35,11 @@ Operations Research Tools. R package version 1.1-0.
   \subsection{used by SPP.Dijkstra}{ \describe{
   \item{\code{log}}{ \emph{optional} \code{"logical"}.
   Indicating if the calculations should be logged.
-  \strong{Default} is \code{FALSE}} \item{\code{start}}{
+  \strong{Default} is \code{FALSE}.} \item{\code{debug}}{
+  \emph{optional} \code{"logical"}. Indicating if the
+  calculations should be debugged \strong{Default} is
+  \code{FALSE}. This means, that each process step is
+  logged to the console.} \item{\code{start}}{
   \emph{optional} \code{"numeric"}. Indicates which
   \code{\link{Node}}(-index) should be used as startnode.
   \strong{Default} is 1.

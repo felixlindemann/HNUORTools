@@ -1,0 +1,13 @@
+citHeader("To cite the HNUORTools R package in publications:")
+
+
+citEntry(entry = "book",
+  author = "Felix Lindemann",
+  title = "HNUORTools - An R package for the analysis of Operations Research",
+  publisher = "Hochschule Neu-Ulm",
+  year = "2014",
+  isbn = "",
+  url = "http://www.hs-neu-ulm.de",
+  textVersion = "Lindemann, F. (2014). HNUORTools - An R package for the analysis of Operations Research. Hochschule Neu-Ulm, Germany."
+)
+

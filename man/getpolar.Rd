@@ -12,18 +12,18 @@ getpolar(n0, n1, ...)
 \S4method{getpolar}{Node,Node}(n0, n1, ...)
 }
 \arguments{
-  \item{n0}{an object of class \code{"numeric"} with a
+  \item{n0}{an object of class \code{\link{numeric}} with a
   length of 2 (x/y-coordinates) or a class derived from
-  \code{"Node"}. Used as origin.}
+  \code{\link{Node}}. Used as origin.}
 
-  \item{n1}{an object of class \code{"numeric"} with a
+  \item{n1}{an object of class \code{\link{numeric}} with a
   length of 2 (x/y-coordinates) or a class derived from
-  \code{"Node"}.}
+  \code{\link{Node}}.}
 
   \item{...}{see \emph{Optional Values}}
 }
 \value{
-the angle as a value of class \code{"numeric"}.
+the angle as a value of class \code{\link{numeric}}.
 }
 \description{
 This function calculates the angle of a vector defined by
@@ -36,24 +36,24 @@ will be added).
 \section{Optional Parameters (\code{...})}{
   \subsection{used by getpolar}{ \describe{
   \item{\code{nonnegative}}{ \emph{optional}
-  \code{"logical"}. Indicating if 2pi should be added to
-  negative values. \strong{Default} is \code{TRUE}}
-  \item{\code{deg}}{ \emph{optional} \code{"logical"}.
+  \code{\link{logical}}. Indicating if 2pi should be added
+  to negative values. \strong{Default} is \code{TRUE}}
+  \item{\code{deg}}{ \emph{optional} \code{\link{logical}}.
   Indicating if the result should be converted to degrees.
   \strong{Default} is \code{FALSE}} \item{\code{log}}{
-  \emph{optional} \code{"logical"}. Indicating if the
+  \emph{optional} \code{\link{logical}}. Indicating if the
   calculations should be logged. \strong{Default} is
   \code{FALSE}} \item{\code{offset}}{ \emph{optional}
-  \code{"numeric"}. Should be when using rotated coordinate
-  systems. \strong{Default} is 0. \strong{Has to be
-  provided in RADIANS!}} } } \subsection{Forwarded to the
-  follwowing functions}{ \itemize{ \item{\code{...} is
+  \code{\link{numeric}}. Should be when using rotated
+  coordinate systems. \strong{Default} is 0. \strong{Has to
+  be provided in RADIANS!}} } } \subsection{Forwarded to
+  the follwowing functions}{ \itemize{ \item{\code{...} is
   currently not forwared.} } }
 }
 \examples{
 # getpolar(c(1,1),c(0,0),deg=TRUE) # should result 45.
-# w1 <- new("Warehouse", x=0, y=0)
-# c1 <- new("Customer",  x=1, y=1)
+# w1 <- new("Node", x=0, y=0)
+# c1 <- new("Node",  x=1, y=1)
 # getpolar(w1,c1,deg=TRUE) # should result 45.
 }
 \author{
@@ -71,7 +71,9 @@ D-89231 Neu-Ulm
 Phone +49(0)731-9762-1437 Web www.hs-neu-ulm.de
 }
 \references{
-Bronstein
+Bronstein 2008 Bronstein, I. N.: Taschenbuch der
+Mathematik. [CD-ROM-Ausg. der 7., voll. ueberarb. und erg.
+gedr. Ausg.]. Frankfurt: Harri Deutsch, 2008
 }
 \keyword{coordinates}
 \keyword{polar,}

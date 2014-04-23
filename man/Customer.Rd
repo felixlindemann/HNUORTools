@@ -4,9 +4,9 @@
 \alias{Customer-class}
 \title{The Customer class}
 \description{
-This class is part of the \pkg{HNUORTools}. It extends the
-\code{\link{Node}} with attributes used for describing
-customer in an \dfn{Operations-Research (OR)}-context.
+This class is part of the \pkg{HNUORTools}. It represents
+the base class for every locateable class in an
+\dfn{Operations-Research (OR)}-context.
 }
 \details{
 Find here the defined slots for this class.
@@ -16,39 +16,30 @@ for citing use: Felix Lindemann (2014). HNUORTools:
 Operations Research Tools. R package version 1.1-0.
 \url{http://felixlindemann.github.io/HNUORTools/}.
 }
-\section{Slots defined}{
+\section{Slots}{
   \describe{ \item{\code{demand}:}{ Object of class
-  \code{"numeric"}, only non-negative Values are allowed.
-
-  \strong{The default value is} a random value using
-  \code{as.numeric(sample(1:1000,1))}.  }
-  \item{\code{isDummy}:}{ Object of class \code{"logical"}.
-  Indicates if this is an algorithmic-created
-  \code{\link{Customer}}.
-
-  \strong{The default value is} \code{FALSE}.
-
-  Some problems (e.g. the \dfn{Transportation-Problem
-  (TPP)} can be solved only, if the sum of demand equals
-  the sum of supply.  For this reason, some algorithms
-  create virtual \code{\link{Customer}s} or
-  \code{\link{Warehouse}s}.  } }
+  \code{"numeric"}, containing the amount for the demand.
+  The default value cannot be negative.  }
+  \item{\code{isDummy}:}{ Object of class \code{"logical"},
+  indicating if a customer was added in an algorithm (e.g.
+  TPP-Column-Minimum-Method) in order to avoid degenerated
+  soulutions.  } }
 }
 
-\section{Slots defined in parent class (\code{\link{Node}})}{
+\section{Slots (from \code{\link{Node}})}{
   \describe{ \item{\code{id}:}{ Object of class
   \code{"character"}, containing data from id.
   \strong{Should be unique}.  The default value will be
   caluclated randomly.  } \item{\code{label}:}{ Object of
   class \code{"character"}, containing the label of the
-  \code{\link{Node}}.  The default value will be caluclated
-  randomly.  } \item{\code{x}:}{ Object of class
+  \code{\link{Customer}}.  The default value will be
+  caluclated randomly.  } \item{\code{x}:}{ Object of class
   \code{"numeric"}, containing the x-coordinate of the
-  \code{\link{Node}}.  The default value will be caluclated
-  randomly.  } \item{\code{y}:}{ Object of class
+  \code{\link{Customer}}.  The default value will be
+  caluclated randomly.  } \item{\code{y}:}{ Object of class
   \code{"numeric"}, containing the y-coordinate of the
-  \code{\link{Node}}.  The default value will be caluclated
-  randomly.  } }
+  \code{\link{Customer}}.  The default value will be
+  caluclated randomly.  } }
 }
 
 \section{Creating objects of type \code{\link{Customer}}}{
@@ -61,10 +52,10 @@ Operations Research Tools. R package version 1.1-0.
 }
 
 \section{Methods}{
-  \describe{ \item{\code{as.list(obj, ...)}}{ Converts a
-  \code{\link{Customer}} into a \code{\link{list}}.
+  \describe{ \item{\code{as.list(Customer, ...)}}{ Converts
+  a \code{\link{Customer}} into a \code{\link{list}}.
   \code{...} are user-defined (not used) parameters.  }
-  \item{\code{as.data.frame(obj, ...)}}{ Converts a
+  \item{\code{as.data.frame(Customer, ...)}}{ Converts a
   \code{\link{Customer}} into a \code{\link{data.frame}}.
   \code{as.data.frame} accepts the optional parameter
   \code{withrownames} of class \code{"logical"} (default is
@@ -79,48 +70,42 @@ Operations Research Tools. R package version 1.1-0.
   \item{\code{is.Customer(obj)}}{ Checks if the object
   \code{obj} is of type \code{\link{Customer}}.  }
   \item{\code{\link{getDistance}}}{ Calculating the
-  distance between two \code{\link{Node}s}.  }
-  \item{\code{\link{getpolar}}}{ Calculating the angle to
-  the x-Axis of a link, connecting two \code{\link{Node}s}.
-  } }
+  distance between two \code{\link{Node}s} (As the classes
+  \code{\link{Customer}} and \code{\link{Warehouse}} depend
+  on \code{\link{Node}}, distances can be calculated
+  between any of these objects).  }
+  \item{\code{\link{getpolar}}}{ Calculating the
+  polar-angle to the x-Axis of a link, connecting two
+  \code{\link{Node}s} (As the classes
+  \code{\link{Customer}} and \code{\link{Warehouse}} depend
+  on \code{\link{Node}}, polar-angles can be calculated
+  between any of these objects).  } }
 }
 
-\section{Derived from Classes}{
-  \describe{ \item{\code{\link{Node}}}{ This class extends
-  the \code{\link{Node}}-Class with attributes for
-  according to customers for OR-Problems.  } }
+\section{Derived Classes}{
+  None.
 }
 
 \section{To be used for}{
-  \describe{ \item{Transportation-Problem (TPP)}{ Finding a
-  transportation-plan with e.g.  North-West-Corner Rule
-  (\code{\link{TPP.NW}}), Column-Minimum-Method
-  (\code{\link{TPP.CMM}}), Matrix-Minimum-Method
-  (\code{\link{TPP.MMM}}), .  Stepping-Stone-Method
-  (\code{\link{TPP.SteppingStone}}) or MODI-Method
-  (\code{\link{TPP.MODI}}).  }
-  \item{Warehouse-Location-Problem (WLP)}{ using the
-  ADD-Algorithm (\code{\link{WLP.ADD}}).  }
-  \item{Vehicle-Routing-Problem (VRP)}{ using the
-  Sweep-Algorithm (\code{\link{VRP.SWEEP}}) or
-  Savings-Algorithm (\code{\link{VRP.SAVINGS}}).  } }
+  \describe{ \item{WLP}{ Warehouse-Location-Problem }
+  \item{TPP}{ Transportation Problem } \item{VRP}{ Vehicle
+  Routing Problem } }
 }
 \examples{
-# demo(HNUNode01)
-# demo(HNUNode02)
-# demo(HNUNode03)
-# Creating objects of class Customer:
-x <- new("Customer")
-
-# Doing it the proper way:
-x <- new("Customer", x=2, y=3, id="c1", label="customer1", demand=10)
-
-# Deriving from a data.frame
-df<- data.frame(x=2, y=3, id="c1", label="customer1", demand=10)
-x <- new("Customer", df)
-
-# Using a user-friendly-function:
-# x <- new("Customer",x=2, y=3, id="c1", ...)
+# create a new Customer with specific values
+x<- new("Customer", x= 10, y=20, id="myid", label = "mylabel", demand = 20)
+x
+# create from data.frame
+df<- data.frame(x=10,y=20, demand = 30)
+new("Customer", df)
+as(df, "Customer")
+as.Customer(df)
+#create some Customers
+n1 <- new("Customer",x=10,y=20, demand = 30, id ="n1")
+n2 <- new("Customer",x=13,y=24, demand = 40, id ="n2")
+# calculate Beeline distance
+#getDistance(n1,n2) # should result 5
+#getDistance(n1,n2, costs = 2) # should result 10
 }
 \author{
 Dipl. Kfm. Felix Lindemann
@@ -139,10 +124,7 @@ Phone +49(0)731-9762-1437 Web
 \url{http://felixlindemann.blogspot.de}
 }
 \seealso{
-\code{\link{TPP.NW}},\code{\link{TPP.CMM}},\code{\link{TPP.MMM}},
-\code{\link{TPP.SteppingStone}},\code{\link{TPP.MODI}},
-\code{\link{WLP.ADD}},\code{\link{VRP.SWEEP}},
-\code{\link{VRP.SAVINGS}},\code{\link{getDistance}},
-\code{\link{Node}}, \code{\link{Warehouse}}
+The classes are derived from this class and the following
+Methods can be used with this class.:
 }
 

@@ -26,14 +26,13 @@ Operations Research Tools. R package version 1.1-0.
 }
 \section{Optional Parameters (\code{...})}{
   \subsection{used by \code{\link{TPP.getCostMatrix}}}{
-  \describe{ \item{log}{\code{logical} Optional Parameter.
-  Indicating, if the calculation should be logged to
-  console. Default is \code{FALSE}.}
-  \item{transportcosts}{\code{numeric} Optional Parameter.
-  \strong{OBSOLETE}. Default is \code{1}.} } }
-  \subsection{Forwarded to the follwowing functions}{ You
-  may want to check these functions for any other optional
-  parameters.  \itemize{
+  \describe{ \item{cij}{\code{A \link{matrix}} containing
+  the values for the cij-Matrix. }
+  \item{log}{\code{logical} Optional Parameter. Indicating,
+  if the calculation should be logged to console. Default
+  is \code{FALSE}.} } } \subsection{Forwarded to the
+  follwowing functions}{ You may want to check these
+  functions for any other optional parameters.  \itemize{
   \item{\code{\link{getDistanceMatrix}}} } }
 }
 \examples{

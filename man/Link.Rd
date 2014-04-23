@@ -42,7 +42,7 @@ Operations Research Tools. R package version 1.1-0.
   } \item{\code{used}:}{ Object of class \code{"logical"},
   Usually automatically assigned when solving the
   \dfn{Shortest-Path-Problem (SPP)} with the
-  \code{\link{SPP.Dijkstra}}.  The default value will is
+  \code{SPP.Dijkstra}.  The default value will is
   \code{FALSE}.  } }
 }
 
@@ -52,15 +52,8 @@ Operations Research Tools. R package version 1.1-0.
 }
 
 \section{To be used for}{
-  \describe{ \item{Travelling-Salesman-Problem}{ NOT YET
-  IMPLEMENTED!  Finding the shortest roundtrip with e.g.
-  Nearest-Neighbor-Method
-  (\code{\link{TSP.NearestNeighbor}}), Two-Opt
-  (\code{\link{TSP.2OPT}}), Three-Opt
-  (\code{\link{TSP.3OPT}}) } \item{Shortest-Path-Problem}{
-  Calculating the shortest Path in a network of
-  \code{\link{Link}}s using e.g.  the algorithm of Dijkstra
-  (\code{\link{SPP.Dijkstra}}), } }
+  \describe{ \item{SPP}{ Shortest-Path-Problem }
+  \item{TSP}{ Travelling Salesman Problem } }
 }
 \examples{
 # demo(HNULink01)
@@ -82,6 +75,6 @@ Phone +49(0)731-9762-1437 Web
 \url{http://felixlindemann.blogspot.de}
 }
 \seealso{
-\code{\link{Node}},\code{\link{SPP.Dijkstra}}
+\code{\link{Node}}
 }
 
