@@ -272,7 +272,7 @@ test_that("'MODI-Method' works correctly", {
   geo$tpp$cij <- cij
   
   
-  geo<- TPP.MODI(geo,  log=FALSE) 	 
+  geo<- TPP.MODI(geo,  log=FALSE)    
   x <- geo$tpp$x
   totalcosts <- round(sum(x*cij))# 
   expect_equal(totalcosts,    2040 )# 
@@ -287,6 +287,49 @@ test_that("'MODI-Method' works correctly", {
   expect_true(x[1,3] == 80 )# true
   expect_true(x[2,4] == 50 )# true
   expect_true(x[3,2] == 100 )# true
+  
+  
+}) 
+
+context("\tTest 07: Does TPP.VOGEL working correctly 2 - does it produce the same results as in literature?") 
+test_that("'VOGEL-Method' works correctly", {
+  geo<-new("GeoSituation")
+  #example taken from
+  #Domschke, Wolfgang; Drexl, Andreas (2005): Einfuehrung in Operations Research. Mit 63 Tabellen. 6., ueberarb. und erw. Aufl. Berlin: Springer. S.85
+  # coordinates of Locations can be random
+  geo<-add(geo,new("Warehouse", id="L1", x=25,   y=70,   supply = 10   ))
+  geo<-add(geo,new("Warehouse", id="L2", x=150,  y=115,  supply = 8   ))
+  geo<-add(geo,new("Warehouse", id="L3", x=80,   y=140,  supply = 7   )) 
+  
+  geo<-add(geo,new("Customer",  id="K1", x=15,   y=130,  demand = 6   ))
+  geo<-add(geo,new("Customer",  id="K2", x=60,   y=80,   demand = 5   ))
+  geo<-add(geo,new("Customer",  id="K3", x=175,  y=140,  demand = 8   ))
+  geo<-add(geo,new("Customer",  id="K4", x=50,   y=100,  demand = 6   ))
+  
+  demand <- geo$customers$demand
+  supply <- geo$warehouses$supply
+  expect_true( sum(demand)  == sum(supply) )# true
+  x<-getInitialMatrix(geo, initialvalue=0) # just for setting up all variables.
+   
+  cij <- matrix(c(7,7,4,7,9,5,3,3,7,2,6,4), ncol=4, byrow=TRUE) 
+  geo$tpp$cij <- cij
+  
+  
+  geo<- TPP.VOGEL(geo,  log=FALSE)    
+  x <- geo$tpp$x
+  totalcosts <- round(sum(x*cij))# 
+  expect_equal(totalcosts,    106 )# 
+  
+  expect_true(sum(x) == sum(demand) )# true
+  expect_true(sum(x) == sum(supply) )# true
+  
+  
+  expect_true(x[1,1] == 2 )# true
+  expect_true(x[2,1] == 2 )# true
+  expect_true(x[3,1] == 2 )# true
+  expect_true(x[3,2] == 5 )# true
+  expect_true(x[1,3] == 8 )# true
+  expect_true(x[2,4] == 6 )# true
   
   
 }) 
