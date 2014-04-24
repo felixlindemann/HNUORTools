@@ -84,6 +84,36 @@ test_that("Distances are calculated as expected.", {
    
 }) 
 
+
+
+context("\tTest 02: Does SPP.TRIPLE work?") 
+test_that("Distances are calculated as expected.", {
+   # Taken from Domschke, Wolfgang; Drexl, Andreas (2005): Einfuehrung in Operations Research. Mit 63 Tabellen. 6., ueberarb. und erw. Aufl. Berlin: Springer.
+  # p.76ff
+  geo<-new("GeoSituation") 
+  
+  geo <- add(geo, new("Node", id="N1", x= 0, y= 0))
+  geo <- add(geo, new("Node", id="N2", x= 10, y= +5))
+  geo <- add(geo, new("Node", id="N3", x= 20, y= +5))
+  geo <- add(geo, new("Node", id="N4", x= 10, y= -5))
+  geo <- add(geo, new("Node", id="N5", x= 20, y= -5))
+
+  geo <- add(geo, new("Link", geo$nodes[1], geo$nodes[2], distance = 20, oneway=TRUE))
+  geo <- add(geo, new("Link", geo$nodes[1], geo$nodes[4], distance = 10, oneway=TRUE))
+  geo <- add(geo, new("Link", geo$nodes[2], geo$nodes[3], distance = 20, oneway=TRUE))
+  geo <- add(geo, new("Link", geo$nodes[2], geo$nodes[5], distance = 50, oneway=TRUE))
+  geo <- add(geo, new("Link", geo$nodes[3], geo$nodes[5], distance = 10, oneway=TRUE))
+  geo <- add(geo, new("Link", geo$nodes[4], geo$nodes[2], distance = 20, oneway=TRUE))
+  geo <- add(geo, new("Link", geo$nodes[4], geo$nodes[5], distance = 50, oneway=TRUE))
+  geo <- add(geo, new("Link", geo$nodes[5], geo$nodes[3], distance = 20, oneway=TRUE))
+
+  geo<- SPP.TRIPLE(geo)
+  
+
+}) 
+
+
+
 context("done.")   
 context("--------------------------------------------------")  
  

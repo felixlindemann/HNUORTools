@@ -201,7 +201,7 @@ setMethod("initialize", "Link", function(.Object, n1,n2,... ) {
     } 
   }
   if(is.null(li$costs)) { 
-    li$costs <- getDistance(n1,n2,...) 
+    li$costs <-  li$distance 
     w <- paste("automatic costs (",li$costs,") calculated.")
     if(li$showwarnings) warning(w) 
   }else{
