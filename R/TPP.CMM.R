@@ -10,7 +10,12 @@
 #' \subsection{used by \code{\link{TPP.CMM}}}{
 #'    \describe{ 
 #'   	\item{log}{logical Optional Parameter. Indicating, if the calculation should be logged to console. Default is \code{FALSE}.}
-#' 		\item{domschke.version}{numeric Optional Parameter. As Domschke describes two different implementations, the paremter \code{domschke.version} can take the values of the edition, in which the algorithm is described. \code{domschke.version} can take the values 1995 and 2007. Default Value is 2007.}
+#' 		\item{domschke.version}{numeric Optional Parameter. As Domschke describes two different implementations, the paremter \code{domschke.version} can take the values of the edition, in which the algorithm is described. \code{domschke.version} can take the values 2004 and 2007. Default Value is 2007. 
+#'   	
+#'   	  2004: Domschke, Wolfgang; Drexl, Andreas (2005): Einfuehrung in Operations Research. Mit 63 Tabellen. 6., ueberarb. und erw. Aufl. Berlin: Springer.
+#'    
+#'      2007: Domschke, Wolfgang (2007): Logistik. Transport. Grundlagen, lineare Transport- und Umladeprobleme. 5. Aufl. Muenchen: Oldenbourg (Oldenbourgs Lehr- und Handbuecher der Wirtschafts- und Sozialwissenschaften, 1).
+#'     }
 #'    } 
 #' }
 #' \subsection{Forwarded to the follwowing functions}{  
@@ -58,7 +63,8 @@ setMethod("TPP.CMM", signature(object="GeoSituation"),
             li<-list(...)   
             object  <- TPP.Prepare(object, ...)			# repair degenerated if needed
             cij 	<- TPP.getCostMatrix(object, ...)	# store transportcosts localy
-             
+            
+            if(is.null(li$domschke.version)) domschke.version <- 2007
             object$tpp$cij <- cij
             
             I <- length(object$warehouses)
@@ -76,44 +82,86 @@ setMethod("TPP.CMM", signature(object="GeoSituation"),
             markedI <- rep(FALSE, I)
             markedJ <- rep(FALSE, J)
             
-            while(TRUE){
-              
-              for(j in 1:J){
+            if(li$domschke.version == 2004){
                 
-                # find next unmarked Column
-                if(markedJ[j] == FALSE){
-                  
+              for(j in 1:J){
+                while(markedJ[j] == FALSE){ 
                   #find mininmal Costs in Column
-                  k<-NA
+                  h<-NA
                   tmp <- sum(cij)*2+3
                   for(i in which(markedI==FALSE)){
                     
                     if( cij[i,j] < tmp){
                       
-                      k<-i
+                      h<-i
                       tmp<-cij[i,j]
                     }
-                   
+                    
                   }
                   if(is.na(k)) {stop("The TPP is not solveable with CMM if you can read this error. No next assignment could be made.")}
                   
-                  x[k,j] <- min(supply[k], demand[j])
-                  supply[k] <- supply[k]- x[k,j]
+                  x[h,j] <- min(supply[h], demand[j])
+                  supply[h] <- supply[h]- x[h,j]
                   demand[j] <- demand[j] -  x[k,j]
                   
-                  if(supply[k] == 0 & (demand[j] >0  | markedJ[j] == FALSE)){
-                    markedI[k] <- TRUE
+                  if(supply[h] == 0 ){
+                    markedI[h] <- TRUE
                   }else{
-                    if(demand[j] == 0 & length(markedJ[markedJ==FALSE]) >1){
+                    if(demand[j] == 0 ){
                       markedJ[j] <- TRUE
                     }
                   }
                 } 
-              } 
-              if(length(which(markedI==FALSE)) ==0 & length(which(markedJ==FALSE)) == 1){
-                break # CMM terminates.
+              
+              
               }
-            } 
+              
+            }else if (li$domschke.version == 2007){
+              
+            
+              while(TRUE){
+                
+                for(j in 1:J){
+                  
+                  # find next unmarked Column
+                  if(markedJ[j] == FALSE){
+                    
+                    #find mininmal Costs in Column
+                    k<-NA
+                    tmp <- sum(cij)*2+3
+                    for(i in which(markedI==FALSE)){
+                      
+                      if( cij[i,j] < tmp){
+                        
+                        k<-i
+                        tmp<-cij[i,j]
+                      }
+                     
+                    }
+                    if(is.na(k)) {stop("The TPP is not solveable with CMM if you can read this error. No next assignment could be made.")}
+                    
+                    x[k,j] <- min(supply[k], demand[j])
+                    supply[k] <- supply[k]- x[k,j]
+                    demand[j] <- demand[j] -  x[k,j]
+                    
+                    if(supply[k] == 0 & (demand[j] >0  | markedJ[j] == FALSE)){
+                      markedI[k] <- TRUE
+                    }else{
+                      if(demand[j] == 0 & length(markedJ[markedJ==FALSE]) >1){
+                        markedJ[j] <- TRUE
+                      }
+                    }
+                  } 
+                } 
+                if(length(which(markedI==FALSE)) ==0 & length(which(markedJ==FALSE)) == 1){
+                  break # CMM terminates.
+                }
+              } 
+            
+            }else{
+              msg<- paste("The given value for domschke.version is not supported. Please provide a value which is either 2004 or 2007. You provided: ", li$domschke.version)
+              stop(msg)
+            }
             object$tpp$x <- x 
             object$tpp$markedI <- markedI
             object$tpp$markedJ <- markedJ
