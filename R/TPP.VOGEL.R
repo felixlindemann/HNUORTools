@@ -1,6 +1,6 @@
 #' @name TPP.VOGEL
 #' @rdname TPP.VOGEL 
-#' @title Transportation-Problem -- Column-Minimum-Method
+#' @title Transportation-Problem -- VogelAproximation Method
 #'
 #' @description Calculates the Transportation-Plan.
 #' @param object Object of Type \code{\link{GeoSituation}} 
@@ -10,12 +10,7 @@
 #' \subsection{used by \code{\link{TPP.VOGEL}}}{
 #'    \describe{ 
 #'     \item{log}{logical Optional Parameter. Indicating, if the calculation should be logged to console. Default is \code{FALSE}.}
-#' 		\item{domschke.version}{numeric Optional Parameter. As Domschke describes two different implementations, the paremter \code{domschke.version} can take the values of the edition, in which the algorithm is described. \code{domschke.version} can take the values 2004 and 2007. Default Value is 2007. 
-#'   	
-#'   	  2004: Domschke, Wolfgang; Drexl, Andreas (2005): Einfuehrung in Operations Research. Mit 63 Tabellen. 6., ueberarb. und erw. Aufl. Berlin: Springer.
-#'    
-#'      2007: Domschke, Wolfgang (2007): Logistik. Transport. Grundlagen, lineare Transport- und Umladeprobleme. 5. Aufl. Muenchen: Oldenbourg (Oldenbourgs Lehr- und Handbuecher der Wirtschafts- und Sozialwissenschaften, 1).
-#'     }
+#' 		 
 #'    } 
 #' }
 #' \subsection{Forwarded to the follwowing functions}{  
@@ -30,7 +25,8 @@
 #' @return same (but modified) object of Type \code{\link{GeoSituation}}.
 #'      The Solution will be assigned the attribute \code{tpp.x}.
 #' @export  
-#' @references Domschke
+#' @references Domschke, Wolfgang; Drexl, Andreas (2005): Einfuehrung in Operations Research. Mit 63 Tabellen. 6., ueberarb. und erw. Aufl. Berlin: Springer.
+
 #' @seealso \code{\link{GeoSituation}}, \code{\link{Node}}, \code{\link{TPP.NW}}, \code{\link{TPP.VOGEL}}, \code{\link{TPP.MMM}}, \code{\link{TPP.SteppingStone}}, \code{\link{TPP.MODI}}
 #' @examples
 #' # demo(HNUTPP02)

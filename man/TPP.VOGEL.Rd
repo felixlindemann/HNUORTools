@@ -1,12 +1,12 @@
 \docType{methods}
-\name{TPP.CMM}
-\alias{TPP.CMM}
-\alias{TPP.CMM,GeoSituation-method}
-\title{Transportation-Problem -- Column-Minimum-Method}
+\name{TPP.VOGEL}
+\alias{TPP.VOGEL}
+\alias{TPP.VOGEL,GeoSituation-method}
+\title{Transportation-Problem -- VogelAproximation Method}
 \usage{
-TPP.CMM(object, ...)
+TPP.VOGEL(object, ...)
 
-\S4method{TPP.CMM}{GeoSituation}(object, ...)
+\S4method{TPP.VOGEL}{GeoSituation}(object, ...)
 }
 \arguments{
   \item{object}{Object of Type \code{\link{GeoSituation}}}
@@ -27,27 +27,14 @@ Operations Research Tools. R package version 1.1-0.
 \url{http://felixlindemann.github.io/HNUORTools/}.
 }
 \section{Optional Parameters (\code{...})}{
-  \subsection{used by \code{\link{TPP.CMM}}}{ \describe{
+  \subsection{used by \code{\link{TPP.VOGEL}}}{ \describe{
   \item{log}{logical Optional Parameter. Indicating, if the
   calculation should be logged to console. Default is
-  \code{FALSE}.} \item{domschke.version}{numeric Optional
-  Parameter. As Domschke describes two different
-  implementations, the paremter \code{domschke.version} can
-  take the values of the edition, in which the algorithm is
-  described. \code{domschke.version} can take the values
-  2004 and 2007. Default Value is 2007.
+  \code{FALSE}.}
 
-  2004: Domschke, Wolfgang; Drexl, Andreas (2005):
-  Einfuehrung in Operations Research. Mit 63 Tabellen. 6.,
-  ueberarb. und erw. Aufl. Berlin: Springer.
-
-  2007: Domschke, Wolfgang (2007): Logistik. Transport.
-  Grundlagen, lineare Transport- und Umladeprobleme. 5.
-  Aufl. Muenchen: Oldenbourg (Oldenbourgs Lehr- und
-  Handbuecher der Wirtschafts- und Sozialwissenschaften,
-  1).  } } } \subsection{Forwarded to the follwowing
-  functions}{ You may want to check these functions for any
-  other optional parameters.  \itemize{
+  } } \subsection{Forwarded to the follwowing functions}{
+  You may want to check these functions for any other
+  optional parameters.  \itemize{
   \item{\code{\link{getInitialMatrix}}}
   \item{\code{\link{TPP.Prepare}}}
   \item{\code{\link{TPP.getCostMatrix}}} } }
@@ -72,11 +59,13 @@ Phone +49(0)731-9762-1437 Web
 \url{http://felixlindemann.blogspot.de}
 }
 \references{
-Domschke
+Domschke, Wolfgang; Drexl, Andreas (2005): Einfuehrung in
+Operations Research. Mit 63 Tabellen. 6., ueberarb. und
+erw. Aufl. Berlin: Springer.
 }
 \seealso{
 \code{\link{GeoSituation}}, \code{\link{Node}},
-\code{\link{TPP.NW}}, \code{\link{TPP.CMM}},
+\code{\link{TPP.NW}}, \code{\link{TPP.VOGEL}},
 \code{\link{TPP.MMM}}, \code{\link{TPP.SteppingStone}},
 \code{\link{TPP.MODI}}
 }
