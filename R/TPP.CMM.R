@@ -64,7 +64,7 @@ setMethod("TPP.CMM", signature(object="GeoSituation"),
             object  <- TPP.Prepare(object, ...)			# repair degenerated if needed
             cij 	<- TPP.getCostMatrix(object, ...)	# store transportcosts localy
             
-            if(is.null(li$domschke.version)) domschke.version <- 2007
+            if(is.null(li$domschke.version)) li$domschke.version <- 2007
             object$tpp$cij <- cij
             
             I <- length(object$warehouses)
