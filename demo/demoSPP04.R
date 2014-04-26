@@ -36,7 +36,7 @@ geo <- SPP.Dijkstra(geo,start=startindex, log=TRUE,debug=TRUE, plot=FALSE, main=
 
 # plot Solution
 
-plot(geo,
+plotGeoSituation(geo,
      main="SoSe 2014 Tutorium 1 TPP\nAufg. 3", 
      sub="Solution",
      drawNodes = TRUE,

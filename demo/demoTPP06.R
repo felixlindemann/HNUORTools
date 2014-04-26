@@ -40,7 +40,7 @@ x[4,7] == 80 # true
 
 #prepare Plot
 col<- 2:5
-plot(
+plotGeoSituation(
   geo, 
   main="Tutorium #2 WS 13/14 - Aufg. 2",
   warehouse.bg.col = col, 

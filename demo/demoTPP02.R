@@ -28,7 +28,7 @@ x[3,5] == 100    # TRUE
 x[4,9] == 0     # TRUE
 
 col<- 2:5
-plot(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",
+plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2",
      warehouse.bg.col = col, 
      zoom=1.7, 
      plotNodes=FALSE,

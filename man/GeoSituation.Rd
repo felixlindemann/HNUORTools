@@ -57,7 +57,8 @@ Operations Research Tools. R package version 1.1-0.
 }
 
 \section{Methods}{
-  \describe{ \item{\code{\link{plot}(x=GeoSituation,
+  \describe{
+  \item{\code{\link{plotGeoSituation}(x=GeoSituation,
   y=NULL, ...)}}{ Creates a plot the current Situation.  }
   }
 }

@@ -19,7 +19,7 @@ startindex <- sample(1:4,1) # randomize the task
 geo <- SPP.Dijkstra(geo,start=startindex, log=FALSE)
 
 #Plot the geosituation
-plot(
+plotGeoSituation(
   geo, 
   main="Demo shortest path problem", 
   sub = paste("iteration:", geo$spp$iter),

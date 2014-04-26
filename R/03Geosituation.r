@@ -44,7 +44,7 @@
 #'          }
 #'      @section Methods:
 #' \describe{ 
-#'    \item{\code{\link{plot}(x=GeoSituation, y=NULL, ...)}}{
+#'    \item{\code{\link{plotGeoSituation}(x=GeoSituation, y=NULL, ...)}}{
 #'      Creates a plot the current Situation.
 #'    } 
 #'  }    
@@ -188,13 +188,12 @@ setMethod("$<-","GeoSituation",function(x,name,value) {
 
 
 
-#' @title plot
-#' @name plot
-#' @aliases plot,GeoSituation-method  
-#' @param x the \code{\link{GeoSituation}-Object} to be plotted
-#' @param y ommited value for this implementation
+#' @title plotGeoSituation
+#' @name plotGeoSituation
+#' @export 
+#' @param object the \code{\link{GeoSituation}-Object} to be plotted 
 #' @param ... list of optional values (see below)
-#' @rdname plot-GeoSituation
+#' @rdname plotGeoSituation
 #' @details Optional Parameters for this Methdod.
 #'      @section optional arguments: 
 #'        \describe{
@@ -227,10 +226,12 @@ setMethod("$<-","GeoSituation",function(x,name,value) {
 #'              } 
 #'        } 
 #'
-setMethod("plot", signature = c("GeoSituation", "ANY"), 
-          ## alt. declaration setMethod("plot", signature = "GeoSituation"
-          ## missing Arguments will be handled as "ANY" by default
-          definition = function(x, y = NULL, ...){ 
+setGeneric("plotGeoSituation",  function(object,...)  standardGeneric("plotGeoSituation") )
+#' @name plotGeoSituation
+#' @aliases plotGeoSituation,GeoSituation-method
+#' @rdname plotGeoSituation
+setMethod("plotGeoSituation", signature = c("GeoSituation"),  
+          definition = function(object, ...){  
             
             li<-list(...)
             if(is.null(li$asp)) li$asp <- 1
@@ -247,7 +248,7 @@ setMethod("plot", signature = c("GeoSituation", "ANY"),
             if(is.null(li$drawWLP))  li$drawWLP <- FALSE 
             
             if(is.null(li$drawNodes)) {
-              if(length(x$nodes) ==1 & x$nodes$id[1] == "dummy"){
+              if(length(object$nodes) ==1 & object$nodes$id[1] == "dummy"){
                 li$drawNodes<- FALSE
               }else{
                 li$drawNodes<- TRUE
@@ -255,14 +256,14 @@ setMethod("plot", signature = c("GeoSituation", "ANY"),
             }
             if(is.null(li$drawLinks)) li$drawLinks<- TRUE
             if(is.null(li$drawCustomers)) {
-              if(length(x$customers) ==1 & x$customers$id[1] == "dummy"){
+              if(length(object$customers) ==1 & object$customers$id[1] == "dummy"){
                 li$drawCustomers<- FALSE
               }else{
                 li$drawCustomers<- TRUE
               }
             }
             if(is.null(li$drawWarehouses)) {
-              if(length(x$warehouses) ==1 & x$warehouses$id[1] == "dummy"){
+              if(length(object$warehouses) ==1 & object$warehouses$id[1] == "dummy"){
                 li$drawWarehouses<- FALSE
               }else{
                 li$drawWarehouses<- TRUE
@@ -308,16 +309,16 @@ setMethod("plot", signature = c("GeoSituation", "ANY"),
             }else{
               
               if(is.null(li$xlim)){#  
-                if(li$drawNodes)      li$xlim <- c(li$xlim, x$nodes$x)
-                if(li$drawCustomers)  li$xlim <- c(li$xlim, x$customers$x)
-                if(li$drawWarehouses) li$xlim <- c(li$xlim, x$warehouses$x)
+                if(li$drawNodes)      li$xlim <- c(li$xlim, object$nodes$x)
+                if(li$drawCustomers)  li$xlim <- c(li$xlim, object$customers$x)
+                if(li$drawWarehouses) li$xlim <- c(li$xlim, object$warehouses$x)
                 
                 li$xlim <- range(li$xlim) + c(-10,10)
               }#
               if(is.null(li$ylim)){#  
-                if(li$drawNodes)      li$ylim <- c(li$ylim, x$nodes$y)
-                if(li$drawCustomers)  li$ylim <- c(li$ylim, x$customers$y)
-                if(li$drawWarehouses) li$ylim <- c(li$ylim, x$warehouses$y) 
+                if(li$drawNodes)      li$ylim <- c(li$ylim, object$nodes$y)
+                if(li$drawCustomers)  li$ylim <- c(li$ylim, object$customers$y)
+                if(li$drawWarehouses) li$ylim <- c(li$ylim, object$warehouses$y) 
                 li$ylim <- range(li$ylim)  + c(-10,10)
               }#
               plot(NULL,NULL, #
@@ -330,14 +331,14 @@ setMethod("plot", signature = c("GeoSituation", "ANY"),
                    asp  = li$asp
               )#
             }  
-            if(li$drawLinks) drawLinks(x, ...) 
-            if(li$drawNodes) drawNodes(x, ...) 
-            if(li$drawWarehouses) drawWarehouses(x, ...) 
-            if(li$drawCustomers) drawCustomers(x, ...)
-            if(li$drawVRP) drawVRP(x, ...) 
-            if(li$drawTSP) drawTSP(x, ...) 
-            if(li$drawTPP) drawTPP(x, ...) 
-            if(li$drawWLP) drawWLP(x, ...) 
+            if(li$drawLinks) drawLinks(object,  ...) 
+            if(li$drawNodes) drawNodes(object,  ...) 
+            if(li$drawWarehouses) drawWarehouses(object,  ...) 
+            if(li$drawCustomers) drawCustomers(object,  ...)
+            if(li$drawVRP) drawVRP(object,  ...) 
+            if(li$drawTSP) drawTSP(object,  ...) 
+            if(li$drawTPP) drawTPP(object,  ...) 
+            if(li$drawWLP) drawWLP(object,  ...) 
            
           })
 
@@ -389,9 +390,7 @@ setGeneric("drawCustomers",  function(object,...)  standardGeneric("drawCustomer
 #' @name drawCustomers
 #' @aliases drawCustomers,GeoSituation-method
 #' @rdname drawCustomers
-setMethod("drawCustomers", signature = c("GeoSituation"), 
-          ## alt. declaration setMethod("drawCustomers", signature = "GeoSituation"
-          ## missing Arguments will be handled as "ANY" by default
+setMethod("drawCustomers", signature = c("GeoSituation"),  
           definition = function(object, ...){  
             li<-list(...)
             n<-length(object$customers)

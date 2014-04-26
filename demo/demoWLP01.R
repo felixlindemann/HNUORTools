@@ -36,7 +36,7 @@ y<-geo$wlp$y
 #colorize Solution
 col<- y * 2:(length(y)+1)
 
-plot(
+plotGeoSituation(
   geo, 
   main="Tutorium #5 SoSe 13 - Aufg. 2",
   sub=paste("Totalcosts: ",round(geo$wlp$F)),

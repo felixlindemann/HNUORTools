@@ -12,7 +12,7 @@ s.node <- 3 # index of dresden in geo$nodes
 geo$tsp<- TSP.NearestNeighbor(geo, nodes=geo$nodes, StartNode = s.node)
 
 
-plot(
+plotGeoSituation(
   geo, 
   plotBorders=TRUE, 
   pch=20, 
@@ -28,7 +28,7 @@ text(cities[A,"x"],cities[A,"y"]+5, cities[A,"id"],col=4)
 #2opt
 geo$tsp<-TSP.2OPT(geo)
 
-plot(
+plotGeoSituation(
   geo, 
   plotBorders=TRUE, 
   pch=20, 

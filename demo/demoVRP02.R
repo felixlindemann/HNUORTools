@@ -37,7 +37,7 @@ vrp$x # print x-Matrix
 vrp$cij # print cij-Matrix
 vrp$savings # print Savingstable
 vrp$F == sum(vrp$x * vrp$cij)
-plot(
+plotGeoSituation(
   geo, 
   main="Vehicle Routing Problem (VRP)",
   sub = paste("F:", vrp$F),

@@ -1,21 +1,21 @@
 \docType{methods}
-\name{plot}
-\alias{plot}
-\alias{plot,GeoSituation-method}
-\title{plot}
+\name{plotGeoSituation}
+\alias{plotGeoSituation}
+\alias{plotGeoSituation,GeoSituation-method}
+\title{plotGeoSituation}
 \usage{
-\S4method{plot}{GeoSituation}(x, y = NULL, ...)
+plotGeoSituation(object, ...)
+
+\S4method{plotGeoSituation}{GeoSituation}(object, ...)
 }
 \arguments{
-  \item{x}{the \code{\link{GeoSituation}-Object} to be
+  \item{object}{the \code{\link{GeoSituation}-Object} to be
   plotted}
-
-  \item{y}{ommited value for this implementation}
 
   \item{...}{list of optional values (see below)}
 }
 \description{
-plot
+plotGeoSituation
 }
 \details{
 Optional Parameters for this Methdod.

@@ -18,7 +18,7 @@ for( i in 1:(N-1)){
 startindex <- 6 #sample(1:N, 1)
 
 geo <- SPP.Dijkstra(geo,start=startindex, log=FALSE)
-plot(
+plotGeoSituation(
   geo,
   main="random shortest path problem", 
   sub = paste("iteration:", geo$spp$iter),

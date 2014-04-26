@@ -34,7 +34,7 @@ m[2,4] + m[3,5] + m[4,2] == 335 # TRUE
 
 m
 
-plot(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE)
+plotGeoSituation(geo, main="Tutorium #2 WS 13/14 - Aufg. 2", zoom=1.7, plotNodes=FALSE)
 
 # solve with north-west corner rule
 geo<- TPP.NW(geo)   
@@ -48,7 +48,7 @@ x[4,9] == 120   # TRUE
  
 
 col<- 2:5
-plot(geo, 
+plotGeoSituation(geo, 
    main="Tutorium #2 WS 13/14 - Aufg. 2",
    warehouse.bg.col = col, 
    zoom=1.7, 

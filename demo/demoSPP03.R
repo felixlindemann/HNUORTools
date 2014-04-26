@@ -57,14 +57,14 @@ for(i in 1:nrow(adj)){
 }
 
 
-plot(geo, lines.plotlength=TRUE, main="Geografische Situation des Szenarios.", drawNodes = TRUE)
+plotGeoSituation(geo, lines.plotlength=TRUE, main="Geografische Situation des Szenarios.", drawNodes = TRUE)
 
 startindex <- 5  
 geo <- SPP.Dijkstra(geo,start=startindex, log=TRUE,debug=TRUE, plot=FALSE, main="SoSe 2014 Tutorium 1 TPP\nAufg. 3")
 
 # dev.new()
 
-plot(geo,
+plotGeoSituation(geo,
      main="SoSe 2014 Tutorium 1 TPP\nAufg. 3", 
      sub="Solution",
      drawNodes = TRUE,
