@@ -1,5 +1,5 @@
 Package: HNUORTools
-Version: 3.0-0
+Version: 3.0-2
 Date: 2014-04-23
 Title: Operations Research Tools
 Authors@R: c(person("Felix Lindemann", role = c("aut", "cre"),
