@@ -285,13 +285,12 @@ setMethod("plotGeoSituation", signature = c("GeoSituation"),
               if(is.null(li$ylim)) li$ylim<- c(0,850) 
               if(is.null(li$polygons.border.color)) li$polygons.border.color<- 1
               if(is.null(li$polygons.fill.color)) li$polygons.fill.color<- "gray98"
-              if(is.null(li$frame.plot)) li$frame.plot = TRUE
+ 
               
               if(is.null(li$plotPolygons)) li$plotPolygons <- 1:length(bordersgermany.polygon)
               if(is.null(li$plotCities))   li$plotCities <- TRUE
               
-              plot(NA, NA, xlim = li$xlim, ylim = li$ylim, asp=li$asp, xlab="", ylab="", 
-                   frame.plot = li$frame.plot)
+              plot(NA, NA, xlim = li$xlim, ylim = li$ylim, asp=li$asp, xlab="", ylab="" )
               
               for(i in li$plotPolygons){
                 l<-bordersgermany.polygon[[i]]  
@@ -329,8 +328,7 @@ setMethod("plotGeoSituation", signature = c("GeoSituation"),
                    ylab = li$ylab,#
                    main = li$main,#
                    sub  = li$sub,
-                   asp  = li$asp, 
-                   frame.plot = li$frame.plot
+                   asp  = li$asp 
               )#
             }  
             if(li$drawLinks) drawLinks(object,  ...) 
