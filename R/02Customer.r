@@ -196,6 +196,7 @@ setMethod("initialize", signature="Customer", function(.Object, data=NULL, ...) 
   #init from parent Node-Object.
   N<-1
   
+  .Object<-callNextMethod(.Object,data,...) 
   if(!is.null(data)){ 
     
     if(class(data) =="list") {
@@ -222,7 +223,6 @@ setMethod("initialize", signature="Customer", function(.Object, data=NULL, ...) 
   .Object@demand  <- as.numeric(  li$demand)
   .Object@isDummy <- as.logical(  li$isDummy) 
   
-  .Object<-callNextMethod(.Object,data,...) 
   validObject(.Object)
   
   return(.Object ) 
