@@ -1,0 +1,6 @@
+\\psf\Home\git\HNUORTools\ExcelTools\clHNUORExcel\bin\Debug\clHNUORExcel.dll
+\\psf\Home\git\HNUORTools\ExcelTools\clHNUORExcel\bin\Debug\clHNUORExcel.pdb
+\\psf\Home\git\HNUORTools\ExcelTools\clHNUORExcel\obj\Debug\clHNUORExcel.dll
+\\psf\Home\git\HNUORTools\ExcelTools\clHNUORExcel\obj\Debug\clHNUORExcel.pdb
+\\psf\Home\git\HNUORTools\ExcelTools\clHNUORExcel\bin\Debug\Microsoft.Office.Tools.Excel.v4.0.Utilities.dll
+\\psf\Home\git\HNUORTools\ExcelTools\clHNUORExcel\obj\Debug\clHNUORExcel.csprojResolveAssemblyReference.cache

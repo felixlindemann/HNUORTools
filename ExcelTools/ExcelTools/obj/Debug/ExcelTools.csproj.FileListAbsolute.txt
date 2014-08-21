@@ -1,0 +1,15 @@
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.csprojResolveAssemblyReference.cache
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.FormSetupRandomTPP.resources
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.Properties.Resources.resources
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.Ribbon1.resources
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.csproj.GenerateResource.Cache
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\bin\Debug\ExcelTools.dll
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\bin\Debug\ExcelTools.pdb
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\bin\Debug\ExcelTools.dll.manifest
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\bin\Debug\ExcelTools.vsto
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\bin\Debug\clHNUORExcel.dll
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\bin\Debug\clHNUORExcel.pdb
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.dll
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.pdb
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.MatrixViewer.resources

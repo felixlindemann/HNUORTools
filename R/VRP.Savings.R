@@ -185,7 +185,7 @@ setMethod("VRP.SAVINGS", signature(object="GeoSituation"),
                 vj <- j + M 
                 if(object$tpp$x[i,j] >0){
                   tour<- list() 
-                  tour$loading <- cust$demand
+                  tour$loading <- object$tpp$x[i,j] 
                   tour$costs <- cij[vi,vj] + cij[vj,vi]  
                   vrp$F <-vrp$F +tour$costs
                   vrp$x[vi,vj]<-1

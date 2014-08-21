@@ -141,10 +141,10 @@ setMethod("VRP.SWEEP", signature(object="GeoSituation"),
               
             }else{  
               
-              if(nrow(object$tsp$cij)!=M)
+              if(nrow(object$tsp$cij)!=M+N)
                 stop("There is no valid costmatrix assigned. The number of warehouses is not equal to the number of rows in the transportation plan.")
               
-              if(ncol(object$tsp$cij)!=N)
+              if(ncol(object$tsp$cij)!=N+M)
                 stop("There is no valid costmatrix assigned. The number of customers is not equal to the number of columns in the transportation plan.")
               
             }
@@ -207,9 +207,9 @@ setMethod("VRP.SWEEP", signature(object="GeoSituation"),
                   NT <- TRUE 
                 } else{ 
                   # checking loading capcity
-                  if(tour$loading + object$customers$demand[k] > li$constraint.cap){
+                  if(tour$loading + object$tpp$x[i,k]   > li$constraint.cap){
                     NT <- TRUE
-                    if(li$log) cat("\t\t Maximum loading capacity exceeded, if next customer (",object$customers$label[k],"demand:",object$customers$demand[k] ,") will be added (",tour$loading ,"+", object$customers$demand[k] ,">", li$constraint.cap,").",
+                    if(li$log) cat("\t\t Maximum loading capacity exceeded, if next customer (",object$customers$label[k],"demand:", object$tpp$x[i,k]  ,") will be added (",tour$loading ,"+",  object$tpp$x[i,k]  ,">", li$constraint.cap,").",
                         "\n\t\t I am Going to end the current Tour.\n")
                   } else{
                     # checking maximum number of stops
@@ -251,9 +251,9 @@ setMethod("VRP.SWEEP", signature(object="GeoSituation"),
                 }	
                 
                 if(li$log){
-                  cat("\t\t",object$customers$label[k], "(demand:",object$customers$demand[k],", angle:",df$polar[j],")","\n")
+                  cat("\t\t",object$customers$label[k], "(demand:",object$tpp$x[i,k] ,", angle:",df$polar[j],")","\n")
                 }
-                tour$loading <- tour$loading + object$customers$demand[k]
+                tour$loading <- tour$loading +  object$tpp$x[i,k] 
                 tour$stops <- tour$stops + 1
                 tour$stops.list[[length(tour$stops.list)+1]] <- object$customers[k]
                 tour$stops.indices <- c(tour$stops.indices, vj)

@@ -115,7 +115,7 @@ setMethod("TPP.MMM", signature(object="GeoSituation"),
             object$tpp$markedI <- markedI
             object$tpp$markedJ <- markedJ
             # check for M+N-1 variables.
-            TPP.CheckValidTransportationPlan(object) 
+            TPP.CheckValidTransportationPlan(object, ...) 
             return(object)
           }
 )

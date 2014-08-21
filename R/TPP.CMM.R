@@ -91,28 +91,32 @@ setMethod("TPP.CMM", signature(object="GeoSituation"),
                   tmp <- sum(cij)*2+3
                   for(i in which(markedI==FALSE)){
                     
-                    if( cij[i,j] < tmp){
-                      
+                    if( cij[i,j] < tmp){ 
                       h<-i
                       tmp<-cij[i,j]
                     }
                     
-                  }
-                  if(is.na(k)) {stop("The TPP is not solveable with CMM if you can read this error. No next assignment could be made.")}
-                  
-                  x[h,j] <- min(supply[h], demand[j])
-                  supply[h] <- supply[h]- x[h,j]
-                  demand[j] <- demand[j] -  x[k,j]
-                  
-                  if(supply[h] == 0 ){
-                    markedI[h] <- TRUE
-                  }else{
-                    if(demand[j] == 0 ){
+                  } 
+                  if(is.na(h)) {
+                    if(demand[j] == 0 & j == J) {
                       markedJ[j] <- TRUE
+                     
+                    }else{
+                      stop("The TPP is not solveable with CMM if you can read this error. No next assignment could be made.")
+                    }
+                  }else{
+                    x[h,j] <- min(supply[h], demand[j])
+                    supply[h] <- supply[h]- x[h,j]
+                    demand[j] <- demand[j] -  x[h,j] 
+                    if(supply[h] == 0 ){
+                      markedI[h] <- TRUE
+                    }else{
+                      if(demand[j] == 0 ){
+                        markedJ[j] <- TRUE
+                      }
                     }
                   }
-                } 
-              
+                }  
               
               }
               
