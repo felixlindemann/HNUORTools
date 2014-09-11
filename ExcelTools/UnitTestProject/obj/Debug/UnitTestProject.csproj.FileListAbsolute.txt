@@ -1,0 +1,7 @@
+\\psf\Home\git\HNUORTools\ExcelTools\UnitTestProject\bin\Debug\UnitTestProject.dll
+\\psf\Home\git\HNUORTools\ExcelTools\UnitTestProject\bin\Debug\UnitTestProject.pdb
+\\psf\Home\git\HNUORTools\ExcelTools\UnitTestProject\bin\Debug\clHNUORExcel.dll
+\\psf\Home\git\HNUORTools\ExcelTools\UnitTestProject\bin\Debug\clHNUORExcel.pdb
+\\psf\Home\git\HNUORTools\ExcelTools\UnitTestProject\obj\Debug\UnitTestProject.csprojResolveAssemblyReference.cache
+\\psf\Home\git\HNUORTools\ExcelTools\UnitTestProject\obj\Debug\UnitTestProject.dll
+\\psf\Home\git\HNUORTools\ExcelTools\UnitTestProject\obj\Debug\UnitTestProject.pdb

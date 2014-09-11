@@ -139,7 +139,7 @@ namespace clHNUORExcel.BaseClasses
                     for (int j = 0; j < J; j++)
                     {
                         Customer c = this.Customers[j];
-                        if (t.getX(i, j) > 0)
+                        if (t.X[i, j] > 0)
                         {
                             graph.DrawLine(p, new PointF((float)(w.X * zoom), (float)(w.Y * zoom)),
                                               new PointF((float)(c.X * zoom), (float)(c.Y * zoom)));

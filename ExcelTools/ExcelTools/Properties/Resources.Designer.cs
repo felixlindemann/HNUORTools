@@ -63,6 +63,16 @@ namespace ExcelTools.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _008_Reminder_128x128_72 {
+            get {
+                object obj = ResourceManager.GetObject("008_Reminder_128x128_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1547_ballpointpen {
             get {
                 object obj = ResourceManager.GetObject("1547_ballpointpen", resourceCulture);

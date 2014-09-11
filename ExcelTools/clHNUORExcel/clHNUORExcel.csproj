@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\Customer.cs" />
+    <Compile Include="BaseClasses\ElementryCircle.cs" />
     <Compile Include="BaseClasses\GeoSituation.cs" />
     <Compile Include="BaseClasses\implNotifyPropertyChanged.cs" />
     <Compile Include="BaseClasses\Link.cs" />

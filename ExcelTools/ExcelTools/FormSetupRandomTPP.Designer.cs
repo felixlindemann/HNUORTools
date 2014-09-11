@@ -46,7 +46,23 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fixCostsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsOpen = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.warehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Demand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsDummy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDownWidth = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,9 +80,15 @@
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.radioButtonSolveTPP = new System.Windows.Forms.RadioButton();
             this.radioButtonSolveWLP = new System.Windows.Forms.RadioButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.numericUpDownCostFactor = new System.Windows.Forms.NumericUpDown();
+            this.buttonCreateCostMatrix = new System.Windows.Forms.Button();
+            this.buttonRecalcCostmatrix = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.numericUpDownMinFixCosts = new System.Windows.Forms.NumericUpDown();
@@ -75,6 +97,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonSolve = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.Algorithm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iterationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceTransportplan = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panelWLP = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
@@ -96,33 +122,7 @@
             this.radioButtonTPPNoOpt = new System.Windows.Forms.RadioButton();
             this.radioButtonTPPMODI = new System.Windows.Forms.RadioButton();
             this.radioButtonTPPSTEPSTONE = new System.Windows.Forms.RadioButton();
-            this.Algorithm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label15 = new System.Windows.Forms.Label();
-            this.numericUpDownCostFactor = new System.Windows.Forms.NumericUpDown();
-            this.buttonCreateCostMatrix = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonRecalcCostmatrix = new System.Windows.Forms.Button();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.warehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iterationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceTransportplan = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Demand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsDummy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.xDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fixCostsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsOpen = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSupply)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinSupply)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfWarehouses)).BeginInit();
@@ -130,7 +130,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinDemand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeigth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -139,6 +141,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCostFactor)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -148,6 +151,7 @@
             this.tabPage4.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTransportplan)).BeginInit();
             this.panelWLP.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -156,11 +160,7 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCostFactor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTransportplan)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCreate
@@ -399,6 +399,59 @@
             this.dataGridView1.Size = new System.Drawing.Size(551, 233);
             this.dataGridView1.TabIndex = 12;
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Label";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Label";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // xDataGridViewTextBoxColumn
+            // 
+            this.xDataGridViewTextBoxColumn.DataPropertyName = "X";
+            this.xDataGridViewTextBoxColumn.HeaderText = "X";
+            this.xDataGridViewTextBoxColumn.Name = "xDataGridViewTextBoxColumn";
+            // 
+            // yDataGridViewTextBoxColumn
+            // 
+            this.yDataGridViewTextBoxColumn.DataPropertyName = "Y";
+            this.yDataGridViewTextBoxColumn.HeaderText = "Y";
+            this.yDataGridViewTextBoxColumn.Name = "yDataGridViewTextBoxColumn";
+            // 
+            // supplyDataGridViewTextBoxColumn
+            // 
+            this.supplyDataGridViewTextBoxColumn.DataPropertyName = "Supply";
+            this.supplyDataGridViewTextBoxColumn.HeaderText = "Supply";
+            this.supplyDataGridViewTextBoxColumn.Name = "supplyDataGridViewTextBoxColumn";
+            // 
+            // fixCostsDataGridViewTextBoxColumn
+            // 
+            this.fixCostsDataGridViewTextBoxColumn.DataPropertyName = "FixCosts";
+            this.fixCostsDataGridViewTextBoxColumn.HeaderText = "FixCosts";
+            this.fixCostsDataGridViewTextBoxColumn.Name = "fixCostsDataGridViewTextBoxColumn";
+            // 
+            // IsOpen
+            // 
+            this.IsOpen.DataPropertyName = "IsOpen";
+            this.IsOpen.HeaderText = "IsOpen";
+            this.IsOpen.Name = "IsOpen";
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsDummy";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "IsDummy";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            // 
+            // warehouseBindingSource
+            // 
+            this.warehouseBindingSource.DataSource = typeof(clHNUORExcel.BaseClasses.Warehouse);
+            this.warehouseBindingSource.CurrentChanged += new System.EventHandler(this.warehouseBindingSource_CurrentChanged);
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToOrderColumns = true;
@@ -419,6 +472,47 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(551, 233);
             this.dataGridView2.TabIndex = 13;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // Label
+            // 
+            this.Label.DataPropertyName = "Label";
+            this.Label.HeaderText = "Label";
+            this.Label.Name = "Label";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "X";
+            this.dataGridViewTextBoxColumn2.HeaderText = "X";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Y";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Y";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // Demand
+            // 
+            this.Demand.DataPropertyName = "Demand";
+            this.Demand.HeaderText = "Demand";
+            this.Demand.Name = "Demand";
+            // 
+            // IsDummy
+            // 
+            this.IsDummy.DataPropertyName = "IsDummy";
+            this.IsDummy.HeaderText = "IsDummy";
+            this.IsDummy.Name = "IsDummy";
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataSource = typeof(clHNUORExcel.BaseClasses.Customer);
+            this.customerBindingSource.CurrentChanged += new System.EventHandler(this.customerBindingSource_CurrentChanged);
             // 
             // label5
             // 
@@ -647,6 +741,54 @@
             this.radioButtonSolveWLP.UseVisualStyleBackColor = true;
             this.radioButtonSolveWLP.CheckedChanged += new System.EventHandler(this.radioButtonSolveWLP_CheckedChanged);
             // 
+            // label15
+            // 
+            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label15.Location = new System.Drawing.Point(3, 105);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(114, 30);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Transportcosts";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numericUpDownCostFactor
+            // 
+            this.numericUpDownCostFactor.DecimalPlaces = 2;
+            this.numericUpDownCostFactor.Location = new System.Drawing.Point(123, 108);
+            this.numericUpDownCostFactor.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numericUpDownCostFactor.Name = "numericUpDownCostFactor";
+            this.numericUpDownCostFactor.Size = new System.Drawing.Size(114, 20);
+            this.numericUpDownCostFactor.TabIndex = 17;
+            this.numericUpDownCostFactor.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            65536});
+            // 
+            // buttonCreateCostMatrix
+            // 
+            this.buttonCreateCostMatrix.Location = new System.Drawing.Point(382, 108);
+            this.buttonCreateCostMatrix.Name = "buttonCreateCostMatrix";
+            this.buttonCreateCostMatrix.Size = new System.Drawing.Size(161, 24);
+            this.buttonCreateCostMatrix.TabIndex = 18;
+            this.buttonCreateCostMatrix.Text = "Edit Cost Matrix";
+            this.buttonCreateCostMatrix.UseVisualStyleBackColor = true;
+            this.buttonCreateCostMatrix.Click += new System.EventHandler(this.buttonCreateCostMatrix_Click);
+            // 
+            // buttonRecalcCostmatrix
+            // 
+            this.buttonRecalcCostmatrix.Location = new System.Drawing.Point(243, 108);
+            this.buttonRecalcCostmatrix.Name = "buttonRecalcCostmatrix";
+            this.buttonRecalcCostmatrix.Size = new System.Drawing.Size(130, 23);
+            this.buttonRecalcCostmatrix.TabIndex = 19;
+            this.buttonRecalcCostmatrix.Text = "Recalc Costmatrix";
+            this.buttonRecalcCostmatrix.UseVisualStyleBackColor = true;
+            this.buttonRecalcCostmatrix.Click += new System.EventHandler(this.buttonRecalcCostmatrix_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
@@ -685,6 +827,16 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(551, 86);
             this.tableLayoutPanel3.TabIndex = 14;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.DarkRed;
+            this.label16.Location = new System.Drawing.Point(3, 363);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(292, 13);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Manual Changes to the datatable apply after switching a row";
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label17);
@@ -697,6 +849,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Warehouses";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.DarkRed;
+            this.label17.Location = new System.Drawing.Point(3, 363);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(292, 13);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "Manual Changes to the datatable apply after switching a row";
             // 
             // tableLayoutPanel2
             // 
@@ -828,6 +990,34 @@
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(149, 307);
             this.dataGridView3.TabIndex = 22;
+            // 
+            // Algorithm
+            // 
+            this.Algorithm.DataPropertyName = "Algorithm";
+            this.Algorithm.HeaderText = "Algorithm";
+            this.Algorithm.Name = "Algorithm";
+            this.Algorithm.ReadOnly = true;
+            // 
+            // iterationDataGridViewTextBoxColumn
+            // 
+            this.iterationDataGridViewTextBoxColumn.DataPropertyName = "Iteration";
+            this.iterationDataGridViewTextBoxColumn.HeaderText = "Iteration";
+            this.iterationDataGridViewTextBoxColumn.Name = "iterationDataGridViewTextBoxColumn";
+            this.iterationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fDataGridViewTextBoxColumn
+            // 
+            this.fDataGridViewTextBoxColumn.DataPropertyName = "F";
+            this.fDataGridViewTextBoxColumn.HeaderText = "F";
+            this.fDataGridViewTextBoxColumn.Name = "fDataGridViewTextBoxColumn";
+            this.fDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bindingSourceTransportplan
+            // 
+            this.bindingSourceTransportplan.DataSource = typeof(clHNUORExcel.BaseClasses.Transportplan);
+            this.bindingSourceTransportplan.DataSourceChanged += new System.EventHandler(this.bindingSourceTransportplan_DataSourceChanged);
+            this.bindingSourceTransportplan.CurrentChanged += new System.EventHandler(this.bindingSourceTransportplan_CurrentChanged);
+            this.bindingSourceTransportplan.PositionChanged += new System.EventHandler(this.bindingSourceTransportplan_PositionChanged);
             // 
             // label4
             // 
@@ -1056,51 +1246,6 @@
             this.radioButtonTPPSTEPSTONE.Text = "Stepping Stone";
             this.radioButtonTPPSTEPSTONE.UseVisualStyleBackColor = true;
             // 
-            // Algorithm
-            // 
-            this.Algorithm.DataPropertyName = "Algorithm";
-            this.Algorithm.HeaderText = "Algorithm";
-            this.Algorithm.Name = "Algorithm";
-            this.Algorithm.ReadOnly = true;
-            // 
-            // label15
-            // 
-            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Location = new System.Drawing.Point(3, 105);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(114, 30);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "Transportcosts";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // numericUpDownCostFactor
-            // 
-            this.numericUpDownCostFactor.DecimalPlaces = 2;
-            this.numericUpDownCostFactor.Location = new System.Drawing.Point(123, 108);
-            this.numericUpDownCostFactor.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numericUpDownCostFactor.Name = "numericUpDownCostFactor";
-            this.numericUpDownCostFactor.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDownCostFactor.TabIndex = 17;
-            this.numericUpDownCostFactor.Value = new decimal(new int[] {
-            25,
-            0,
-            0,
-            65536});
-            // 
-            // buttonCreateCostMatrix
-            // 
-            this.buttonCreateCostMatrix.Location = new System.Drawing.Point(382, 108);
-            this.buttonCreateCostMatrix.Name = "buttonCreateCostMatrix";
-            this.buttonCreateCostMatrix.Size = new System.Drawing.Size(161, 24);
-            this.buttonCreateCostMatrix.TabIndex = 18;
-            this.buttonCreateCostMatrix.Text = "Edit Cost Matrix";
-            this.buttonCreateCostMatrix.UseVisualStyleBackColor = true;
-            this.buttonCreateCostMatrix.Click += new System.EventHandler(this.buttonCreateCostMatrix_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1113,151 +1258,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // buttonRecalcCostmatrix
-            // 
-            this.buttonRecalcCostmatrix.Location = new System.Drawing.Point(243, 108);
-            this.buttonRecalcCostmatrix.Name = "buttonRecalcCostmatrix";
-            this.buttonRecalcCostmatrix.Size = new System.Drawing.Size(130, 23);
-            this.buttonRecalcCostmatrix.TabIndex = 19;
-            this.buttonRecalcCostmatrix.Text = "Recalc Costmatrix";
-            this.buttonRecalcCostmatrix.UseVisualStyleBackColor = true;
-            this.buttonRecalcCostmatrix.Click += new System.EventHandler(this.buttonRecalcCostmatrix_Click);
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(clHNUORExcel.BaseClasses.Customer);
-            this.customerBindingSource.CurrentChanged += new System.EventHandler(this.customerBindingSource_CurrentChanged);
-            // 
-            // warehouseBindingSource
-            // 
-            this.warehouseBindingSource.DataSource = typeof(clHNUORExcel.BaseClasses.Warehouse);
-            this.warehouseBindingSource.CurrentChanged += new System.EventHandler(this.warehouseBindingSource_CurrentChanged);
-            // 
-            // iterationDataGridViewTextBoxColumn
-            // 
-            this.iterationDataGridViewTextBoxColumn.DataPropertyName = "Iteration";
-            this.iterationDataGridViewTextBoxColumn.HeaderText = "Iteration";
-            this.iterationDataGridViewTextBoxColumn.Name = "iterationDataGridViewTextBoxColumn";
-            this.iterationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fDataGridViewTextBoxColumn
-            // 
-            this.fDataGridViewTextBoxColumn.DataPropertyName = "F";
-            this.fDataGridViewTextBoxColumn.HeaderText = "F";
-            this.fDataGridViewTextBoxColumn.Name = "fDataGridViewTextBoxColumn";
-            this.fDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bindingSourceTransportplan
-            // 
-            this.bindingSourceTransportplan.DataSource = typeof(clHNUORExcel.BaseClasses.Transportplan);
-            this.bindingSourceTransportplan.DataSourceChanged += new System.EventHandler(this.bindingSourceTransportplan_DataSourceChanged);
-            this.bindingSourceTransportplan.CurrentChanged += new System.EventHandler(this.bindingSourceTransportplan_CurrentChanged);
-            this.bindingSourceTransportplan.PositionChanged += new System.EventHandler(this.bindingSourceTransportplan_PositionChanged);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // Label
-            // 
-            this.Label.DataPropertyName = "Label";
-            this.Label.HeaderText = "Label";
-            this.Label.Name = "Label";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "X";
-            this.dataGridViewTextBoxColumn2.HeaderText = "X";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Y";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Y";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // Demand
-            // 
-            this.Demand.DataPropertyName = "Demand";
-            this.Demand.HeaderText = "Demand";
-            this.Demand.Name = "Demand";
-            // 
-            // IsDummy
-            // 
-            this.IsDummy.DataPropertyName = "IsDummy";
-            this.IsDummy.HeaderText = "IsDummy";
-            this.IsDummy.Name = "IsDummy";
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Label";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Label";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // xDataGridViewTextBoxColumn
-            // 
-            this.xDataGridViewTextBoxColumn.DataPropertyName = "X";
-            this.xDataGridViewTextBoxColumn.HeaderText = "X";
-            this.xDataGridViewTextBoxColumn.Name = "xDataGridViewTextBoxColumn";
-            // 
-            // yDataGridViewTextBoxColumn
-            // 
-            this.yDataGridViewTextBoxColumn.DataPropertyName = "Y";
-            this.yDataGridViewTextBoxColumn.HeaderText = "Y";
-            this.yDataGridViewTextBoxColumn.Name = "yDataGridViewTextBoxColumn";
-            // 
-            // supplyDataGridViewTextBoxColumn
-            // 
-            this.supplyDataGridViewTextBoxColumn.DataPropertyName = "Supply";
-            this.supplyDataGridViewTextBoxColumn.HeaderText = "Supply";
-            this.supplyDataGridViewTextBoxColumn.Name = "supplyDataGridViewTextBoxColumn";
-            // 
-            // fixCostsDataGridViewTextBoxColumn
-            // 
-            this.fixCostsDataGridViewTextBoxColumn.DataPropertyName = "FixCosts";
-            this.fixCostsDataGridViewTextBoxColumn.HeaderText = "FixCosts";
-            this.fixCostsDataGridViewTextBoxColumn.Name = "fixCostsDataGridViewTextBoxColumn";
-            // 
-            // IsOpen
-            // 
-            this.IsOpen.DataPropertyName = "IsOpen";
-            this.IsOpen.HeaderText = "IsOpen";
-            this.IsOpen.Name = "IsOpen";
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsDummy";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "IsDummy";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.DarkRed;
-            this.label16.Location = new System.Drawing.Point(3, 363);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(292, 13);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "Manual Changes to the datatable apply after switching a row";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.DarkRed;
-            this.label17.Location = new System.Drawing.Point(3, 363);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(292, 13);
-            this.label17.TabIndex = 14;
-            this.label17.Text = "Manual Changes to the datatable apply after switching a row";
             // 
             // FormSetupRandomTPP
             // 
@@ -1279,7 +1279,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinDemand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeigth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -1290,6 +1292,7 @@
             this.groupBox4.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCostFactor)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1303,6 +1306,7 @@
             this.tabPage4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTransportplan)).EndInit();
             this.panelWLP.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -1314,11 +1318,7 @@
             this.groupBox2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCostFactor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTransportplan)).EndInit();
             this.ResumeLayout(false);
 
         }

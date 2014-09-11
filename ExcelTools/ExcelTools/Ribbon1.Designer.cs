@@ -38,10 +38,10 @@
             this.group1 = this.Factory.CreateRibbonGroup();
             this.tab2 = this.Factory.CreateRibbonTab();
             this.group3 = this.Factory.CreateRibbonGroup();
-            this.group2 = this.Factory.CreateRibbonGroup();
             this.buttonPrepareEmptyWorksheet = this.Factory.CreateRibbonButton();
-            this.buttonRandomGeoSituation = this.Factory.CreateRibbonButton();
             this.buttonDrawGeoSituation = this.Factory.CreateRibbonButton();
+            this.group2 = this.Factory.CreateRibbonGroup();
+            this.buttonRandomGeoSituation = this.Factory.CreateRibbonButton();
             this.splitButton1 = this.Factory.CreateRibbonSplitButton();
             this.buttonSolveNorthWestCornerRule = this.Factory.CreateRibbonButton();
             this.buttonSolveColumnMinimum = this.Factory.CreateRibbonButton();
@@ -82,6 +82,18 @@
             this.group3.Label = "GeoSituation";
             this.group3.Name = "group3";
             // 
+            // buttonPrepareEmptyWorksheet
+            // 
+            this.buttonPrepareEmptyWorksheet.Label = "Prepare Empty Worksheet";
+            this.buttonPrepareEmptyWorksheet.Name = "buttonPrepareEmptyWorksheet";
+            this.buttonPrepareEmptyWorksheet.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonPrepareEmptyWorksheet_Click);
+            // 
+            // buttonDrawGeoSituation
+            // 
+            this.buttonDrawGeoSituation.Label = "Draw GeoSituation";
+            this.buttonDrawGeoSituation.Name = "buttonDrawGeoSituation";
+            this.buttonDrawGeoSituation.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonDrawGeoSituation_Click);
+            // 
             // group2
             // 
             this.group2.Items.Add(this.buttonRandomGeoSituation);
@@ -91,23 +103,11 @@
             this.group2.Label = "TPP";
             this.group2.Name = "group2";
             // 
-            // buttonPrepareEmptyWorksheet
-            // 
-            this.buttonPrepareEmptyWorksheet.Label = "Prepare Empty Worksheet";
-            this.buttonPrepareEmptyWorksheet.Name = "buttonPrepareEmptyWorksheet";
-            this.buttonPrepareEmptyWorksheet.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonPrepareEmptyWorksheet_Click);
-            // 
             // buttonRandomGeoSituation
             // 
             this.buttonRandomGeoSituation.Label = "Setup Random GeoSituation";
             this.buttonRandomGeoSituation.Name = "buttonRandomGeoSituation";
             this.buttonRandomGeoSituation.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonRandomTPP_Click);
-            // 
-            // buttonDrawGeoSituation
-            // 
-            this.buttonDrawGeoSituation.Label = "Draw GeoSituation";
-            this.buttonDrawGeoSituation.Name = "buttonDrawGeoSituation";
-            this.buttonDrawGeoSituation.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonDrawGeoSituation_Click);
             // 
             // splitButton1
             // 

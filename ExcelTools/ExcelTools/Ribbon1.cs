@@ -29,10 +29,11 @@ namespace ExcelTools
             }
             catch (Exception ex)
             {
-                 
-            } 
+                MessageBox.Show(ex.Message);
+            }
         }
-            private void createRandomWLPTPP(){
+        private void createRandomWLPTPP()
+        {
             FormSetupRandomTPP frm = new FormSetupRandomTPP();
             frm.Parent = this;
             if (frm.ShowDialog() == DialogResult.OK)
@@ -45,7 +46,8 @@ namespace ExcelTools
                 // setup Customers
                 ws = wb.Worksheets[2];
 
-                string[] Colnames = { "id", "label", "x", "y", "demand" };
+                string[] Colnames ;
+                    Colnames = new string[]  { "id", "label", "x", "y", "demand" };
 
                 for (int i = 0; i <= geo.Customers.Count; i++)
                 {
@@ -175,6 +177,7 @@ namespace ExcelTools
             }
 
         }
+         
 
     }
 }
