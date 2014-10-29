@@ -13,3 +13,9 @@
 \\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.dll
 \\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.pdb
 \\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\obj\Debug\ExcelTools.MatrixViewer.resources
+\\psf\Home\git\HNUORTools\ExcelTools\ExcelTools\bin\Debug\ExcelTools.tlb
+C:\Users\felixlindemann\Application Data\HNU\ExcelTools.dll
+C:\Users\felixlindemann\Application Data\HNU\ExcelTools.pdb
+C:\Users\felixlindemann\Application Data\HNU\ExcelTools.dll.manifest
+C:\Users\felixlindemann\Application Data\HNU\ExcelTools.vsto
+C:\Users\felixlindemann\Application Data\HNU\ExcelTools.tlb

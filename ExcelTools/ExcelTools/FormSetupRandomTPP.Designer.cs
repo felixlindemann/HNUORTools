@@ -48,21 +48,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.xDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fixCostsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsOpen = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.warehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Demand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsDummy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDownWidth = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -98,9 +90,6 @@
             this.buttonSolve = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.Algorithm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iterationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceTransportplan = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panelWLP = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
@@ -123,6 +112,19 @@
             this.radioButtonTPPMODI = new System.Windows.Forms.RadioButton();
             this.radioButtonTPPSTEPSTONE = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.xDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fixCostsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iterationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceTransportplan = new System.Windows.Forms.BindingSource(this.components);
+            this.checkBoxOutputFormated = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSupply)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinSupply)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfWarehouses)).BeginInit();
@@ -130,9 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinDemand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeigth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -151,7 +151,6 @@
             this.tabPage4.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTransportplan)).BeginInit();
             this.panelWLP.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -161,6 +160,9 @@
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTransportplan)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCreate
@@ -411,30 +413,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Label";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // xDataGridViewTextBoxColumn
-            // 
-            this.xDataGridViewTextBoxColumn.DataPropertyName = "X";
-            this.xDataGridViewTextBoxColumn.HeaderText = "X";
-            this.xDataGridViewTextBoxColumn.Name = "xDataGridViewTextBoxColumn";
-            // 
-            // yDataGridViewTextBoxColumn
-            // 
-            this.yDataGridViewTextBoxColumn.DataPropertyName = "Y";
-            this.yDataGridViewTextBoxColumn.HeaderText = "Y";
-            this.yDataGridViewTextBoxColumn.Name = "yDataGridViewTextBoxColumn";
-            // 
-            // supplyDataGridViewTextBoxColumn
-            // 
-            this.supplyDataGridViewTextBoxColumn.DataPropertyName = "Supply";
-            this.supplyDataGridViewTextBoxColumn.HeaderText = "Supply";
-            this.supplyDataGridViewTextBoxColumn.Name = "supplyDataGridViewTextBoxColumn";
-            // 
-            // fixCostsDataGridViewTextBoxColumn
-            // 
-            this.fixCostsDataGridViewTextBoxColumn.DataPropertyName = "FixCosts";
-            this.fixCostsDataGridViewTextBoxColumn.HeaderText = "FixCosts";
-            this.fixCostsDataGridViewTextBoxColumn.Name = "fixCostsDataGridViewTextBoxColumn";
-            // 
             // IsOpen
             // 
             this.IsOpen.DataPropertyName = "IsOpen";
@@ -446,11 +424,6 @@
             this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsDummy";
             this.dataGridViewCheckBoxColumn1.HeaderText = "IsDummy";
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            // 
-            // warehouseBindingSource
-            // 
-            this.warehouseBindingSource.DataSource = typeof(clHNUORExcel.BaseClasses.Warehouse);
-            this.warehouseBindingSource.CurrentChanged += new System.EventHandler(this.warehouseBindingSource_CurrentChanged);
             // 
             // dataGridView2
             // 
@@ -485,18 +458,6 @@
             this.Label.HeaderText = "Label";
             this.Label.Name = "Label";
             // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "X";
-            this.dataGridViewTextBoxColumn2.HeaderText = "X";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Y";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Y";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
             // Demand
             // 
             this.Demand.DataPropertyName = "Demand";
@@ -508,11 +469,6 @@
             this.IsDummy.DataPropertyName = "IsDummy";
             this.IsDummy.HeaderText = "IsDummy";
             this.IsDummy.Name = "IsDummy";
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(clHNUORExcel.BaseClasses.Customer);
-            this.customerBindingSource.CurrentChanged += new System.EventHandler(this.customerBindingSource_CurrentChanged);
             // 
             // label5
             // 
@@ -998,27 +954,6 @@
             this.Algorithm.Name = "Algorithm";
             this.Algorithm.ReadOnly = true;
             // 
-            // iterationDataGridViewTextBoxColumn
-            // 
-            this.iterationDataGridViewTextBoxColumn.DataPropertyName = "Iteration";
-            this.iterationDataGridViewTextBoxColumn.HeaderText = "Iteration";
-            this.iterationDataGridViewTextBoxColumn.Name = "iterationDataGridViewTextBoxColumn";
-            this.iterationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fDataGridViewTextBoxColumn
-            // 
-            this.fDataGridViewTextBoxColumn.DataPropertyName = "F";
-            this.fDataGridViewTextBoxColumn.HeaderText = "F";
-            this.fDataGridViewTextBoxColumn.Name = "fDataGridViewTextBoxColumn";
-            this.fDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bindingSourceTransportplan
-            // 
-            this.bindingSourceTransportplan.DataSource = typeof(clHNUORExcel.BaseClasses.Transportplan);
-            this.bindingSourceTransportplan.DataSourceChanged += new System.EventHandler(this.bindingSourceTransportplan_DataSourceChanged);
-            this.bindingSourceTransportplan.CurrentChanged += new System.EventHandler(this.bindingSourceTransportplan_CurrentChanged);
-            this.bindingSourceTransportplan.PositionChanged += new System.EventHandler(this.bindingSourceTransportplan_PositionChanged);
-            // 
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1143,13 +1078,18 @@
             // 
             this.radioButtonTPPNW.AutoSize = true;
             this.radioButtonTPPNW.Checked = true;
+            this.helpProvider1.SetHelpKeyword(this.radioButtonTPPNW, "NordWestEckenRegel");
+            this.helpProvider1.SetHelpNavigator(this.radioButtonTPPNW, System.Windows.Forms.HelpNavigator.TableOfContents);
+            this.helpProvider1.SetHelpString(this.radioButtonTPPNW, "NordWestEckenRegel auswählen");
             this.radioButtonTPPNW.Location = new System.Drawing.Point(3, 3);
             this.radioButtonTPPNW.Name = "radioButtonTPPNW";
+            this.helpProvider1.SetShowHelp(this.radioButtonTPPNW, true);
             this.radioButtonTPPNW.Size = new System.Drawing.Size(107, 17);
             this.radioButtonTPPNW.TabIndex = 0;
             this.radioButtonTPPNW.TabStop = true;
             this.radioButtonTPPNW.Text = "Nort-West-Corner";
             this.radioButtonTPPNW.UseVisualStyleBackColor = true;
+            this.radioButtonTPPNW.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonTPPNW_MouseClick);
             // 
             // radioButtonTPPCM1
             // 
@@ -1190,6 +1130,7 @@
             this.radioButtonTPPVA.TabIndex = 0;
             this.radioButtonTPPVA.Text = "Vogel-Approximation";
             this.radioButtonTPPVA.UseVisualStyleBackColor = true;
+            this.radioButtonTPPVA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonTPPVA_MouseClick);
             // 
             // groupBox2
             // 
@@ -1259,17 +1200,102 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\felixlindemann\\AppData\\Roaming\\Local Libraries\\Lokale Dokumente\\HNU - OR" +
+    "-Tools 4 Excel.chm";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "X";
+            this.dataGridViewTextBoxColumn2.HeaderText = "X";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Y";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Y";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataSource = typeof(clHNUORExcel.BaseClasses.Customer);
+            this.customerBindingSource.CurrentChanged += new System.EventHandler(this.customerBindingSource_CurrentChanged);
+            // 
+            // xDataGridViewTextBoxColumn
+            // 
+            this.xDataGridViewTextBoxColumn.DataPropertyName = "X";
+            this.xDataGridViewTextBoxColumn.HeaderText = "X";
+            this.xDataGridViewTextBoxColumn.Name = "xDataGridViewTextBoxColumn";
+            // 
+            // yDataGridViewTextBoxColumn
+            // 
+            this.yDataGridViewTextBoxColumn.DataPropertyName = "Y";
+            this.yDataGridViewTextBoxColumn.HeaderText = "Y";
+            this.yDataGridViewTextBoxColumn.Name = "yDataGridViewTextBoxColumn";
+            // 
+            // supplyDataGridViewTextBoxColumn
+            // 
+            this.supplyDataGridViewTextBoxColumn.DataPropertyName = "Supply";
+            this.supplyDataGridViewTextBoxColumn.HeaderText = "Supply";
+            this.supplyDataGridViewTextBoxColumn.Name = "supplyDataGridViewTextBoxColumn";
+            // 
+            // fixCostsDataGridViewTextBoxColumn
+            // 
+            this.fixCostsDataGridViewTextBoxColumn.DataPropertyName = "FixCosts";
+            this.fixCostsDataGridViewTextBoxColumn.HeaderText = "FixCosts";
+            this.fixCostsDataGridViewTextBoxColumn.Name = "fixCostsDataGridViewTextBoxColumn";
+            // 
+            // warehouseBindingSource
+            // 
+            this.warehouseBindingSource.DataSource = typeof(clHNUORExcel.BaseClasses.Warehouse);
+            this.warehouseBindingSource.CurrentChanged += new System.EventHandler(this.warehouseBindingSource_CurrentChanged);
+            // 
+            // iterationDataGridViewTextBoxColumn
+            // 
+            this.iterationDataGridViewTextBoxColumn.DataPropertyName = "Iteration";
+            this.iterationDataGridViewTextBoxColumn.HeaderText = "Iteration";
+            this.iterationDataGridViewTextBoxColumn.Name = "iterationDataGridViewTextBoxColumn";
+            this.iterationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fDataGridViewTextBoxColumn
+            // 
+            this.fDataGridViewTextBoxColumn.DataPropertyName = "F";
+            this.fDataGridViewTextBoxColumn.HeaderText = "F";
+            this.fDataGridViewTextBoxColumn.Name = "fDataGridViewTextBoxColumn";
+            this.fDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bindingSourceTransportplan
+            // 
+            this.bindingSourceTransportplan.DataSource = typeof(clHNUORExcel.BaseClasses.Transportplan);
+            this.bindingSourceTransportplan.DataSourceChanged += new System.EventHandler(this.bindingSourceTransportplan_DataSourceChanged);
+            this.bindingSourceTransportplan.CurrentChanged += new System.EventHandler(this.bindingSourceTransportplan_CurrentChanged);
+            this.bindingSourceTransportplan.PositionChanged += new System.EventHandler(this.bindingSourceTransportplan_PositionChanged);
+            // 
+            // checkBoxOutputFormated
+            // 
+            this.checkBoxOutputFormated.AutoSize = true;
+            this.checkBoxOutputFormated.Location = new System.Drawing.Point(651, 394);
+            this.checkBoxOutputFormated.Name = "checkBoxOutputFormated";
+            this.checkBoxOutputFormated.Size = new System.Drawing.Size(182, 17);
+            this.checkBoxOutputFormated.TabIndex = 14;
+            this.checkBoxOutputFormated.Text = "Provide beautiful formated output";
+            this.checkBoxOutputFormated.UseVisualStyleBackColor = true;
+            // 
             // FormSetupRandomTPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 421);
+            this.Controls.Add(this.checkBoxOutputFormated);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonCreate);
+            this.HelpButton = true;
             this.Name = "FormSetupRandomTPP";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Create Random TPP / WLP";
             this.Load += new System.EventHandler(this.FormSetupRandomTPP_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSupply)).EndInit();
@@ -1279,9 +1305,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinDemand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeigth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -1306,7 +1330,6 @@
             this.tabPage4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTransportplan)).EndInit();
             this.panelWLP.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -1319,7 +1342,11 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTransportplan)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1419,5 +1446,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsDummy;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.CheckBox checkBoxOutputFormated;
     }
 }

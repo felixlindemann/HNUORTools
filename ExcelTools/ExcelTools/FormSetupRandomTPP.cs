@@ -13,7 +13,7 @@ namespace ExcelTools
 {
     public partial class FormSetupRandomTPP : Form
     {
-        public Ribbon1 Parent { get; set; }
+        public Ribbon1 ParentRibbon { get; set; }
         public GeoSituation geo { get; set; }
 
 
@@ -59,11 +59,11 @@ namespace ExcelTools
 
         private void drawProblem(int position = -1)
         {
-            
+
 
             if (geo != null)
             {
-                pictureBox1.Image = geo.drawImage(1,position);
+                pictureBox1.Image = geo.drawImage(1, position);
             }
 
         }
@@ -164,7 +164,7 @@ namespace ExcelTools
             {
                 geo.Warehouses.Add(new Warehouse()
                 {
-                    Id = i + 1,
+                    Id = "" + (i + 1),
                     X = r.NextDouble() * (size[0] - 10) + 5,
                     Y = r.NextDouble() * (size[1] - 10) + 5,
                     Supply = supply[0] + r.NextDouble() * (supply[1] - supply[0]),
@@ -177,7 +177,7 @@ namespace ExcelTools
             {
                 geo.Customers.Add(new Customer()
                 {
-                    Id = j + 1,
+                    Id = (j + 1).ToString(),
                     X = r.NextDouble() * (size[0] - 10) + 5,
                     Y = r.NextDouble() * (size[1] - 10) + 5,
                     Demand = demand[0] + r.NextDouble() * (demand[1] - demand[0]),
@@ -231,10 +231,10 @@ namespace ExcelTools
 
         }
 
-        private void generateCostMatrix( )
+        private void generateCostMatrix()
         {
-            geo.generateTPPWLPCostMatrix(checkBoxIntegerValues.Checked,(double) numericUpDownCostFactor.Value );
-             
+            geo.generateTPPWLPCostMatrix(checkBoxIntegerValues.Checked, (double)numericUpDownCostFactor.Value);
+
         }
 
         #region Callers
@@ -337,30 +337,20 @@ namespace ExcelTools
                     if (radioButtonTPPMODI.Checked) om = Transportplan.OptimizingMethod.MODIMethod;
                     if (radioButtonTPPSTEPSTONE.Checked) om = Transportplan.OptimizingMethod.SteppingStoneMethod;
 
-                    geo.Transportplans.Clear(); 
+                    geo.Transportplans.Clear();
                     int maxIteration = geo.Warehouses.Count + geo.Customers.Count - 1;
                     Transportplan ti = new Transportplan(geo);
                     ti.IntegersOnly = checkBoxIntegerValues.Checked;
                     ti.CostFactor = (double)numericUpDownCostFactor.Value;
-                    Transportplan to = ti.Solve(im );
-                      
-                    int iteration = 0;
+                    Transportplan to = ti.Solve(im);
+
 
                     if (om != Transportplan.OptimizingMethod.NoOptimizing)
                     {
-
-                        while (iteration < 50)
-                        {
-
-                            to = new Transportplan(to);
-                            to = to.Optimize(om);
-                            this.bindingSourceTransportplan.DataSource = geo.Transportplans;
-                            if (to.IsOptimized) break;
-                            iteration++;
-                        }
-
+                        to.Optimize(om);
+                        this.bindingSourceTransportplan.DataSource = geo.Transportplans;
                     }
-                } 
+                }
                 this.bindingSourceTransportplan.DataSource = null;
                 this.bindingSourceTransportplan.DataSource = geo.Transportplans;
             }
@@ -426,6 +416,25 @@ namespace ExcelTools
         {
             generateCostMatrix();
         }
+        private void callHelp(String id)
+        {
+            if ((ModifierKeys & Keys.Control) == Keys.Control)
+            {
+
+                HelpNavigator navigator = HelpNavigator.TopicId;
+                Help.ShowHelp(this, this.helpProvider1.HelpNamespace, navigator, id);
+            }
+        }
+        private void radioButtonTPPNW_MouseClick(object sender, MouseEventArgs e)
+        {
+            callHelp("9");
+        }
+
+        private void radioButtonTPPVA_MouseClick(object sender, MouseEventArgs e)
+        {
+            callHelp("10");
+        }
+
 
     }
 }

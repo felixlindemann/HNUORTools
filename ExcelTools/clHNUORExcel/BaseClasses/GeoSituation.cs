@@ -146,7 +146,7 @@ namespace clHNUORExcel.BaseClasses
                         }
                         else
                         {
-                            Debug.Print("Nothing transported from i:" + i + " to j:" + j);
+                          //   Debug.Print("Nothing transported from i:" + i + " to j:" + j);
                         }
                     }
                 } 

@@ -20,11 +20,11 @@ namespace UnitTestProject
 
             for (int i = 0; i < I; i++)
             {
-                geo.Warehouses.Add(new Warehouse() { Id = i + 1, Supply = supply[i] });
+                geo.Warehouses.Add(new Warehouse() { Id = (i + 1).ToString(), Supply = supply[i] });
             }
             for (int j = 0; j < J; j++)
             {
-                geo.Customers.Add(new Customer() { Id = j + 1, Demand = demand[j] });
+                geo.Customers.Add(new Customer() { Id = (j + 1).ToString(), Demand = demand[j] });
             }
             geo.TPP_C = costs;
 
@@ -46,11 +46,11 @@ namespace UnitTestProject
 
             for (int i = 0; i < I; i++)
             {
-                geo.Warehouses.Add(new Warehouse() { Id = i + 1, Supply = supply[i] });
+                geo.Warehouses.Add(new Warehouse() { Id = (i + 1).ToString(), Supply = supply[i] });
             }
             for (int j = 0; j < J; j++)
             {
-                geo.Customers.Add(new Customer() { Id = j + 1, Demand = demand[j] });
+                geo.Customers.Add(new Customer() { Id = (j + 1).ToString(), Demand = demand[j] });
             }
             geo.TPP_C = costs;
             return geo;
@@ -102,7 +102,7 @@ namespace UnitTestProject
 
             Assert.AreEqual(126d, tpp_nw.F);
         }
-         
+
         [TestMethod]
         public void TestVogelApproximation()
         {
@@ -260,7 +260,7 @@ namespace UnitTestProject
 
             Assert.AreEqual(112d, tpp_cmm2.F);
         }
-         
+
         /// <summary>
         /// TODO: FIXME
         /// Matrix Minimum-Methode wurde aus dem Gedächtnis implementiert. 
@@ -274,7 +274,7 @@ namespace UnitTestProject
 
             Transportplan tpp = new Transportplan(geo);
             Transportplan tpp_mmm = tpp.Solve(Transportplan.InitialMethod.MatrixMinimumMethod);
-            geo.Transportplans.Add(tpp_mmm); 
+            geo.Transportplans.Add(tpp_mmm);
 
             Assert.AreEqual(6d, tpp_mmm.X[0, 0]);
             Assert.AreEqual(0d, tpp_mmm.X[0, 2]);
@@ -282,10 +282,10 @@ namespace UnitTestProject
             Assert.AreEqual(8d, tpp_mmm.X[1, 2]);
             Assert.AreEqual(5d, tpp_mmm.X[2, 1]);
             Assert.AreEqual(2d, tpp_mmm.X[2, 3]);
-             
+
             Assert.AreEqual(112d, tpp_mmm.F);
         }
-         
+
         /// <summary>
         /// vgl. Beispiel S. 89
         /// in Einführung in Operations Research.
@@ -295,7 +295,7 @@ namespace UnitTestProject
         {
             GeoSituation geo = SetupGeoSituation2();
             Transportplan tpp = new Transportplan(geo);
-            tpp = tpp.Solve(Transportplan.InitialMethod.ColumnMinimumMethod2); 
+            tpp = tpp.Solve(Transportplan.InitialMethod.ColumnMinimumMethod2);
             Assert.AreEqual(6d, tpp.X[0, 0]);
             Assert.AreEqual(0d, tpp.X[0, 2]);
             Assert.AreEqual(4d, tpp.X[0, 3]);
@@ -318,7 +318,7 @@ namespace UnitTestProject
             Assert.AreEqual(2d, tpp.Opp[0, 1]);
             Assert.AreEqual(3d, tpp.Opp[2, 0]);
             Assert.AreEqual(5d, tpp.Opp[2, 2]);
-              
+
             Assert.AreEqual(6d, tpp2.X[0, 0]);
             Assert.AreEqual(4d, tpp2.X[0, 2]);
             Assert.AreEqual(4d, tpp2.X[1, 2]);

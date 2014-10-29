@@ -76,8 +76,8 @@ namespace clHNUORExcel.BaseClasses
         private double[,] x;
         private double[,] opp;
         private List<ElementryCircle> elementryCircles = new List<ElementryCircle>();
-        private double[] u;
-        private double[] v;
+        private double[] u = null;
+        private double[] v = null;
         #endregion
 
         public GeoSituation Parent
@@ -232,14 +232,14 @@ namespace clHNUORExcel.BaseClasses
             if (d > s)
             {
                 // missing warehouse
-                Warehouse w = new Warehouse() { X = 0, Y = 0, IsDummy = true, Supply = d - s, FixCosts = 0, Id = 0, IsOpen = true };
+                Warehouse w = new Warehouse() { X = 0, Y = 0, IsDummy = true, Supply = d - s, FixCosts = 0, Id = "" + 0, IsOpen = true };
                 parent.Warehouses.Add(w);
                 x = new double[I + 1, J];
             }
             else if (d < s)
             {
                 // Missing Customer
-                Customer o = new Customer() { X = 0, Y = 0, IsDummy = true, Demand = s - d, Id = 0 };
+                Customer o = new Customer() { X = 0, Y = 0, IsDummy = true, Demand = s - d, Id = "" + 0 };
                 parent.Customers.Add(o);
                 x = new double[I, J + 1];
             }
@@ -598,7 +598,7 @@ namespace clHNUORExcel.BaseClasses
             int J = demand.Count();
             Boolean[] MarkedI = new Boolean[I];
             Boolean[] MarkedJ = new Boolean[J];
-
+            this.algorithm = InitialMethod.VogelApproximation.ToString();
             while (true) // Iteration
             {
                 // Berechne für jede unmarkierte Zeile i die Differenz dzi := cih – cik zwischen dem zweitkleinsten
@@ -776,23 +776,21 @@ namespace clHNUORExcel.BaseClasses
 
         #region Optimize
 
-        public Transportplan Optimize(OptimizingMethod om)
+        public Transportplan Optimize(OptimizingMethod om, Boolean Stepwise = true)
         {
             if (om == OptimizingMethod.NotDefined) throw new ArgumentException("The Initial Method for calculation a solution has not been set.");
             if (om == OptimizingMethod.MODIMethod)
             {
                 //  throw new NotImplementedException("The Method 'Modi-Method' for Optimizing a solution has not been implemented yet.");
-                Transportplan tpp = this.ApplyModiMethodIteration();
-                this.parent.Transportplans.Add(tpp);
-                /*
+                Transportplan tpp = this;
+
                 Boolean doit = tpp.IsOptimized;
                 while (doit != true)
                 {
-                    tpp = this.ApplyModiMethodIteration();
-                    tpp.parent.Transportplans.Add(tpp);
-                    doit = tpp.IsOptimized;
+                    tpp = tpp.ApplyModiMethodIteration();
+                    doit = tpp.IsOptimized || Stepwise;
+                   
                 }
-                 */
                 return tpp;
             }
             if (om == OptimizingMethod.SteppingStoneMethod)
@@ -804,8 +802,7 @@ namespace clHNUORExcel.BaseClasses
                 while (doit != true)
                 {
                     tpp = this.ApplySteppingStoneIteration();
-                    tpp.parent.Transportplans.Add(tpp);
-                    doit = tpp.IsOptimized;
+                    doit = tpp.IsOptimized || Stepwise;
                 }
                 return tpp;
             }
@@ -1006,7 +1003,7 @@ namespace clHNUORExcel.BaseClasses
             ///candidates.RemoveAll(x => !x.Closed);
             // choose Element with minimum-Opp-Costs from closed circles
             result = candidates.First(x => x.Closed);
-           // Debug.Print("returning result " + result.ToString());
+            // Debug.Print("returning result " + result.ToString());
             return result;
 
         }
@@ -1051,6 +1048,7 @@ namespace clHNUORExcel.BaseClasses
         private Transportplan ApplyModiMethodIteration()
         {
             Transportplan tpp = new Transportplan(this);
+            tpp.algorithm = OptimizingMethod.MODIMethod.ToString();
             int I = this.parent.Warehouses.Count();
             int J = this.parent.Customers.Count();
             u = new Double[I];
@@ -1166,7 +1164,6 @@ namespace clHNUORExcel.BaseClasses
                     }
                     else
                     {
-
                         //    Setze x_{st}: = \Delta. und subtrahiere bzw. addiere von bzw. zu den Werten der Basisvariablen im
                         //    Kreis abwechselnd den Wert \Delta.
                         nx[pp.X, pp.Y] = this.x[pp.X, pp.Y] + m * elem.MaxExchangeAmount;
@@ -1179,10 +1176,14 @@ namespace clHNUORExcel.BaseClasses
                             baseChanged = true;
                         }
                     }
-                     
+
                     m = m * (-1);
                 }
                 tpp.X = nx;
+            }
+            else
+            {
+                tpp.isOptimized = true;
             }
             SetPropertyField("U", ref this.u, this.u);
             SetPropertyField("V", ref this.v, this.v);

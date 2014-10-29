@@ -13,10 +13,10 @@ namespace clHNUORExcel.BaseClasses
         {
             this.OriginNode = o;
             this.DestinationNode = d;
-            this.Id = (o.Id + d.Id) * o.Id * d.Id;
+            this.Id = ("o:" + o.Id + "_" + "d:" + d.Id) ;
             this.Label = "l_" + o.Id + "_" + d.Id;
         }
-        public Link(Node o, Node d, int id)
+        public Link(Node o, Node d, string id)
         {
             this.OriginNode = o;
             this.DestinationNode = d;
@@ -24,15 +24,15 @@ namespace clHNUORExcel.BaseClasses
             this.Label = "l_" + o.Id + "_" + d.Id;
         }
 
-        public Link(Node o, Node d, int id, string label)
+        public Link(Node o, Node d, string id, string label)
         {
             this.OriginNode = o;
             this.DestinationNode = d;
-            this.Id = id;
+            this.Id =  id;
             this.Label = label;
         }
 
-        private int id = 1;
+        private string id = "" + 1;
         private string label = "";
         private double distance = 0;
         private double costs = 0;
@@ -41,7 +41,7 @@ namespace clHNUORExcel.BaseClasses
         private Node originNode = null;
         private Node destinationNode = null;
 
-        public int Id
+        public string Id
         {
             get { return id; }
             set { SetPropertyField("Id", ref id, value); }

@@ -3,181 +3,118 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Office.Tools.Ribbon;
-using Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 using clHNUORExcel.BaseClasses;
 using System.Reflection;
+using System.Diagnostics;
+using ExcelTools.UDF;
 
 namespace ExcelTools
 {
     public partial class Ribbon1
     {
 
-        private List<string> names = (new string[] { "Nodes", "Customers", "Warehouses", "Links", "TPP.Transportplan" }).ToList();
-        public GeoSituation geo { get; set; }
+        #region Properties
+
+        public ExcelTools.ThisAddIn addin { get; set; }
+        public Excel.Application excelApp { get; set; }
+
+
+        #endregion
+
+        #region Init
 
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
-            geo = new GeoSituation();
+            addin = Globals.ThisAddIn;
+            addin.rib = this;
+            excelApp = addin.Application;
         }
+        #endregion
+
+        #region ButtonEreignisse
 
         private void buttonRandomTPP_Click(object sender, RibbonControlEventArgs e)
         {
             try
             {
-                createRandomWLPTPP();
+                createRandomTPP();
             }
             catch (Exception ex)
             {
+                Debug.Print(ex.StackTrace);
                 MessageBox.Show(ex.Message);
             }
-        }
-        private void createRandomWLPTPP()
-        {
-            FormSetupRandomTPP frm = new FormSetupRandomTPP();
-            frm.Parent = this;
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                this.geo = frm.geo;
-                PrepareWorkbook();
-                Workbook wb = Globals.ThisAddIn.Application.ActiveWorkbook;
-                Worksheet ws;
-
-                // setup Customers
-                ws = wb.Worksheets[2];
-
-                string[] Colnames ;
-                    Colnames = new string[]  { "id", "label", "x", "y", "demand" };
-
-                for (int i = 0; i <= geo.Customers.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        for (int j = 0; j < Colnames.Length; j++)
-                        {
-                            ((Range)ws.Rows[i + 1, j + 1]).Value = Colnames[j];
-                        }
-                    }
-                    else
-                    {
-                        Customer o = geo.Customers[i];
-                        ((Range)ws.Rows[i + 1, 1]).Value = o.Id;
-                        ((Range)ws.Rows[i + 1, 2]).Value = o.Label;
-                        ((Range)ws.Rows[i + 1, 3]).Value = o.X;
-                        ((Range)ws.Rows[i + 1, 4]).Value = o.Y;
-                        ((Range)ws.Rows[i + 1, 5]).Value = o.Demand;
-                    }
-                }
-
-                // setup Warehouses
-                ws = wb.Worksheets[3];
-
-                Colnames = new string[] { "id", "label", "x", "y", "supply", "FixCosts" };
-                for (int i = 0; i <= geo.Warehouses.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        for (int j = 0; j < Colnames.Length; j++)
-                        {
-                            ((Range)ws.Rows[i + 1, j]).Value = Colnames[j];
-                        }
-                    }
-                    else
-                    {
-                        Warehouse o = geo.Warehouses[i];
-                        ((Range)ws.Rows[i + 1, 1]).Value = o.Id;
-                        ((Range)ws.Rows[i + 1, 2]).Value = o.Label;
-                        ((Range)ws.Rows[i + 1, 3]).Value = o.X;
-                        ((Range)ws.Rows[i + 1, 4]).Value = o.Y;
-                        ((Range)ws.Rows[i + 1, 5]).Value = o.Supply;
-                        ((Range)ws.Rows[i + 1, 6]).Value = o.FixCosts;
-                    }
-                }
-
-                // setup Links
-                ws = wb.Worksheets[4];
-
-                Colnames = new string[] { "id", "label", "From", "To", "distance", "costs", "IsOneWay", "IsUsed" };
-                for (int i = 0; i <= geo.Links.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        for (int j = 0; j < Colnames.Length; j++)
-                        {
-                            ((Range)ws.Rows[i + 1, j]).Value = Colnames[j];
-                        }
-                    }
-                    else
-                    {
-                        Link o = geo.Links[i];
-                        ((Range)ws.Rows[i + 1, 1]).Value = o.Id;
-                        ((Range)ws.Rows[i + 1, 2]).Value = o.Label;
-                        ((Range)ws.Rows[i + 1, 3]).Value = o.OriginNode.Id;
-                        ((Range)ws.Rows[i + 1, 4]).Value = o.DestinationNode.Id;
-                        ((Range)ws.Rows[i + 1, 5]).Value = o.Distance;
-                        ((Range)ws.Rows[i + 1, 6]).Value = o.Costs;
-                        ((Range)ws.Rows[i + 1, 7]).Value = o.IsOneWay;
-                        ((Range)ws.Rows[i + 1, 8]).Value = o.IsUsed;
-                    }
-                }
-                // setup Links
-                ws = wb.Worksheets[5];
-                ((Range)ws.Rows[1, 1]).Value = "";
-            }
-
-
         }
 
         private void buttonPrepareEmptyWorksheet_Click(object sender, RibbonControlEventArgs e)
         {
-            PrepareWorkbook();
-
+            addin.PrepareWorkbook();
         }
-
-
 
         private void buttonDrawGeoSituation_Click(object sender, RibbonControlEventArgs e)
         {
 
         }
 
-        public void PrepareWorkbook()
+        #endregion
+
+        #region implemented Methods
+
+        #region TPP
+
+        private void createRandomTPP()
         {
-            try
+            FormSetupRandomTPP frm = new FormSetupRandomTPP();
+            frm.ParentRibbon = this;
+            if (frm.ShowDialog() == DialogResult.OK)
             {
-                Microsoft.Office.Interop.Excel.Application excelApp = Globals.ThisAddIn.Application;
-
-
-                Workbook wb;
-                if (excelApp.Workbooks.Count == 0)
-                {
-                    wb = excelApp.Workbooks.Add();
+                this.addin.geo = frm.geo;
+                this.addin.PrepareWorkbook();
+                this.addin.OutPutCustomers();
+                this.addin.OutPutWarehouses();
+                try
+                { 
+                    this.addin.OutPutTransportplan(); 
                 }
-                wb = excelApp.ActiveWorkbook;
-                Worksheet ws = null;
-
-
-                for (int i = 0; i < names.Count; i++)
+                catch (Exception ex)
                 {
-                    if (wb.Worksheets.Count < i + 1)
-                    {
-                        ws = (Worksheet)excelApp.Worksheets.Add(Missing.Value, Missing.Value, Missing.Value, Missing.Value);
-                    }
-                    else
-                    {
-                        ws = excelApp.Worksheets[i + 1];
-                    }
-                    ws.Name = names[i];
+                    Debug.Print(ex.StackTrace);
+                    throw;
                 }
+            }
+        }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error during preparing Worksheet");
-            }
+
+
+        #endregion
+
+
+        #endregion
+
+
+
+        public GeoSituation fromCurrentWorkbook()
+        {
+
+            Excel.Workbook wb = excelApp.ActiveWorkbook;
+            GeoSituation geo = WorksheetHelper.getFromWorkBook(wb);
+
+
+            return geo;
+        }
+
+
+
+
+        private void button1_Click(object sender, RibbonControlEventArgs e)
+        {
+            //    @"./Resources/HNU - OR-Tools 4 Excel.chm", HelpNavigator.TopicId, 6);
+
 
         }
-         
+
 
     }
 }

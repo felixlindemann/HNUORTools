@@ -8,12 +8,12 @@ namespace clHNUORExcel.BaseClasses
 {
     public class Node : implNotifyPropertyChanged
     {
-        private int id = 1;
+        private string id = "" + 1;
         private string label = "";
         private double x = 0;
         private double y = 0;
 
-        public int Id
+        public String Id
         {
             get { return id; }
             set { SetPropertyField("Id", ref id, value); }

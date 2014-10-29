@@ -51,10 +51,13 @@
             this.buttonSteppingStone = this.Factory.CreateRibbonButton();
             this.buttonSolveModi = this.Factory.CreateRibbonButton();
             this.buttonDrawTPP = this.Factory.CreateRibbonButton();
+            this.group4 = this.Factory.CreateRibbonGroup();
+            this.buttonHelp = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.tab2.SuspendLayout();
             this.group3.SuspendLayout();
             this.group2.SuspendLayout();
+            this.group4.SuspendLayout();
             // 
             // tab1
             // 
@@ -72,6 +75,7 @@
             // 
             this.tab2.Groups.Add(this.group3);
             this.tab2.Groups.Add(this.group2);
+            this.tab2.Groups.Add(this.group4);
             this.tab2.Label = "HNU-OR-Tools";
             this.tab2.Name = "tab2";
             // 
@@ -169,6 +173,18 @@
             this.buttonDrawTPP.Name = "buttonDrawTPP";
             this.buttonDrawTPP.ShowImage = true;
             // 
+            // group4
+            // 
+            this.group4.Items.Add(this.buttonHelp);
+            this.group4.Label = "Allgemeines";
+            this.group4.Name = "group4";
+            // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Label = "Hilfe öffnen";
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button1_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -184,6 +200,8 @@
             this.group3.PerformLayout();
             this.group2.ResumeLayout(false);
             this.group2.PerformLayout();
+            this.group4.ResumeLayout(false);
+            this.group4.PerformLayout();
 
         }
 
@@ -206,6 +224,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group3;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonDrawGeoSituation;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonPrepareEmptyWorksheet;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group4;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonHelp;
     }
 
     partial class ThisRibbonCollection
